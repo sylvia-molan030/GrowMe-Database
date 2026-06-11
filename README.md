@@ -19,7 +19,10 @@ git commit -m "更新 GrowMe 数据"
 git push
 ```
 
-3. GitHub Actions 自动构建并部署到 Pages（约 1–2 分钟）
+3. 在仓库 **Settings → Pages** 中设置：
+   - Source：**Deploy from a branch**
+   - Branch：**main** · 文件夹：**/web**
+   - 保存后约 1–2 分钟可访问
 
 ## 本地开发
 

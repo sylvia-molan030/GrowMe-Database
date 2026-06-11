@@ -129,6 +129,7 @@ export function renderFilters(container, state, onChange) {
 }
 
 export function queryFilters(filters) {
-  const { preset, mode, ...rest } = filters;
+  const { preset, mode, channel, ...rest } = filters;
+  // 数据已限定 WW，静态快照素材行未必带 channel，传 WW 会把线上数据全滤掉
   return rest;
 }

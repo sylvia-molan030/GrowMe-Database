@@ -62,12 +62,13 @@ function setView(view) {
 function renderMeta(meta, scannedAt) {
   const catalog = meta.catalog || {};
   const modeLabel = IS_STATIC ? 'GitHub 静态站' : '本地服务';
+  const buildAt = meta.generated_at || meta.scanned_at || scannedAt || '-';
   metaEl.innerHTML = `
     ${modeLabel}<br/>
     已加载 ${meta.files_loaded.length} 个文件<br/>
     共 ${meta.records} 条原始记录<br/>
     账户素材 ${catalog.total_materials || '-'} 条 · 上新月度 ${catalog.weekly_materials || '-'} 条<br/>
-    最近更新：${scannedAt || meta.scanned_at || '-'}${meta.static ? '<br/><span style="color:#6b7280">线上为快照，更新需 push</span>' : ''}
+    数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">≠本地时请 push 后等 1 分钟</span>' : ''}
   `;
 }
 

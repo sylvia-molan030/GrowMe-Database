@@ -162,7 +162,11 @@ export function createStaticApi() {
   return {
     meta: async () => {
       await loadSnapshot();
-      return { ...snapshot.meta, catalog: snapshot.meta.catalog };
+      return {
+        ...snapshot.meta,
+        generated_at: snapshot.generated_at,
+        catalog: snapshot.meta.catalog,
+      };
     },
     rescan: async () => {
       throw new Error('GitHub Pages 静态站点请推送 data_inputs 到 GitHub 触发自动部署');

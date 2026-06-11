@@ -18,9 +18,9 @@ if ! git rev-parse --git-dir >/dev/null 2>&1; then
   exit 1
 fi
 
-git add data_inputs/ web/data/snapshot.json web/ server/ scripts/ .github/
+git add data_inputs/ docs/data/snapshot.json docs/ server/ scripts/
 git status
 echo ""
 echo "确认后执行: git commit -m '更新 GrowMe 数据' && git push"
-echo "推送后请到 GitHub → Settings → Pages → main 分支 /web 文件夹"
+echo "推送后请到 GitHub → Settings → Pages → main 分支 /docs 文件夹"
 echo "部署地址: https://sylvia-molan030.github.io/GrowMe-Database/"

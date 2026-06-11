@@ -14,7 +14,7 @@ from data_loader import store
 from materials_catalog import build_catalog, export_catalog, get_catalog_summary
 
 APP_DIR = Path(__file__).resolve().parent
-WEB_DIR = APP_DIR.parent / "web"
+WEB_DIR = APP_DIR.parent / "docs"
 
 app = FastAPI(title="GrowMe BI", version="0.1.0")
 app.add_middleware(

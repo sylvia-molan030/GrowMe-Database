@@ -14,7 +14,7 @@ sys.path.insert(0, str(SERVER))
 import analytics  # noqa: E402
 from data_loader import get_weekly_labels, store  # noqa: E402
 
-OUTPUT_DIR = ROOT / "web" / "data"
+OUTPUT_DIR = ROOT / "docs" / "data"
 ALL_FILTERS = {
     "date_start": "2020-01-01",
     "date_end": "2030-12-31",

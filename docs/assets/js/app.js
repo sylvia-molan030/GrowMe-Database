@@ -67,7 +67,7 @@ function renderMeta(meta, scannedAt) {
     已加载 ${meta.files_loaded.length} 个文件<br/>
     共 ${meta.records} 条原始记录<br/>
     账户素材 ${catalog.total_materials || '-'} 条 · 上新月度 ${catalog.weekly_materials || '-'} 条<br/>
-    最近更新：${scannedAt || meta.scanned_at || '-'}
+    最近更新：${scannedAt || meta.scanned_at || '-'}${meta.static ? '<br/><span style="color:#6b7280">线上为快照，更新需 push</span>' : ''}
   `;
 }
 
@@ -93,7 +93,7 @@ document.querySelectorAll('.nav-item').forEach((btn) => {
 
 document.getElementById('btn-rescan').addEventListener('click', async () => {
   if (IS_STATIC) {
-    alert('静态站点：请将新数据放入 data_inputs/ 后 push 到 GitHub，Actions 会自动部署到\nhttps://sylvia-molan030.github.io/GrowMe-Database/');
+    alert('线上是静态快照，不会自动同步本地。\n\n更新步骤：\n1. 把新文件放入 data_inputs/\n2. 终端执行：python3 scripts/build_static.py\n3. git add docs/data/snapshot.json && git commit -m "更新数据" && git push\n\n约 1 分钟后刷新网站。');
     return;
   }
   try {

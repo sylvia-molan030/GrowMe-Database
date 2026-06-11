@@ -56,26 +56,37 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
         if mid not in grouped:
             grouped[mid] = {**r}
             grouped[mid]["purchases"] = 0.0
+            grouped[mid]["subscriptions"] = 0.0
             grouped[mid]["spend"] = 0.0
             grouped[mid]["impressions"] = 0.0
+            grouped[mid]["installs"] = 0.0
             grouped[mid]["ctr_values"] = []
             grouped[mid]["roas_values"] = []
+            grouped[mid]["roas_weights"] = []
         g = grouped[mid]
-        g["purchases"] += r["purchases"]
-        g["spend"] += r["spend"]
-        g["impressions"] += r["impressions"]
-        if r["ctr"]:
+        g["purchases"] += r.get("purchases", 0)
+        g["subscriptions"] += r.get("subscriptions", 0)
+        g["spend"] += r.get("spend", 0)
+        g["impressions"] += r.get("impressions", 0)
+        g["installs"] += r.get("installs", 0)
+        if r.get("ctr"):
             g["ctr_values"].append(r["ctr"])
-        if r["roas"]:
+        if r.get("roas"):
             g["roas_values"].append(r["roas"])
+            g["roas_weights"].append(r.get("spend", 0) or 1.0)
         g["has_order"] = g["purchases"] >= 1
 
     result = []
     for g in grouped.values():
         ctr_vals = g.pop("ctr_values", [])
         roas_vals = g.pop("roas_values", [])
+        roas_w = g.pop("roas_weights", [])
         g["ctr"] = sum(ctr_vals) / len(ctr_vals) if ctr_vals else 0
-        g["roas"] = sum(roas_vals) / len(roas_vals) if roas_vals else 0
+        if roas_vals and sum(roas_w) > 0:
+            g["roas"] = sum(r * w for r, w in zip(roas_vals, roas_w)) / sum(roas_w)
+        else:
+            g["roas"] = sum(roas_vals) / len(roas_vals) if roas_vals else 0
+        g["channel"] = "ALL"
         g["scaling_status"] = _scaling_status(g["spend"], g["purchases"])
         result.append(g)
     return result

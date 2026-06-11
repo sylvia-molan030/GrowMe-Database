@@ -4,12 +4,14 @@ import { renderGoldenCross } from './pages/golden-cross.js';
 import { renderLeaderboard } from './pages/leaderboard.js';
 import { renderDesigner } from './pages/designer.js';
 import { renderAssetLibrary } from './pages/asset-library.js';
+import { renderWeeklyUpdate } from './pages/weekly-update.js';
 
 const PAGE_TITLES = {
   'golden-cross': '素材黄金交叉复盘',
   leaderboard: '智能排行榜',
   designer: '设计师绩效看板',
   'asset-library': '核心资产晋级库',
+  'weekly-update': '周维度更新',
 };
 
 const state = {
@@ -23,6 +25,8 @@ const state = {
   assetTier: 0,
   assetPage: 1,
   assetKeyword: '',
+  assetScopeMode: 'weekly',
+  weeklyWeek: null,
 };
 
 const filtersEl = document.getElementById('filters');
@@ -37,6 +41,7 @@ async function refreshPage() {
     else if (state.view === 'leaderboard') await renderLeaderboard(contentEl, state);
     else if (state.view === 'designer') await renderDesigner(contentEl, state);
     else if (state.view === 'asset-library') await renderAssetLibrary(contentEl, state);
+    else if (state.view === 'weekly-update') await renderWeeklyUpdate(contentEl, state);
   } catch (err) {
     contentEl.innerHTML = `<div class="empty">加载失败：${err.message}</div>`;
   }
@@ -53,6 +58,7 @@ function setView(view) {
   state.tablePage = 1;
   state.assetPage = 1;
   titleEl.textContent = PAGE_TITLES[view] || 'GrowMe';
+  filtersEl.style.display = view === 'weekly-update' ? 'none' : '';
   document.querySelectorAll('.nav-item').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.page === view);
   });

@@ -13,6 +13,7 @@ sys.path.insert(0, str(SERVER))
 
 import analytics  # noqa: E402
 from data_loader import get_weekly_labels, store  # noqa: E402
+from weekly_report import build_all_reports  # noqa: E402
 
 OUTPUT_DIR = ROOT / "docs" / "data"
 ALL_FILTERS = {
@@ -24,7 +25,7 @@ ALL_FILTERS = {
     "stylization": "全部",
     "pain_point": "全部",
     "exercise_type": "全部",
-    "channel": "WW",
+    "channel": "全部",
 }
 
 
@@ -99,6 +100,7 @@ def build() -> dict:
         },
         "materials_account": account_materials,
         "materials_weekly": weekly_materials,
+        "weekly_reports": build_all_reports(),
     }
     return snapshot
 

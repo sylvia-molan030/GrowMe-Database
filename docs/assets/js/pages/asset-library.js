@@ -9,6 +9,11 @@ const TIERS = [
   { key: 10, label: '超级战神箱 (>= 10 单)' },
 ];
 
+const SCOPE_MODES = [
+  { key: 'account', label: '账户内成效', sub: '全部素材（全球+T1 已合并）' },
+  { key: 'weekly', label: '上新素材成效', sub: '近半月上新（0525week、0601周）' },
+];
+
 function statusTag(status) {
   const cls = status === '增长期' ? 'green' : 'gray';
   return `<span class="tag ${cls}">${status || '-'}</span>`;
@@ -29,17 +34,34 @@ function runSearch(state, container) {
   renderAssetLibrary(container, state);
 }
 
-export async function renderAssetLibrary(container, state) {
+function materialsQuery(state) {
   const q = queryFilters(state.filters);
+  const scopeMode = state.assetScopeMode || 'weekly';
+  if (scopeMode === 'account') {
+    return { q, extra: { mode: 'account', scope: 'account' } };
+  }
+  const weeklyLabels = (state.meta?.weekly_labels || []).join('、');
+  return {
+    q,
+    extra: {
+      mode: 'new',
+      scope: 'weekly',
+      weekly_only: true,
+    },
+    weeklyLabels,
+  };
+}
+
+export async function renderAssetLibrary(container, state) {
+  const scopeMode = state.assetScopeMode || 'weekly';
   const tier = state.assetTier ?? 0;
   const page = state.assetPage || 1;
   const keyword = state.assetKeyword || '';
   const minOrders = keyword ? 0 : tier;
 
-  const weeklyLabels = (state.meta?.weekly_labels || []).join('、');
+  const { q, extra, weeklyLabels } = materialsQuery(state);
   const data = await api.materials(q, {
-    scope: 'weekly',
-    weekly_only: true,
+    ...extra,
     min_orders: minOrders,
     keyword,
     sort_by: 'purchases',
@@ -48,11 +70,21 @@ export async function renderAssetLibrary(container, state) {
     page_size: 20,
   });
 
+  const scopeMeta = SCOPE_MODES.find((m) => m.key === scopeMode);
+  const subtitle = scopeMode === 'weekly'
+    ? `近半月上新：${weeklyLabels || '0525week、0601周'}（全球+T1 已合并）`
+    : scopeMeta.sub;
+
   container.innerHTML = `
     <div class="card">
       <div class="section-title">
-        <span>核心资产晋级库 <span style="font-size:12px;color:#6b7280;font-weight:400">（上新月度 WW：${weeklyLabels || '0525week、0601周'}）</span></span>
+        <span>核心资产晋级库 <span style="font-size:12px;color:#6b7280;font-weight:400">（${subtitle}）</span></span>
         <button class="btn" id="export-assets">导出 CSV</button>
+      </div>
+      <div class="tabs asset-scope-tabs">
+        ${SCOPE_MODES.map((m) => `
+          <button class="tab ${scopeMode === m.key ? 'active' : ''}" data-scope-mode="${m.key}">${m.label}</button>
+        `).join('')}
       </div>
       <div class="toolbar asset-search-bar">
         <input class="input search-input" id="asset-keyword-input"
@@ -99,6 +131,16 @@ export async function renderAssetLibrary(container, state) {
     </div>
   `;
 
+  container.querySelectorAll('[data-scope-mode]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      state.assetScopeMode = btn.dataset.scopeMode;
+      state.assetTier = 0;
+      state.assetKeyword = '';
+      state.assetPage = 1;
+      renderAssetLibrary(container, state);
+    });
+  });
+
   container.querySelector('#asset-search-btn').addEventListener('click', () => runSearch(state, container));
   container.querySelector('#asset-keyword-input').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') runSearch(state, container);
@@ -128,9 +170,9 @@ export async function renderAssetLibrary(container, state) {
   });
 
   container.querySelector('#export-assets').addEventListener('click', async () => {
+    const { q, extra } = materialsQuery(state);
     const all = await api.materials(q, {
-      scope: 'weekly',
-      weekly_only: true,
+      ...extra,
       min_orders: minOrders,
       keyword,
       sort_by: 'purchases',
@@ -145,7 +187,7 @@ export async function renderAssetLibrary(container, state) {
     const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `growme_assets${keyword ? '_search' : `_ge${tier}`}.csv`;
+    a.download = `growme_assets_${scopeMode}${keyword ? '_search' : `_ge${tier}`}.csv`;
     a.click();
   });
 }

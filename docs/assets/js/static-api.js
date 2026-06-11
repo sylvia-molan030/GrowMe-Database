@@ -190,5 +190,15 @@ export function createStaticApi() {
       const items = pickMaterials(mode).filter((m) => matchFilters(m, filters));
       return { rows: designerStats(items) };
     },
+    weeklyReport: async (week) => {
+      await loadSnapshot();
+      const reports = snapshot.weekly_reports || {};
+      const weeks = Object.keys(reports).sort((a, b) => {
+        const key = (s) => { const m = s.match(/(\d{4})/); return m ? parseInt(m[1], 10) : 0; };
+        return key(a) - key(b);
+      });
+      const target = week && reports[week] ? week : weeks[weeks.length - 1];
+      return { weeks, report: reports[target] || null };
+    },
   };
 }

@@ -1,19 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 
-function summaryBar(summary) {
-  return `
-    <div class="summary-bar">
-      <div class="summary-item"><div class="label">素材总数</div><div class="value">${summary.total_materials}</div></div>
-      <div class="summary-item"><div class="label">总出单量</div><div class="value red">${summary.total_orders}</div></div>
-      <div class="summary-item"><div class="label">出单素材数</div><div class="value green">${summary.ordered_materials}</div></div>
-      <div class="summary-item"><div class="label">平均 ROAS</div><div class="value">${summary.avg_roas}</div></div>
-      <div class="summary-item"><div class="label">平均 CTR</div><div class="value">${summary.avg_ctr}%</div></div>
-      <div class="summary-item"><div class="label">平均消耗</div><div class="value">$${summary.avg_spend}</div></div>
-    </div>
-  `;
-}
-
 function renderTable(rows, sortBy, sortDir) {
   const arrow = (col) => (sortBy === col ? (sortDir === 'desc' ? ' ↓' : ' ↑') : '');
   const body = rows.map((r) => `
@@ -66,15 +53,12 @@ export async function renderLeaderboard(container, state) {
   const sortDir = state.sortDir || 'desc';
   const page = state.tablePage || 1;
 
-  const [summary, data] = await Promise.all([
-    api.summary(q, state.filters.mode),
-    api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page, page_size: 20 }),
-  ]);
+  const data = await api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page, page_size: 20 });
 
   container.innerHTML = `
     <div class="card">
       <div class="section-title">
-        <span>模块 A · 爆款素材战神榜 <span style="font-size:12px;color:#6b7280;font-weight:400">（仅 WW 全球）</span></span>
+        <span>模块 A · 爆款素材战神榜</span>
         <button class="btn" id="export-csv">导出 CSV</button>
       </div>
       <div class="toolbar">
@@ -84,7 +68,6 @@ export async function renderLeaderboard(container, state) {
         <button class="btn btn-primary" id="search-btn">搜索</button>
         ${keyword ? '<button class="btn" id="clear-search">清除</button>' : ''}
       </div>
-      ${summaryBar(summary)}
       ${renderTable(data.rows, sortBy, sortDir)}
       <div class="pagination">
         共 ${data.total} 条${keyword ? `（关键词: ${keyword}）` : ''} · 第 ${page} 页

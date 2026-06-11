@@ -10,8 +10,8 @@ import pandas as pd
 from parser import parse_material
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data_inputs"
-# 全局仅统计 WW（全球）渠道，不加载 T1 文件
-WW_ONLY = True
+# 除周维度 KPI 外，全局按素材名合并 WW+T1；账户文件内 T1 行不再丢弃
+WW_ONLY = False
 
 # 中英文列名映射
 COLUMN_ALIASES: dict[str, list[str]] = {
@@ -23,10 +23,17 @@ COLUMN_ALIASES: dict[str, list[str]] = {
     "roas": ["广告花费回报 (ROAS) - 购物", "Purchase ROAS (return on ad spend)", "purchase roas"],
     "installs": ["应用安装量", "App installs", "app installs"],
     "subscriptions": ["订阅次数", "Subscriptions", "subscriptions"],
+    "cpm": ["CPM (cost per 1,000 impressions) (USD)", "cpm (cost per 1,000 impressions) (usd)"],
+    "hook_rate": ["单次展示的播放视频达 3 秒率"],
+    "video_completions": ["视频播放进度达 100% 的次数"],
     "report_start": ["报告开始日期", "Reporting starts"],
     "report_end": ["报告结束日期", "Reporting ends"],
     "account": ["广告组名称", "Ad set name", "Campaign name"],
 }
+
+# xlsx 导出中的自定义指标：钩子率 / 留存率（小数）
+CUSTOM_HOOK_COL = "custom_derived_metrics:334261784830934"
+CUSTOM_RETENTION_COL = "custom_derived_metrics:468178872764785"
 
 WEEK_FILE_RE = re.compile(r"周|week", re.IGNORECASE)
 
@@ -75,10 +82,10 @@ def _detect_data_scope(filename: str) -> str:
     return "weekly"
 
 
-def _should_load_row(filename: str, account: str) -> bool:
-    if not WW_ONLY:
-        return True
-    return _detect_channel(filename, account) == "WW"
+def _should_load_row(filename: str, account: str, data_scope: str) -> bool:
+    if WW_ONLY:
+        return _detect_channel(filename, account) == "WW"
+    return True
 
 
 def _iter_input_files() -> list[Path]:
@@ -89,10 +96,10 @@ def _iter_input_files() -> list[Path]:
     )
     result: list[Path] = []
     for p in paths:
-        if WW_ONLY and _detect_channel(p.name) == "T1":
-            continue
         is_account = p.name.startswith("account_") or "account_all" in p.name.lower()
         is_weekly = bool(WEEK_FILE_RE.search(p.name))
+        if WW_ONLY and _detect_channel(p.name) == "T1" and is_account:
+            continue
         if is_account or is_weekly:
             result.append(p)
     return result
@@ -108,11 +115,18 @@ def _detect_week_label(filename: str) -> str:
     return Path(filename).stem
 
 
+def week_sort_key(label: str) -> int:
+    m = re.search(r"(\d{4})", label or "")
+    if not m:
+        return 0
+    mmdd = int(m.group(1))
+    month, day = divmod(mmdd, 100)
+    return month * 100 + day
+
+
 def get_weekly_labels() -> list[str]:
-    labels = sorted(
-        {r.get("week_label", "") for r in store.records if r.get("data_scope") == "weekly" and r.get("week_label")}
-    )
-    return labels
+    labels = {r.get("week_label", "") for r in store.records if r.get("data_scope") == "weekly" and r.get("week_label")}
+    return sorted(labels, key=week_sort_key)
 
 
 class DataStore:
@@ -162,7 +176,7 @@ class DataStore:
                 continue
 
             account = str(row.get("account", "") or "")
-            if not _should_load_row(filename, account):
+            if not _should_load_row(filename, account, data_scope):
                 continue
 
             parsed = parse_material(ad_name)
@@ -174,6 +188,13 @@ class DataStore:
             ctr = float(_safe_num(pd.Series([row.get("ctr", 0)])).iloc[0])
             roas = float(_safe_num(pd.Series([row.get("roas", 0)])).iloc[0])
             installs = float(_safe_num(pd.Series([row.get("installs", 0)])).iloc[0])
+            subscriptions = float(_safe_num(pd.Series([row.get("subscriptions", 0)])).iloc[0])
+            hook_rate = _parse_rate(row.get("hook_rate"))
+            retention_rate = _parse_retention(row, impressions)
+            if hook_rate is None and CUSTOM_HOOK_COL in df.columns:
+                hook_rate = _parse_rate(row.get(CUSTOM_HOOK_COL))
+            if retention_rate is None and CUSTOM_RETENTION_COL in df.columns:
+                retention_rate = _parse_rate(row.get(CUSTOM_RETENTION_COL))
 
             self.records.append(
                 {
@@ -202,6 +223,9 @@ class DataStore:
                     "ctr": ctr,
                     "roas": roas,
                     "installs": installs,
+                    "subscriptions": subscriptions,
+                    "hook_rate": hook_rate or 0.0,
+                    "retention_rate": retention_rate or 0.0,
                     "channel": channel,
                     "data_scope": data_scope,
                     "week_label": week_label,
@@ -210,6 +234,31 @@ class DataStore:
                     "scaling_status": _scaling_status(spend, purchases),
                 }
             )
+
+
+def _parse_rate(value: Any) -> float | None:
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return None
+    try:
+        num = float(value)
+    except (TypeError, ValueError):
+        return None
+    if num <= 0:
+        return None
+    return round(num * 100, 4) if num <= 1 else round(num, 4)
+
+
+def _parse_retention(row: Any, impressions: float) -> float | None:
+    completions = row.get("video_completions")
+    if completions is None or (isinstance(completions, float) and pd.isna(completions)):
+        return None
+    try:
+        comp = float(completions)
+    except (TypeError, ValueError):
+        return None
+    if impressions > 0:
+        return round(comp / impressions * 100, 4)
+    return None
 
 
 def _scaling_status(spend: float, purchases: float) -> str:

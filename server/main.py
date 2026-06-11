@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 import analytics
 from data_loader import store
 from materials_catalog import build_catalog, export_catalog, get_catalog_summary
+from weekly_report import get_weekly_report
 
 APP_DIR = Path(__file__).resolve().parent
 WEB_DIR = APP_DIR.parent / "docs"
@@ -201,6 +202,11 @@ def catalog() -> dict[str, Any]:
 @app.post("/api/catalog/export")
 def catalog_export() -> dict[str, Any]:
     return export_catalog()
+
+
+@app.get("/api/weekly-report")
+def weekly_report(week: Optional[str] = None) -> dict[str, Any]:
+    return get_weekly_report(week)
 
 
 @app.get("/api/designers")

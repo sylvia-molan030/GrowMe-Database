@@ -24,6 +24,7 @@ const liveApi = {
   heatmap: (filters, yAxis, xAxis) => fetchJSON(`/api/heatmap?${buildQuery(filters, { y_axis: yAxis, x_axis: xAxis })}`),
   materials: (filters, extra) => fetchJSON(`/api/materials?${buildQuery(filters, extra)}`),
   designers: (filters, mode) => fetchJSON(`/api/designers?${buildQuery(filters, { mode })}`),
+  weeklyReport: (week) => fetchJSON(`/api/weekly-report${week ? `?week=${encodeURIComponent(week)}` : ''}`),
 };
 
 let apiImpl = liveApi;
@@ -52,6 +53,7 @@ export const api = {
   heatmap: (...args) => liveApi.heatmap(...args),
   materials: (...args) => apiImpl.materials(...args),
   designers: (...args) => apiImpl.designers(...args),
+  weeklyReport: (...args) => apiImpl.weeklyReport(...args),
 };
 
 export { IS_STATIC };

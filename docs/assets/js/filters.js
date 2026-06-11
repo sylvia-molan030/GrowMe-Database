@@ -19,7 +19,7 @@ export function createDefaultFilters(meta) {
     stylization: '全部',
     pain_point: '全部',
     exercise_type: '全部',
-    channel: 'WW',
+    channel: 'ALL',
   }, 'all', meta);
 }
 
@@ -86,8 +86,8 @@ export function renderFilters(container, state, onChange) {
           `).join('')}
         </select>
       `).join('')}
-      <select class="select" data-key="channel" disabled title="当前仅统计 WW（全球）数据">
-        <option value="WW" selected>WW（全球）</option>
+      <select class="select" data-key="channel" disabled title="全球与 T1 已按素材名合并统计">
+        <option value="ALL" selected>全球+T1（已合并）</option>
       </select>
     </div>
   `;

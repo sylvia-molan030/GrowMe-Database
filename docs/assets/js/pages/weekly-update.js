@@ -2,6 +2,14 @@ import { api } from '../api.js';
 
 let survivalChart = null;
 
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function fmt(v, suffix = '') {
   if (v === null || v === undefined || v === '') return '-';
   return `${v}${suffix}`;
@@ -52,7 +60,7 @@ function renderComparisonTable(rows, prevWeek) {
   if (!rows?.length) return '';
   return `
     <div class="card">
-      <div class="section-title">核心指标对照${prevWeek ? ` <span class="muted">（对比 ${prevWeek}）</span>` : ''}</div>
+      <div class="section-title">核心指标对照${prevWeek ? ` <span class="muted">（对比 ${formatWeekLabel(prevWeek)}）</span>` : ''}</div>
       <div class="table-wrap">
         <table class="compare-table">
           <thead>
@@ -98,9 +106,9 @@ function renderGoodMaterials(items) {
           <tbody>
             ${items.length ? items.map((m) => `
               <tr>
-                <td class="cell-material-name">${m.material_id}</td>
-                <td><span class="tag">${m.direction}</span></td>
-                <td>${m.designer}</td>
+                <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
+                <td><span class="tag">${escapeHtml(m.direction)}</span></td>
+                <td>${escapeHtml(m.designer)}</td>
                 <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
                 <td>${m.subscriptions}</td>
                 <td>${m.roas}</td>
@@ -115,6 +123,11 @@ function renderGoodMaterials(items) {
   `;
 }
 
+function formatWeekLabel(label) {
+  if (!label) return label;
+  return String(label).replace(/(\d{4})week$/i, '$1周');
+}
+
 function renderDirectionTable(rows) {
   return `
     <div class="card">
@@ -123,24 +136,25 @@ function renderDirectionTable(rows) {
         <table>
           <thead>
             <tr>
-              <th>方向</th><th>CTR</th><th>CPI</th><th>ROAS</th><th>有效素材</th>
+              <th>方向</th><th>素材量</th><th>有效素材</th><th>CTR</th><th>CPI</th><th>ROAS</th>
               <th>订阅</th><th>购物</th><th>钩子率</th><th>留存率</th>
             </tr>
           </thead>
           <tbody>
             ${rows.map((r) => `
               <tr>
-                <td><span class="tag">${r.direction}</span></td>
+                <td><span class="tag">${escapeHtml(r.direction)}</span></td>
+                <td>${r.total_materials ?? '-'}</td>
+                <td><strong>${r.effective_ratio || `${r.effective_materials}/${r.total_materials || '-'}`}</strong></td>
                 <td>${r.ctr}%</td>
                 <td>${r.cpi !== null ? `$${r.cpi}` : '-'}</td>
                 <td>${r.roas}</td>
-                <td>${r.effective_materials}</td>
                 <td>${r.subscriptions}</td>
                 <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
                 <td>${r.hook_rate ? `${r.hook_rate}%` : '-'}</td>
                 <td>${r.retention_rate ? `${r.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') || '<tr><td colspan="9" class="empty">暂无方向数据</td></tr>'}
+            `).join('') || '<tr><td colspan="10" class="empty">暂无方向数据</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -176,7 +190,7 @@ function renderInsights(items) {
     <div class="card insights-card">
       <div class="section-title">核心洞察</div>
       <ol class="insights-list">
-        ${items.map((t) => `<li>${t}</li>`).join('')}
+        ${items.map((t) => `<li>${escapeHtml(t)}</li>`).join('')}
       </ol>
     </div>
   `;
@@ -184,19 +198,26 @@ function renderInsights(items) {
 
 export async function renderWeeklyUpdate(container, state) {
   const week = state.weeklyWeek || state.meta?.weekly_labels?.slice(-1)[0];
-  const data = await api.weeklyReport(week);
+  let data;
+  try {
+    data = await api.weeklyReport(week);
+  } catch (err) {
+    container.innerHTML = `<div class="empty">周度数据加载失败：${escapeHtml(err.message)}<br/>请强制刷新页面后重试。</div>`;
+    return;
+  }
   const report = data.report;
   if (!report) {
     container.innerHTML = '<div class="empty">暂无周度数据，请将周度文件放入 data_inputs/</div>';
     return;
   }
 
+  const weeks = report.weeks || data.weeks || [];
   state.weeklyWeek = report.week;
 
   container.innerHTML = `
     <div class="week-tabs">
-      ${report.weeks.map((w) => `
-        <button class="tab ${w === report.week ? 'active' : ''}" data-week="${w}">${w}</button>
+      ${weeks.map((w) => `
+        <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
       `).join('')}
     </div>
     ${renderKpiSection(report.kpi, report.prev_week)}
@@ -211,12 +232,16 @@ export async function renderWeeklyUpdate(container, state) {
   `;
 
   container.querySelectorAll('[data-week]').forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       state.weeklyWeek = btn.dataset.week;
-      renderWeeklyUpdate(container, state);
+      container.innerHTML = '<div class="empty">加载中...</div>';
+      await renderWeeklyUpdate(container, state);
     });
   });
 
-  renderSurvivalChart(container.querySelector('#weekly-survival-chart'), report.survival_trend);
+  const chartEl = container.querySelector('#weekly-survival-chart');
+  if (chartEl && report.survival_trend) {
+    renderSurvivalChart(chartEl, report.survival_trend);
+  }
   window.addEventListener('resize', () => survivalChart && survivalChart.resize());
 }

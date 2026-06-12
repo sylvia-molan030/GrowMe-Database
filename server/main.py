@@ -228,6 +228,9 @@ def designers(
 
 if WEB_DIR.exists():
     app.mount("/assets", StaticFiles(directory=WEB_DIR / "assets"), name="assets")
+    data_dir = WEB_DIR / "data"
+    if data_dir.exists():
+        app.mount("/data", StaticFiles(directory=data_dir), name="data")
 
     @app.get("/")
     def index() -> FileResponse:

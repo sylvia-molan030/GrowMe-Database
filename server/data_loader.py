@@ -111,7 +111,7 @@ def _detect_week_label(filename: str) -> str:
         return m.group(1) + "周"
     m = re.search(r"(\d{4})week", filename, re.I)
     if m:
-        return m.group(1) + "week"
+        return m.group(1) + "周"
     return Path(filename).stem
 
 

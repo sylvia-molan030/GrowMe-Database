@@ -199,13 +199,16 @@ def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
         hook_vals = [(i["hook_rate"], i["impressions"] or 1) for i in items if i.get("hook_rate")]
         ret_vals = [(i["retention_rate"], i["impressions"] or 1) for i in items if i.get("retention_rate")]
 
+        total = len(items)
         rows.append(
             {
                 "direction": direction,
+                "total_materials": total,
+                "effective_materials": effective,
+                "effective_ratio": f"{effective}/{total}",
                 "ctr": round(sum(ctr_vals) / len(ctr_vals), 2) if ctr_vals else 0,
                 "cpi": round(spend / installs, 2) if installs > 0 else None,
                 "roas": round(sum(r * s for r, s in roas_vals) / sum(s for _, s in roas_vals), 2) if roas_vals else 0,
-                "effective_materials": effective,
                 "subscriptions": int(subscriptions),
                 "purchases": int(purchases),
                 "hook_rate": round(_weighted_avg([v for v, _ in hook_vals], [w for _, w in hook_vals]), 2),
@@ -250,62 +253,116 @@ def _good_materials(materials: list[dict[str, Any]], limit: int = 12) -> list[di
     ]
 
 
+def _short_id(material_id: str, limit: int = 52) -> str:
+    mid = material_id or ""
+    return mid if len(mid) <= limit else f"{mid[:limit]}…"
+
+
+def _material_blurb(m: dict[str, Any]) -> str:
+    parts = [f"购物 {int(m.get('purchases', 0))}"]
+    subs = int(m.get("subscriptions", 0))
+    if subs:
+        parts.append(f"订阅 {subs}")
+    if m.get("roas"):
+        parts.append(f"ROAS {round(m['roas'], 2)}")
+    if m.get("ctr"):
+        parts.append(f"CTR {round(m['ctr'], 2)}%")
+    if m.get("spend"):
+        parts.append(f"花费 ${round(m['spend'], 0)}")
+    return " · ".join(parts)
+
+
 def _generate_insights(
     week: str,
     prev_week: str | None,
+    materials: list[dict[str, Any]],
     combined_kpi: dict[str, Any],
     prev_combined: dict[str, Any] | None,
     ww: dict[str, Any],
     t1: dict[str, Any],
     directions: list[dict[str, Any]],
-    good_count: int,
 ) -> list[str]:
     insights: list[str] = []
+    total = combined_kpi["total_materials"]
+    order_rate = combined_kpi["order_rate"]
+    effective_rate = combined_kpi["effective_rate"]
 
     if prev_week and prev_combined:
-        rate_delta = combined_kpi["order_rate"] - prev_combined["order_rate"]
-        if rate_delta > 0:
-            insights.append(
-                f"{week} 素材出单率 {combined_kpi['order_rate']}%（较 {prev_week} ↑{rate_delta:.1f}pp），"
-                f"共 {combined_kpi['total_materials']} 条上新素材。"
-            )
-        elif rate_delta < 0:
-            insights.append(
-                f"{week} 素材出单率 {combined_kpi['order_rate']}%（较 {prev_week} ↓{abs(rate_delta):.1f}pp），"
-                f"需关注低效方向与空消耗。"
-            )
-        else:
-            insights.append(f"{week} 共上新 {combined_kpi['total_materials']} 条素材，出单率与 {prev_week} 持平。")
-
-        empty_delta = combined_kpi["empty_spend"] - prev_combined["empty_spend"]
-        if empty_delta > 50:
-            insights.append(
-                f"空消耗较上周增加 ${empty_delta:.0f}（本周 ${combined_kpi['empty_spend']:.0f}），"
-                f"建议复盘 0 转化素材。"
-            )
-        elif empty_delta < -20:
-            insights.append(f"空消耗较上周减少 ${abs(empty_delta):.0f}，投放效率有所改善。")
+        rate_delta = order_rate - prev_combined["order_rate"]
+        eff_delta = effective_rate - prev_combined["effective_rate"]
+        arrow = f"↑{rate_delta:.1f}" if rate_delta > 0 else f"↓{abs(rate_delta):.1f}" if rate_delta < 0 else "持平"
+        eff_arrow = f"↑{eff_delta:.1f}" if eff_delta > 0 else f"↓{abs(eff_delta):.1f}" if eff_delta < 0 else "持平"
+        insights.append(
+            f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%（较 {prev_week} {arrow}pp），"
+            f"有效率 {effective_rate}%（较上周 {eff_arrow}pp）。"
+            f"上周出单率 {prev_combined['order_rate']}%，有效率 {prev_combined['effective_rate']}%。"
+        )
     else:
-        insights.append(f"{week} 共上新 {combined_kpi['total_materials']} 条素材，出单率 {combined_kpi['order_rate']}%。")
+        insights.append(
+            f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%，有效率 {effective_rate}%。"
+        )
+
+    ordered = [m for m in materials if m.get("purchases", 0) >= 1]
+    if ordered:
+        best = max(ordered, key=lambda m: (m.get("purchases", 0), m.get("subscriptions", 0), m.get("roas", 0)))
+        insights.append(
+            f"【本周最强素材】{_short_id(best['material_id'])}（{best.get('direction', '-')} / {best.get('designer', '-')}）："
+            f"{_material_blurb(best)}。"
+        )
+    else:
+        insights.append("【本周最强素材】本周暂无出单素材，建议优先排查钩子与定向。")
+
+    signal_pool = [m for m in materials if m.get("purchases", 0) >= 1 and m.get("subscriptions", 0) >= 1]
+    if signal_pool:
+        signal = max(signal_pool, key=lambda m: (m.get("purchases", 0) + m.get("subscriptions", 0), m.get("roas", 0)))
+        insights.append(
+            f"【高转化信号素材】{_short_id(signal['material_id'])}（购物+订阅双达标）："
+            f"{_material_blurb(signal)}，具备放量验证价值。"
+        )
+    elif ordered:
+        alt = max(ordered, key=lambda m: (m.get("roas", 0), m.get("purchases", 0)))
+        insights.append(
+            f"【高转化信号素材】暂无购物+订阅双达标；ROAS 最高出单素材为 {_short_id(alt['material_id'])}："
+            f"{_material_blurb(alt)}。"
+        )
+    else:
+        insights.append("【高转化信号素材】本周暂无出单，建议从钩子与落地页组合继续迭代。")
+
+    hook_pool = [m for m in materials if m.get("hook_rate", 0) > 0 and m.get("spend", 0) > 0]
+    if hook_pool:
+        hook_best = max(hook_pool, key=lambda m: (m.get("hook_rate", 0), m.get("impressions", 0)))
+        insights.append(
+            f"【钩子最优素材】{_short_id(hook_best['material_id'])}："
+            f"3秒播放率 {round(hook_best['hook_rate'], 2)}%，{_material_blurb(hook_best)}。"
+        )
+    else:
+        insights.append("【钩子最优素材】本周缺少钩子率数据，建议补充含视频播放指标的导出。")
+
+    ret_pool = [m for m in materials if m.get("retention_rate", 0) > 0 and m.get("spend", 0) > 0]
+    if ret_pool:
+        ret_best = max(ret_pool, key=lambda m: (m.get("retention_rate", 0), m.get("impressions", 0)))
+        insights.append(
+            f"【留存率最高素材】{_short_id(ret_best['material_id'])}："
+            f"完播留存率 {round(ret_best['retention_rate'], 2)}%，{_material_blurb(ret_best)}。"
+        )
+    else:
+        insights.append("【留存率最高素材】本周缺少完播/留存数据，暂无法评选。")
 
     if directions:
         top = max(directions, key=lambda d: d["purchases"])
         insights.append(
-            f"方向「{top['direction']}」表现最佳：购物 {top['purchases']} 单、"
-            f"有效素材 {top['effective_materials']} 条、ROAS {top['roas']}。"
+            f"【方向表现】「{top['direction']}」购物 {top['purchases']} 单领先，"
+            f"有效素材 {top['effective_ratio']}，ROAS {top['roas']}；"
+            f"共 {top['total_materials']} 条素材参与本周测试。"
         )
 
-    if ww["total_materials"] and t1["total_materials"]:
+    if ww.get("total_materials") and t1.get("total_materials"):
         insights.append(
-            f"渠道对比：WW 消耗 ${ww['spend']:.0f} / 出单率 {ww['order_rate']}%；"
-            f"T1 消耗 ${t1['spend']:.0f} / 出单率 {t1['order_rate']}%。"
+            f"【渠道拆分】WW 消耗 ${ww['spend']:.0f} / 出单率 {ww['order_rate']}% / 有效 {ww['effective_materials']} 条；"
+            f"T1 消耗 ${t1['spend']:.0f} / 出单率 {t1['order_rate']}% / 有效 {t1['effective_materials']} 条。"
         )
-    elif good_count:
-        insights.append(f"本周有 {good_count} 条「购物+订阅」双转化好素材，可作为下轮放量参考。")
-    else:
-        insights.append("本周暂无购物且订阅双达标素材，建议优先优化钩子与落地页。")
 
-    return insights[:3]
+    return insights
 
 
 def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
@@ -376,7 +433,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         "direction_table": directions,
         "survival_trend": _survival_trend(all_materials),
         "insights": _generate_insights(
-            week, prev, combined_kpi, prev_combined, ww_kpi, t1_kpi, directions, len(good)
+            week, prev, all_materials, combined_kpi, prev_combined, ww_kpi, t1_kpi, directions
         ),
     }
     return {"weeks": labels, "report": report}

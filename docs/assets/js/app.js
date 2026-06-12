@@ -42,7 +42,9 @@ async function refreshPage() {
     else if (state.view === 'designer') await renderDesigner(contentEl, state);
     else if (state.view === 'asset-library') await renderAssetLibrary(contentEl, state);
     else if (state.view === 'weekly-update') await renderWeeklyUpdate(contentEl, state);
+    else contentEl.innerHTML = '<div class="empty">页面不存在或脚本未更新，请强制刷新（Cmd+Shift+R）</div>';
   } catch (err) {
+    console.error(err);
     contentEl.innerHTML = `<div class="empty">加载失败：${err.message}</div>`;
   }
 }
@@ -91,12 +93,13 @@ async function bootstrap() {
   }
 
   renderFilters(filtersEl, state, onFiltersChange);
+
+  document.querySelectorAll('.nav-item').forEach((btn) => {
+    btn.addEventListener('click', () => setView(btn.dataset.page));
+  });
+
   setView('golden-cross');
 }
-
-document.querySelectorAll('.nav-item').forEach((btn) => {
-  btn.addEventListener('click', () => setView(btn.dataset.page));
-});
 
 document.getElementById('btn-rescan').addEventListener('click', async () => {
   if (IS_STATIC) {

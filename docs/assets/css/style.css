@@ -92,8 +92,9 @@ body {
 .compare-table th:first-child, .compare-table td:first-child { text-align: left; }
 .text-green { color: var(--green); font-weight: 600; }
 .text-red { color: var(--red); font-weight: 600; }
-.insights-list { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 14px; }
-.insights-list li { margin-bottom: 8px; }
+.insights-list { margin: 0; padding-left: 20px; line-height: 1.85; font-size: 14px; }
+.insights-list li { margin-bottom: 12px; }
+.insights-list li::marker { color: var(--primary); font-weight: 600; }
 .insights-card { border-left: 4px solid var(--primary); }
 .kpi-card { padding: 16px; }
 .kpi-title { font-size: 13px; color: var(--muted); }

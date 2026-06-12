@@ -1,18 +1,53 @@
 /** GitHub Pages 静态模式：从 snapshot.json 读取数据并在前端过滤。 */
 
 let snapshot = null;
+let snapshotPromise = null;
+let weeklyReportsCache = null;
+let weeklyReportsPromise = null;
 
 export const IS_STATIC = document.documentElement.dataset.static === 'true'
   || window.location.hostname.endsWith('github.io');
 
 const DATA_URL = new URL('./data/snapshot.json', window.location.href).href;
+const WEEKLY_URL = new URL('./data/weekly-reports.json', window.location.href).href;
+
+async function fetchJSON(url, label) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`无法加载${label}: ${url}`);
+  return res.json();
+}
 
 export async function loadSnapshot() {
   if (snapshot) return snapshot;
-  const res = await fetch(DATA_URL);
-  if (!res.ok) throw new Error(`无法加载静态数据: ${DATA_URL}`);
-  snapshot = await res.json();
-  return snapshot;
+  if (!snapshotPromise) {
+    snapshotPromise = fetchJSON(DATA_URL, '静态数据').then((data) => {
+      snapshot = data;
+      return data;
+    });
+  }
+  return snapshotPromise;
+}
+
+async function loadWeeklyReports() {
+  if (weeklyReportsCache) return weeklyReportsCache;
+  if (!weeklyReportsPromise) {
+    weeklyReportsPromise = (async () => {
+      try {
+        weeklyReportsCache = await fetchJSON(WEEKLY_URL, '周度报告');
+        return weeklyReportsCache;
+      } catch {
+        await loadSnapshot();
+        const reports = snapshot?.weekly_reports || {};
+        const weeks = Object.keys(reports).sort((a, b) => {
+          const key = (s) => { const m = s.match(/(\d{4})/); return m ? parseInt(m[1], 10) : 0; };
+          return key(a) - key(b);
+        });
+        weeklyReportsCache = { weeks, reports };
+        return weeklyReportsCache;
+      }
+    })();
+  }
+  return weeklyReportsPromise;
 }
 
 function parseDate(v) {
@@ -191,14 +226,11 @@ export function createStaticApi() {
       return { rows: designerStats(items) };
     },
     weeklyReport: async (week) => {
-      await loadSnapshot();
-      const reports = snapshot.weekly_reports || {};
-      const weeks = Object.keys(reports).sort((a, b) => {
-        const key = (s) => { const m = s.match(/(\d{4})/); return m ? parseInt(m[1], 10) : 0; };
-        return key(a) - key(b);
-      });
+      const { weeks, reports } = await loadWeeklyReports();
       const target = week && reports[week] ? week : weeks[weeks.length - 1];
-      return { weeks, report: reports[target] || null };
+      const report = reports[target] || null;
+      if (report && !report.weeks) report.weeks = weeks;
+      return { weeks, report };
     },
   };
 }

@@ -34,21 +34,22 @@ function kpiCard(title, value, wow = null, sub = '') {
   `;
 }
 
-function renderKpiSection(kpi, prevWeek) {
+function renderKpiSection(kpi, prevWeek, effectiveRule) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
+  const ruleHint = effectiveRule || '消耗 > $200 且有购物';
   return `
     <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
     <div class="kpi-grid kpi-grid-4">
-      ${kpiCard('总素材量', kpi.total_materials, hasWow ? wow.total_materials : null)}
       ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}
-      ${kpiCard('WW 有效素材', kpi.effective_materials, hasWow ? wow.effective_materials : null)}
+      ${kpiCard('总素材量', kpi.total_materials, hasWow ? wow.total_materials : null)}
+      ${kpiCard('WW 有效素材', kpi.effective_materials, hasWow ? wow.effective_materials : null, ruleHint)}
       ${kpiCard('WW 转化数', kpi.conversions, hasWow ? wow.conversions : null)}
       ${kpiCard('WW 出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
       ${kpiCard('WW 订阅数', kpi.subscriptions, hasWow ? wow.subscriptions : null)}
       ${kpiCard('≥2 单素材率', `${kpi.ge2_rate}%`, hasWow ? wow.ge2_rate : null)}
       ${kpiCard('≥5 单素材率', `${kpi.ge5_rate}%`, hasWow ? wow.ge5_rate : null)}
-      ${kpiCard('有效率', `${kpi.effective_rate}%`)}
+      ${kpiCard('有效率', `${kpi.effective_rate}%`, null, ruleHint)}
     </div>
   `;
 }
@@ -97,7 +98,7 @@ function renderGoodMaterials(items) {
           <thead>
             <tr>
               <th>素材</th><th>方向</th><th>设计师</th>
-              <th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th><th>花费</th>
+              <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th>
             </tr>
           </thead>
           <tbody>
@@ -106,11 +107,11 @@ function renderGoodMaterials(items) {
                 <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
                 <td><span class="tag">${escapeHtml(m.direction)}</span></td>
                 <td>${escapeHtml(m.designer)}</td>
+                <td>$${m.spend}</td>
                 <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
                 <td>${m.subscriptions}</td>
                 <td>${m.roas}</td>
                 <td>${m.ctr}%</td>
-                <td>$${m.spend}</td>
               </tr>
             `).join('') : '<tr><td colspan="8" class="empty">本周暂无双转化好素材</td></tr>'}
           </tbody>
@@ -125,15 +126,16 @@ function formatWeekLabel(label) {
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
-function renderDirectionTable(rows) {
+function renderDirectionTable(rows, effectiveRule) {
+  const ruleHint = effectiveRule || '消耗 > $200 且有购物';
   return `
     <div class="card">
-      <div class="section-title">各方向标签表现对比</div>
+      <div class="section-title">各方向标签表现对比 <span class="muted">（有效素材 = ${escapeHtml(ruleHint)}）</span></div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>方向</th><th>素材量</th><th>有效素材</th><th>CTR</th><th>CPI</th><th>ROAS</th>
+              <th>方向</th><th>素材量</th><th>有效素材</th><th>消耗</th><th>CTR</th><th>CPI</th><th>ROAS</th>
               <th>订阅</th><th>购物</th><th>钩子率</th><th>留存率</th>
             </tr>
           </thead>
@@ -143,6 +145,7 @@ function renderDirectionTable(rows) {
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
                 <td>${r.total_materials ?? '-'}</td>
                 <td><strong>${r.effective_ratio || `${r.effective_materials}/${r.total_materials || '-'}`}</strong></td>
+                <td>$${r.spend ?? '-'}</td>
                 <td>${r.ctr}%</td>
                 <td>${r.cpi !== null ? `$${r.cpi}` : '-'}</td>
                 <td>${r.roas}</td>
@@ -151,7 +154,49 @@ function renderDirectionTable(rows) {
                 <td>${r.hook_rate ? `${r.hook_rate}%` : '-'}</td>
                 <td>${r.retention_rate ? `${r.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') || '<tr><td colspan="10" class="empty">暂无方向数据</td></tr>'}
+            `).join('') || '<tr><td colspan="11" class="empty">暂无方向数据</td></tr>'}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderNewDirectionCallout(block) {
+  if (!block) return '';
+  const s = block.summary || {};
+  return `
+    <div class="card weekly-callout">
+      <div class="section-title">新方向测试 · ${escapeHtml(block.label)} <span class="tag">FX-${escapeHtml(block.direction || 'aitalk')}</span></div>
+      <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
+      <div class="kpi-grid kpi-grid-4 weekly-callout-kpi">
+        ${kpiCard('测试素材', s.total_materials ?? 0)}
+        ${kpiCard('消耗', `$${s.spend ?? 0}`)}
+        ${kpiCard('购物 / 订阅', `${s.purchases ?? 0} / ${s.subscriptions ?? 0}`)}
+        ${kpiCard('出单率', `${s.order_rate ?? 0}%`)}
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>素材</th><th>方向</th><th>设计师</th>
+              <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th><th>跑量</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${block.materials?.map((m) => `
+              <tr>
+                <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
+                <td><span class="tag">${escapeHtml(m.direction)}</span></td>
+                <td>${escapeHtml(m.designer || '-')}</td>
+                <td>$${m.spend}</td>
+                <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
+                <td>${m.subscriptions}</td>
+                <td>${m.roas}</td>
+                <td>${m.ctr}%</td>
+                <td><span class="tag gray">${escapeHtml(m.scaling_status || '-')}</span></td>
+              </tr>
+            `).join('') || '<tr><td colspan="9" class="empty">暂无数据</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -217,10 +262,11 @@ export async function renderWeeklyUpdate(container, state) {
         <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
       `).join('')}
     </div>
-    ${renderKpiSection(report.kpi, report.prev_week)}
+    ${renderNewDirectionCallout(report.new_direction_test)}
+    ${renderKpiSection(report.kpi, report.prev_week, report.effective_rule)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
     ${renderGoodMaterials(report.good_materials)}
-    ${renderDirectionTable(report.direction_table)}
+    ${renderDirectionTable(report.direction_table, report.effective_rule)}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>
       <div id="weekly-survival-chart" class="chart"></div>

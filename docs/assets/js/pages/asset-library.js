@@ -103,8 +103,8 @@ export async function renderAssetLibrary(container, state) {
         <table class="asset-table">
           <thead>
             <tr>
-              <th>排名</th><th>标准素材ID</th><th>素材方向 (FX)</th><th>期间总出单量</th>
-              <th>综合 CTR</th><th>综合 ROAS</th><th>跑量情况</th><th>总花费</th>
+              <th>排名</th><th>标准素材ID</th><th>素材方向 (FX)</th><th>总花费</th><th>期间总出单量</th>
+              <th>综合 CTR</th><th>综合 ROAS</th><th>跑量情况</th>
             </tr>
           </thead>
           <tbody>
@@ -113,11 +113,11 @@ export async function renderAssetLibrary(container, state) {
                 <td>${r.rank}</td>
                 <td class="cell-material-name">${escapeHtml(r.material_id)}</td>
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
+                <td>$${r.spend}</td>
                 <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
                 <td>${r.ctr}%</td>
                 <td>${r.roas}</td>
                 <td>${statusTag(r.scaling_status)}</td>
-                <td>$${r.spend}</td>
               </tr>
             `).join('') || `<tr><td colspan="8" class="empty">${keyword ? '未找到匹配素材' : '该档位暂无素材'}</td></tr>`}
           </tbody>
@@ -180,9 +180,9 @@ export async function renderAssetLibrary(container, state) {
       page: 1,
       page_size: 10000,
     });
-    const header = ['排名', '素材ID', '方向', '出单量', 'CTR', 'ROAS', '跑量情况', '花费'];
+    const header = ['排名', '素材ID', '方向', '花费', '出单量', 'CTR', 'ROAS', '跑量情况'];
     const lines = [header.join(',')].concat(
-      all.rows.map((r) => [r.rank, `"${r.material_id}"`, r.direction, r.purchases, r.ctr, r.roas, r.scaling_status, r.spend].join(','))
+      all.rows.map((r) => [r.rank, `"${r.material_id}"`, r.direction, r.spend, r.purchases, r.ctr, r.roas, r.scaling_status].join(','))
     );
     const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
     const a = document.createElement('a');

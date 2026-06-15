@@ -13,24 +13,25 @@
         "0601周",
         "0608周"
       ],
+      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 56,
         "order_rate": 5.36,
         "ge2_rate": 5.36,
         "ge5_rate": 1.79,
         "spend": 1837.86,
-        "effective_materials": 3,
+        "effective_materials": 2,
         "conversions": 74,
         "subscriptions": 106,
-        "effective_rate": 5.36,
+        "effective_rate": 3.57,
         "wow": {}
       },
       "core_comparison": [
         {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 5.36,
+          "key": "spend",
+          "label": "总消耗",
+          "unit": "$",
+          "current": 1837.86,
           "previous": null,
           "wow": null
         },
@@ -39,6 +40,14 @@
           "label": "空消耗",
           "unit": "$",
           "current": 217.02,
+          "previous": null,
+          "wow": null
+        },
+        {
+          "key": "effective_rate",
+          "label": "有效率",
+          "unit": "%",
+          "current": 3.57,
           "previous": null,
           "wow": null
         },
@@ -152,8 +161,8 @@
         {
           "direction": "Creatives",
           "total_materials": 4,
-          "effective_materials": 1,
-          "effective_ratio": "1/4",
+          "effective_materials": 0,
+          "effective_ratio": "0/4",
           "ctr": 1.54,
           "cpi": 1.86,
           "roas": 0.15,
@@ -279,7 +288,7 @@
         ]
       },
       "insights": [
-        "【素材测出率】0525周 上新 56 条，出单率 5.36%，有效率 5.36%。",
+        "【素材测出率】0525周 上新 56 条，出单率 5.36%，有效率 3.57%。",
         "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0。",
         "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0，具备放量验证价值。",
         "【钩子最优素材】20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_w…：3秒播放率 77.78%，购物 0 · CTR 1.46% · 花费 $3.0。",
@@ -295,16 +304,17 @@
         "0601周",
         "0608周"
       ],
+      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 105,
         "order_rate": 19.05,
         "ge2_rate": 8.57,
         "ge5_rate": 3.81,
         "spend": 3223.0,
-        "effective_materials": 22,
+        "effective_materials": 4,
         "conversions": 61,
         "subscriptions": 131,
-        "effective_rate": 20.95,
+        "effective_rate": 3.81,
         "wow": {
           "total_materials": {
             "delta": 49.0,
@@ -332,8 +342,8 @@
             "direction": "up"
           },
           "effective_materials": {
-            "delta": 19.0,
-            "pct": 633.3,
+            "delta": 2.0,
+            "pct": 100.0,
             "direction": "up"
           },
           "conversions": {
@@ -350,14 +360,14 @@
       },
       "core_comparison": [
         {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 20.95,
-          "previous": 5.36,
+          "key": "spend",
+          "label": "总消耗",
+          "unit": "$",
+          "current": 3223.0,
+          "previous": 1837.86,
           "wow": {
-            "delta": 15.59,
-            "pct": 290.9,
+            "delta": 1385.14,
+            "pct": 75.4,
             "direction": "up"
           }
         },
@@ -370,6 +380,18 @@
           "wow": {
             "delta": 48.21,
             "pct": 22.2,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "effective_rate",
+          "label": "有效率",
+          "unit": "%",
+          "current": 3.81,
+          "previous": 3.57,
+          "wow": {
+            "delta": 0.24,
+            "pct": 6.7,
             "direction": "up"
           }
         },
@@ -568,8 +590,8 @@
         {
           "direction": "Learning",
           "total_materials": 18,
-          "effective_materials": 7,
-          "effective_ratio": "7/18",
+          "effective_materials": 3,
+          "effective_ratio": "3/18",
           "ctr": 1.48,
           "cpi": 1.09,
           "roas": 0.4,
@@ -583,8 +605,8 @@
         {
           "direction": "Communication",
           "total_materials": 6,
-          "effective_materials": 4,
-          "effective_ratio": "4/6",
+          "effective_materials": 1,
+          "effective_ratio": "1/6",
           "ctr": 1.32,
           "cpi": 0.86,
           "roas": 0.17,
@@ -598,8 +620,8 @@
         {
           "direction": "lifelessons",
           "total_materials": 6,
-          "effective_materials": 2,
-          "effective_ratio": "2/6",
+          "effective_materials": 0,
+          "effective_ratio": "0/6",
           "ctr": 1.61,
           "cpi": 2.39,
           "roas": 0.39,
@@ -613,8 +635,8 @@
         {
           "direction": "EmotionalHealth",
           "total_materials": 6,
-          "effective_materials": 1,
-          "effective_ratio": "1/6",
+          "effective_materials": 0,
+          "effective_ratio": "0/6",
           "ctr": 1.6,
           "cpi": 3.27,
           "roas": 0.61,
@@ -628,8 +650,8 @@
         {
           "direction": "Mindset",
           "total_materials": 11,
-          "effective_materials": 1,
-          "effective_ratio": "1/11",
+          "effective_materials": 0,
+          "effective_ratio": "0/11",
           "ctr": 1.09,
           "cpi": 2.59,
           "roas": 0.56,
@@ -643,8 +665,8 @@
         {
           "direction": "LifeLessons",
           "total_materials": 10,
-          "effective_materials": 2,
-          "effective_ratio": "2/10",
+          "effective_materials": 0,
+          "effective_ratio": "0/10",
           "ctr": 1.4,
           "cpi": 1.43,
           "roas": 0.26,
@@ -658,8 +680,8 @@
         {
           "direction": "Quotes",
           "total_materials": 11,
-          "effective_materials": 1,
-          "effective_ratio": "1/11",
+          "effective_materials": 0,
+          "effective_ratio": "0/11",
           "ctr": 1.44,
           "cpi": 6.14,
           "roas": 0.49,
@@ -673,8 +695,8 @@
         {
           "direction": "WomenEmpowerment",
           "total_materials": 7,
-          "effective_materials": 1,
-          "effective_ratio": "1/7",
+          "effective_materials": 0,
+          "effective_ratio": "0/7",
           "ctr": 1.36,
           "cpi": 3.99,
           "roas": 0.17,
@@ -688,8 +710,8 @@
         {
           "direction": "fear",
           "total_materials": 1,
-          "effective_materials": 1,
-          "effective_ratio": "1/1",
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
           "ctr": 1.07,
           "cpi": 2.36,
           "roas": 0.47,
@@ -703,8 +725,8 @@
         {
           "direction": "Growth",
           "total_materials": 3,
-          "effective_materials": 1,
-          "effective_ratio": "1/3",
+          "effective_materials": 0,
+          "effective_ratio": "0/3",
           "ctr": 1.32,
           "cpi": 1.37,
           "roas": 0.24,
@@ -853,8 +875,8 @@
         {
           "direction": "Creative",
           "total_materials": 10,
-          "effective_materials": 1,
-          "effective_ratio": "1/10",
+          "effective_materials": 0,
+          "effective_ratio": "0/10",
           "ctr": 1.35,
           "cpi": 9.81,
           "roas": 0,
@@ -893,12 +915,12 @@
         ]
       },
       "insights": [
-        "【素材测出率】0601周 上新 105 条，出单率 19.05%（较 0525周 ↑13.7pp），有效率 20.95%（较上周 ↑15.6pp）。上周出单率 5.36%，有效率 5.36%。",
+        "【素材测出率】0601周 上新 105 条，出单率 19.05%（较 0525周 ↑13.7pp），有效率 3.81%（较上周 ↑0.2pp）。上周出单率 5.36%，有效率 3.57%。",
         "【本周最强素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（Learning / gy）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0。",
         "【高转化信号素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（购物+订阅双达标）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0，具备放量验证价值。",
         "【钩子最优素材】20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-…：3秒播放率 42.03%，购物 0 · CTR 0.62% · 花费 $1.0。",
         "【留存率最高素材】20260604_GrowMe_EN_9x16_FX-LifeLessons_ZTdontworry_R…：完播留存率 16.67%，购物 0 · 花费 $0.0。",
-        "【方向表现】「Learning」购物 42 单领先，有效素材 7/18，ROAS 0.4；共 18 条素材参与本周 WW 测试。"
+        "【方向表现】「Learning」购物 42 单领先，有效素材 3/18，ROAS 0.4；共 18 条素材参与本周 WW 测试。"
       ]
     },
     "0608周": {
@@ -909,69 +931,70 @@
         "0601周",
         "0608周"
       ],
+      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
-        "total_materials": 111,
-        "order_rate": 14.41,
-        "ge2_rate": 7.21,
-        "ge5_rate": 2.7,
-        "spend": 3746.9,
-        "effective_materials": 24,
-        "conversions": 50,
-        "subscriptions": 115,
-        "effective_rate": 21.62,
+        "total_materials": 108,
+        "order_rate": 13.89,
+        "ge2_rate": 6.48,
+        "ge5_rate": 2.78,
+        "spend": 3442.51,
+        "effective_materials": 3,
+        "conversions": 46,
+        "subscriptions": 107,
+        "effective_rate": 2.78,
         "wow": {
           "total_materials": {
-            "delta": 6.0,
-            "pct": 5.7,
+            "delta": 3.0,
+            "pct": 2.9,
             "direction": "up"
           },
           "order_rate": {
-            "delta": -4.64,
-            "pct": -24.4,
+            "delta": -5.16,
+            "pct": -27.1,
             "direction": "down"
           },
           "ge2_rate": {
-            "delta": -1.36,
-            "pct": -15.9,
+            "delta": -2.09,
+            "pct": -24.4,
             "direction": "down"
           },
           "ge5_rate": {
-            "delta": -1.11,
-            "pct": -29.1,
+            "delta": -1.03,
+            "pct": -27.0,
             "direction": "down"
           },
           "spend": {
-            "delta": 523.9,
-            "pct": 16.3,
+            "delta": 219.51,
+            "pct": 6.8,
             "direction": "up"
           },
           "effective_materials": {
-            "delta": 2.0,
-            "pct": 9.1,
-            "direction": "up"
+            "delta": -1.0,
+            "pct": -25.0,
+            "direction": "down"
           },
           "conversions": {
-            "delta": -11.0,
-            "pct": -18.0,
+            "delta": -15.0,
+            "pct": -24.6,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -16.0,
-            "pct": -12.2,
+            "delta": -24.0,
+            "pct": -18.3,
             "direction": "down"
           }
         }
       },
       "core_comparison": [
         {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 21.62,
-          "previous": 20.95,
+          "key": "spend",
+          "label": "总消耗",
+          "unit": "$",
+          "current": 3442.51,
+          "previous": 3223.0,
           "wow": {
-            "delta": 0.67,
-            "pct": 3.2,
+            "delta": 219.51,
+            "pct": 6.8,
             "direction": "up"
           }
         },
@@ -979,23 +1002,35 @@
           "key": "empty_spend",
           "label": "空消耗",
           "unit": "$",
-          "current": 978.99,
+          "current": 876.84,
           "previous": 265.23,
           "wow": {
-            "delta": 713.76,
-            "pct": 269.1,
+            "delta": 611.61,
+            "pct": 230.6,
             "direction": "up"
+          }
+        },
+        {
+          "key": "effective_rate",
+          "label": "有效率",
+          "unit": "%",
+          "current": 2.78,
+          "previous": 3.81,
+          "wow": {
+            "delta": -1.03,
+            "pct": -27.0,
+            "direction": "down"
           }
         },
         {
           "key": "cpi",
           "label": "CPI",
           "unit": "$",
-          "current": 2.19,
+          "current": 2.09,
           "previous": 1.26,
           "wow": {
-            "delta": 0.93,
-            "pct": 73.8,
+            "delta": 0.83,
+            "pct": 65.9,
             "direction": "up"
           }
         },
@@ -1003,11 +1038,11 @@
           "key": "cpm",
           "label": "CPM",
           "unit": "$",
-          "current": 2.32,
+          "current": 2.25,
           "previous": 2.01,
           "wow": {
-            "delta": 0.31,
-            "pct": 15.4,
+            "delta": 0.24,
+            "pct": 11.9,
             "direction": "up"
           }
         },
@@ -1015,11 +1050,11 @@
           "key": "subscriptions",
           "label": "订阅数",
           "unit": "",
-          "current": 115,
+          "current": 107,
           "previous": 131,
           "wow": {
-            "delta": -16.0,
-            "pct": -12.2,
+            "delta": -24.0,
+            "pct": -18.3,
             "direction": "down"
           }
         },
@@ -1027,11 +1062,11 @@
           "key": "purchases",
           "label": "购物数",
           "unit": "",
-          "current": 50,
+          "current": 46,
           "previous": 61,
           "wow": {
-            "delta": -11.0,
-            "pct": -18.0,
+            "delta": -15.0,
+            "pct": -24.6,
             "direction": "down"
           }
         },
@@ -1081,17 +1116,6 @@
           "roas": 0.39,
           "ctr": 1.24,
           "spend": 297.8
-        },
-        {
-          "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
-          "direction": "aitalk",
-          "theme": "365book",
-          "designer": "wxx",
-          "purchases": 4,
-          "subscriptions": 8,
-          "roas": 0.4,
-          "ctr": 0.94,
-          "spend": 202.24
         },
         {
           "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
@@ -1180,14 +1204,25 @@
           "roas": 0.16,
           "ctr": 1.43,
           "spend": 52.15
+        },
+        {
+          "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
+          "direction": "LifeLessons",
+          "theme": "jounrey",
+          "designer": "wxx",
+          "purchases": 1,
+          "subscriptions": 2,
+          "roas": 1.36,
+          "ctr": 1.42,
+          "spend": 18.83
         }
       ],
       "direction_table": [
         {
           "direction": "LifeLessons",
           "total_materials": 16,
-          "effective_materials": 6,
-          "effective_ratio": "6/16",
+          "effective_materials": 1,
+          "effective_ratio": "1/16",
           "ctr": 1.39,
           "cpi": 2.03,
           "roas": 0.46,
@@ -1201,8 +1236,8 @@
         {
           "direction": "Mindset",
           "total_materials": 25,
-          "effective_materials": 6,
-          "effective_ratio": "6/25",
+          "effective_materials": 1,
+          "effective_ratio": "1/25",
           "ctr": 1.54,
           "cpi": 2.4,
           "roas": 0.45,
@@ -1216,8 +1251,8 @@
         {
           "direction": "Learning",
           "total_materials": 26,
-          "effective_materials": 6,
-          "effective_ratio": "6/26",
+          "effective_materials": 1,
+          "effective_ratio": "1/26",
           "ctr": 1.71,
           "cpi": 1.86,
           "roas": 0.43,
@@ -1229,25 +1264,10 @@
           "cpm": 2.42
         },
         {
-          "direction": "aitalk",
-          "total_materials": 3,
-          "effective_materials": 1,
-          "effective_ratio": "1/3",
-          "ctr": 0.94,
-          "cpi": 5.34,
-          "roas": 0.4,
-          "subscriptions": 8,
-          "purchases": 4,
-          "hook_rate": 8.59,
-          "retention_rate": 0.0,
-          "spend": 304.39,
-          "cpm": 3.76
-        },
-        {
           "direction": "SelfImprovement",
           "total_materials": 4,
-          "effective_materials": 2,
-          "effective_ratio": "2/4",
+          "effective_materials": 0,
+          "effective_ratio": "0/4",
           "ctr": 0.81,
           "cpi": 3.41,
           "roas": 0.29,
@@ -1261,8 +1281,8 @@
         {
           "direction": "learning",
           "total_materials": 5,
-          "effective_materials": 2,
-          "effective_ratio": "2/5",
+          "effective_materials": 0,
+          "effective_ratio": "0/5",
           "ctr": 1.4,
           "cpi": 1.27,
           "roas": 0.07,
@@ -1276,8 +1296,8 @@
         {
           "direction": "Communication",
           "total_materials": 3,
-          "effective_materials": 1,
-          "effective_ratio": "1/3",
+          "effective_materials": 0,
+          "effective_ratio": "0/3",
           "ctr": 1.31,
           "cpi": 7.28,
           "roas": 0,
@@ -1510,26 +1530,88 @@
         "counts": [
           24,
           27,
-          25,
+          22,
           24,
           11
         ],
         "survived_counts": [
           4,
           4,
-          4,
+          3,
           2,
           2
         ]
       },
       "insights": [
-        "【素材测出率】0608周 上新 111 条，出单率 14.41%（较 0601周 ↓4.6pp），有效率 21.62%（较上周 ↑0.7pp）。上周出单率 19.05%，有效率 20.95%。",
+        "【新方向测试·数字人】本周另起 数字人 新方向测试（FX-aitalk），与常规周度上新分开统计，不计入上方 KPI。 共 3 条，消耗 $304.39，购物 4 / 订阅 8。",
+        "【素材测出率】0608周 上新 108 条，出单率 13.89%（较 0601周 ↓5.2pp），有效率 2.78%（较上周 ↓1.0pp）。上周出单率 19.05%，有效率 3.81%。",
         "【本周最强素材】20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-self_RS-P3…（LifeLessons / gy）：购物 13 · 订阅 22 · ROAS 0.52 · CTR 1.19% · 花费 $613.0。",
         "【高转化信号素材】20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-self_RS-P3…（购物+订阅双达标）：购物 13 · 订阅 22 · ROAS 0.52 · CTR 1.19% · 花费 $613.0，具备放量验证价值。",
         "【钩子最优素材】20260611_GrowMe_EN_9x16_FX-Mindset_ZT-doit_RS-P3X1R1…：3秒播放率 100.0%，购物 0 · CTR 0.82% · 花费 $1.0。",
         "【留存率最高素材】本周缺少完播/留存数据，暂无法评选。",
-        "【方向表现】「LifeLessons」购物 18 单领先，有效素材 6/16，ROAS 0.46；共 16 条素材参与本周 WW 测试。"
-      ]
+        "【方向表现】「LifeLessons」购物 18 单领先，有效素材 1/16，ROAS 0.46；共 16 条素材参与本周 WW 测试。"
+      ],
+      "new_direction_test": {
+        "label": "数字人",
+        "week_label": "0608周",
+        "direction": "aitalk",
+        "summary": {
+          "total_materials": 3,
+          "spend": 304.39,
+          "purchases": 4,
+          "subscriptions": 8,
+          "ordered_materials": 1,
+          "order_rate": 33.33
+        },
+        "materials": [
+          {
+            "rank": 1,
+            "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
+            "direction": "aitalk",
+            "theme": "365book",
+            "designer": "wxx",
+            "first_seen": "2026-06-10",
+            "week_label": "0608周",
+            "spend": 202.24,
+            "purchases": 4,
+            "subscriptions": 8,
+            "roas": 0.4,
+            "ctr": 0.94,
+            "scaling_status": "观察期"
+          },
+          {
+            "rank": 2,
+            "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-income_RS-P1X1R3C3_wxx",
+            "direction": "aitalk",
+            "theme": "income",
+            "designer": "wxx",
+            "first_seen": "2026-06-10",
+            "week_label": "0608周",
+            "spend": 79.37,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 1.15,
+            "scaling_status": "炮灰"
+          },
+          {
+            "rank": 3,
+            "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx",
+            "direction": "aitalk",
+            "theme": "IQ",
+            "designer": "wxx",
+            "first_seen": "2026-06-10",
+            "week_label": "0608周",
+            "spend": 22.78,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 0.72,
+            "scaling_status": "冷启动"
+          }
+        ],
+        "note": "本周另起 数字人 新方向测试（FX-aitalk），与常规周度上新分开统计，不计入上方 KPI。"
+      }
     }
   }
 }

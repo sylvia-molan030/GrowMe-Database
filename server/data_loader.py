@@ -38,6 +38,7 @@ CUSTOM_RETENTION_COL = "custom_derived_metrics:468178872764785"
 
 WEEK_FILE_RE = re.compile(r"周|week", re.IGNORECASE)
 ROLLBACK_FILE_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
+NEW_DIRECTION_FILE_RE = re.compile(r"数字人", re.IGNORECASE)
 
 
 def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -83,6 +84,8 @@ def _detect_data_scope(filename: str) -> str:
         return "account"
     if ROLLBACK_FILE_RE.search(filename):
         return "rollback"
+    if NEW_DIRECTION_FILE_RE.search(filename):
+        return "new_direction"
     return "weekly"
 
 
@@ -104,13 +107,18 @@ def _iter_input_files() -> list[Path]:
     result: list[Path] = []
     for p in paths:
         is_account = p.name.startswith("account_") or "account_all" in p.name.lower()
-        is_weekly = bool(WEEK_FILE_RE.search(p.name)) and not ROLLBACK_FILE_RE.search(p.name)
+        is_weekly = (
+            bool(WEEK_FILE_RE.search(p.name))
+            and not ROLLBACK_FILE_RE.search(p.name)
+            and not NEW_DIRECTION_FILE_RE.search(p.name)
+        )
         is_rollback = bool(ROLLBACK_FILE_RE.search(p.name))
+        is_new_direction = bool(NEW_DIRECTION_FILE_RE.search(p.name))
         if is_weekly and WEEKLY_WW_ONLY and _detect_channel(p.name) == "T1":
             continue
         if WW_ONLY and _detect_channel(p.name) == "T1" and is_account:
             continue
-        if is_account or is_weekly or is_rollback:
+        if is_account or is_weekly or is_rollback or is_new_direction:
             result.append(p)
     return result
 

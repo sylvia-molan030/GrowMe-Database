@@ -10,10 +10,10 @@ function renderTable(rows, sortBy, sortDir) {
       <td>${r.first_seen || '-'}</td>
       <td><span class="pill">${(r.designer || '?').slice(0, 3).toUpperCase()}</span></td>
       <td>${r.serial_code || '-'}</td>
+      <td>$${r.spend}</td>
       <td>${r.purchases}</td>
       <td>${r.roas}</td>
       <td>${r.ctr}%</td>
-      <td>$${r.spend}</td>
     </tr>
   `).join('');
 
@@ -27,10 +27,10 @@ function renderTable(rows, sortBy, sortDir) {
             <th data-sort="first_seen" class="${sortBy === 'first_seen' ? 'sorted' : ''}">首次上线日${arrow('first_seen')}</th>
             <th>设计师</th>
             <th>编号</th>
+            <th data-sort="spend" class="${sortBy === 'spend' ? 'sorted' : ''}">累计消耗${arrow('spend')}</th>
             <th data-sort="purchases" class="${sortBy === 'purchases' ? 'sorted' : ''}">期间总出单量${arrow('purchases')}</th>
             <th data-sort="roas" class="${sortBy === 'roas' ? 'sorted' : ''}">综合 ROAS${arrow('roas')}</th>
             <th data-sort="ctr" class="${sortBy === 'ctr' ? 'sorted' : ''}">综合 CTR${arrow('ctr')}</th>
-            <th data-sort="spend" class="${sortBy === 'spend' ? 'sorted' : ''}">累计消耗${arrow('spend')}</th>
           </tr>
         </thead>
         <tbody>${body || '<tr><td colspan="9" class="empty">暂无数据</td></tr>'}</tbody>
@@ -112,9 +112,9 @@ export async function renderLeaderboard(container, state) {
 
   container.querySelector('#export-csv').addEventListener('click', async () => {
     const all = await api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page: 1, page_size: 5000 });
-    const header = ['排名', '素材ID', '首次上线日', '设计师', '编号', '出单量', 'ROAS', 'CTR', '消耗'];
+    const header = ['排名', '素材ID', '首次上线日', '设计师', '编号', '消耗', '出单量', 'ROAS', 'CTR'];
     const lines = [header.join(',')].concat(
-      all.rows.map((r) => [r.rank, `"${r.material_id}"`, r.first_seen, r.designer, r.serial_code, r.purchases, r.roas, r.ctr, r.spend].join(','))
+      all.rows.map((r) => [r.rank, `"${r.material_id}"`, r.first_seen, r.designer, r.serial_code, r.spend, r.purchases, r.roas, r.ctr].join(','))
     );
     const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
     const a = document.createElement('a');

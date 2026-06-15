@@ -6,6 +6,8 @@ from typing import Any
 
 from data_loader import store, week_sort_key
 
+EFFECTIVE_SPEND_MIN = 200  # 有效素材：消耗 > $200 且有购物
+
 
 def sorted_week_labels() -> list[str]:
     labels = {
@@ -82,7 +84,7 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         g["roas"] = sum(roas_vals) / len(roas_vals) if roas_vals else 0
         g["hook_rate"] = _weighted_avg(hook_vals, hook_w)
         g["retention_rate"] = _weighted_avg(ret_vals, ret_w)
-        g["effective"] = g["purchases"] >= 1 or g["subscriptions"] >= 1
+        g["effective"] = g["spend"] > EFFECTIVE_SPEND_MIN and g["purchases"] >= 1
         g["has_order"] = g["purchases"] >= 1
         result.append(g)
     return result
@@ -145,8 +147,9 @@ def _wow_delta(current: float | int | None, previous: float | int | None) -> dic
 def _core_metrics(materials: list[dict[str, Any]]) -> dict[str, Any]:
     kpi = _channel_kpi(materials)
     return {
-        "effective_rate": kpi["effective_rate"],
+        "spend": kpi["spend"],
         "empty_spend": kpi["empty_spend"],
+        "effective_rate": kpi["effective_rate"],
         "cpi": kpi["cpi"],
         "cpm": kpi["cpm"],
         "subscriptions": kpi["subscriptions"],
@@ -157,8 +160,9 @@ def _core_metrics(materials: list[dict[str, Any]]) -> dict[str, Any]:
 
 def _comparison_table(current: dict[str, Any], previous: dict[str, Any] | None) -> list[dict[str, Any]]:
     labels = {
-        "effective_rate": ("有效率", "%"),
+        "spend": ("总消耗", "$"),
         "empty_spend": ("空消耗", "$"),
+        "effective_rate": ("有效率", "%"),
         "cpi": ("CPI", "$"),
         "cpm": ("CPM", "$"),
         "subscriptions": ("订阅数", ""),
@@ -400,6 +404,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         "week": week,
         "prev_week": prev,
         "weeks": labels,
+        "effective_rule": f"消耗 > ${EFFECTIVE_SPEND_MIN} 且有购物",
         "kpi": {
             "total_materials": combined_kpi["total_materials"],
             "order_rate": combined_kpi["order_rate"],
@@ -420,6 +425,20 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             week, prev, all_materials, combined_kpi, prev_combined, directions
         ),
     }
+    new_dir = None
+    try:
+        from new_direction_report import get_new_direction_for_week
+        new_dir = get_new_direction_for_week(week)
+    except ImportError:
+        pass
+    if new_dir:
+        report["new_direction_test"] = new_dir
+        report["insights"].insert(
+            0,
+            f"【新方向测试·{new_dir['label']}】{new_dir['note']} "
+            f"共 {new_dir['summary']['total_materials']} 条，消耗 ${new_dir['summary']['spend']}，"
+            f"购物 {new_dir['summary']['purchases']} / 订阅 {new_dir['summary']['subscriptions']}。",
+        )
     return {"weeks": labels, "report": report}
 
 

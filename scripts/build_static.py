@@ -13,6 +13,7 @@ sys.path.insert(0, str(SERVER))
 
 import analytics  # noqa: E402
 from data_loader import get_weekly_labels, store, week_sort_key  # noqa: E402
+from new_direction_report import get_new_direction_report  # noqa: E402
 from rollback_report import get_rollback_report  # noqa: E402
 from weekly_report import build_all_reports  # noqa: E402
 
@@ -109,6 +110,7 @@ def build() -> dict:
         "materials_weekly": weekly_materials,
         "weekly_reports": weekly_reports["reports"],
         "rollback": get_rollback_report(),
+        "new_direction": get_new_direction_report(),
     }
     return snapshot, weekly_reports
 

@@ -9,12 +9,12 @@ export async function renderDesigner(container, state) {
     <tr>
       <td>${i + 1}</td>
       <td><span class="pill">${r.designer}</span></td>
+      <td>$${r.total_spend}</td>
       <td>${r.total_materials}</td>
       <td>${r.ordered_materials}</td>
       <td>${r.total_orders}</td>
       <td>${r.order_rate}%</td>
       <td>${r.avg_roas}</td>
-      <td>$${r.total_spend}</td>
     </tr>
   `).join('');
 
@@ -28,8 +28,8 @@ export async function renderDesigner(container, state) {
         <table>
           <thead>
             <tr>
-              <th>排名</th><th>设计师</th><th>素材总数</th><th>出单素材数</th>
-              <th>总出单量</th><th>出单率</th><th>平均 ROAS</th><th>总消耗</th>
+              <th>排名</th><th>设计师</th><th>总消耗</th><th>素材总数</th><th>出单素材数</th>
+              <th>总出单量</th><th>出单率</th><th>平均 ROAS</th>
             </tr>
           </thead>
           <tbody>${body || '<tr><td colspan="8" class="empty">暂无设计师数据</td></tr>'}</tbody>

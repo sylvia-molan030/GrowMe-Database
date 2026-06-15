@@ -15,7 +15,7 @@ function renderTable(rows, emptyText) {
         <thead>
           <tr>
             <th>排名</th><th>素材</th><th>方向</th><th>设计师</th>
-            <th>购物</th><th>订阅</th><th>花费</th><th>ROAS</th><th>CTR</th><th>状态</th>
+            <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th><th>状态</th>
           </tr>
         </thead>
         <tbody>
@@ -25,9 +25,9 @@ function renderTable(rows, emptyText) {
               <td class="cell-material-name">${escapeHtml(r.material_id)}</td>
               <td><span class="tag">${escapeHtml(r.direction || '-')}</span></td>
               <td>${escapeHtml(r.designer || '-')}</td>
+              <td>$${r.spend}</td>
               <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
               <td>${r.subscriptions || 0}</td>
-              <td>$${r.spend}</td>
               <td>${r.roas}</td>
               <td>${r.ctr}%</td>
               <td><span class="tag green">${escapeHtml(r.tag || '-')}</span></td>

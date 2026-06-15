@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 import analytics
 from data_loader import store
 from materials_catalog import build_catalog, export_catalog, get_catalog_summary
+from new_direction_report import get_new_direction_report
 from rollback_report import get_rollback_report
 from weekly_report import get_weekly_report
 
@@ -203,6 +204,11 @@ def catalog() -> dict[str, Any]:
 @app.post("/api/catalog/export")
 def catalog_export() -> dict[str, Any]:
     return export_catalog()
+
+
+@app.get("/api/new-direction")
+def new_direction() -> dict[str, Any]:
+    return get_new_direction_report()
 
 
 @app.get("/api/rollback")

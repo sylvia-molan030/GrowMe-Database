@@ -5,7 +5,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 from typing import Any
 
-from data_loader import get_weekly_labels, store
+from data_loader import get_weekly_labels, store, WEEKLY_DATA_SCOPES
 from parser import DESIGNER_CANONICAL
 
 
@@ -109,19 +109,24 @@ def filter_records(
     weekly_only: bool = False,
 ) -> list[dict[str, Any]]:
     target_scope = _resolve_scope(mode, scope)
-    records = [r for r in store.records if r.get("data_scope") == target_scope]
+    if target_scope == "weekly":
+        records = [r for r in store.records if r.get("data_scope") in WEEKLY_DATA_SCOPES]
+        records = [r for r in records if r.get("channel") == "WW"]
+    else:
+        records = [r for r in store.records if r.get("data_scope") == target_scope]
     if weekly_only:
         allowed_weeks = set(get_weekly_labels())
         records = [r for r in records if r.get("week_label") in allowed_weeks]
-    if target_scope == "weekly":
-        records = [r for r in records if r.get("channel") == "WW"]
     return [r for r in records if _match_filters(r, filters)]
 
 
 def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
     keys = ["direction", "theme", "optimization", "stylization", "pain_point", "exercise_type", "channel"]
     options: dict[str, set[str]] = {k: set() for k in keys}
-    records = [r for r in store.records if r.get("data_scope") == scope]
+    records = [
+        r for r in store.records
+        if r.get("data_scope") in (WEEKLY_DATA_SCOPES if scope == "weekly" else {scope})
+    ]
     for r in records:
         for k in keys:
             v = r.get(k)
@@ -172,7 +177,9 @@ def get_data_date_range(scope: str = "account") -> tuple[str | None, str | None]
         {
             r.get("first_seen")
             for r in store.records
-            if r.get("first_seen") and r.get("data_scope") == scope
+            if r.get("first_seen") and r.get("data_scope") in (
+                WEEKLY_DATA_SCOPES if scope == "weekly" else {scope}
+            )
         }
     )
     if not dates:

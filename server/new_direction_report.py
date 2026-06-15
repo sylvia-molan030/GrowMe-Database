@@ -69,7 +69,7 @@ def get_new_direction_for_week(week_label: str) -> dict[str, Any] | None:
             "order_rate": round(ordered / total * 100, 2) if total else 0,
         },
         "materials": [_material_row(m, i + 1) for i, m in enumerate(materials)],
-        "note": f"本周另起 {NEW_DIRECTION_LABEL} 新方向测试（FX-aitalk），与常规周度上新分开统计，不计入上方 KPI。",
+        "note": f"本周 {NEW_DIRECTION_LABEL} 新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。",
     }
 
 
@@ -102,5 +102,5 @@ def get_new_direction_report() -> dict[str, Any]:
             "order_rate": round(ordered / total * 100, 2) if total else 0,
         },
         "materials": [_material_row(m, i + 1) for i, m in enumerate(materials)],
-        "note": f"{week_label or '本周'} 起单独测试 {NEW_DIRECTION_LABEL} 方向（FX-aitalk），与常规周度上新分开统计。",
+        "note": f"{week_label or '本周'} 起测试 {NEW_DIRECTION_LABEL} 方向（FX-aitalk），已计入对应周度 KPI。",
     }

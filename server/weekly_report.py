@@ -4,7 +4,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from data_loader import store, week_sort_key
+from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES
 
 EFFECTIVE_SPEND_MIN = 200  # 有效素材：消耗 > $200 且有购物
 
@@ -30,7 +30,7 @@ def _week_records(week_label: str, channel: str | None = None) -> list[dict[str,
     rows = [
         r
         for r in store.records
-        if r.get("data_scope") == "weekly" and r.get("week_label") == week_label
+        if r.get("data_scope") in WEEKLY_DATA_SCOPES and r.get("week_label") == week_label
     ]
     if channel:
         rows = [r for r in rows if r.get("channel") == channel]

@@ -37,6 +37,7 @@ CUSTOM_HOOK_COL = "custom_derived_metrics:334261784830934"
 CUSTOM_RETENTION_COL = "custom_derived_metrics:468178872764785"
 
 WEEK_FILE_RE = re.compile(r"周|week", re.IGNORECASE)
+ROLLBACK_FILE_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
 
 
 def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -77,9 +78,11 @@ def _detect_channel(filename: str, account: str = "") -> str:
 
 
 def _detect_data_scope(filename: str) -> str:
-    """account = 账户内全量；weekly = 周度上新成效（0525/0601 等）。"""
+    """account = 账户内全量；weekly = 周度上新；rollback = 回滚素材成效。"""
     if filename.startswith("account_") or "account_all" in filename.lower():
         return "account"
+    if ROLLBACK_FILE_RE.search(filename):
+        return "rollback"
     return "weekly"
 
 
@@ -101,14 +104,22 @@ def _iter_input_files() -> list[Path]:
     result: list[Path] = []
     for p in paths:
         is_account = p.name.startswith("account_") or "account_all" in p.name.lower()
-        is_weekly = bool(WEEK_FILE_RE.search(p.name))
+        is_weekly = bool(WEEK_FILE_RE.search(p.name)) and not ROLLBACK_FILE_RE.search(p.name)
+        is_rollback = bool(ROLLBACK_FILE_RE.search(p.name))
         if is_weekly and WEEKLY_WW_ONLY and _detect_channel(p.name) == "T1":
             continue
         if WW_ONLY and _detect_channel(p.name) == "T1" and is_account:
             continue
-        if is_account or is_weekly:
+        if is_account or is_weekly or is_rollback:
             result.append(p)
     return result
+
+
+def _detect_rollback_label(filename: str) -> str:
+    m = re.search(r"([\d\-]+周)", filename)
+    if m:
+        return m.group(1)
+    return "回滚素材"
 
 
 def _detect_week_label(filename: str) -> str:
@@ -174,7 +185,7 @@ class DataStore:
             return
 
         data_scope = _detect_data_scope(filename)
-        week_label = _detect_week_label(filename)
+        week_label = _detect_rollback_label(filename) if data_scope == "rollback" else _detect_week_label(filename)
 
         for _, row in df.iterrows():
             ad_name = str(row.get("ad_name", "")).strip()

@@ -232,5 +232,9 @@ export function createStaticApi() {
       if (report && !report.weeks) report.weeks = weeks;
       return { weeks, report };
     },
+    rollback: async () => {
+      await loadSnapshot();
+      return snapshot.rollback || { period_label: '-', historical: [], recommended: [], recommend_week: null, criteria: {} };
+    },
   };
 }

@@ -1,16 +1,17 @@
 {
-  "generated_at": "2026-06-15 09:20:32",
+  "generated_at": "2026-06-15 09:26:24",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
       "0525week WW.xlsx",
+      "0528-0601周回滚素材.csv",
       "0601周WW的数据.csv",
       "0608周WW的数据.csv",
       "0608周数字人.csv",
       "account_all_WW.csv"
     ],
-    "records": 2943,
-    "scanned_at": "2026-06-15 09:20:32",
+    "records": 2958,
+    "scanned_at": "2026-06-15 09:26:24",
     "default_date_start": "2026-06-04",
     "default_date_end": "2026-06-10",
     "data_date_start": "2025-01-04",
@@ -34781,6 +34782,78 @@
         "【留存率最高素材】本周缺少完播/留存数据，暂无法评选。",
         "【方向表现】「LifeLessons」购物 18 单领先，有效素材 6/16，ROAS 0.46；共 16 条素材参与本周 WW 测试。"
       ]
+    }
+  },
+  "rollback": {
+    "period_label": "0528-0601周",
+    "historical": [
+      {
+        "rank": 1,
+        "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X1R1C3_gy",
+        "direction": "Learning",
+        "theme": "habbit",
+        "designer": "gy",
+        "first_seen": "2026-06-04",
+        "purchases": 3,
+        "subscriptions": 5,
+        "spend": 147.96,
+        "roas": 0.64,
+        "ctr": 1.58,
+        "scaling_status": "观察期",
+        "tag": "已回滚"
+      }
+    ],
+    "recommend_week": "0608周",
+    "recommended": [
+      {
+        "rank": 1,
+        "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-Reading habits_RS-P3X1R1C3_fj",
+        "direction": "Learning",
+        "theme": "Reading habits",
+        "designer": "fj",
+        "first_seen": "2026-06-11",
+        "purchases": 2,
+        "subscriptions": 2,
+        "spend": 5.9,
+        "roas": 6.69,
+        "ctr": 1.41,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 2,
+        "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_gy_jql",
+        "direction": "Mindset",
+        "theme": "waste",
+        "designer": "jql",
+        "first_seen": "2026-06-09",
+        "purchases": 2,
+        "subscriptions": 2,
+        "spend": 17.79,
+        "roas": 2.1,
+        "ctr": 1.47,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 3,
+        "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
+        "direction": "LifeLessons",
+        "theme": "jounrey",
+        "designer": "wxx",
+        "first_seen": "2026-06-12",
+        "purchases": 1,
+        "subscriptions": 2,
+        "spend": 18.83,
+        "roas": 1.36,
+        "ctr": 1.42,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      }
+    ],
+    "criteria": {
+      "historical": "有购物",
+      "recommended": "消耗 < $50 且有购物"
     }
   }
 }

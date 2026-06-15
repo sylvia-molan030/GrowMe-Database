@@ -1,0 +1,4 @@
+报告开始日期,报告结束日期,广告名称,广告投放,成效,成效指标,单次成效费用,广告组名称,展示次数,"已花费金额 (USD)",应用安装量,"单次应用安装费用 (USD)",订阅次数,"单次订阅费用 (USD)",购物次数,"单次购物费用 (USD)","广告花费回报 (ROAS) - 购物",点击率（全部）,custom_derived_metrics:334261784830934,结果（初始）,成效（初始）指标
+2026-05-01,2026-06-15,20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx,active,4,actions:app_custom_event.fb_mobile_purchase,50.56,260612_ABO_AEO-Purchase_ios_vid_Growme_WW_ai人_joy,56020,202.24,44,4.596364,8,25.28,4,50.56,0.404074,0.93895,0.0950324,,
+2026-05-01,2026-06-15,20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx,inactive,,,,260612_ABO_AEO-Purchase_ios_vid_Growme_WW_ai人_joy,8869,22.78,6,3.796667,,,,,,0.721615,0.1,,
+2026-05-01,2026-06-15,20260610_growme_EN_9x16_FX-aitalk_ZT-income_RS-P1X1R3C3_wxx,inactive,,,,260612_ABO_AEO-Purchase_ios_vid_Growme_WW_ai人_joy,15973,79.37,7,11.338571,,,,,,1.151944,0.04605263,,

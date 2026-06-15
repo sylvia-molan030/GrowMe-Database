@@ -40,6 +40,10 @@ if [ ${#FILES[@]} -gt 0 ]; then
       echo "  当前: $base"
       exit 1
     fi
+    if echo "$base" | grep -qiE 'T1'; then
+      echo "✗ 周度上新不测 T1，请只导入 WW 文件: $base"
+      exit 1
+    fi
     cp "$src" "$DATA_DIR/$base"
     echo "  ✓ $base"
   done

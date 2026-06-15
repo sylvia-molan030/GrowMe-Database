@@ -278,8 +278,6 @@ def _generate_insights(
     materials: list[dict[str, Any]],
     combined_kpi: dict[str, Any],
     prev_combined: dict[str, Any] | None,
-    ww: dict[str, Any],
-    t1: dict[str, Any],
     directions: list[dict[str, Any]],
 ) -> list[str]:
     insights: list[str] = []
@@ -353,13 +351,7 @@ def _generate_insights(
         insights.append(
             f"【方向表现】「{top['direction']}」购物 {top['purchases']} 单领先，"
             f"有效素材 {top['effective_ratio']}，ROAS {top['roas']}；"
-            f"共 {top['total_materials']} 条素材参与本周测试。"
-        )
-
-    if ww.get("total_materials") and t1.get("total_materials"):
-        insights.append(
-            f"【渠道拆分】WW 消耗 ${ww['spend']:.0f} / 出单率 {ww['order_rate']}% / 有效 {ww['effective_materials']} 条；"
-            f"T1 消耗 ${t1['spend']:.0f} / 出单率 {t1['order_rate']}% / 有效 {t1['effective_materials']} 条。"
+            f"共 {top['total_materials']} 条素材参与本周 WW 测试。"
         )
 
     return insights
@@ -377,11 +369,6 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
     prev = _prev_week_label(week)
 
     all_materials = _aggregate_materials(_week_records(week))
-    ww_materials = _aggregate_materials(_week_records(week, "WW"))
-    t1_materials = _aggregate_materials(_week_records(week, "T1"))
-
-    ww_kpi = _channel_kpi(ww_materials)
-    t1_kpi = _channel_kpi(t1_materials)
     combined_kpi = _channel_kpi(all_materials)
 
     prev_combined = None
@@ -408,12 +395,6 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "subscriptions",
         ):
             wow[key] = _wow_delta(combined_kpi.get(key), prev_combined.get(key))
-        prev_ww = _channel_kpi(_aggregate_materials(_week_records(prev, "WW")))
-        prev_t1 = _channel_kpi(_aggregate_materials(_week_records(prev, "T1")))
-        wow["ww_spend"] = _wow_delta(ww_kpi["spend"], prev_ww["spend"])
-        wow["ww_order_rate"] = _wow_delta(ww_kpi["order_rate"], prev_ww["order_rate"])
-        wow["t1_spend"] = _wow_delta(t1_kpi["spend"], prev_t1["spend"])
-        wow["t1_order_rate"] = _wow_delta(t1_kpi["order_rate"], prev_t1["order_rate"])
 
     report = {
         "week": week,
@@ -424,8 +405,11 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "order_rate": combined_kpi["order_rate"],
             "ge2_rate": combined_kpi["ge2_rate"],
             "ge5_rate": combined_kpi["ge5_rate"],
-            "ww": ww_kpi,
-            "t1": t1_kpi,
+            "spend": combined_kpi["spend"],
+            "effective_materials": combined_kpi["effective_materials"],
+            "conversions": combined_kpi["conversions"],
+            "subscriptions": combined_kpi["subscriptions"],
+            "effective_rate": combined_kpi["effective_rate"],
             "wow": wow,
         },
         "core_comparison": _comparison_table(current_metrics, prev_metrics),
@@ -433,7 +417,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         "direction_table": directions,
         "survival_trend": _survival_trend(all_materials),
         "insights": _generate_insights(
-            week, prev, all_materials, combined_kpi, prev_combined, ww_kpi, t1_kpi, directions
+            week, prev, all_materials, combined_kpi, prev_combined, directions
         ),
     }
     return {"weeks": labels, "report": report}

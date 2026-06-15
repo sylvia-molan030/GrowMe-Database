@@ -113,6 +113,8 @@ def filter_records(
     if weekly_only:
         allowed_weeks = set(get_weekly_labels())
         records = [r for r in records if r.get("week_label") in allowed_weeks]
+    if target_scope == "weekly":
+        records = [r for r in records if r.get("channel") == "WW"]
     return [r for r in records if _match_filters(r, filters)]
 
 

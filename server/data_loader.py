@@ -10,8 +10,9 @@ import pandas as pd
 from parser import parse_material
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data_inputs"
-# 除周维度 KPI 外，全局按素材名合并 WW+T1；账户文件内 T1 行不再丢弃
+# 账户全量：全球+T1 按素材名合并；周度上新：仅 WW，不测 T1
 WW_ONLY = False
+WEEKLY_WW_ONLY = True
 
 # 中英文列名映射
 COLUMN_ALIASES: dict[str, list[str]] = {
@@ -83,8 +84,11 @@ def _detect_data_scope(filename: str) -> str:
 
 
 def _should_load_row(filename: str, account: str, data_scope: str) -> bool:
+    channel = _detect_channel(filename, account)
+    if data_scope == "weekly" and WEEKLY_WW_ONLY:
+        return channel == "WW"
     if WW_ONLY:
-        return _detect_channel(filename, account) == "WW"
+        return channel == "WW"
     return True
 
 
@@ -98,6 +102,8 @@ def _iter_input_files() -> list[Path]:
     for p in paths:
         is_account = p.name.startswith("account_") or "account_all" in p.name.lower()
         is_weekly = bool(WEEK_FILE_RE.search(p.name))
+        if is_weekly and WEEKLY_WW_ONLY and _detect_channel(p.name) == "T1":
+            continue
         if WW_ONLY and _detect_channel(p.name) == "T1" and is_account:
             continue
         if is_account or is_weekly:

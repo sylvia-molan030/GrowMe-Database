@@ -38,20 +38,17 @@ function renderKpiSection(kpi, prevWeek) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
   return `
-    <div class="section-title">周度 KPI${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
+    <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
     <div class="kpi-grid kpi-grid-4">
       ${kpiCard('总素材量', kpi.total_materials, hasWow ? wow.total_materials : null)}
-      ${kpiCard('WW 消耗', `$${fmt(kpi.ww.spend)}`, hasWow ? wow.ww_spend : null)}
-      ${kpiCard('WW 有效素材', kpi.ww.effective_materials, hasWow ? wow.effective_materials : null)}
-      ${kpiCard('WW 转化数', kpi.ww.conversions, hasWow ? wow.conversions : null)}
-      ${kpiCard('WW 出单率', `${kpi.ww.order_rate}%`, hasWow ? wow.ww_order_rate : null)}
-      ${kpiCard('T1 消耗', `$${fmt(kpi.t1.spend)}`, hasWow ? wow.t1_spend : null)}
-      ${kpiCard('T1 有效素材', kpi.t1.effective_materials)}
-      ${kpiCard('T1 转化数', kpi.t1.conversions)}
-      ${kpiCard('T1 出单率', `${kpi.t1.order_rate}%`, hasWow ? wow.t1_order_rate : null)}
+      ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}
+      ${kpiCard('WW 有效素材', kpi.effective_materials, hasWow ? wow.effective_materials : null)}
+      ${kpiCard('WW 转化数', kpi.conversions, hasWow ? wow.conversions : null)}
+      ${kpiCard('WW 出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
+      ${kpiCard('WW 订阅数', kpi.subscriptions, hasWow ? wow.subscriptions : null)}
       ${kpiCard('≥2 单素材率', `${kpi.ge2_rate}%`, hasWow ? wow.ge2_rate : null)}
       ${kpiCard('≥5 单素材率', `${kpi.ge5_rate}%`, hasWow ? wow.ge5_rate : null)}
-      ${kpiCard('总出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
+      ${kpiCard('有效率', `${kpi.effective_rate}%`)}
     </div>
   `;
 }

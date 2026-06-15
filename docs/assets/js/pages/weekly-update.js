@@ -262,9 +262,9 @@ export async function renderWeeklyUpdate(container, state) {
         <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
       `).join('')}
     </div>
-    ${renderNewDirectionCallout(report.new_direction_test)}
     ${renderKpiSection(report.kpi, report.prev_week, report.effective_rule)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
+    ${renderNewDirectionCallout(report.new_direction_test)}
     ${renderGoodMaterials(report.good_materials)}
     ${renderDirectionTable(report.direction_table, report.effective_rule)}
     <div class="card">

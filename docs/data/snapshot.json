@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 09:26:24",
+  "generated_at": "2026-06-15 09:28:58",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -11,7 +11,7 @@
       "account_all_WW.csv"
     ],
     "records": 2958,
-    "scanned_at": "2026-06-15 09:26:24",
+    "scanned_at": "2026-06-15 09:28:58",
     "default_date_start": "2026-06-04",
     "default_date_end": "2026-06-10",
     "data_date_start": "2025-01-04",
@@ -34807,6 +34807,21 @@
     "recommended": [
       {
         "rank": 1,
+        "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
+        "direction": "Learning",
+        "theme": "speak",
+        "designer": "gy",
+        "first_seen": "2026-06-09",
+        "purchases": 3,
+        "subscriptions": 4,
+        "spend": 94.25,
+        "roas": 0.22,
+        "ctr": 1.1,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 2,
         "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-Reading habits_RS-P3X1R1C3_fj",
         "direction": "Learning",
         "theme": "Reading habits",
@@ -34821,7 +34836,7 @@
         "tag": "可回滚"
       },
       {
-        "rank": 2,
+        "rank": 3,
         "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_gy_jql",
         "direction": "Mindset",
         "theme": "waste",
@@ -34836,7 +34851,22 @@
         "tag": "可回滚"
       },
       {
-        "rank": 3,
+        "rank": 4,
+        "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
+        "direction": "LifeLessons",
+        "theme": "opinion",
+        "designer": "gy",
+        "first_seen": "2026-06-08",
+        "purchases": 2,
+        "subscriptions": 6,
+        "spend": 100.67,
+        "roas": 0.33,
+        "ctr": 1.03,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 5,
         "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
         "direction": "LifeLessons",
         "theme": "jounrey",
@@ -34849,11 +34879,116 @@
         "ctr": 1.42,
         "scaling_status": "观察期",
         "tag": "可回滚"
+      },
+      {
+        "rank": 6,
+        "material_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS-P3X1R1C3_gy",
+        "direction": "LifeLessons",
+        "theme": "compare",
+        "designer": "gy",
+        "first_seen": "2026-06-10",
+        "purchases": 1,
+        "subscriptions": 3,
+        "spend": 52.15,
+        "roas": 0.16,
+        "ctr": 1.43,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 7,
+        "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-consistency_RS-P3X1R1C3_fj_jql",
+        "direction": "SelfImprovement",
+        "theme": "consistency",
+        "designer": "jql",
+        "first_seen": "2026-06-08",
+        "purchases": 1,
+        "subscriptions": 2,
+        "spend": 56.85,
+        "roas": 0.17,
+        "ctr": 0.75,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 8,
+        "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-stop_RS-P3X1R1C3_fj_jql",
+        "direction": "SelfImprovement",
+        "theme": "stop",
+        "designer": "jql",
+        "first_seen": "2026-06-08",
+        "purchases": 1,
+        "subscriptions": 1,
+        "spend": 63.11,
+        "roas": 0.39,
+        "ctr": 1.11,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 9,
+        "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-brain_RS-P3X1R1C3_gy_jql",
+        "direction": "Mindset",
+        "theme": "brain",
+        "designer": "jql",
+        "first_seen": "2026-06-11",
+        "purchases": 1,
+        "subscriptions": 3,
+        "spend": 83.44,
+        "roas": 0.39,
+        "ctr": 1.58,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 10,
+        "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-patience_RS-P1X1R3C3_wxx",
+        "direction": "LifeLessons",
+        "theme": "patience",
+        "designer": "wxx",
+        "first_seen": "2026-06-12",
+        "purchases": 1,
+        "subscriptions": 5,
+        "spend": 102.25,
+        "roas": 0.27,
+        "ctr": 1.42,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 11,
+        "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT- read pic_RS-P3X1R1C3_fj",
+        "direction": "Learning",
+        "theme": "read pic",
+        "designer": "fj",
+        "first_seen": "2026-06-09",
+        "purchases": 1,
+        "subscriptions": 2,
+        "spend": 104.22,
+        "roas": 0.37,
+        "ctr": 1.88,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 12,
+        "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
+        "direction": "learning",
+        "theme": "brain",
+        "designer": "wxx",
+        "first_seen": "2026-06-10",
+        "purchases": 1,
+        "subscriptions": 4,
+        "spend": 126.66,
+        "roas": 0.07,
+        "ctr": 1.65,
+        "scaling_status": "观察期",
+        "tag": "可回滚"
       }
     ],
     "criteria": {
       "historical": "有购物",
-      "recommended": "消耗 < $50 且有购物"
+      "recommended": "消耗 < $200 且有购物"
     }
   }
 }

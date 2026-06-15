@@ -62,7 +62,7 @@ export async function renderRollback(container) {
       <p style="font-size:13px;color:#6b7280;margin:0 0 12px">
         本周上新中「没跑起来但出了单」的素材，适合回滚再测。每周导入新周数据后自动更新。
       </p>
-      ${renderTable(data.recommended, `「${escapeHtml(week)}」暂无符合消耗 &lt; $50 且有购物的素材`)}
+      ${renderTable(data.recommended, `「${escapeHtml(week)}」暂无符合${escapeHtml(data.criteria.recommended || '条件')}的素材`)}
     </div>
   `;
 }

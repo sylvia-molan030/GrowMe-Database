@@ -6,7 +6,7 @@ from typing import Any
 from data_loader import store, week_sort_key
 from weekly_report import _aggregate_materials, _week_records, sorted_week_labels
 
-ROLLBACK_SPEND_MAX = 50.0
+ROLLBACK_SPEND_MAX = 200.0
 
 
 def _material_row(m: dict[str, Any], rank: int, tag: str = "") -> dict[str, Any]:

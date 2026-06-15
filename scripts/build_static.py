@@ -12,7 +12,7 @@ SERVER = ROOT / "server"
 sys.path.insert(0, str(SERVER))
 
 import analytics  # noqa: E402
-from data_loader import get_weekly_labels, store  # noqa: E402
+from data_loader import get_weekly_labels, store, week_sort_key  # noqa: E402
 from weekly_report import build_all_reports  # noqa: E402
 
 OUTPUT_DIR = ROOT / "docs" / "data"
@@ -61,11 +61,17 @@ def _export_materials(mode: str, scope: str | None = None, weekly_only: bool = F
     return [_material_row(m, i + 1) for i, m in enumerate(materials)]
 
 
+def _export_weekly_reports() -> dict:
+    reports = build_all_reports()
+    return {"weeks": sorted(reports.keys(), key=week_sort_key), "reports": reports}
+
+
 def build() -> dict:
     store.scan()
 
     account_materials = _export_materials("account")
     weekly_materials = _export_materials("new")
+    weekly_reports = _export_weekly_reports()
 
     ds, de = analytics.default_date_range("account")
     wds, wde = analytics.default_date_range("weekly")
@@ -100,19 +106,23 @@ def build() -> dict:
         },
         "materials_account": account_materials,
         "materials_weekly": weekly_materials,
-        "weekly_reports": build_all_reports(),
+        "weekly_reports": weekly_reports["reports"],
     }
-    return snapshot
+    return snapshot, weekly_reports
 
 
 def main() -> None:
-    snapshot = build()
+    snapshot, weekly_reports = build()
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUTPUT_DIR / "snapshot.json"
+    weekly_out = OUTPUT_DIR / "weekly-reports.json"
     out.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
+    weekly_out.write_text(json.dumps(weekly_reports, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"✓ 静态数据已导出: {out}")
+    print(f"✓ 周度报告已导出: {weekly_out}")
     print(f"  账户素材: {len(snapshot['materials_account'])} 条")
-    print(f"  上周新素材: {len(snapshot['materials_weekly'])} 条")
+    print(f"  周度上新素材: {len(snapshot['materials_weekly'])} 条（全部已导入周）")
+    print(f"  周度 Tab: {' · '.join(snapshot['meta']['weekly_labels'])}")
 
 
 if __name__ == "__main__":

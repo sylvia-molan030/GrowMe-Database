@@ -75,7 +75,8 @@ function renderMeta(meta, scannedAt) {
     ${modeLabel}<br/>
     已加载 ${meta.files_loaded.length} 个文件<br/>
     共 ${meta.records} 条原始记录<br/>
-    账户素材 ${catalog.total_materials || '-'} 条 · 上新月度 ${catalog.weekly_materials || '-'} 条<br/>
+    账户素材 ${catalog.total_materials || '-'} 条 · 周度上新 ${catalog.weekly_materials || '-'} 条<br/>
+    周度：${(meta.weekly_labels || []).join('、') || '-'}<br/>
     数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">≠本地时请 push 后等 1 分钟</span>' : ''}
   `;
 }
@@ -103,7 +104,7 @@ async function bootstrap() {
 
 document.getElementById('btn-rescan').addEventListener('click', async () => {
   if (IS_STATIC) {
-    alert('线上是静态快照，不会自动同步本地。\n\n更新步骤：\n1. 把新文件放入 data_inputs/\n2. 终端执行：python3 scripts/build_static.py\n3. git add docs/data/snapshot.json && git commit -m "更新数据" && git push\n\n约 1 分钟后刷新网站。');
+    alert('线上是静态快照，不会自动同步本地。\n\n【每周上新更新步骤】\n1. 把新周 CSV/Excel 放入 data_inputs/\n   命名须含「周」，如 0615周WW的数据.csv\n2. 终端执行：\n   ./scripts/update_weekly.sh --push\n\n将同时更新：\n· 周维度更新（新 Tab）\n· 各栏目「上新素材成效」\n· 核心资产晋级库·上新\n\n约 1 分钟后刷新网站。');
     return;
   }
   try {

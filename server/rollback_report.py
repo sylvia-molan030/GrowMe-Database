@@ -4,9 +4,18 @@ from __future__ import annotations
 from typing import Any
 
 from data_loader import store, week_sort_key
-from weekly_report import _aggregate_materials, _week_records, sorted_week_labels
+from weekly_report import _aggregate_materials, sorted_week_labels
 
 ROLLBACK_SPEND_MAX = 200.0
+
+
+def _week_records_weekly_only(week_label: str) -> list[dict[str, Any]]:
+    """可回滚推荐仅基于常规周度上新，不含数字人等 new_direction。"""
+    return [
+        r
+        for r in store.records
+        if r.get("data_scope") == "weekly" and r.get("week_label") == week_label
+    ]
 
 
 def _material_row(m: dict[str, Any], rank: int, tag: str = "") -> dict[str, Any]:
@@ -50,7 +59,7 @@ def get_rollback_report() -> dict[str, Any]:
     recommend_week = weeks[-1] if weeks else None
     recommended: list[dict[str, Any]] = []
     if recommend_week:
-        weekly = _aggregate_materials(_week_records(recommend_week))
+        weekly = _aggregate_materials(_week_records_weekly_only(recommend_week))
         recommended = [
             m for m in weekly
             if m.get("purchases", 0) >= 1 and m.get("spend", 0) < ROLLBACK_SPEND_MAX

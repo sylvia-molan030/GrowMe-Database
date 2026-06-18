@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
-# 每周上新：一键更新「周维度更新」+ 各栏目「上新素材成效」+ 线上网站
+# 周度上新：仅在你提供周度文件时更新「周维度更新」+ 上新成效 + 回滚素材
+#
+# 更新范围：
+#   ✓ 周维度更新
+#   ✓ 回滚素材（最新周「可回滚推荐」自动重算；历史回滚 CSV 可一并导入）
+#   ✓ 黄金交叉 / 排行榜 / 设计师 / 资产库 →「上新素材成效」
+#   ✗ 账户内栏目（须用 update_account.sh 导入 account_all_WW.csv）
 #
 # 用法：
-#   ./scripts/update_weekly.sh                          # 仅重建（data_inputs 里已有文件）
-#   ./scripts/update_weekly.sh ~/Downloads/0615周*.csv  # 复制新文件后重建
-#   ./scripts/update_weekly.sh --push file1.csv file2.csv  # 复制 + 重建 + 推送 GitHub
+#   ./scripts/update_weekly.sh                                    # 仅重建
+#   ./scripts/update_weekly.sh ~/Downloads/0615周WW的数据.csv    # 周度 WW
+#   ./scripts/update_weekly.sh ~/Downloads/0615周WW.csv ~/Downloads/0608-0615周回滚素材.csv
+#   ./scripts/update_weekly.sh --push file1.csv file2.csv
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DATA_DIR="$ROOT/data_inputs"
@@ -35,8 +42,8 @@ if [ ${#FILES[@]} -gt 0 ]; then
       exit 1
     fi
     base="$(basename "$src")"
-    if ! echo "$base" | grep -qiE '周|week'; then
-      echo "✗ 文件名须含「周」或「week」，例如 0615周WW的数据.csv"
+    if ! echo "$base" | grep -qiE '周|week|回滚|rollback'; then
+      echo "✗ 文件名须含「周」「week」或「回滚」，例如 0615周WW的数据.csv 或 6月份回滚素材.csv"
       echo "  当前: $base"
       exit 1
     fi
@@ -50,7 +57,7 @@ if [ ${#FILES[@]} -gt 0 ]; then
 fi
 
 echo ""
-echo "→ 扫描 data_inputs，更新周维度 + 上新素材成效 ..."
+echo "→ 扫描 data_inputs，更新周维度 + 上新成效 + 回滚素材 ..."
 python3 "$ROOT/scripts/build_static.py"
 
 echo ""
@@ -59,6 +66,7 @@ import sys
 sys.path.insert(0, "server")
 from data_loader import store, get_weekly_labels
 from weekly_report import get_weekly_report
+from rollback_report import get_rollback_report
 import analytics
 
 store.scan()
@@ -69,6 +77,7 @@ f = {
     "stylization": "全部", "pain_point": "全部", "exercise_type": "全部", "channel": "全部",
 }
 weekly_mats = analytics._aggregate_by_material(analytics.filter_records(f, mode="new"))
+rollback = get_rollback_report()
 print("── 更新结果 ──")
 print(f"  周度 Tab：{' · '.join(labels)}")
 print(f"  上新素材成效（各栏目 mode=上新）：{len(weekly_mats)} 条素材（含全部已导入周）")
@@ -77,8 +86,11 @@ if labels:
     r = get_weekly_report(latest)["report"]
     if r:
         print(f"  最新周 {latest}：{r['kpi']['total_materials']} 条 · 出单率 {r['kpi']['order_rate']}%")
+rw = rollback.get("recommend_week") or "—"
+print(f"  回滚素材：历史 {len(rollback.get('historical', []))} 条 · {rw} 可回滚推荐 {len(rollback.get('recommended', []))} 条")
 print("")
-print("  已更新：周维度更新 / 黄金交叉·上新 / 排行榜·上新 / 设计师·上新 / 资产库·上新")
+print("  已更新：周维度更新 / 回滚素材 / 黄金交叉·上新 / 排行榜·上新 / 设计师·上新 / 资产库·上新")
+print("  未更新：账户内栏目（请用 ./scripts/update_account.sh）")
 PY
 
 if [ "$PUSH" = true ]; then

@@ -28,7 +28,10 @@
     <main class="main">
       <header class="topbar">
         <h1 id="page-title">素材黄金交叉复盘</h1>
-        <button class="btn btn-primary" id="btn-rescan">↻ 重新扫描 data_inputs</button>
+        <div class="topbar-actions">
+          <input type="file" id="file-upload" class="upload-input" accept=".csv,.xlsx,.xls" multiple hidden />
+          <button class="btn btn-primary" id="btn-upload" type="button">↑ 上传数据</button>
+        </div>
       </header>
 
       <section class="filters" id="filters"></section>
@@ -36,6 +39,6 @@
     </main>
   </div>
 
-  <script type="module" src="./assets/js/app.js?v=9"></script>
+  <script type="module" src="./assets/js/app.js?v=10"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -14,6 +14,7 @@ from data_loader import store
 from materials_catalog import build_catalog, export_catalog, get_catalog_summary
 from new_direction_report import get_new_direction_report
 from rollback_report import get_rollback_report
+from upload_data import save_upload
 from weekly_report import get_weekly_report
 
 APP_DIR = Path(__file__).resolve().parent
@@ -68,6 +69,46 @@ def health() -> dict[str, Any]:
 @app.post("/api/rescan")
 def rescan() -> dict[str, Any]:
     return store.scan()
+
+
+@app.post("/api/upload")
+async def upload_data(files: list[UploadFile] = File(...)) -> dict[str, Any]:
+    if not files:
+        raise HTTPException(status_code=400, detail="请选择至少一个文件")
+    saved: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for f in files:
+        try:
+            content = await f.read()
+            if not content:
+                raise ValueError(f"文件为空: {f.filename}")
+            saved.append(save_upload(f.filename or "unknown.csv", content))
+        except ValueError as exc:
+            errors.append(str(exc))
+    if not saved and errors:
+        raise HTTPException(status_code=400, detail="; ".join(errors))
+    scan = store.scan()
+    kinds = sorted({s["kind"] for s in saved})
+    return {
+        "saved": saved,
+        "errors": errors,
+        "kinds": kinds,
+        "scan": scan,
+        "message": _upload_message(saved, kinds),
+    }
+
+
+def _upload_message(saved: list[dict[str, Any]], kinds: list[str]) -> str:
+    from upload_data import KIND_LABELS
+
+    parts = [f"已导入 {len(saved)} 个文件"]
+    if "account" in kinds:
+        parts.append("账户内栏目已更新")
+    if "weekly" in kinds or "new_direction" in kinds:
+        parts.append("周维度、上新成效与可回滚推荐已更新")
+    if "rollback" in kinds:
+        parts.append("历史回滚已更新")
+    return "；".join(parts)
 
 
 @app.get("/api/meta")

@@ -26,6 +26,18 @@ const liveApi = {
   designers: (filters, mode) => fetchJSON(`/api/designers?${buildQuery(filters, { mode })}`),
   weeklyReport: (week) => fetchJSON(`/api/weekly-report${week ? `?week=${encodeURIComponent(week)}` : ''}`),
   rollback: () => fetchJSON('/api/rollback'),
+  upload: async (fileList) => {
+    const fd = new FormData();
+    [...fileList].forEach((f) => fd.append('files', f));
+    const res = await fetch(`${API_BASE}/api/upload`, { method: 'POST', body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const d = data.detail;
+      const msg = Array.isArray(d) ? d.map((x) => x.msg || x).join('; ') : (d || `上传失败: ${res.status}`);
+      throw new Error(msg);
+    }
+    return data;
+  },
 };
 
 let apiImpl = liveApi;
@@ -56,6 +68,7 @@ export const api = {
   designers: (...args) => apiImpl.designers(...args),
   weeklyReport: (...args) => apiImpl.weeklyReport(...args),
   rollback: (...args) => apiImpl.rollback(...args),
+  upload: (...args) => liveApi.upload(...args),
 };
 
 export { IS_STATIC };

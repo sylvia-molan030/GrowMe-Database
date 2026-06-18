@@ -84,16 +84,22 @@ function renderMeta(meta, scannedAt) {
   `;
 }
 
+let apiMode = 'live';
+
 async function bootstrap() {
-  const mode = await initApi();
+  apiMode = await initApi();
   state.meta = await api.meta();
   state.filters = createDefaultFilters(state.meta);
   renderMeta(state.meta, state.meta.scanned_at);
 
-  const rescanBtn = document.getElementById('btn-rescan');
-  if (IS_STATIC || mode === 'static-fallback') {
-    rescanBtn.textContent = '↻ 数据由 GitHub 自动同步';
-    rescanBtn.title = '更新 data_inputs 后 push 到 GitHub 即可自动部署';
+  const uploadBtn = document.getElementById('btn-upload');
+  const fileInput = document.getElementById('file-upload');
+
+  if (IS_STATIC || apiMode === 'static-fallback') {
+    uploadBtn.textContent = '↑ 上传数据';
+    uploadBtn.title = '线上静态站无法直接上传，请本地 ./start.sh 使用，或 push 到 GitHub';
+  } else {
+    uploadBtn.title = '上传 CSV/Excel：账户全量、周度 WW、回滚素材、数字人';
   }
 
   renderFilters(filtersEl, state, onFiltersChange);
@@ -102,25 +108,46 @@ async function bootstrap() {
     btn.addEventListener('click', () => setView(btn.dataset.page));
   });
 
+  uploadBtn.addEventListener('click', () => {
+    if (IS_STATIC || apiMode === 'static-fallback') {
+      alert(
+        'GitHub 线上站无法直接上传文件。\n\n'
+        + '【本地预览上传】\n'
+        + '终端执行 ./start.sh，打开 http://localhost:8000/ 后点「上传数据」\n\n'
+        + '【更新线上】\n'
+        + '本地执行 ./scripts/update_account.sh --push 或 ./scripts/update_weekly.sh --push'
+      );
+      return;
+    }
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', async () => {
+    const files = fileInput.files;
+    if (!files?.length) return;
+    uploadBtn.classList.add('is-loading');
+    uploadBtn.textContent = '上传中…';
+    try {
+      const result = await api.upload(files);
+      state.meta = await api.meta();
+      renderMeta(state.meta, result.scan?.scanned_at);
+      renderFilters(filtersEl, state, onFiltersChange);
+      await refreshPage();
+      const lines = (result.saved || []).map((s) => `· ${s.original_name} → ${s.saved_as}\n  ${s.label}`);
+      const err = (result.errors || []).length ? `\n\n部分失败：\n${result.errors.join('\n')}` : '';
+      alert(`${result.message || '上传成功'}\n\n${lines.join('\n')}${err}`);
+    } catch (err) {
+      alert(`上传失败：${err.message}`);
+    } finally {
+      uploadBtn.classList.remove('is-loading');
+      uploadBtn.textContent = '↑ 上传数据';
+      fileInput.value = '';
+    }
+  });
+
   setView('golden-cross');
 }
 
-document.getElementById('btn-rescan').addEventListener('click', async () => {
-  if (IS_STATIC) {
-    alert('线上是静态快照，不会自动同步本地。\n\n【每周上新更新步骤】\n1. 把新周 CSV/Excel 放入 data_inputs/\n   命名须含「周」，如 0615周WW的数据.csv\n2. 终端执行：\n   ./scripts/update_weekly.sh --push\n\n将同时更新：\n· 周维度更新（新 Tab）\n· 各栏目「上新素材成效」\n· 核心资产晋级库·上新\n\n约 1 分钟后刷新网站。');
-    return;
-  }
-  try {
-    const result = await api.rescan();
-    state.meta = await api.meta();
-    renderMeta(state.meta, result.scanned_at);
-    renderFilters(filtersEl, state, onFiltersChange);
-    refreshPage();
-  } catch (err) {
-    alert(`扫描失败：${err.message}`);
-  }
-});
-
 bootstrap().catch((err) => {
-  contentEl.innerHTML = `<div class="empty">初始化失败：${err.message}<br/>请确认后端已启动。</div>`;
+  contentEl.innerHTML = `<div class="empty">初始化失败：${err.message}<br/>请确认后端已启动（./start.sh）。</div>`;
 });

@@ -8,11 +8,17 @@ let weeklyReportsPromise = null;
 export const IS_STATIC = document.documentElement.dataset.static === 'true'
   || window.location.hostname.endsWith('github.io');
 
-const DATA_URL = new URL('./data/snapshot.json', window.location.href).href;
-const WEEKLY_URL = new URL('./data/weekly-reports.json', window.location.href).href;
+const BUILD_VER = document.documentElement.dataset.build || '';
+const withCacheBust = (path) => {
+  const url = new URL(path, window.location.href);
+  if (BUILD_VER) url.searchParams.set('v', BUILD_VER);
+  return url.href;
+};
+const DATA_URL = withCacheBust('./data/snapshot.json');
+const WEEKLY_URL = withCacheBust('./data/weekly-reports.json');
 
 async function fetchJSON(url, label) {
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: 'no-store' });
   if (!res.ok) throw new Error(`无法加载${label}: ${url}`);
   return res.json();
 }

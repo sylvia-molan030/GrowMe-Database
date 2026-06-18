@@ -46,7 +46,6 @@ function renderKpiSection(kpi, prevWeek, effectiveRule) {
       ${kpiCard('WW 有效素材', kpi.effective_materials, hasWow ? wow.effective_materials : null, ruleHint)}
       ${kpiCard('WW 转化数', kpi.conversions, hasWow ? wow.conversions : null)}
       ${kpiCard('WW 出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
-      ${kpiCard('WW 订阅数', kpi.subscriptions, hasWow ? wow.subscriptions : null)}
       ${kpiCard('≥2 单素材率', `${kpi.ge2_rate}%`, hasWow ? wow.ge2_rate : null)}
       ${kpiCard('≥5 单素材率', `${kpi.ge5_rate}%`, hasWow ? wow.ge5_rate : null)}
       ${kpiCard('有效率', `${kpi.effective_rate}%`, null, ruleHint)}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18 18:39:44",
+  "generated_at": "2026-06-23 09:44:25",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -7,23 +7,25 @@
       "0601周WW的数据.csv",
       "0608周WW的数据.csv",
       "0608周数字人.csv",
+      "0615周WW的数据.csv",
       "6月份回滚素材.csv",
       "account_all_WW.csv"
     ],
-    "records": 4636,
-    "scanned_at": "2026-06-18 18:39:44",
+    "records": 4740,
+    "scanned_at": "2026-06-23 09:44:25",
     "default_date_start": "2026-06-10",
     "default_date_end": "2026-06-16",
     "data_date_start": "2025-01-04",
     "data_date_end": "2026-06-16",
     "weekly_date_start": "2026-05-25",
-    "weekly_date_end": "2026-06-12",
-    "weekly_default_date_start": "2026-06-06",
-    "weekly_default_date_end": "2026-06-12",
+    "weekly_date_end": "2026-06-18",
+    "weekly_default_date_start": "2026-06-12",
+    "weekly_default_date_end": "2026-06-18",
     "weekly_labels": [
       "0525周",
       "0601周",
-      "0608周"
+      "0608周",
+      "0615周"
     ],
     "designer_labels": [
       "gy",
@@ -1001,22 +1003,29 @@
       "direction": [
         "全部",
         "Book Reading",
+        "Bookreading",
         "Challenge",
         "Communication",
         "Creative",
+        "Creative_JB-061801-ZR",
         "Creatives",
         "Discipline",
         "EmotionalHealth",
+        "Faith",
         "Finance",
+        "Financet",
         "Focus",
         "Form",
         "Formats",
         "Growth",
+        "Habits",
         "Habitst",
         "Learning",
         "LifeLessons",
+        "Lifelessons",
         "Mindset",
         "Mood",
+        "Quetes",
         "Quotes",
         "Reading",
         "SelfImprovement",
@@ -1042,30 +1051,44 @@
         "0finished",
         "101",
         "10books",
+        "10mins",
         "112",
         "11things",
+        "11things_LV1-scape",
         "18s",
+        "1min",
         "2choice",
         "2years",
+        "365",
         "365book",
+        "365book_LV1-jindutiao",
+        "3months",
         "4 sign",
         "4 words",
         "6anxiety",
+        "6mins",
         "7habits",
+        "8minutes",
         "A2english",
+        "Discipline",
         "English",
+        "Follow along",
         "Foryour",
         "IQ",
+        "Learnforlife",
         "Letnature",
         "Lifeadvice",
         "Mentalhealth",
+        "Publicspeaking",
         "Reading habits",
         "Relieveanxiety",
+        "SocialMedia",
         "abcd",
         "actually",
         "add",
         "advice",
         "alone",
+        "amen",
         "anxiety",
         "author",
         "b1",
@@ -1074,18 +1097,27 @@
         "behindlife",
         "believe",
         "beokay",
+        "better",
         "book",
+        "book1",
+        "book2",
+        "book3",
         "booklist",
         "brain",
         "brain2",
+        "bridge",
         "build",
         "caise",
         "care about",
         "change",
+        "changelife",
+        "check",
         "chicken soup",
         "cichang",
+        "clearai",
         "color",
         "color2",
+        "communicate",
         "communication",
         "compare",
         "confidence",
@@ -1094,6 +1126,7 @@
         "consistency",
         "contro",
         "d1",
+        "did",
         "doctor",
         "doit",
         "donghua",
@@ -1104,12 +1137,22 @@
         "eadingpower",
         "education",
         "emo-1",
+        "endai",
         "english",
         "english story",
         "englishpresentation",
+        "everything",
+        "explain",
+        "failing",
+        "failureai",
+        "family",
         "fluency",
         "focus",
         "forgive",
+        "friend",
+        "future",
+        "gentle",
+        "gentle1",
         "girl",
         "giveup",
         "gonna",
@@ -1119,18 +1162,24 @@
         "habit",
         "happen",
         "happy",
+        "hard",
+        "hard1",
         "heidi",
         "hello-ai",
         "howto",
+        "iPhone",
         "ifyou",
         "improve",
         "income",
         "interesting",
+        "international friends",
         "interpersonal-1",
         "job",
         "jounrey",
         "just reminder",
+        "kaizhi",
         "keep",
+        "language",
         "leadership",
         "learn",
         "learn English",
@@ -1155,44 +1204,64 @@
         "mine",
         "money",
         "morning",
+        "motivatedai",
         "naixin",
+        "nature",
         "news",
+        "niceleader",
         "niupizhi",
         "niupizhi1",
+        "niupizhi_LV1-rain",
         "nofriends",
         "nomoney",
         "normal",
         "nostalgia",
         "onefact",
         "onehabits",
+        "onemoretime",
         "oneway2",
         "opinion",
+        "optimism",
+        "pace",
         "patience",
+        "peaple",
         "perfect",
         "phone",
         "plan",
+        "positive",
+        "powerCommunication",
         "powerful",
+        "powerfully",
+        "practive",
+        "present",
         "pride",
         "pride rain-1",
         "privilege",
         "progress",
+        "proofai",
+        "purpose",
         "quick",
+        "quitread",
         "rain",
         "rain2",
         "rconversations.",
         "reaction",
         "read",
         "read pic",
+        "readAI",
+        "readextensive",
         "reading",
         "readingchallenge",
         "relationship",
         "relationships",
         "respect",
         "restart",
+        "rich",
         "routine",
         "say",
         "see",
         "seen",
+        "select",
         "self",
         "shengjing",
         "silence",
@@ -1201,45 +1270,58 @@
         "slow-English",
         "slowburn",
         "slowenglish",
+        "smarter",
         "speak",
         "speakceo",
+        "speaking",
         "speech",
         "startover",
         "stop",
         "story",
         "strat",
         "stronger",
+        "stuck",
         "study",
         "success",
         "sucess",
         "survive",
+        "takeaction",
         "talkabout",
+        "terms",
         "theolder",
         "think",
         "thinking",
+        "time",
         "timedont",
         "trainbrain",
         "trauma",
         "true richness-1",
+        "true yuyan",
         "truest",
         "try",
         "turtle",
+        "urgetopry",
         "value",
         "voice",
         "wait",
         "warn",
         "waste",
         "waste2",
+        "water",
         "wawa",
         "wellspoken",
         "woman",
         "women",
         "work",
+        "world",
         "wrong",
         "xiezi",
         "xinwen",
+        "yale",
         "yourself",
+        "youselfai",
         "youshouldtry",
+        "zhencheng",
         "zixin"
       ],
       "optimization": [
@@ -1251,11 +1333,13 @@
         "P1X1R1C3",
         "P1X1R3C1",
         "P1X1R3C3",
+        "P2X1R1C3",
         "P3X1R1C3"
       ],
       "pain_point": [
         "全部",
         "P1",
+        "P2",
         "P3"
       ],
       "exercise_type": [
@@ -1282,7 +1366,7 @@
     },
     "catalog": {
       "total_materials": 1788,
-      "weekly_materials": 272
+      "weekly_materials": 376
     },
     "static": true
   },
@@ -40759,6 +40843,28 @@
     },
     {
       "rank": 7,
+      "material_id": "20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_RS-P1X1R3C3_wxx",
+      "standard_id": "20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-15",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "positive",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 11,
+      "roas": 0.47,
+      "ctr": 1.64,
+      "spend": 575.64,
+      "scaling_status": "增长期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 8,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-trainbrain_RS-P3X1R1C3_fj",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-trainbrain_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-01",
@@ -40780,7 +40886,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-life_RS-P3X1R1C3_gy",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-life_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-01",
@@ -40802,7 +40908,29 @@
       "week_label": "0601周"
     },
     {
-      "rank": 9,
+      "rank": 10,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "water",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 7,
+      "roas": 0.42,
+      "ctr": 1.41,
+      "spend": 398.41,
+      "scaling_status": "增长期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 11,
       "material_id": "20260602_GrowMe_0_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy",
       "standard_id": "20260602_GrowMe_0_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-02",
@@ -40824,7 +40952,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 10,
+      "rank": 12,
       "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-patience_RS-P1X1R3C3_wxx",
       "standard_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-patience_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-12",
@@ -40846,7 +40974,29 @@
       "week_label": "0608周"
     },
     {
-      "rank": 11,
+      "rank": 13,
+      "material_id": "20260616_growme_EN_9x16_FX-Learning_ZT-readextensive_RS-P1X1R3C3_wxx",
+      "standard_id": "20260616_growme_EN_9x16_FX-Learning_ZT-readextensive_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-16",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "readextensive",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 5,
+      "roas": 0.62,
+      "ctr": 2.11,
+      "spend": 239.6,
+      "scaling_status": "增长期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 14,
       "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -40868,7 +41018,73 @@
       "week_label": "0608周"
     },
     {
-      "rank": 12,
+      "rank": 15,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "pace",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 4,
+      "roas": 0.72,
+      "ctr": 0.93,
+      "spend": 152.7,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 16,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-language_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-language_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "language",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 4,
+      "roas": 0.54,
+      "ctr": 1.53,
+      "spend": 159.94,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 17,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-17",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "10mins",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 4,
+      "roas": 0.52,
+      "ctr": 0.99,
+      "spend": 248.9,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 18,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-11things_RS-P3X1R1C3_fj",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-11things_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-26",
@@ -40890,7 +41106,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 13,
+      "rank": 19,
       "material_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-fluency_RS-P1X1R3C3_wxx",
       "standard_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-fluency_RS-P1X1R3C3_wxx",
       "first_seen": "2026-05-27",
@@ -40912,7 +41128,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 14,
+      "rank": 20,
       "material_id": "20260604_GrowMe_EN_9x16_FX-EmotionalHealth_ZT- anxiety_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-anxiety_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-04",
@@ -40934,7 +41150,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 15,
+      "rank": 21,
       "material_id": "20260601_growme_EN_9x16_FX-lifelessons_ZT-education_RS-P1X1R3C3_wxx",
       "standard_id": "20260601_growme_EN_9x16_FX-lifelessons_ZT-education_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-01",
@@ -40956,7 +41172,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 16,
+      "rank": 22,
       "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
       "standard_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-12",
@@ -40978,7 +41194,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 17,
+      "rank": 23,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-09",
@@ -41000,7 +41216,51 @@
       "week_label": "0608周"
     },
     {
-      "rank": 18,
+      "rank": 24,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "gentle1",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 3,
+      "roas": 0.42,
+      "ctr": 1.12,
+      "spend": 81.89,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 25,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "peaple",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 3,
+      "roas": 0.33,
+      "ctr": 1.32,
+      "spend": 257.53,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 26,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT-strat_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT-strat_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-04",
@@ -41022,7 +41282,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 19,
+      "rank": 27,
       "material_id": "20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -41044,7 +41304,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 20,
+      "rank": 28,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-reading_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-reading_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -41066,7 +41326,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 21,
+      "rank": 29,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -41088,7 +41348,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 22,
+      "rank": 30,
       "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-08",
@@ -41110,7 +41370,51 @@
       "week_label": "0608周"
     },
     {
-      "rank": 23,
+      "rank": 31,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "listen",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 2,
+      "roas": 0.44,
+      "ctr": 1.99,
+      "spend": 128.93,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 32,
+      "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Publicspeaking_RS-P1X1R1C3_HJ_RMG-5219G",
+      "standard_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Publicspeaking_RS-P1X1R1C3_HJ",
+      "first_seen": "2026-06-16",
+      "designer": "其他",
+      "designer_variant": "",
+      "serial_code": "RMG-5219G",
+      "direction": "Creative",
+      "theme": "Publicspeaking",
+      "optimization": "",
+      "stylization": "P1X1R1C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 2,
+      "roas": 0.19,
+      "ctr": 1.48,
+      "spend": 68.89,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 33,
       "material_id": "20260605_GrowMe_EN_9x16_FX-Learning_ZT-b1_RS-P3X1R1C3_fj",
       "standard_id": "20260605_GrowMe_EN_9x16_FX-Learning_ZT-b1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-05",
@@ -41132,7 +41436,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 24,
+      "rank": 34,
       "material_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-forgive_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-forgive_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -41154,7 +41458,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 25,
+      "rank": 35,
       "material_id": "20260603_GrowMe_EN_9x16_FX-fear_ZT-d1_RS-P3X1R1C3_fj",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-fear_ZT-d1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-03",
@@ -41176,7 +41480,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 26,
+      "rank": 36,
       "material_id": "20260603_growme_EN_9x16_FX-lifelessons_ZT-youshouldtry_RS-P1X1R3C3_wxx",
       "standard_id": "20260603_growme_EN_9x16_FX-lifelessons_ZT-youshouldtry_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-03",
@@ -41198,7 +41502,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 27,
+      "rank": 37,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Growth_ZT-change_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Growth_ZT-change_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -41220,7 +41524,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 28,
+      "rank": 38,
       "material_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-book_RS-P1X1R3C3_wxx",
       "standard_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-book_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-02",
@@ -41242,7 +41546,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 29,
+      "rank": 39,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT- voice_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-voice_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -41264,7 +41568,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 30,
+      "rank": 40,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-d1_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-d1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -41286,7 +41590,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 31,
+      "rank": 41,
       "material_id": "20260602_GrowMe_0_EN_9x16_FX-LifeLessons_ZT-confidence_RS-P3X1R1C3_gy",
       "standard_id": "20260602_GrowMe_0_EN_9x16_FX-LifeLessons_ZT-confidence_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-02",
@@ -41308,7 +41612,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 32,
+      "rank": 42,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Communication_ZT-read_RS-P3X1R1C3_gy",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Communication_ZT-read_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-01",
@@ -41330,7 +41634,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 33,
+      "rank": 43,
       "material_id": "20260601_growme_EN_9x16_FX-Learning_ZT-communication_RS-P1X1R3C3_wxx",
       "standard_id": "20260601_growme_EN_9x16_FX-Learning_ZT-communication_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-01",
@@ -41352,7 +41656,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 34,
+      "rank": 44,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-brain_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-brain_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -41374,7 +41678,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 35,
+      "rank": 45,
       "material_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT- battle_RS-P3X1R1C3_gy",
       "standard_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT-battle_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-12",
@@ -41396,7 +41700,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 36,
+      "rank": 46,
       "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -41418,7 +41722,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 37,
+      "rank": 47,
       "material_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS-P3X1R1C3_gy",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-10",
@@ -41440,7 +41744,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 38,
+      "rank": 48,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT- read pic_RS-P3X1R1C3_fj",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-read pic_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-09",
@@ -41462,7 +41766,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 39,
+      "rank": 49,
       "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-consistency_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-consistency_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -41484,7 +41788,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 40,
+      "rank": 50,
       "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-stop_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-stop_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -41506,7 +41810,29 @@
       "week_label": "0608周"
     },
     {
-      "rank": 41,
+      "rank": 51,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-positive_RS-P3X1R1C3_gy",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-positive_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-17",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "positive",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 1,
+      "roas": 0.15,
+      "ctr": 1.52,
+      "spend": 70.89,
+      "scaling_status": "观察期",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 52,
       "material_id": "20260525_growme_EN_9x16_FX-test_ZT-love_RS-P1X1R3C1_gy",
       "standard_id": "20260525_growme_EN_9x16_FX-test_ZT-love_RS-P1X1R3C1_gy",
       "first_seen": "2026-05-25",
@@ -41528,7 +41854,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 42,
+      "rank": 53,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-speak_RS-P3X1R1C3_gy",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-speak_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-27",
@@ -41550,7 +41876,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 43,
+      "rank": 54,
       "material_id": "20260525_growme_EN_9x16_FX-test_ZT-read_RS-P1X1R3C1_gy",
       "standard_id": "20260525_growme_EN_9x16_FX-test_ZT-read_RS-P1X1R3C1_gy",
       "first_seen": "2026-05-25",
@@ -41572,7 +41898,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 44,
+      "rank": 55,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-relationship_RS-P3X1R1C3_gy",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-relationship_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-27",
@@ -41594,7 +41920,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 45,
+      "rank": 56,
       "material_id": "20260525_growme_EN_9x16_FX-test_ZT-confidence_RS-P1X1R3C1_gy",
       "standard_id": "20260525_growme_EN_9x16_FX-test_ZT-confidence_RS-P1X1R3C1_gy",
       "first_seen": "2026-05-25",
@@ -41616,7 +41942,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 46,
+      "rank": 57,
       "material_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-routine_RS-P1X1R3C3_wxx",
       "standard_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-routine_RS-P1X1R3C3_wxx",
       "first_seen": "2026-05-27",
@@ -41638,7 +41964,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 47,
+      "rank": 58,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-sucess_RS-P3X1R1C3_gy",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-sucess_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-27",
@@ -41660,7 +41986,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 48,
+      "rank": 59,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-plan_RS-P3X1R1C3_gy",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-plan_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-26",
@@ -41682,7 +42008,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 49,
+      "rank": 60,
       "material_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-talkabout_RS-P3X1R1C3_fj",
       "standard_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-talkabout_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-25",
@@ -41704,7 +42030,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 50,
+      "rank": 61,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-mine_RS-P3X1R1C3_gy",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-mine_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-26",
@@ -41726,7 +42052,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 51,
+      "rank": 62,
       "material_id": "20260526_0_GrowMe_EN_9x16_FX-Creative_ZT-restart_RS-P3X1R1C3_gy",
       "standard_id": "20260526_0_GrowMe_EN_9x16_FX-Creative_ZT-restart_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-26",
@@ -41748,7 +42074,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 52,
+      "rank": 63,
       "material_id": "20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_wxx",
       "standard_id": "20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_wxx",
       "first_seen": "2026-05-26",
@@ -41770,7 +42096,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 53,
+      "rank": 64,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-grow_RS-P3X1R1C3_gy",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-grow_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-27",
@@ -41792,7 +42118,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 54,
+      "rank": 65,
       "material_id": "20260528_GrowMe_EN_9x16_FX-Formats_ZT-xinwen_RS-P3X1R1C3_gy",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-Formats_ZT-xinwen_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-28",
@@ -41814,7 +42140,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 55,
+      "rank": 66,
       "material_id": "20260525_growme_EN_9x16_FX-test_ZT-opinion_RS-P1X1R3C1_gy",
       "standard_id": "20260525_growme_EN_9x16_FX-test_ZT-opinion_RS-P1X1R3C1_gy",
       "first_seen": "2026-05-25",
@@ -41836,7 +42162,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 56,
+      "rank": 67,
       "material_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-hello-ai_RS-P3X1R1C3_fj",
       "standard_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-hello-ai_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-25",
@@ -41858,7 +42184,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 57,
+      "rank": 68,
       "material_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-news_RS-P3X1R1C3_fj",
       "standard_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-news_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-25",
@@ -41880,7 +42206,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 58,
+      "rank": 69,
       "material_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-timedont_RS-P3X1R1C3_fj",
       "standard_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-timedont_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-25",
@@ -41902,7 +42228,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 59,
+      "rank": 70,
       "material_id": "20260529_growme_720x1280_oneway2_wxx_P1X1R1C3",
       "standard_id": "20260529_growme_720x1280_oneway2_wxx_P1X1R1C3",
       "first_seen": "2026-05-29",
@@ -41924,7 +42250,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 60,
+      "rank": 71,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-2years_RS-P3X1R1C3_fj",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-2years_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-26",
@@ -41946,7 +42272,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 61,
+      "rank": 72,
       "material_id": "20260525_growme_EN_9x16_FX-test_ZT-education_RS-P1X1R3C1_gy",
       "standard_id": "20260525_growme_EN_9x16_FX-test_ZT-education_RS-P1X1R3C1_gy",
       "first_seen": "2026-05-25",
@@ -41968,7 +42294,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 62,
+      "rank": 73,
       "material_id": "20260529_growme_720x1280_speak_wxx_P1X1R1C3",
       "standard_id": "20260529_growme_720x1280_speak_wxx_P1X1R1C3",
       "first_seen": "2026-05-29",
@@ -41990,7 +42316,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 63,
+      "rank": 74,
       "material_id": "20260525_growme_EN_9x16_FX-test_ZT-zixin_RS-P1X1R3C1_gy",
       "standard_id": "20260525_growme_EN_9x16_FX-test_ZT-zixin_RS-P1X1R3C1_gy",
       "first_seen": "2026-05-25",
@@ -42012,7 +42338,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 64,
+      "rank": 75,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-onehabits_RS-P3X1R1C3_fj",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-onehabits_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-26",
@@ -42034,7 +42360,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 65,
+      "rank": 76,
       "material_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-learning_RS-P3X1R1C3_fj",
       "standard_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-learning_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-25",
@@ -42056,7 +42382,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 66,
+      "rank": 77,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-theolder_RS-P3X1R1C3_fj",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-theolder_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-26",
@@ -42078,7 +42404,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 67,
+      "rank": 78,
       "material_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-confidence_RS-P3X1R1C3_fj",
       "standard_id": "20260525_GrowMe_EN_9x16_FX-test_ZT-confidence_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-25",
@@ -42100,7 +42426,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 68,
+      "rank": 79,
       "material_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-listen_RS-P1X1R3C3_wxx",
       "standard_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-listen_RS-P1X1R3C3_wxx",
       "first_seen": "2026-05-27",
@@ -42122,7 +42448,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 69,
+      "rank": 80,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-slowburn_RS-P3X1R1C3_fj",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-slowburn_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-26",
@@ -42144,7 +42470,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 70,
+      "rank": 81,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-actually_RS-P3X1R1C3_fj",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-actually_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-27",
@@ -42166,7 +42492,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 71,
+      "rank": 82,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-quick_RS-P3X1R1C3_fj",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-quick_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-27",
@@ -42188,7 +42514,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 72,
+      "rank": 83,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-job_RS-P3X1R1C3_gy",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-job_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-26",
@@ -42210,7 +42536,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 73,
+      "rank": 84,
       "material_id": "20260528_GrowMe_EN_9x16_FX-convercation_ZT-keep_RS-P3X1R1C3_gy",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-convercation_ZT-keep_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-28",
@@ -42232,7 +42558,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 74,
+      "rank": 85,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-wellspoken_RS-P3X1R1C3_fj",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-wellspoken_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-27",
@@ -42254,7 +42580,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 75,
+      "rank": 86,
       "material_id": "20260528_growme_EN_9x16_FX-Form_ZT-advice_RS-P1X1R3C3_wxx",
       "standard_id": "20260528_growme_EN_9x16_FX-Form_ZT-advice_RS-P1X1R3C3_wxx",
       "first_seen": "2026-05-28",
@@ -42276,7 +42602,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 76,
+      "rank": 87,
       "material_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-silence_RS-P3X1R1C3_fj",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-silence_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-28",
@@ -42298,7 +42624,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 77,
+      "rank": 88,
       "material_id": "20260525_growme_EN_9x16_FX-Creative_ZT-slow-English_RS-P1X1R3C3_zx_06",
       "standard_id": "20260525_growme_EN_9x16_FX-Creative_ZT-slow-English_RS-P1X1R3C3_zx_06",
       "first_seen": "2026-05-25",
@@ -42320,7 +42646,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 78,
+      "rank": 89,
       "material_id": "20260529_growme_720x1280_shengjing_wxx_P1X1R1C3",
       "standard_id": "20260529_growme_720x1280_shengjing_wxx_P1X1R1C3",
       "first_seen": "2026-05-29",
@@ -42342,7 +42668,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 79,
+      "rank": 90,
       "material_id": "20260526_GrowMe_EN_9x16_FX-test_ZT-2years_RS-P3X1R1C3_fj",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-test_ZT-2years_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-26",
@@ -42364,7 +42690,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 80,
+      "rank": 91,
       "material_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT- money_RS-P3X1R1C3_fj",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-money_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-28",
@@ -42386,7 +42712,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 81,
+      "rank": 92,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-sloe-beain_RS-P3X1R1C3_fj",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-sloe-beain_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-27",
@@ -42408,7 +42734,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 82,
+      "rank": 93,
       "material_id": "20260525_growme_EN_9x16_FX-Creative_ZT-slow-English_RS-P1X1R3C3_zl_01",
       "standard_id": "20260525_growme_EN_9x16_FX-Creative_ZT-slow-English_RS-P1X1R3C3_zl_01",
       "first_seen": "2026-05-25",
@@ -42430,7 +42756,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 83,
+      "rank": 94,
       "material_id": "20260528_GrowMe_EN_9x16_FX-convercation_ZT-study_RS-P3X1R1C3_gy",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-convercation_ZT-study_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-28",
@@ -42452,7 +42778,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 84,
+      "rank": 95,
       "material_id": "20260525_growme_EN_9x16_FX-Creative_ZT-slow-English_RS-P1X1R3C3_zx_04",
       "standard_id": "20260525_growme_EN_9x16_FX-Creative_ZT-slow-English_RS-P1X1R3C3_zx_04",
       "first_seen": "2026-05-25",
@@ -42474,7 +42800,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 85,
+      "rank": 96,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-girl_RS-P3X1R1C3_fj",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-girl_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-27",
@@ -42496,7 +42822,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 86,
+      "rank": 97,
       "material_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-A2english_RS-P3X1R1C3_fj",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-A2english_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-28",
@@ -42518,7 +42844,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 87,
+      "rank": 98,
       "material_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-author_RS-P3X1R1C3_fj",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-author_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-28",
@@ -42540,7 +42866,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 88,
+      "rank": 99,
       "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-habbit_RS-P3X1R1C3_gy",
       "standard_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-habbit_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-26",
@@ -42562,7 +42888,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 89,
+      "rank": 100,
       "material_id": "20260528_growme_EN_9x16_FX-Creatives_ZT-waste2_RS-P1X1R3C3_wxx",
       "standard_id": "20260528_growme_EN_9x16_FX-Creatives_ZT-waste2_RS-P1X1R3C3_wxx",
       "first_seen": "2026-05-28",
@@ -42584,7 +42910,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 90,
+      "rank": 101,
       "material_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-speakceo_RS-P3X1R1C3_fj",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-Creative_ZT-speakceo_RS-P3X1R1C3_fj",
       "first_seen": "2026-05-28",
@@ -42606,7 +42932,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 91,
+      "rank": 102,
       "material_id": "20260528_GrowMe_EN_9x16_FX-convercation_ZT-warn_RS-P3X1R1C3_gy",
       "standard_id": "20260528_GrowMe_EN_9x16_FX-convercation_ZT-warn_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-28",
@@ -42628,7 +42954,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 92,
+      "rank": 103,
       "material_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-self_RS-P3X1R1C3_gy",
       "standard_id": "20260527_GrowMe_EN_9x16_FX-Creative_ZT-self_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-27",
@@ -42650,7 +42976,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 93,
+      "rank": 104,
       "material_id": "20260529_GrowMe_EN_9x16_FX-Creative_ZT-compare_RS-P3X1R1C3_gy",
       "standard_id": "20260529_GrowMe_EN_9x16_FX-Creative_ZT-compare_RS-P3X1R1C3_gy",
       "first_seen": "2026-05-29",
@@ -42672,7 +42998,7 @@
       "week_label": "0525周"
     },
     {
-      "rank": 94,
+      "rank": 105,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT- dosomeing_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-dosomeing_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -42694,7 +43020,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 95,
+      "rank": 106,
       "material_id": "20260605_growme_EN_9x16_FX-learning_ZT-niupizhi1_RS-P1X1R3C3_wxx",
       "standard_id": "20260605_growme_EN_9x16_FX-learning_ZT-niupizhi1_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-05",
@@ -42716,7 +43042,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 96,
+      "rank": 107,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT- change_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT-change_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-04",
@@ -42738,7 +43064,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 97,
+      "rank": 108,
       "material_id": "20260605_growme_EN_9x16_FX-mindset_ZT-caise_RS-P1X1R3C3_wxx",
       "standard_id": "20260605_growme_EN_9x16_FX-mindset_ZT-caise_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-05",
@@ -42760,7 +43086,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 98,
+      "rank": 109,
       "material_id": "20260605_growme_EN_9x16_FX-successful_ZT-color_RS-P1X1R3C3_wxx",
       "standard_id": "20260605_growme_EN_9x16_FX-successful_ZT-color_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-05",
@@ -42782,7 +43108,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 99,
+      "rank": 110,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Finance_ZT-turtle_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Finance_ZT-turtle_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-04",
@@ -42804,7 +43130,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 100,
+      "rank": 111,
       "material_id": "20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-P3X1R1C3_fj",
       "standard_id": "20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-05",
@@ -42826,7 +43152,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 101,
+      "rank": 112,
       "material_id": "20260605_growme_EN_9x16_FX-successful_ZT-color2_RS-P1X1R3C3_wxx",
       "standard_id": "20260605_growme_EN_9x16_FX-successful_ZT-color2_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-05",
@@ -42848,7 +43174,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 102,
+      "rank": 113,
       "material_id": "20260605_GrowMe_EN_9x16_FX-Communication_ZT-contro_RS-P3X1R1C3_fj",
       "standard_id": "20260605_GrowMe_EN_9x16_FX-Communication_ZT-contro_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-05",
@@ -42870,7 +43196,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 103,
+      "rank": 114,
       "material_id": "20260604_growme_EN_9x16_FX-lifelessons_ZT-leisi_RS-P1X1R3C3_gy_wxx",
       "standard_id": "20260604_growme_EN_9x16_FX-lifelessons_ZT-leisi_RS-P1X1R3C3_gy_wxx",
       "first_seen": "2026-06-04",
@@ -42892,7 +43218,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 104,
+      "rank": 115,
       "material_id": "20260604_GrowMe_EN_9x16_FX-LifeLessons_ZTdontworry_RS-P3X1R1C3_fj",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-LifeLessons_ZT-dontworry_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-04",
@@ -42914,7 +43240,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 105,
+      "rank": 116,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-doctor_RS-P3X1R1C3_gy",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-doctor_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-04",
@@ -42936,7 +43262,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 106,
+      "rank": 117,
       "material_id": "20260604_growme_EN_9x16_FX-Learning_ZT-reading_RS-P1X1R3C3_wxx",
       "standard_id": "20260604_growme_EN_9x16_FX-Learning_ZT-reading_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-04",
@@ -42958,7 +43284,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 107,
+      "rank": 118,
       "material_id": "20260604_GrowMe_EN_9x16_FX-LifeLessons_ZT-perfect_RS-P3X1R1C3_gy",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-LifeLessons_ZT-perfect_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-04",
@@ -42980,7 +43306,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 108,
+      "rank": 119,
       "material_id": "20260604_growme_EN_9x16_FX-lifelessons_ZT-leisi-choies_RS-P1X1R3C3_wxx",
       "standard_id": "20260604_growme_EN_9x16_FX-lifelessons_ZT-leisi-choies_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-04",
@@ -43002,7 +43328,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 109,
+      "rank": 120,
       "material_id": "20260604_growme_EN_9x16_FX-lifelessons_ZT-leisi-noone_RS-P1X1R3C3_wxx",
       "standard_id": "20260604_growme_EN_9x16_FX-lifelessons_ZT-leisi-noone_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-04",
@@ -43024,7 +43350,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 110,
+      "rank": 121,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT- happy_RS-P3X1R1C3_fj",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT-happy_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-04",
@@ -43046,7 +43372,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 111,
+      "rank": 122,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-book_RS-P3X1R1C3_gy",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-book_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-04",
@@ -43068,7 +43394,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 112,
+      "rank": 123,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT- just reminder_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-just reminder_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43090,7 +43416,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 113,
+      "rank": 124,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Quotes_ZT-stop_RS-P3X1R1C3_fj",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Quotes_ZT-stop_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-04",
@@ -43112,7 +43438,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 114,
+      "rank": 125,
       "material_id": "20260604_GrowMe_EN_9x16_FX-LifeLessons_ZT-try_RS-P3X1R1C3_gy",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-LifeLessons_ZT-try_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-04",
@@ -43134,7 +43460,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 115,
+      "rank": 126,
       "material_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-nofriends_RS-P3X1R1C3_fj",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-nofriends_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-03",
@@ -43156,7 +43482,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 116,
+      "rank": 127,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Quotes_ZT-nostalgia_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Quotes_ZT-nostalgia_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -43178,7 +43504,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 117,
+      "rank": 128,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Formats_ZTdonghua_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Formats_ZT-donghua_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -43200,7 +43526,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 118,
+      "rank": 129,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-stronger_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-stronger_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -43222,7 +43548,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 119,
+      "rank": 130,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Quotes_ZT-11things_RS-P3X1R1C3_fj",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Quotes_ZT-11things_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-03",
@@ -43244,7 +43570,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 120,
+      "rank": 131,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-learn English_RS-P3X1R1C3_fj",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-learn English_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-04",
@@ -43266,7 +43592,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 121,
+      "rank": 132,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT- work_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-work_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43288,7 +43614,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 122,
+      "rank": 133,
       "material_id": "20260603_GrowMe_EN_9x16_FX-EmotionalHealth_ZT- ifyou_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-ifyou_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43310,7 +43636,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 123,
+      "rank": 134,
       "material_id": "20260604_GrowMe_EN_9x16_FX-Finance_ZT-18s_RS-P3X1R1C3_fj",
       "standard_id": "20260604_GrowMe_EN_9x16_FX-Finance_ZT-18s_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-04",
@@ -43332,7 +43658,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 124,
+      "rank": 135,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Formats_ZT-respect_RS-P3X1R1C3_gy",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Formats_ZT-respect_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-03",
@@ -43354,7 +43680,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 125,
+      "rank": 136,
       "material_id": "20260603_GrowMe_EN_9x16_FX-SelfImprovement_ZT-dontcare_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-SelfImprovement_ZT-dontcare_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43376,7 +43702,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 126,
+      "rank": 137,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Discipline_ZT-thinking_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Discipline_ZT-thinking_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43398,7 +43724,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 127,
+      "rank": 138,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Discipline_ZT-2choice_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Discipline_ZT-2choice_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43420,7 +43746,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 128,
+      "rank": 139,
       "material_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT- forgive_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-forgive_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43442,7 +43768,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 129,
+      "rank": 140,
       "material_id": "20260603_growme_EN_9x16_FX-lifeisnoteasy_ZT-youshouldtry_RS-P1X1R3C3_wxx",
       "standard_id": "20260603_growme_EN_9x16_FX-lifeisnoteasy_ZT-youshouldtry_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-03",
@@ -43464,7 +43790,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 130,
+      "rank": 141,
       "material_id": "20260603_growme_EN_9x16_FX-lifelessons_ZT-lifeplanned_RS-P1X1R3C3_wxx",
       "standard_id": "20260603_growme_EN_9x16_FX-lifelessons_ZT-lifeplanned_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-03",
@@ -43486,7 +43812,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 131,
+      "rank": 142,
       "material_id": "20260603_growme_EN_9x16_FX-Learning_ZT-singsong_RS-P1X1R3C3_wxx",
       "standard_id": "20260603_growme_EN_9x16_FX-Learning_ZT-singsong_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-03",
@@ -43508,7 +43834,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 132,
+      "rank": 143,
       "material_id": "20260603_GrowMe_EN_9x16_FX- Focus_ZT- yourself_RS-P3X1R1C3_fj",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Focus_ZT-yourself_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-03",
@@ -43530,7 +43856,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 133,
+      "rank": 144,
       "material_id": "20260602_GrowMe_0_EN_9x16_FX-Growth_ZT-naixin_RS-P3X1R1C3_gy",
       "standard_id": "20260602_GrowMe_0_EN_9x16_FX-Growth_ZT-naixin_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-02",
@@ -43552,7 +43878,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 134,
+      "rank": 145,
       "material_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-pride_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-pride_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43574,7 +43900,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 135,
+      "rank": 146,
       "material_id": "20260602_GrowMe_EN_9x16_FX-LifeLessons_ZT-Letnature_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-LifeLessons_ZT-Letnature_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43596,7 +43922,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 136,
+      "rank": 147,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Mindset_ZT-behindlife_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Mindset_ZT-behindlife_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -43618,7 +43944,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 137,
+      "rank": 148,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Mindset_ZT-speech_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Mindset_ZT-speech_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43640,7 +43966,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 138,
+      "rank": 149,
       "material_id": "20260602_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
       "standard_id": "20260602_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-02",
@@ -43662,7 +43988,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 139,
+      "rank": 150,
       "material_id": "20260602_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-woman_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-woman_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -43684,7 +44010,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 140,
+      "rank": 151,
       "material_id": "20260603_GrowMe_EN_9x16_FX- Focus_ZT-morning_RS-P3X1R1C3_fj",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Focus_ZT-morning_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-03",
@@ -43706,7 +44032,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 141,
+      "rank": 152,
       "material_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-women_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-women_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43728,7 +44054,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 142,
+      "rank": 153,
       "material_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-howto_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260603_GrowMe_EN_9x16_FX-Mindset_ZT-howto_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-03",
@@ -43750,7 +44076,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 143,
+      "rank": 154,
       "material_id": "20260602_GrowMe_0_EN_9x16_FX-LifeLessons_ZT-read_RS-P3X1R1C3_gy",
       "standard_id": "20260602_GrowMe_0_EN_9x16_FX-LifeLessons_ZT-read_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-02",
@@ -43772,7 +44098,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 144,
+      "rank": 155,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Quotes_ZT-10books_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Quotes_ZT-10books_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -43794,7 +44120,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 145,
+      "rank": 156,
       "material_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-Mentalhealth_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-Mentalhealth_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43816,7 +44142,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 146,
+      "rank": 157,
       "material_id": "20260602_GrowMe_0_EN_9x16_FX-Quotes_ZT-dream_RS-P3X1R1C3_gy",
       "standard_id": "20260602_GrowMe_0_EN_9x16_FX-Quotes_ZT-dream_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-02",
@@ -43838,7 +44164,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 147,
+      "rank": 158,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Growth_ZT-startover_RS-P3X1R1C3_fj",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Growth_ZT-startover_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-02",
@@ -43860,7 +44186,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 148,
+      "rank": 159,
       "material_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-6anxiety_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-6anxiety_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43882,7 +44208,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 149,
+      "rank": 160,
       "material_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-Relieveanxiety_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-Relieveanxiety_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43904,7 +44230,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 150,
+      "rank": 161,
       "material_id": "20260602_GrowMe_EN_9x16_FX-LifeLessons_ZT-Lifeadvice_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-LifeLessons_ZT-Lifeadvice_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43926,7 +44252,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 151,
+      "rank": 162,
       "material_id": "20260602_GrowMe_EN_9x16_FX-LifeLessons_ZT-4 words_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-LifeLessons_ZT-4 words_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -43948,7 +44274,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 152,
+      "rank": 163,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748C",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -43970,7 +44296,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 153,
+      "rank": 164,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748I",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -43992,7 +44318,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 154,
+      "rank": 165,
       "material_id": "20260601_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-wait_RS-P3X1R1C3_gy",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-wait_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-01",
@@ -44014,7 +44340,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 155,
+      "rank": 166,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-Foryour_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-Foryour_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -44036,7 +44362,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 156,
+      "rank": 167,
       "material_id": "20260602_growme_EN_9x16_FX-WomenEmpowerment_ZT-cichang_RS-P1X1R3C3_wxx",
       "standard_id": "20260602_growme_EN_9x16_FX-WomenEmpowerment_ZT-cichang_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-02",
@@ -44058,7 +44384,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 157,
+      "rank": 168,
       "material_id": "20260602_GrowMe_EN_9x16_FX-Mindset_ZT-phone_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260602_GrowMe_EN_9x16_FX-Mindset_ZT-phone_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-02",
@@ -44080,7 +44406,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 158,
+      "rank": 169,
       "material_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-survive_RS-P1X1R3C3_wxx",
       "standard_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-survive_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-02",
@@ -44102,7 +44428,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 159,
+      "rank": 170,
       "material_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-101_RS-P1X1R3C3_wxx",
       "standard_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-101_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-02",
@@ -44124,7 +44450,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 160,
+      "rank": 171,
       "material_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-focus_RS-P1X1R3C3_wxx",
       "standard_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-focus_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-02",
@@ -44146,7 +44472,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 161,
+      "rank": 172,
       "material_id": "20260601_GrowMe_0_EN_9x16_FX-Formats_ZT-read_RS-P3X1R1C3_gy",
       "standard_id": "20260601_GrowMe_0_EN_9x16_FX-Formats_ZT-read_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-01",
@@ -44168,7 +44494,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 162,
+      "rank": 173,
       "material_id": "20260601_GrowMe_EN_9x16_FX-LifeLessons_ZT-mindset_RS-P3X1R1C3_gy",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-LifeLessons_ZT-mindset_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-01",
@@ -44190,7 +44516,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 163,
+      "rank": 174,
       "material_id": "20260601_growme_EN_9x16_FX-Quotes_ZT-meaningful_RS-P1X1R3C3_wxx",
       "standard_id": "20260601_growme_EN_9x16_FX-Quotes_ZT-meaningful_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-01",
@@ -44212,7 +44538,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 164,
+      "rank": 175,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-01",
@@ -44234,7 +44560,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 165,
+      "rank": 176,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748F",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44256,7 +44582,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 166,
+      "rank": 177,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748D",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44278,7 +44604,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 167,
+      "rank": 178,
       "material_id": "20260601_growme_EN_9x16_FX-Learning_ZT-booklist_RS-P1X1R3C3_wxx",
       "standard_id": "20260601_growme_EN_9x16_FX-Learning_ZT-booklist_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-01",
@@ -44300,7 +44626,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 168,
+      "rank": 179,
       "material_id": "20260601_GrowMe_EN_9x16_FX-LifeLessons_ZT-nomoney_RS-P3X1R1C3_fj",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-LifeLessons_ZT-nomoney_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-01",
@@ -44322,7 +44648,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 169,
+      "rank": 180,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748G",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44344,7 +44670,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 170,
+      "rank": 181,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748H",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44366,7 +44692,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 171,
+      "rank": 182,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Quotes_ZT-xiezi_RS-P3X1R1C3_fj",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Quotes_ZT-xiezi_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-01",
@@ -44388,7 +44714,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 172,
+      "rank": 183,
       "material_id": "20260601_growme_EN_9x16_FX-Finance_ZT-maderich_RS-P1X1R3C3_wxx",
       "standard_id": "20260601_growme_EN_9x16_FX-Finance_ZT-maderich_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-01",
@@ -44410,7 +44736,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 173,
+      "rank": 184,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-englishpresentation_RS-P3X1R1C3_fj",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-englishpresentation_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-01",
@@ -44432,7 +44758,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 174,
+      "rank": 185,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748A",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44454,7 +44780,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 175,
+      "rank": 186,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748B",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44476,7 +44802,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 176,
+      "rank": 187,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748J",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44498,7 +44824,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 177,
+      "rank": 188,
       "material_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH_RMG-4748E",
       "standard_id": "20260529_growme_EN_9x16_FX-Creative_ZT-leadership_RS-P1X1R3C3_ZH",
       "first_seen": "2026-05-29",
@@ -44520,7 +44846,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 178,
+      "rank": 189,
       "material_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-eadingpower_RS-P3X1R1C3_fj",
       "standard_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-eadingpower_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-01",
@@ -44542,7 +44868,7 @@
       "week_label": "0601周"
     },
     {
-      "rank": 179,
+      "rank": 190,
       "material_id": "20260612_GrowMe_EN_9x16_FX-Mindset_ZT-see_RS-P3X1R1C3_gy",
       "standard_id": "20260612_GrowMe_EN_9x16_FX-Mindset_ZT-see_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-12",
@@ -44564,7 +44890,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 180,
+      "rank": 191,
       "material_id": "20260612_GrowMe_EN_9x16_FX-Learning_ZT-confident_RS-P3X1R1C3_gy",
       "standard_id": "20260612_GrowMe_EN_9x16_FX-Learning_ZT-confident_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-12",
@@ -44586,7 +44912,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 181,
+      "rank": 192,
       "material_id": "20260612_growme_EN_9x16_FX-Mood_ZT-rain_RS-P1X1R3C3_wxx",
       "standard_id": "20260612_growme_EN_9x16_FX-Mood_ZT-rain_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-12",
@@ -44608,7 +44934,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 182,
+      "rank": 193,
       "material_id": "20260612_growme_EN_9x16_FX-Mood_ZT-rain2_RS-P1X1R3C3_wxx",
       "standard_id": "20260612_growme_EN_9x16_FX-Mood_ZT-rain2_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-12",
@@ -44630,7 +44956,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 183,
+      "rank": 194,
       "material_id": "20260612_growme_EN_9x16_FX-Learning_ZT-read_RS-P1X1R3C3_wxx",
       "standard_id": "20260612_growme_EN_9x16_FX-Learning_ZT-read_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-12",
@@ -44652,7 +44978,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 184,
+      "rank": 195,
       "material_id": "20260612_GrowMe_EN_9x16_FX-Mindset_ZT-powerful_RS-P3X1R1C3_gy",
       "standard_id": "20260612_GrowMe_EN_9x16_FX-Mindset_ZT-powerful_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-12",
@@ -44674,7 +45000,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 185,
+      "rank": 196,
       "material_id": "20260612_GrowMe_EN_9x16_FX-Mindset_ZT-reaction_RS-P3X1R1C3_gy",
       "standard_id": "20260612_GrowMe_EN_9x16_FX-Mindset_ZT-reaction_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-12",
@@ -44696,7 +45022,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 186,
+      "rank": 197,
       "material_id": "20260612_growme_EN_9x16_01_FX-Challenge_ZT-trauma_RS-P1X1R3C3_wxx",
       "standard_id": "20260612_growme_EN_9x16_FX-Challenge_ZT-trauma_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-12",
@@ -44718,7 +45044,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 187,
+      "rank": 198,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-seen_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-seen_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -44740,7 +45066,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 188,
+      "rank": 199,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-respect_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-respect_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -44762,7 +45088,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 189,
+      "rank": 200,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-improve_RS-P3X1R1C3_fj",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-improve_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-11",
@@ -44784,7 +45110,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 190,
+      "rank": 201,
       "material_id": "20260611_GrowMe_EN_9x16_FX-mindset_ZT-love_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-mindset_ZT-love_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -44806,7 +45132,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 191,
+      "rank": 202,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-story_RS-P3X1R1C3_gy",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-story_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-11",
@@ -44828,7 +45154,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 192,
+      "rank": 203,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Book Reading_ZT-story_RS-P3X1R1C3_fj",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Book Reading_ZT-story_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-11",
@@ -44850,7 +45176,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 193,
+      "rank": 204,
       "material_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-success_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-success_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -44872,7 +45198,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 194,
+      "rank": 205,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Communication_ZT-conflicts_RS-P3X1R1C3_fj",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Communication_ZT-conflicts_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-11",
@@ -44894,7 +45220,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 195,
+      "rank": 206,
       "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain2_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain2_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -44916,7 +45242,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 196,
+      "rank": 207,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -44938,7 +45264,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 197,
+      "rank": 208,
       "material_id": "20260611_growme_EN_9x16_FX-learning_ZT-heidi_RS-P1X1R3C3_wxx",
       "standard_id": "20260611_growme_EN_9x16_FX-learning_ZT-heidi_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-11",
@@ -44960,7 +45286,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 198,
+      "rank": 209,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -44982,7 +45308,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 199,
+      "rank": 210,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-english story_RS-P3X1R1C3_fj",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-english story_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-11",
@@ -45004,7 +45330,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 200,
+      "rank": 211,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Successful_ZT-success_RS-P3X1R1C3_gy",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Successful_ZT-success_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-11",
@@ -45026,7 +45352,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 201,
+      "rank": 212,
       "material_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-believe_RS-P3X1R1C3_gy",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-believe_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-11",
@@ -45048,7 +45374,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 202,
+      "rank": 213,
       "material_id": "20260611_growme_EN_9x16_FX-learning_ZT-lianxi2_RS-P1X1R3C3_wxx",
       "standard_id": "20260611_growme_EN_9x16_FX-learning_ZT-lianxi2_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-11",
@@ -45070,7 +45396,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 203,
+      "rank": 214,
       "material_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-lifehard_RS-P3X1R1C3_gy",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-lifehard_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-11",
@@ -45092,7 +45418,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 204,
+      "rank": 215,
       "material_id": "20260610_growme_EN_9x16_FX-Finance_ZT-money_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-Finance_ZT-money_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -45114,7 +45440,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 205,
+      "rank": 216,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-alone_RS-P3X1R1C3_gy",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-alone_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-11",
@@ -45136,7 +45462,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 206,
+      "rank": 217,
       "material_id": "20260611_growme_EN_9x16_FX-learning_ZT-lianxi_RS-P1X1R3C3_wxx",
       "standard_id": "20260611_growme_EN_9x16_FX-learning_ZT-lianxi_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-11",
@@ -45158,7 +45484,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 207,
+      "rank": 218,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-progress_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-progress_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -45180,7 +45506,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 208,
+      "rank": 219,
       "material_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-life_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-LifeLessons_ZT-life_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -45202,7 +45528,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 209,
+      "rank": 220,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-doit_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-doit_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-11",
@@ -45224,7 +45550,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 210,
+      "rank": 221,
       "material_id": "20260609_growme_EN_9x16_01_FX-Learning _ZT-english_RS-P1X1R3C3_wxx",
       "standard_id": "20260609_growme_EN_9x16_FX-Learning_ZT-english_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-09",
@@ -45246,7 +45572,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 211,
+      "rank": 222,
       "material_id": "20260609_growme_EN_9x16_01_FX-Reading_ZT-wrong_RS-P1X1R3C3_wxx",
       "standard_id": "20260609_growme_EN_9x16_FX-Reading_ZT-wrong_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-09",
@@ -45268,7 +45594,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 212,
+      "rank": 223,
       "material_id": "20260609_growme_EN_9x16_01_FX-Mood_ZT-0finished_RS-P1X1R3C3_wxx",
       "standard_id": "20260609_growme_EN_9x16_FX-Mood_ZT-0finished_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-09",
@@ -45290,7 +45616,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 213,
+      "rank": 224,
       "material_id": "20260610_growme_EN_9x16_01_FX-communication_ZT-interesting_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-communication_ZT-interesting_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -45312,7 +45638,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 214,
+      "rank": 225,
       "material_id": "20260610_growme_EN_9x16_01_FX-Challenge_ZT-lookfor_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-Challenge_ZT-lookfor_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -45334,7 +45660,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 215,
+      "rank": 226,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Book Reading_ZT-true richness-1_RS-P3X1R1C3_fj",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Book Reading_ZT-true richness-1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-10",
@@ -45356,7 +45682,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 216,
+      "rank": 227,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Communication_ZT- interpersonal-1_RS-P3X1R1C3_fj",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Communication_ZT-interpersonal-1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-10",
@@ -45378,7 +45704,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 217,
+      "rank": 228,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Mindset_ZT-emo-1_RS-P3X1R1C3_fj",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Mindset_ZT-emo-1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-10",
@@ -45400,7 +45726,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 218,
+      "rank": 229,
       "material_id": "20260610_GrowMe_EN_9x16_FX- Learning_ZT- learn well-1_RS-P3X1R1C3_fj",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-learn well-1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-10",
@@ -45422,7 +45748,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 219,
+      "rank": 230,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Mood_ZT-pride rain-1_RS-P3X1R1C3_fj",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Mood_ZT-pride rain-1_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-10",
@@ -45444,7 +45770,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 220,
+      "rank": 231,
       "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-wawa_RS-P3X1R1C3_fj",
       "standard_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-wawa_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-11",
@@ -45466,7 +45792,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 221,
+      "rank": 232,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Mindset_ZT-yourself_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Mindset_ZT-yourself_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45488,7 +45814,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 222,
+      "rank": 233,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-book_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-book_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45510,7 +45836,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 223,
+      "rank": 234,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45532,7 +45858,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 224,
+      "rank": 235,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-lose_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-lose_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45554,7 +45880,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 225,
+      "rank": 236,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-grow_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-grow_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45576,7 +45902,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 226,
+      "rank": 237,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-7habits_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-7habits_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45598,7 +45924,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 227,
+      "rank": 238,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-advice_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Habitst_ZT-advice_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-10",
@@ -45620,7 +45946,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 228,
+      "rank": 239,
       "material_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-confident_RS-P3X1R1C3_gy",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-confident_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-10",
@@ -45642,7 +45968,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 229,
+      "rank": 240,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Successful_ZT-success_RS-P3X1R1C3_gy",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Successful_ZT-success_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-10",
@@ -45664,7 +45990,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 230,
+      "rank": 241,
       "material_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-habit_RS-P3X1R1C3_gy",
       "standard_id": "20260610_GrowMe_EN_9x16_FX-Learning_ZT-habit_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-10",
@@ -45686,7 +46012,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 231,
+      "rank": 242,
       "material_id": "20260608_growme_EN_9x16_FX-Learning_ZT-english_RS-P1X1R3C3_wxx",
       "standard_id": "20260608_growme_EN_9x16_FX-Learning_ZT-english_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-08",
@@ -45708,7 +46034,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 232,
+      "rank": 243,
       "material_id": "20260608_growme_EN_9x16_FX-lifelessons_ZT-beokay_RS-P1X1R3C3_wxx",
       "standard_id": "20260608_growme_EN_9x16_FX-lifelessons_ZT-beokay_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-08",
@@ -45730,7 +46056,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 233,
+      "rank": 244,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Challenge_ZT-read_RS-P3X1R1C3_gy",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Challenge_ZT-read_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-09",
@@ -45752,7 +46078,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 234,
+      "rank": 245,
       "material_id": "20260609_GrowMe_EN_9x16_FX-LifeLessons_ZT-life_RS-P3X1R1C3_gy",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-LifeLessons_ZT-life_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-09",
@@ -45774,7 +46100,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 235,
+      "rank": 246,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-normal_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-normal_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -45796,7 +46122,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 236,
+      "rank": 247,
       "material_id": "20260609_growme_EN_9x16_FX-Form_ZT-alone_RS-P1X1R1C3_095KB_mia_HJ_RMG-5219C",
       "standard_id": "20260609_growme_EN_9x16_FX-Form_ZT-alone_RS-P1X1R1C3_095KB",
       "first_seen": "2026-06-09",
@@ -45818,7 +46144,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 237,
+      "rank": 248,
       "material_id": "20260608_growme_EN_9x16_FX-UGCProof _ZT-stop_RS-P1X1R3C3_wxx",
       "standard_id": "20260608_growme_EN_9x16_FX-UGCProof_ZT-stop_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-08",
@@ -45840,7 +46166,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 238,
+      "rank": 249,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-learn_RS-P3X1R1C3_gy",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-learn_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-09",
@@ -45862,7 +46188,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 239,
+      "rank": 250,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-09",
@@ -45884,7 +46210,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 240,
+      "rank": 251,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-say_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-say_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -45906,7 +46232,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 241,
+      "rank": 252,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-yourself_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-yourself_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -45928,7 +46254,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 242,
+      "rank": 253,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-gonna_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-gonna_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -45950,7 +46276,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 243,
+      "rank": 254,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-dream_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-dream_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -45972,7 +46298,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 244,
+      "rank": 255,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Habitst_ZT-confident_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Habitst_ZT-confident_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -45994,7 +46320,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 245,
+      "rank": 256,
       "material_id": "20260609_GrowMe_EN_9x16_FX-LifeLessons_ZT-dream_RS-P3X1R1C3_fj",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-LifeLessons_ZT-dream_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-09",
@@ -46016,7 +46342,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 246,
+      "rank": 257,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Challenge_ZT-abcd_RS-P3X1R1C3_fj",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Challenge_ZT-abcd_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-09",
@@ -46038,7 +46364,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 247,
+      "rank": 258,
       "material_id": "20260609_GrowMe_EN_9x16_FX-LifeLessons_ZT-rconversations._RS-P3X1R1C3_fj",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-LifeLessons_ZT-rconversations._RS-P3X1R1C3_fj",
       "first_seen": "2026-06-09",
@@ -46060,7 +46386,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 248,
+      "rank": 259,
       "material_id": "20260609_growme_EN_9x16_FX-Form_ZT-alone_RS-P1X1R1C3_095KB_mia_HJ_RMG-5219B",
       "standard_id": "20260609_growme_EN_9x16_FX-Form_ZT-alone_RS-P1X1R1C3_095KB",
       "first_seen": "2026-06-09",
@@ -46082,7 +46408,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 249,
+      "rank": 260,
       "material_id": "20260608_growme_EN_9x16_FX-Successful _ZT-112_RS-P1X1R3C3_wxx",
       "standard_id": "20260608_growme_EN_9x16_FX-Successful_ZT-112_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-08",
@@ -46104,7 +46430,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 250,
+      "rank": 261,
       "material_id": "20260609_growme_EN_9x16_FX-Form_ZT-readingchallenge_RS-P1X1R1C1_095KB_mia_HJ_RMG-5219D",
       "standard_id": "20260609_growme_EN_9x16_FX-Form_ZT-readingchallenge_RS-P1X1R1C1_095KB",
       "first_seen": "2026-06-09",
@@ -46126,7 +46452,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 251,
+      "rank": 262,
       "material_id": "20260609_growme_EN_9x16_FX-Creative_ZT-onefact_RS-P1X1R1C3_095KB_HJ_RMG-5219A",
       "standard_id": "20260609_growme_EN_9x16_FX-Creative_ZT-onefact_RS-P1X1R1C3_095KB",
       "first_seen": "2026-06-09",
@@ -46148,7 +46474,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 252,
+      "rank": 263,
       "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-chicken soup_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-chicken soup_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46170,7 +46496,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 253,
+      "rank": 264,
       "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-care about_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-care about_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46192,7 +46518,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 254,
+      "rank": 265,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-change_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-change_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46214,7 +46540,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 255,
+      "rank": 266,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-build_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-build_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46236,7 +46562,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 256,
+      "rank": 267,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-giveup_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-giveup_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46258,7 +46584,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 257,
+      "rank": 268,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-value_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-value_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46280,7 +46606,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 258,
+      "rank": 269,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-howto_RS-P3X1R1C3_fj",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-howto_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-09",
@@ -46302,7 +46628,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 259,
+      "rank": 270,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-happen_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-happen_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -46324,7 +46650,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 260,
+      "rank": 271,
       "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-try_RS-P3X1R1C3_gy_jql",
       "standard_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-try_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-09",
@@ -46346,7 +46672,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 261,
+      "rank": 272,
       "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-goutong_RS-P3X1R1C3_gy",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-goutong_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-08",
@@ -46368,7 +46694,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 262,
+      "rank": 273,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-English_RS-P3X1R1C3_gy",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-English_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-08",
@@ -46390,7 +46716,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 263,
+      "rank": 274,
       "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-life_RS-P3X1R1C3_gy",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-life_RS-P3X1R1C3_gy",
       "first_seen": "2026-06-08",
@@ -46412,7 +46738,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 264,
+      "rank": 275,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT- love work_RS-P3X1R1C3_fj",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-love work_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-08",
@@ -46434,7 +46760,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 265,
+      "rank": 276,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-slowenglish_RS-P3X1R1C3_fj",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-slowenglish_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-08",
@@ -46456,7 +46782,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 266,
+      "rank": 277,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT- reading_RS-P3X1R1C3_fj",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-reading_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-08",
@@ -46478,7 +46804,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 267,
+      "rank": 278,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-b2_RS-P3X1R1C3_fj",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Learning_ZT-b2_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-08",
@@ -46500,7 +46826,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 268,
+      "rank": 279,
       "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-relationships_RS-P3X1R1C3_fj",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-relationships_RS-P3X1R1C3_fj",
       "first_seen": "2026-06-08",
@@ -46522,7 +46848,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 269,
+      "rank": 280,
       "material_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-truest_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-Mindset_ZT-truest_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46544,7 +46870,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 270,
+      "rank": 281,
       "material_id": "20260608_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-4 sign_RS-P3X1R1C3_fj_jql",
       "standard_id": "20260608_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-4 sign_RS-P3X1R1C3_jql",
       "first_seen": "2026-06-08",
@@ -46566,7 +46892,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 271,
+      "rank": 282,
       "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -46588,7 +46914,7 @@
       "week_label": "0608周"
     },
     {
-      "rank": 272,
+      "rank": 283,
       "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-income_RS-P1X1R3C3_wxx",
       "standard_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-income_RS-P1X1R3C3_wxx",
       "first_seen": "2026-06-10",
@@ -46608,6 +46934,2052 @@
       "spend": 79.37,
       "scaling_status": "炮灰",
       "week_label": "0608周"
+    },
+    {
+      "rank": 284,
+      "material_id": "20260616_growme_EN_9x16_FX-aitalk_ZT-3months_RS-P1X1R3C3_wxx",
+      "standard_id": "20260616_growme_EN_9x16_FX-aitalk_ZT-3months_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-16",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "aitalk",
+      "theme": "3months",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0,
+      "spend": 0.01,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 285,
+      "material_id": "20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-book3_RS-P2X1R1C3_095KB-JL_RMG-5714C",
+      "standard_id": "20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-book3_RS-P2X1R1C3_095KB-JL",
+      "first_seen": "2026-06-18",
+      "designer": "095KB",
+      "designer_variant": "",
+      "serial_code": "RMG-5714C",
+      "direction": "Creative_JB-061801-ZR",
+      "theme": "book3",
+      "optimization": "",
+      "stylization": "P2X1R1C3",
+      "pain_point": "P2",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.1,
+      "spend": 75.36,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 286,
+      "material_id": "20260618_growme_EN_9x16_FX-Learning_ZT-quitread_RS-P1X1R3C3_wxx",
+      "standard_id": "20260618_growme_EN_9x16_FX-Learning_ZT-quitread_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-18",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "quitread",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.95,
+      "spend": 24.65,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 287,
+      "material_id": "20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-book1_RS-P2X1R1C3_095KB-JL_RMG-5714A",
+      "standard_id": "20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-book1_RS-P2X1R1C3_095KB-JL",
+      "first_seen": "2026-06-18",
+      "designer": "095KB",
+      "designer_variant": "",
+      "serial_code": "RMG-5714A",
+      "direction": "Creative_JB-061801-ZR",
+      "theme": "book1",
+      "optimization": "",
+      "stylization": "P2X1R1C3",
+      "pain_point": "P2",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.94,
+      "spend": 0.46,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 288,
+      "material_id": "20260618_growme_EN_9x16_FX-Learning_ZT-smarter_RS-P1X1R3C3_wxx",
+      "standard_id": "20260618_growme_EN_9x16_FX-Learning_ZT-smarter_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-18",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "smarter",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.61,
+      "spend": 11.2,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 289,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-morning_RS-P3X1R1C3_gy",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-morning_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-18",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "morning",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.25,
+      "spend": 28.44,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 290,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-failing_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-failing_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "failing",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.39,
+      "spend": 5.41,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 291,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-terms_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-terms_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "terms",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.42,
+      "spend": 0.33,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 292,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Mindset_ZT-love_RS-P3X1R1C3_gy",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Mindset_ZT-love_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-18",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "love",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.17,
+      "spend": 0.65,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 293,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-iPhone_RS-P3X1R1C3_gy",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-iPhone_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-18",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "iPhone",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.92,
+      "spend": 36.64,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 294,
+      "material_id": "20260616_growme_EN_9x16_FX-aitalk_ZT-niceleader_RS-P1X1R3C3_wxx",
+      "standard_id": "20260616_growme_EN_9x16_FX-aitalk_ZT-niceleader_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-16",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "aitalk",
+      "theme": "niceleader",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 3.23,
+      "spend": 0.72,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 295,
+      "material_id": "20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-book2_RS-P2X1R1C3_095KB-JL_RMG-5714B",
+      "standard_id": "20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-book2_RS-P2X1R1C3_095KB-JL",
+      "first_seen": "2026-06-18",
+      "designer": "095KB",
+      "designer_variant": "",
+      "serial_code": "RMG-5714B",
+      "direction": "Creative_JB-061801-ZR",
+      "theme": "book2",
+      "optimization": "",
+      "stylization": "P2X1R1C3",
+      "pain_point": "P2",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 4.05,
+      "spend": 0.28,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 296,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "speak",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.52,
+      "spend": 29.65,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 297,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-advice_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-advice_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "advice",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.26,
+      "spend": 1.06,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 298,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-yale_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-yale_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "yale",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.26,
+      "spend": 25.93,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 299,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-yourself_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-LifeLessons_ZT-yourself_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "yourself",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 3.23,
+      "spend": 0.05,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 300,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Lifelessons_ZT-did_RS-P3X1R1C3_gy",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Lifelessons_ZT-did_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-18",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "did",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.82,
+      "spend": 4.32,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 301,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-speaking_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-speaking_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "speaking",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.57,
+      "spend": 34.78,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 302,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-nature_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-EmotionalHealth_ZT-nature_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-18",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "EmotionalHealth",
+      "theme": "nature",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.24,
+      "spend": 1.88,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 303,
+      "material_id": "20260618_GrowMe_EN_9x16_FX-Communication_ZT-respect_RS-P3X1R1C3_gy",
+      "standard_id": "20260618_GrowMe_EN_9x16_FX-Communication_ZT-respect_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-18",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Communication",
+      "theme": "respect",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.63,
+      "spend": 0.82,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 304,
+      "material_id": "20260618_growme_EN_9x16_FX-LifeLessons_ZT-takeaction_RS-P1X1R3C3_wxx",
+      "standard_id": "20260618_growme_EN_9x16_FX-LifeLessons_ZT-takeaction_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-18",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "takeaction",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0,
+      "spend": 0.0,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 305,
+      "material_id": "20260615_growme_EN_9x16_FX-aitalk_ZT-8minutes_RS-P1X1R3C3_wxx",
+      "standard_id": "20260615_growme_EN_9x16_FX-aitalk_ZT-8minutes_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-15",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "aitalk",
+      "theme": "8minutes",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.04,
+      "spend": 4.17,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 306,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-happy_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-happy_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "happy",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.73,
+      "spend": 13.7,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 307,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-present_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-present_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "present",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.39,
+      "spend": 3.7,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 308,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-hard1_RS-P3X1R1C3_gy",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-hard1_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-17",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "hard1",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0,
+      "spend": 0.12,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 309,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Communication_ZT-powerCommunication_RS-P3X1R1C3_fj",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Communication_ZT-powerCommunication_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-17",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Communication",
+      "theme": "powerCommunication",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.34,
+      "spend": 2.22,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 310,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_fj",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-17",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "10mins",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.7,
+      "spend": 2.23,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 311,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-bridge_RS-P3X1R1C3_fj",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-bridge_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-17",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "bridge",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.86,
+      "spend": 41.07,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 312,
+      "material_id": "20260617_growme_EN_9x16_FX-Learning_ZT-onemoretime_RS-P1X1R3C3_wxx",
+      "standard_id": "20260617_growme_EN_9x16_FX-Learning_ZT-onemoretime_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-17",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "onemoretime",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 6.45,
+      "spend": 0.24,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 313,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-English_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-English_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "English",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.41,
+      "spend": 29.82,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 314,
+      "material_id": "20260617_growme_EN_9x16_FX-Learning_ZT-check_RS-P1X1R3C3_wxx",
+      "standard_id": "20260617_growme_EN_9x16_FX-Learning_ZT-check_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-17",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "check",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0,
+      "spend": 0.01,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 315,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-kaizhi_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-kaizhi_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "kaizhi",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.96,
+      "spend": 4.5,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 316,
+      "material_id": "20260618_growme_EN_9x16_FX-LifeLessons_ZT-confident_RS-P1X1R3C3_wxx",
+      "standard_id": "20260618_growme_EN_9x16_FX-LifeLessons_ZT-confident_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-18",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "confident",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.2,
+      "spend": 0.48,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 317,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Reading_ZT-giveup_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Reading_ZT-giveup_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Reading",
+      "theme": "giveup",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.45,
+      "spend": 5.48,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 318,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-advice_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-advice_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "advice",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.78,
+      "spend": 24.68,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 319,
+      "material_id": "20260617_growme_EN_9x16_FX-aitalk_ZT-365_RS-P1X1R3C3_fj",
+      "standard_id": "20260617_growme_EN_9x16_FX-aitalk_ZT-365_RS-P1X1R3C3_fj",
+      "first_seen": "2026-06-17",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "aitalk",
+      "theme": "365",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.92,
+      "spend": 0.53,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 320,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Bookreading_ZT-time_RS-P3X1R1C3_gy",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Bookreading_ZT-time_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-17",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Bookreading",
+      "theme": "time",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.13,
+      "spend": 28.68,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 321,
+      "material_id": "20260617_growme_EN_9x16_FX-Learning_ZT-6mins_RS-P1X1R3C3_wxx",
+      "standard_id": "20260617_growme_EN_9x16_FX-Learning_ZT-6mins_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-17",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "6mins",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.0,
+      "spend": 2.51,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 322,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-hard_RS-P3X1R1C3_gy",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-hard_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-17",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "hard",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.22,
+      "spend": 2.28,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 323,
+      "material_id": "20260617_growme_EN_9x16_FX-LifeLessons_ZT-purpose_RS-P1X1R3C3_wxx",
+      "standard_id": "20260617_growme_EN_9x16_FX-LifeLessons_ZT-purpose_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-17",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "purpose",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 3.39,
+      "spend": 0.21,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 324,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "gentle",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.81,
+      "spend": 0.75,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 325,
+      "material_id": "20260617_growme_EN_9x16_FX-Learning_ZT-reading_RS-P1X1R3C3_wxx",
+      "standard_id": "20260617_growme_EN_9x16_FX-Learning_ZT-reading_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-17",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "reading",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0,
+      "spend": 0.03,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 326,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-1min_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-1min_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Lifelessons",
+      "theme": "1min",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.6,
+      "spend": 6.4,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 327,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-think_RS-P3X1R1C3_gy",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-think_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-16",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "think",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.86,
+      "spend": 51.98,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 328,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-compare_RS-P3X1R1C3_gy",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-compare_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-16",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "compare",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.13,
+      "spend": 32.11,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 329,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-motivatedai_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-motivatedai_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "motivatedai",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.84,
+      "spend": 1.91,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 330,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-failureai_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-failureai_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "failureai",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.77,
+      "spend": 0.89,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 331,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-endai_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-endai_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "endai",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.99,
+      "spend": 19.3,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 332,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-friend_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-friend_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "friend",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.01,
+      "spend": 8.16,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 333,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-proofai_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-proofai_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "proofai",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.18,
+      "spend": 23.55,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 334,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-select_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-select_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-17",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "select",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.94,
+      "spend": 1.3,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 335,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-better_RS-P3X1R1C3_gy",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-better_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-17",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "better",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.92,
+      "spend": 4.73,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 336,
+      "material_id": "20260617_GrowMe_EN_9x16_FX-Communication_ZT-international friends_RS-P3X1R1C3_fj",
+      "standard_id": "20260617_GrowMe_EN_9x16_FX-Communication_ZT-international friends_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-17",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Communication",
+      "theme": "international friends",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.45,
+      "spend": 20.06,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 337,
+      "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-SocialMedia_RS-P1X1R1C3_HJ_RMG-5219E",
+      "standard_id": "20260616_growme_EN_9x16_FX-Creative_ZT-SocialMedia_RS-P1X1R1C3_HJ",
+      "first_seen": "2026-06-16",
+      "designer": "其他",
+      "designer_variant": "",
+      "serial_code": "RMG-5219E",
+      "direction": "Creative",
+      "theme": "SocialMedia",
+      "optimization": "",
+      "stylization": "P1X1R1C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.43,
+      "spend": 9.16,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 338,
+      "material_id": "20260616_growme_EN_9x16_FX-Learning_ZT-english_RS-P1X1R3C3_wxx",
+      "standard_id": "20260616_growme_EN_9x16_FX-Learning_ZT-english_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-16",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "english",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.2,
+      "spend": 1.34,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 339,
+      "material_id": "20260616_growme_EN_9x16_FX-aitalk_ZT-365book_LV1-jindutiao_RS-P1X1R3C1_wxx",
+      "standard_id": "20260616_growme_EN_9x16_FX-aitalk_ZT-365book_LV1-jindutiao_RS-P1X1R3C1_wxx",
+      "first_seen": "2026-06-16",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "aitalk",
+      "theme": "365book_LV1-jindutiao",
+      "optimization": "",
+      "stylization": "P1X1R3C1",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.34,
+      "spend": 1.41,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 340,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-readAI_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-readAI_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "readAI",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.01,
+      "spend": 44.86,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 341,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-family_RS-P3X1R1C3_gy",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-family_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-16",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "family",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.12,
+      "spend": 1.01,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 342,
+      "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Learnforlife_RS-P1X1R1C3_HJ_RMG-5219F",
+      "standard_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Learnforlife_RS-P1X1R1C3_HJ",
+      "first_seen": "2026-06-16",
+      "designer": "其他",
+      "designer_variant": "",
+      "serial_code": "RMG-5219F",
+      "direction": "Creative",
+      "theme": "Learnforlife",
+      "optimization": "",
+      "stylization": "P1X1R1C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.63,
+      "spend": 8.57,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 343,
+      "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Discipline_RS-P1X1R1C3_HJ_RMG-5219H",
+      "standard_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Discipline_RS-P1X1R1C3_HJ",
+      "first_seen": "2026-06-16",
+      "designer": "其他",
+      "designer_variant": "",
+      "serial_code": "RMG-5219H",
+      "direction": "Creative",
+      "theme": "Discipline",
+      "optimization": "",
+      "stylization": "P1X1R1C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.01,
+      "spend": 2.1,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 344,
+      "material_id": "20260616_growme_EN_9x16_FX-LifeLessons_ZT-urgetopry_RS-P1X1R3C3_wxx",
+      "standard_id": "20260616_growme_EN_9x16_FX-LifeLessons_ZT-urgetopry_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-16",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "urgetopry",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.94,
+      "spend": 27.77,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 345,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-clearai_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-clearai_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "clearai",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.24,
+      "spend": 3.73,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 346,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Communication_ZT-speak_RS-P3X1R1C3_gy",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Communication_ZT-speak_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-16",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Communication",
+      "theme": "speak",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.86,
+      "spend": 19.46,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 347,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Mindset_ZT-optimism_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Mindset_ZT-optimism_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "optimism",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.61,
+      "spend": 1.35,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 348,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-future_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-future_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "future",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.97,
+      "spend": 5.04,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 349,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Habits_ZT-learn_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Habits_ZT-learn_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Habits",
+      "theme": "learn",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.24,
+      "spend": 24.94,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 350,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-stuck_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-stuck_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "stuck",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.41,
+      "spend": 9.05,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 351,
+      "material_id": "20260615_growme_EN_9x16_FX-LifeLessons_ZT-changelife_RS-P1X1R3C3_wxx",
+      "standard_id": "20260615_growme_EN_9x16_FX-LifeLessons_ZT-changelife_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-15",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "changelife",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.88,
+      "spend": 0.25,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 352,
+      "material_id": "20260615_growme_EN_9x16_FX-Learning_ZT-practive_RS-P1X1R3C3_wxx",
+      "standard_id": "20260615_growme_EN_9x16_FX-Learning_ZT-practive_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-15",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "practive",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.23,
+      "spend": 47.37,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 353,
+      "material_id": "20260615_growme_EN_9x16_FX-Faith_ZT-amen_RS-P1X1R3C3_wxx",
+      "standard_id": "20260615_growme_EN_9x16_FX-Faith_ZT-amen_RS-P1X1R3C3_wxx",
+      "first_seen": "2026-06-15",
+      "designer": "wxx",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Faith",
+      "theme": "amen",
+      "optimization": "",
+      "stylization": "P1X1R3C3",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.13,
+      "spend": 6.45,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 354,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-youselfai_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-youselfai_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "youselfai",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.75,
+      "spend": 20.19,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 355,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-world_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Mindset_ZT-world_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-16",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Mindset",
+      "theme": "world",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.83,
+      "spend": 9.18,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 356,
+      "material_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-learn_RS-P3X1R1C3_gy",
+      "standard_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-learn_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-16",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "learn",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.21,
+      "spend": 44.67,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 357,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Challenge_ZT-Follow along_RS-P3X1R1C3_fj",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Challenge_ZT-Follow along_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-15",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Challenge",
+      "theme": "Follow along",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.15,
+      "spend": 5.73,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 358,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Learning_ZT-speech_RS-P3X1R1C3_fj",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Learning_ZT-speech_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-15",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "speech",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.89,
+      "spend": 5.59,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 359,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-dream_RS-P3X1R1C3_gy",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-dream_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-15",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "dream",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 2.05,
+      "spend": 46.29,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 360,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-explain_RS-P3X1R1C3_gy",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-explain_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-15",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "explain",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0,
+      "spend": 0.08,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 361,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Learning_ZT-learn_RS-P3X1R1C3_gy",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Learning_ZT-learn_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-15",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "learn",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.41,
+      "spend": 48.08,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 362,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-zhencheng_RS-P3X1R1C3_gy",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-zhencheng_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-15",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "zhencheng",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.27,
+      "spend": 30.82,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 363,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Learning_ZT-English_RS-P3X1R1C3_gy",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Learning_ZT-English_RS-P3X1R1C3_gy",
+      "first_seen": "2026-06-15",
+      "designer": "gy",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "English",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.42,
+      "spend": 46.71,
+      "scaling_status": "炮灰",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 364,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-try_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-try_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "try",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.98,
+      "spend": 2.22,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 365,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Financet_ZT-rich_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Financet_ZT-rich_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Financet",
+      "theme": "rich",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.11,
+      "spend": 1.01,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 366,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Quetes_ZT-everything_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Quetes_ZT-everything_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Quetes",
+      "theme": "everything",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.53,
+      "spend": 1.65,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 367,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-advice_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-advice_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "LifeLessons",
+      "theme": "advice",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.76,
+      "spend": 6.75,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 368,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-SelfImprovement_ZT-better_RS-P3X1R1C3_gy_jql",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-SelfImprovement_ZT-better_RS-P3X1R1C3_jql",
+      "first_seen": "2026-06-15",
+      "designer": "jql",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "SelfImprovement",
+      "theme": "better",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.72,
+      "spend": 12.66,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 369,
+      "material_id": "20260612_GrowMe_EN_9x16_FX-Book Reading_ZT-true yuyan_RS-P3X1R1C3_fj",
+      "standard_id": "20260612_GrowMe_EN_9x16_FX-Book Reading_ZT-true yuyan_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-12",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Book Reading",
+      "theme": "true yuyan",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 6.67,
+      "spend": 0.11,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 370,
+      "material_id": "20260612_GrowMe_EN_9x16_FX- Learning_ZT- future_RS-P3X1R1C3_fj",
+      "standard_id": "20260612_GrowMe_EN_9x16_FX-Learning_ZT-future_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-12",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "future",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.12,
+      "spend": 1.3,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 371,
+      "material_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT-communication_RS-P3X1R1C3_fj",
+      "standard_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT-communication_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-12",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Communication",
+      "theme": "communication",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.15,
+      "spend": 6.29,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 372,
+      "material_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT- powerfully_RS-P3X1R1C3_fj",
+      "standard_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT-powerfully_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-12",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Communication",
+      "theme": "powerfully",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 5.88,
+      "spend": 0.27,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 373,
+      "material_id": "20260612_GrowMe_EN_9x16_FX- Learning_ZT- study_RS-P3X1R1C3_fj",
+      "standard_id": "20260612_GrowMe_EN_9x16_FX-Learning_ZT-study_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-12",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Learning",
+      "theme": "study",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.95,
+      "spend": 8.96,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 374,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Successful_ZT-communicate_RS-P3X1R1C3_fj",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Successful_ZT-communicate_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-15",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Successful",
+      "theme": "communicate",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.31,
+      "spend": 0.66,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 375,
+      "material_id": "20260615_GrowMe_EN_9x16_FX-Creative_ZT-11things_LV1-scape_RS-P3X1R1C3_fj",
+      "standard_id": "20260615_GrowMe_EN_9x16_FX-Creative_ZT-11things_LV1-scape_RS-P3X1R1C3_fj",
+      "first_seen": "2026-06-15",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "Creative",
+      "theme": "11things_LV1-scape",
+      "optimization": "",
+      "stylization": "P3X1R1C3",
+      "pain_point": "P3",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 1.45,
+      "spend": 11.43,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
+    },
+    {
+      "rank": 376,
+      "material_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj",
+      "standard_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj",
+      "first_seen": "2026-06-15",
+      "designer": "fj",
+      "designer_variant": "",
+      "serial_code": "",
+      "direction": "test",
+      "theme": "niupizhi_LV1-rain",
+      "optimization": "",
+      "stylization": "P1X1R3C1",
+      "pain_point": "P1",
+      "exercise_type": "X1",
+      "channel": "ALL",
+      "purchases": 0,
+      "roas": 0,
+      "ctr": 0.95,
+      "spend": 21.94,
+      "scaling_status": "冷启动",
+      "week_label": "0615周"
     }
   ],
   "weekly_reports": {
@@ -46617,7 +48989,8 @@
       "weeks": [
         "0525周",
         "0601周",
-        "0608周"
+        "0608周",
+        "0615周"
       ],
       "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
@@ -46908,7 +49281,8 @@
       "weeks": [
         "0525周",
         "0601周",
-        "0608周"
+        "0608周",
+        "0615周"
       ],
       "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
@@ -47535,7 +49909,8 @@
       "weeks": [
         "0525周",
         "0601周",
-        "0608周"
+        "0608周",
+        "0615周"
       ],
       "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
@@ -48233,6 +50608,624 @@
         ],
         "note": "本周 数字人 新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。"
       }
+    },
+    "0615周": {
+      "week": "0615周",
+      "prev_week": "0608周",
+      "weeks": [
+        "0525周",
+        "0601周",
+        "0608周",
+        "0615周"
+      ],
+      "effective_rule": "消耗 > $200 且有购物",
+      "kpi": {
+        "total_materials": 104,
+        "order_rate": 10.58,
+        "ge2_rate": 9.62,
+        "ge5_rate": 2.88,
+        "spend": 3550.21,
+        "effective_materials": 5,
+        "conversions": 46,
+        "subscriptions": 86,
+        "effective_rate": 4.81,
+        "wow": {
+          "total_materials": {
+            "delta": -7.0,
+            "pct": -6.3,
+            "direction": "down"
+          },
+          "order_rate": {
+            "delta": -4.74,
+            "pct": -30.9,
+            "direction": "down"
+          },
+          "ge2_rate": {
+            "delta": 0.61,
+            "pct": 6.8,
+            "direction": "up"
+          },
+          "ge5_rate": {
+            "delta": -1.62,
+            "pct": -36.0,
+            "direction": "down"
+          },
+          "spend": {
+            "delta": -3091.9,
+            "pct": -46.5,
+            "direction": "down"
+          },
+          "effective_materials": {
+            "delta": -1.0,
+            "pct": -16.7,
+            "direction": "down"
+          },
+          "conversions": {
+            "delta": -54.0,
+            "pct": -54.0,
+            "direction": "down"
+          },
+          "subscriptions": {
+            "delta": -131.0,
+            "pct": -60.4,
+            "direction": "down"
+          }
+        }
+      },
+      "core_comparison": [
+        {
+          "key": "spend",
+          "label": "总消耗",
+          "unit": "$",
+          "current": 3550.21,
+          "previous": 6642.11,
+          "wow": {
+            "delta": -3091.9,
+            "pct": -46.5,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "empty_spend",
+          "label": "空消耗",
+          "unit": "$",
+          "current": 828.46,
+          "previous": 1061.51,
+          "wow": {
+            "delta": -233.05,
+            "pct": -22.0,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "effective_rate",
+          "label": "有效率",
+          "unit": "%",
+          "current": 4.81,
+          "previous": 5.41,
+          "wow": {
+            "delta": -0.6,
+            "pct": -11.1,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "cpi",
+          "label": "CPI",
+          "unit": "$",
+          "current": 1.81,
+          "previous": 2.0,
+          "wow": {
+            "delta": -0.19,
+            "pct": -9.5,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "cpm",
+          "label": "CPM",
+          "unit": "$",
+          "current": 2.68,
+          "previous": 2.22,
+          "wow": {
+            "delta": 0.46,
+            "pct": 20.7,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "subscriptions",
+          "label": "订阅数",
+          "unit": "",
+          "current": 86,
+          "previous": 217,
+          "wow": {
+            "delta": -131.0,
+            "pct": -60.4,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "purchases",
+          "label": "购物数",
+          "unit": "",
+          "current": 46,
+          "previous": 100,
+          "wow": {
+            "delta": -54.0,
+            "pct": -54.0,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "roas",
+          "label": "ROAS",
+          "unit": "",
+          "current": 0.47,
+          "previous": 0.4,
+          "wow": {
+            "delta": 0.07,
+            "pct": 17.5,
+            "direction": "up"
+          }
+        }
+      ],
+      "good_materials": [
+        {
+          "material_id": "20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_RS-P1X1R3C3_wxx",
+          "direction": "LifeLessons",
+          "theme": "positive",
+          "designer": "wxx",
+          "purchases": 11,
+          "subscriptions": 22,
+          "roas": 0.47,
+          "ctr": 1.64,
+          "spend": 575.64
+        },
+        {
+          "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P3X1R1C3_gy_jql",
+          "direction": "LifeLessons",
+          "theme": "water",
+          "designer": "jql",
+          "purchases": 7,
+          "subscriptions": 10,
+          "roas": 0.42,
+          "ctr": 1.41,
+          "spend": 398.41
+        },
+        {
+          "material_id": "20260616_growme_EN_9x16_FX-Learning_ZT-readextensive_RS-P1X1R3C3_wxx",
+          "direction": "Learning",
+          "theme": "readextensive",
+          "designer": "wxx",
+          "purchases": 5,
+          "subscriptions": 10,
+          "roas": 0.62,
+          "ctr": 2.11,
+          "spend": 239.6
+        },
+        {
+          "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R1C3_gy_jql",
+          "direction": "Learning",
+          "theme": "pace",
+          "designer": "jql",
+          "purchases": 4,
+          "subscriptions": 6,
+          "roas": 0.72,
+          "ctr": 0.93,
+          "spend": 152.7
+        },
+        {
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-language_RS-P3X1R1C3_gy_jql",
+          "direction": "Learning",
+          "theme": "language",
+          "designer": "jql",
+          "purchases": 4,
+          "subscriptions": 5,
+          "roas": 0.54,
+          "ctr": 1.53,
+          "spend": 159.94
+        },
+        {
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
+          "direction": "Learning",
+          "theme": "10mins",
+          "designer": "gy",
+          "purchases": 4,
+          "subscriptions": 4,
+          "roas": 0.52,
+          "ctr": 0.99,
+          "spend": 248.9
+        },
+        {
+          "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_gy_jql",
+          "direction": "LifeLessons",
+          "theme": "peaple",
+          "designer": "jql",
+          "purchases": 3,
+          "subscriptions": 8,
+          "roas": 0.33,
+          "ctr": 1.32,
+          "spend": 257.53
+        },
+        {
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
+          "direction": "Mindset",
+          "theme": "gentle1",
+          "designer": "jql",
+          "purchases": 3,
+          "subscriptions": 3,
+          "roas": 0.42,
+          "ctr": 1.12,
+          "spend": 81.89
+        },
+        {
+          "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
+          "direction": "Learning",
+          "theme": "listen",
+          "designer": "jql",
+          "purchases": 2,
+          "subscriptions": 2,
+          "roas": 0.44,
+          "ctr": 1.99,
+          "spend": 128.93
+        },
+        {
+          "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Publicspeaking_RS-P1X1R1C3_HJ_RMG-5219G",
+          "direction": "Creative",
+          "theme": "Publicspeaking",
+          "designer": "其他",
+          "purchases": 2,
+          "subscriptions": 1,
+          "roas": 0.19,
+          "ctr": 1.48,
+          "spend": 68.89
+        },
+        {
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-positive_RS-P3X1R1C3_gy",
+          "direction": "Lifelessons",
+          "theme": "positive",
+          "designer": "gy",
+          "purchases": 1,
+          "subscriptions": 2,
+          "roas": 0.15,
+          "ctr": 1.52,
+          "spend": 70.89
+        }
+      ],
+      "direction_table": [
+        {
+          "direction": "LifeLessons",
+          "total_materials": 25,
+          "effective_materials": 3,
+          "effective_ratio": "3/25",
+          "ctr": 1.71,
+          "cpi": 1.65,
+          "roas": 0.43,
+          "subscriptions": 42,
+          "purchases": 21,
+          "hook_rate": 14.86,
+          "retention_rate": 0.85,
+          "spend": 1420.67,
+          "cpm": 2.66
+        },
+        {
+          "direction": "Learning",
+          "total_materials": 29,
+          "effective_materials": 2,
+          "effective_ratio": "2/29",
+          "ctr": 1.64,
+          "cpi": 1.84,
+          "roas": 0.57,
+          "subscriptions": 36,
+          "purchases": 19,
+          "hook_rate": 17.37,
+          "retention_rate": 0.77,
+          "spend": 1498.13,
+          "cpm": 2.65
+        },
+        {
+          "direction": "Mindset",
+          "total_materials": 11,
+          "effective_materials": 0,
+          "effective_ratio": "0/11",
+          "ctr": 1.23,
+          "cpi": 2.38,
+          "roas": 0.42,
+          "subscriptions": 4,
+          "purchases": 3,
+          "hook_rate": 16.35,
+          "retention_rate": 0.65,
+          "spend": 161.92,
+          "cpm": 2.95
+        },
+        {
+          "direction": "Creative",
+          "total_materials": 5,
+          "effective_materials": 0,
+          "effective_ratio": "0/5",
+          "ctr": 1.4,
+          "cpi": 2.09,
+          "roas": 0.19,
+          "subscriptions": 1,
+          "purchases": 2,
+          "hook_rate": 21.93,
+          "retention_rate": 1.36,
+          "spend": 100.15,
+          "cpm": 3.7
+        },
+        {
+          "direction": "Lifelessons",
+          "total_materials": 8,
+          "effective_materials": 0,
+          "effective_ratio": "0/8",
+          "ctr": 1.29,
+          "cpi": 1.73,
+          "roas": 0.15,
+          "subscriptions": 2,
+          "purchases": 1,
+          "hook_rate": 14.71,
+          "retention_rate": 0.94,
+          "spend": 126.09,
+          "cpm": 2.83
+        },
+        {
+          "direction": "aitalk",
+          "total_materials": 5,
+          "effective_materials": 0,
+          "effective_ratio": "0/5",
+          "ctr": 1.63,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 21.11,
+          "retention_rate": 1.71,
+          "spend": 6.84,
+          "cpm": 6.45
+        },
+        {
+          "direction": "Creative_JB-061801-ZR",
+          "total_materials": 3,
+          "effective_materials": 0,
+          "effective_ratio": "0/3",
+          "ctr": 2.7,
+          "cpi": 2.38,
+          "roas": 0,
+          "subscriptions": 1,
+          "purchases": 0,
+          "hook_rate": 16.69,
+          "retention_rate": 1.17,
+          "spend": 76.1,
+          "cpm": 1.99
+        },
+        {
+          "direction": "EmotionalHealth",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 1.24,
+          "cpi": 1.88,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 20.05,
+          "retention_rate": 0.99,
+          "spend": 1.88,
+          "cpm": 4.65
+        },
+        {
+          "direction": "Communication",
+          "total_materials": 6,
+          "effective_materials": 0,
+          "effective_ratio": "0/6",
+          "ctr": 1.89,
+          "cpi": 1.89,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 19.77,
+          "retention_rate": 1.46,
+          "spend": 49.12,
+          "cpm": 2.68
+        },
+        {
+          "direction": "Reading",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 1.45,
+          "cpi": 2.74,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 15.87,
+          "retention_rate": 0.83,
+          "spend": 5.48,
+          "cpm": 2.83
+        },
+        {
+          "direction": "Bookreading",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 1.13,
+          "cpi": 2.21,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 14.32,
+          "retention_rate": 0.47,
+          "spend": 28.68,
+          "cpm": 2.78
+        },
+        {
+          "direction": "Habits",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 1.24,
+          "cpi": 4.99,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 17.99,
+          "retention_rate": 0.29,
+          "spend": 24.94,
+          "cpm": 3.01
+        },
+        {
+          "direction": "Faith",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 2.13,
+          "cpi": 3.23,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 22.18,
+          "retention_rate": 1.46,
+          "spend": 6.45,
+          "cpm": 3.93
+        },
+        {
+          "direction": "Challenge",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 2.15,
+          "cpi": 1.91,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 21.14,
+          "retention_rate": 0.32,
+          "spend": 5.73,
+          "cpm": 3.63
+        },
+        {
+          "direction": "Financet",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 1.11,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 25.17,
+          "retention_rate": 2.0,
+          "spend": 1.01,
+          "cpm": 2.25
+        },
+        {
+          "direction": "Quetes",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 0.53,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 17.44,
+          "retention_rate": 0.4,
+          "spend": 1.65,
+          "cpm": 2.2
+        },
+        {
+          "direction": "SelfImprovement",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 0.72,
+          "cpi": 3.17,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 15.05,
+          "retention_rate": 0.4,
+          "spend": 12.66,
+          "cpm": 2.54
+        },
+        {
+          "direction": "Book Reading",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 6.67,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 36.67,
+          "retention_rate": 0.0,
+          "spend": 0.11,
+          "cpm": 3.67
+        },
+        {
+          "direction": "Successful",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 0.31,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 19.69,
+          "retention_rate": 1.85,
+          "spend": 0.66,
+          "cpm": 2.03
+        },
+        {
+          "direction": "test",
+          "total_materials": 1,
+          "effective_materials": 0,
+          "effective_ratio": "0/1",
+          "ctr": 0.95,
+          "cpi": 1.83,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 19.7,
+          "retention_rate": 0.75,
+          "spend": 21.94,
+          "cpm": 2.09
+        }
+      ],
+      "survival_trend": {
+        "dates": [
+          "2026-06-12",
+          "2026-06-15",
+          "2026-06-16",
+          "2026-06-17",
+          "2026-06-18"
+        ],
+        "counts": [
+          5,
+          25,
+          25,
+          27,
+          22
+        ],
+        "survived_counts": [
+          0,
+          2,
+          3,
+          4,
+          2
+        ]
+      },
+      "insights": [
+        "【素材测出率】0615周 上新 104 条，出单率 10.58%（较 0608周 ↓4.7pp），有效率 4.81%（较上周 ↓0.6pp）。上周出单率 15.32%，有效率 5.41%。",
+        "【本周最强素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（LifeLessons / wxx）：购物 11 · 订阅 22 · ROAS 0.47 · CTR 1.64% · 花费 $576.0。",
+        "【高转化信号素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（购物+订阅双达标）：购物 11 · 订阅 22 · ROAS 0.47 · CTR 1.64% · 花费 $576.0，具备放量验证价值。",
+        "【钩子最优素材】20260612_GrowMe_EN_9x16_FX-Book Reading_ZT-true yuya…：3秒播放率 36.67%，购物 0 · CTR 6.67% · 花费 $0.0。",
+        "【留存率最高素材】20260616_growme_EN_9x16_FX-aitalk_ZT-365book_LV1-jin…：完播留存率 2.69%，购物 0 · CTR 1.34% · 花费 $1.0。",
+        "【方向表现】「LifeLessons」购物 21 单领先，有效素材 3/25，ROAS 0.43；共 25 条素材参与本周 WW 测试。"
+      ]
     }
   },
   "rollback": {
@@ -48329,170 +51322,95 @@
         "tag": "已回滚"
       }
     ],
-    "recommend_week": "0608周",
+    "recommend_week": "0615周",
     "recommended": [
       {
         "rank": 1,
-        "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
-        "direction": "LifeLessons",
-        "theme": "jounrey",
-        "designer": "wxx",
-        "first_seen": "2026-06-12",
-        "purchases": 3,
-        "subscriptions": 5,
-        "spend": 61.23,
-        "roas": 0.58,
-        "ctr": 1.49,
+        "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R1C3_gy_jql",
+        "direction": "Learning",
+        "theme": "pace",
+        "designer": "jql",
+        "first_seen": "2026-06-18",
+        "purchases": 4,
+        "subscriptions": 6,
+        "spend": 152.7,
+        "roas": 0.72,
+        "ctr": 0.93,
         "scaling_status": "观察期",
         "tag": "可回滚"
       },
       {
         "rank": 2,
-        "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
+        "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-language_RS-P3X1R1C3_gy_jql",
         "direction": "Learning",
-        "theme": "speak",
-        "designer": "gy",
-        "first_seen": "2026-06-09",
-        "purchases": 3,
-        "subscriptions": 4,
-        "spend": 94.25,
-        "roas": 0.22,
-        "ctr": 1.1,
+        "theme": "language",
+        "designer": "jql",
+        "first_seen": "2026-06-17",
+        "purchases": 4,
+        "subscriptions": 5,
+        "spend": 159.94,
+        "roas": 0.54,
+        "ctr": 1.53,
         "scaling_status": "观察期",
         "tag": "可回滚"
       },
       {
         "rank": 3,
-        "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_gy_jql",
+        "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
         "direction": "Mindset",
-        "theme": "waste",
+        "theme": "gentle1",
         "designer": "jql",
-        "first_seen": "2026-06-09",
-        "purchases": 2,
-        "subscriptions": 2,
-        "spend": 18.14,
-        "roas": 2.06,
-        "ctr": 1.48,
+        "first_seen": "2026-06-17",
+        "purchases": 3,
+        "subscriptions": 3,
+        "spend": 81.89,
+        "roas": 0.42,
+        "ctr": 1.12,
         "scaling_status": "观察期",
         "tag": "可回滚"
       },
       {
         "rank": 4,
-        "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
-        "direction": "LifeLessons",
-        "theme": "opinion",
-        "designer": "gy",
-        "first_seen": "2026-06-08",
+        "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Publicspeaking_RS-P1X1R1C3_HJ_RMG-5219G",
+        "direction": "Creative",
+        "theme": "Publicspeaking",
+        "designer": "其他",
+        "first_seen": "2026-06-16",
         "purchases": 2,
-        "subscriptions": 6,
-        "spend": 100.67,
-        "roas": 0.33,
-        "ctr": 1.03,
+        "subscriptions": 1,
+        "spend": 68.89,
+        "roas": 0.19,
+        "ctr": 1.48,
         "scaling_status": "观察期",
         "tag": "可回滚"
       },
       {
         "rank": 5,
-        "material_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS-P3X1R1C3_gy",
-        "direction": "LifeLessons",
-        "theme": "compare",
-        "designer": "gy",
-        "first_seen": "2026-06-10",
-        "purchases": 1,
-        "subscriptions": 3,
-        "spend": 52.15,
-        "roas": 0.16,
-        "ctr": 1.43,
+        "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
+        "direction": "Learning",
+        "theme": "listen",
+        "designer": "jql",
+        "first_seen": "2026-06-18",
+        "purchases": 2,
+        "subscriptions": 2,
+        "spend": 128.93,
+        "roas": 0.44,
+        "ctr": 1.99,
         "scaling_status": "观察期",
         "tag": "可回滚"
       },
       {
         "rank": 6,
-        "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-consistency_RS-P3X1R1C3_fj_jql",
-        "direction": "SelfImprovement",
-        "theme": "consistency",
-        "designer": "jql",
-        "first_seen": "2026-06-08",
-        "purchases": 1,
-        "subscriptions": 2,
-        "spend": 56.89,
-        "roas": 0.17,
-        "ctr": 0.75,
-        "scaling_status": "观察期",
-        "tag": "可回滚"
-      },
-      {
-        "rank": 7,
-        "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-stop_RS-P3X1R1C3_fj_jql",
-        "direction": "SelfImprovement",
-        "theme": "stop",
-        "designer": "jql",
-        "first_seen": "2026-06-08",
-        "purchases": 1,
-        "subscriptions": 1,
-        "spend": 63.11,
-        "roas": 0.39,
-        "ctr": 1.11,
-        "scaling_status": "观察期",
-        "tag": "可回滚"
-      },
-      {
-        "rank": 8,
-        "material_id": "20260612_GrowMe_EN_9x16_FX-Communication_ZT- battle_RS-P3X1R1C3_gy",
-        "direction": "Communication",
-        "theme": "battle",
+        "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-positive_RS-P3X1R1C3_gy",
+        "direction": "Lifelessons",
+        "theme": "positive",
         "designer": "gy",
-        "first_seen": "2026-06-12",
-        "purchases": 1,
-        "subscriptions": 5,
-        "spend": 72.48,
-        "roas": 0.2,
-        "ctr": 1.7,
-        "scaling_status": "观察期",
-        "tag": "可回滚"
-      },
-      {
-        "rank": 9,
-        "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-brain_RS-P3X1R1C3_gy_jql",
-        "direction": "Mindset",
-        "theme": "brain",
-        "designer": "jql",
-        "first_seen": "2026-06-11",
-        "purchases": 1,
-        "subscriptions": 3,
-        "spend": 83.44,
-        "roas": 0.39,
-        "ctr": 1.58,
-        "scaling_status": "观察期",
-        "tag": "可回滚"
-      },
-      {
-        "rank": 10,
-        "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT- read pic_RS-P3X1R1C3_fj",
-        "direction": "Learning",
-        "theme": "read pic",
-        "designer": "fj",
-        "first_seen": "2026-06-09",
+        "first_seen": "2026-06-17",
         "purchases": 1,
         "subscriptions": 2,
-        "spend": 104.22,
-        "roas": 0.37,
-        "ctr": 1.88,
-        "scaling_status": "观察期",
-        "tag": "可回滚"
-      },
-      {
-        "rank": 11,
-        "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
-        "direction": "learning",
-        "theme": "brain",
-        "designer": "wxx",
-        "first_seen": "2026-06-10",
-        "purchases": 1,
-        "subscriptions": 4,
-        "spend": 126.66,
-        "roas": 0.07,
-        "ctr": 1.65,
+        "spend": 70.89,
+        "roas": 0.15,
+        "ctr": 1.52,
         "scaling_status": "观察期",
         "tag": "可回滚"
       }

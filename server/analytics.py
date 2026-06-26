@@ -63,12 +63,23 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
             grouped[mid]["ctr_values"] = []
             grouped[mid]["roas_values"] = []
             grouped[mid]["roas_weights"] = []
+            grouped[mid]["hook_weighted_sum"] = 0.0
+            grouped[mid]["hook_weight"] = 0.0
+            grouped[mid]["views_3s_sum"] = 0.0
+            grouped[mid]["video_completions_sum"] = 0.0
         g = grouped[mid]
         g["purchases"] += r.get("purchases", 0)
         g["subscriptions"] += r.get("subscriptions", 0)
         g["spend"] += r.get("spend", 0)
         g["impressions"] += r.get("impressions", 0)
         g["installs"] += r.get("installs", 0)
+        imp = r.get("impressions", 0) or 0
+        hook = r.get("hook_rate", 0) or 0
+        if hook > 0 and imp > 0:
+            g["hook_weighted_sum"] += hook * imp
+            g["hook_weight"] += imp
+            g["views_3s_sum"] += imp * hook / 100
+        g["video_completions_sum"] += r.get("video_completions", 0) or 0
         if r.get("ctr"):
             g["ctr_values"].append(r["ctr"])
         if r.get("roas"):
@@ -87,6 +98,12 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
         else:
             g["roas"] = sum(roas_vals) / len(roas_vals) if roas_vals else 0
         g["channel"] = "ALL"
+        g["hook_rate"] = round(g["hook_weighted_sum"] / g["hook_weight"], 2) if g.get("hook_weight") else 0
+        views_3s = g.get("views_3s_sum") or 0
+        comps = g.get("video_completions_sum") or 0
+        g["retention_rate"] = round(comps / views_3s * 100, 2) if views_3s > 0 else 0
+        for k in ("hook_weighted_sum", "hook_weight", "views_3s_sum", "video_completions_sum"):
+            g.pop(k, None)
         g["scaling_status"] = _scaling_status(g["spend"], g["purchases"])
         result.append(g)
     return result
@@ -326,6 +343,8 @@ def get_materials(
                 "ctr": round(m["ctr"], 2),
                 "spend": round(m["spend"], 2),
                 "scaling_status": m.get("scaling_status"),
+                "hook_rate": round(m.get("hook_rate") or 0, 2),
+                "retention_rate": round(m.get("retention_rate") or 0, 2),
             }
         )
 

@@ -142,7 +142,7 @@
           "subscriptions": 97,
           "purchases": 68,
           "hook_rate": 36.49,
-          "retention_rate": 14.14,
+          "retention_rate": 0.0,
           "spend": 1393.47,
           "cpm": null
         },
@@ -157,7 +157,7 @@
           "subscriptions": 4,
           "purchases": 3,
           "hook_rate": 10.52,
-          "retention_rate": 2.5,
+          "retention_rate": 0.0,
           "spend": 308.6,
           "cpm": null
         },
@@ -172,7 +172,7 @@
           "subscriptions": 5,
           "purchases": 3,
           "hook_rate": 28.55,
-          "retention_rate": 6.4,
+          "retention_rate": 0.0,
           "spend": 130.3,
           "cpm": null
         },
@@ -295,7 +295,7 @@
         "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0。",
         "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0，具备放量验证价值。",
         "【钩子最优素材】20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_w…：3秒播放率 77.78%，购物 0 · CTR 1.46% · 花费 $3.0。",
-        "【留存率最高素材】20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_w…：完播留存率 46.67%，购物 0 · CTR 1.46% · 花费 $3.0。",
+        "【留存率最高素材】本周缺少完播/留存数据，暂无法评选。",
         "【方向表现】「test」购物 68 单领先，有效素材 1/15，ROAS 1.08；共 15 条素材参与本周 WW 测试。"
       ]
     },
@@ -603,7 +603,7 @@
           "subscriptions": 95,
           "purchases": 42,
           "hook_rate": 16.4,
-          "retention_rate": 1.13,
+          "retention_rate": 7.01,
           "spend": 1884.79,
           "cpm": 2.02
         },
@@ -618,7 +618,7 @@
           "subscriptions": 11,
           "purchases": 5,
           "hook_rate": 18.1,
-          "retention_rate": 1.8,
+          "retention_rate": 9.78,
           "spend": 414.71,
           "cpm": 1.66
         },
@@ -633,7 +633,7 @@
           "subscriptions": 4,
           "purchases": 4,
           "hook_rate": 19.44,
-          "retention_rate": 1.09,
+          "retention_rate": 5.58,
           "spend": 201.07,
           "cpm": 2.0
         },
@@ -648,7 +648,7 @@
           "subscriptions": 5,
           "purchases": 3,
           "hook_rate": 19.23,
-          "retention_rate": 0.56,
+          "retention_rate": 2.93,
           "spend": 88.36,
           "cpm": 2.19
         },
@@ -663,7 +663,7 @@
           "subscriptions": 4,
           "purchases": 2,
           "hook_rate": 20.6,
-          "retention_rate": 0.71,
+          "retention_rate": 3.23,
           "spend": 114.11,
           "cpm": 1.96
         },
@@ -678,7 +678,7 @@
           "subscriptions": 4,
           "purchases": 1,
           "hook_rate": 17.31,
-          "retention_rate": 2.33,
+          "retention_rate": 13.68,
           "spend": 108.8,
           "cpm": 2.19
         },
@@ -693,7 +693,7 @@
           "subscriptions": 0,
           "purchases": 1,
           "hook_rate": 31.19,
-          "retention_rate": 1.26,
+          "retention_rate": 4.58,
           "spend": 190.36,
           "cpm": 2.65
         },
@@ -708,7 +708,7 @@
           "subscriptions": 2,
           "purchases": 1,
           "hook_rate": 20.43,
-          "retention_rate": 1.07,
+          "retention_rate": 5.25,
           "spend": 87.89,
           "cpm": 2.46
         },
@@ -723,7 +723,7 @@
           "subscriptions": 2,
           "purchases": 1,
           "hook_rate": 16.83,
-          "retention_rate": 0.69,
+          "retention_rate": 4.13,
           "spend": 56.6,
           "cpm": 2.23
         },
@@ -738,7 +738,7 @@
           "subscriptions": 3,
           "purchases": 1,
           "hook_rate": 18.97,
-          "retention_rate": 1.43,
+          "retention_rate": 7.57,
           "spend": 54.8,
           "cpm": 1.9
         },
@@ -753,7 +753,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 22.27,
-          "retention_rate": 2.68,
+          "retention_rate": 12.04,
           "spend": 1.64,
           "cpm": 3.38
         },
@@ -768,7 +768,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 28.5,
-          "retention_rate": 2.11,
+          "retention_rate": 7.41,
           "spend": 0.86,
           "cpm": 2.27
         },
@@ -783,7 +783,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 23.05,
-          "retention_rate": 2.47,
+          "retention_rate": 10.92,
           "spend": 2.61,
           "cpm": 3.4
         },
@@ -798,7 +798,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 21.72,
-          "retention_rate": 1.08,
+          "retention_rate": 5.04,
           "spend": 1.63,
           "cpm": 2.23
         },
@@ -813,7 +813,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 18.17,
-          "retention_rate": 1.04,
+          "retention_rate": 4.96,
           "spend": 1.54,
           "cpm": 2.27
         },
@@ -828,7 +828,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 21.83,
-          "retention_rate": 0.44,
+          "retention_rate": 2.0,
           "spend": 0.48,
           "cpm": 2.1
         },
@@ -843,7 +843,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 21.58,
-          "retention_rate": 0.47,
+          "retention_rate": 2.07,
           "spend": 0.81,
           "cpm": 1.26
         },
@@ -858,7 +858,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 19.6,
-          "retention_rate": 1.29,
+          "retention_rate": 6.6,
           "spend": 1.45,
           "cpm": 1.44
         },
@@ -873,7 +873,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 20.3,
-          "retention_rate": 1.83,
+          "retention_rate": 8.51,
           "spend": 0.68,
           "cpm": 2.56
         },
@@ -888,7 +888,7 @@
           "subscriptions": 1,
           "purchases": 0,
           "hook_rate": 19.52,
-          "retention_rate": 1.15,
+          "retention_rate": 5.38,
           "spend": 9.81,
           "cpm": 2.61
         }
@@ -924,7 +924,7 @@
         "【本周最强素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（Learning / gy）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0。",
         "【高转化信号素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（购物+订阅双达标）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0，具备放量验证价值。",
         "【钩子最优素材】20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-…：3秒播放率 42.03%，购物 0 · CTR 0.62% · 花费 $1.0。",
-        "【留存率最高素材】20260604_GrowMe_EN_9x16_FX-LifeLessons_ZTdontworry_R…：完播留存率 16.67%，购物 0 · 花费 $0.0。",
+        "【留存率最高素材】20260604_GrowMe_EN_9x16_FX-LifeLessons_ZTdontworry_R…：完播留存率 100.0%，购物 0 · 花费 $0.0。",
         "【方向表现】「Learning」购物 42 单领先，有效素材 3/18，ROAS 0.4；共 18 条素材参与本周 WW 测试。"
       ]
     },
@@ -1236,7 +1236,7 @@
           "subscriptions": 74,
           "purchases": 36,
           "hook_rate": 16.1,
-          "retention_rate": 1.07,
+          "retention_rate": 6.75,
           "spend": 1939.75,
           "cpm": 2.33
         },
@@ -1251,7 +1251,7 @@
           "subscriptions": 63,
           "purchases": 29,
           "hook_rate": 16.02,
-          "retention_rate": 1.02,
+          "retention_rate": 6.35,
           "spend": 2140.57,
           "cpm": 2.36
         },
@@ -1266,7 +1266,7 @@
           "subscriptions": 56,
           "purchases": 27,
           "hook_rate": 17.28,
-          "retention_rate": 0.96,
+          "retention_rate": 5.53,
           "spend": 1545.51,
           "cpm": 1.81
         },
@@ -1296,7 +1296,7 @@
           "subscriptions": 3,
           "purchases": 2,
           "hook_rate": 16.08,
-          "retention_rate": 0.34,
+          "retention_rate": 2.14,
           "spend": 280.48,
           "cpm": 2.12
         },
@@ -1311,7 +1311,7 @@
           "subscriptions": 5,
           "purchases": 1,
           "hook_rate": 17.64,
-          "retention_rate": 0.74,
+          "retention_rate": 4.19,
           "spend": 84.59,
           "cpm": 2.78
         },
@@ -1326,7 +1326,7 @@
           "subscriptions": 6,
           "purchases": 1,
           "hook_rate": 17.27,
-          "retention_rate": 0.77,
+          "retention_rate": 4.35,
           "spend": 179.67,
           "cpm": 1.95
         },
@@ -1341,7 +1341,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 18.46,
-          "retention_rate": 0.51,
+          "retention_rate": 3.02,
           "spend": 4.96,
           "cpm": 2.94
         },
@@ -1356,7 +1356,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 17.23,
-          "retention_rate": 1.21,
+          "retention_rate": 7.22,
           "spend": 2.46,
           "cpm": 2.99
         },
@@ -1371,7 +1371,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 18.75,
-          "retention_rate": 0.25,
+          "retention_rate": 1.33,
           "spend": 1.42,
           "cpm": 3.55
         },
@@ -1386,7 +1386,7 @@
           "subscriptions": 2,
           "purchases": 0,
           "hook_rate": 21.57,
-          "retention_rate": 0.81,
+          "retention_rate": 3.75,
           "spend": 98.61,
           "cpm": 3.07
         },
@@ -1401,7 +1401,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 22.73,
-          "retention_rate": 0.51,
+          "retention_rate": 2.33,
           "spend": 11.53,
           "cpm": 2.56
         },
@@ -1416,7 +1416,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 8.4,
-          "retention_rate": 0.76,
+          "retention_rate": 9.09,
           "spend": 0.16,
           "cpm": 1.22
         },
@@ -1431,7 +1431,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 22.21,
-          "retention_rate": 0.56,
+          "retention_rate": 2.51,
           "spend": 3.99,
           "cpm": 1.59
         },
@@ -1446,7 +1446,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 22.61,
-          "retention_rate": 0.24,
+          "retention_rate": 1.07,
           "spend": 3.59,
           "cpm": 2.17
         },
@@ -1461,7 +1461,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 19.45,
-          "retention_rate": 0.4,
+          "retention_rate": 2.06,
           "spend": 35.01,
           "cpm": 2.3
         },
@@ -1476,7 +1476,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 37.1,
-          "retention_rate": 4.84,
+          "retention_rate": 13.04,
           "spend": 0.16,
           "cpm": 2.58
         },
@@ -1491,7 +1491,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 24.07,
-          "retention_rate": 3.13,
+          "retention_rate": 10.62,
           "spend": 0.56,
           "cpm": 5.19
         },
@@ -1521,7 +1521,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 18.9,
-          "retention_rate": 1.22,
+          "retention_rate": 6.45,
           "spend": 0.86,
           "cpm": 5.24
         },
@@ -1536,7 +1536,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 15.02,
-          "retention_rate": 0.07,
+          "retention_rate": 0.43,
           "spend": 3.64,
           "cpm": 2.37
         }
@@ -1570,7 +1570,7 @@
         "【本周最强素材】20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-self_RS-P3…（LifeLessons / gy）：购物 25 · 订阅 43 · ROAS 0.43 · CTR 1.09% · 花费 $1188.0。",
         "【高转化信号素材】20260609_GrowMe_EN_9x16_FX-Mindset_ZT-think_RS-P3X1R…（购物+订阅双达标）：购物 24 · 订阅 45 · ROAS 0.36 · CTR 1.18% · 花费 $1212.0，具备放量验证价值。",
         "【钩子最优素材】20260608_growme_EN_9x16_FX-lifelessons_ZT-beokay_RS-…：3秒播放率 37.1%，购物 0 · CTR 3.23% · 花费 $0.0。",
-        "【留存率最高素材】20260609_growme_EN_9x16_FX-Form_ZT-readingchallenge_…：完播留存率 16.67%，购物 0 · 花费 $0.0。",
+        "【留存率最高素材】20260609_growme_EN_9x16_FX-Form_ZT-readingchallenge_…：完播留存率 50.0%，购物 0 · 花费 $0.0。",
         "【方向表现】「LifeLessons」购物 36 单领先，有效素材 2/16，ROAS 0.41；共 16 条素材参与本周 WW 测试。"
       ],
       "new_direction_test": {
@@ -1932,7 +1932,7 @@
           "subscriptions": 42,
           "purchases": 21,
           "hook_rate": 14.86,
-          "retention_rate": 0.85,
+          "retention_rate": 5.61,
           "spend": 1420.67,
           "cpm": 2.66
         },
@@ -1947,7 +1947,7 @@
           "subscriptions": 36,
           "purchases": 19,
           "hook_rate": 17.37,
-          "retention_rate": 0.77,
+          "retention_rate": 4.63,
           "spend": 1498.13,
           "cpm": 2.65
         },
@@ -1962,7 +1962,7 @@
           "subscriptions": 4,
           "purchases": 3,
           "hook_rate": 16.35,
-          "retention_rate": 0.65,
+          "retention_rate": 4.07,
           "spend": 161.92,
           "cpm": 2.95
         },
@@ -1977,7 +1977,7 @@
           "subscriptions": 1,
           "purchases": 2,
           "hook_rate": 21.93,
-          "retention_rate": 1.36,
+          "retention_rate": 6.2,
           "spend": 100.15,
           "cpm": 3.7
         },
@@ -1992,7 +1992,7 @@
           "subscriptions": 2,
           "purchases": 1,
           "hook_rate": 14.71,
-          "retention_rate": 0.94,
+          "retention_rate": 6.75,
           "spend": 126.09,
           "cpm": 2.83
         },
@@ -2007,7 +2007,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 21.11,
-          "retention_rate": 1.71,
+          "retention_rate": 8.22,
           "spend": 6.84,
           "cpm": 6.45
         },
@@ -2022,7 +2022,7 @@
           "subscriptions": 1,
           "purchases": 0,
           "hook_rate": 16.69,
-          "retention_rate": 1.17,
+          "retention_rate": 7.01,
           "spend": 76.1,
           "cpm": 1.99
         },
@@ -2037,7 +2037,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 20.05,
-          "retention_rate": 0.99,
+          "retention_rate": 4.94,
           "spend": 1.88,
           "cpm": 4.65
         },
@@ -2052,7 +2052,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 19.77,
-          "retention_rate": 1.46,
+          "retention_rate": 7.39,
           "spend": 49.12,
           "cpm": 2.68
         },
@@ -2067,7 +2067,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 15.87,
-          "retention_rate": 0.83,
+          "retention_rate": 5.21,
           "spend": 5.48,
           "cpm": 2.83
         },
@@ -2082,7 +2082,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 14.32,
-          "retention_rate": 0.47,
+          "retention_rate": 3.25,
           "spend": 28.68,
           "cpm": 2.78
         },
@@ -2097,7 +2097,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 17.99,
-          "retention_rate": 0.29,
+          "retention_rate": 1.61,
           "spend": 24.94,
           "cpm": 3.01
         },
@@ -2112,7 +2112,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 22.18,
-          "retention_rate": 1.46,
+          "retention_rate": 6.59,
           "spend": 6.45,
           "cpm": 3.93
         },
@@ -2127,7 +2127,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 21.14,
-          "retention_rate": 0.32,
+          "retention_rate": 1.5,
           "spend": 5.73,
           "cpm": 3.63
         },
@@ -2142,7 +2142,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 25.17,
-          "retention_rate": 2.0,
+          "retention_rate": 7.96,
           "spend": 1.01,
           "cpm": 2.25
         },
@@ -2157,7 +2157,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 17.44,
-          "retention_rate": 0.4,
+          "retention_rate": 2.29,
           "spend": 1.65,
           "cpm": 2.2
         },
@@ -2172,7 +2172,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 15.05,
-          "retention_rate": 0.4,
+          "retention_rate": 2.67,
           "spend": 12.66,
           "cpm": 2.54
         },
@@ -2202,7 +2202,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 19.69,
-          "retention_rate": 1.85,
+          "retention_rate": 9.38,
           "spend": 0.66,
           "cpm": 2.03
         },
@@ -2217,7 +2217,7 @@
           "subscriptions": 0,
           "purchases": 0,
           "hook_rate": 19.7,
-          "retention_rate": 0.75,
+          "retention_rate": 3.83,
           "spend": 21.94,
           "cpm": 2.09
         }
@@ -2250,7 +2250,7 @@
         "【本周最强素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（LifeLessons / wxx）：购物 11 · 订阅 22 · ROAS 0.47 · CTR 1.64% · 花费 $576.0。",
         "【高转化信号素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（购物+订阅双达标）：购物 11 · 订阅 22 · ROAS 0.47 · CTR 1.64% · 花费 $576.0，具备放量验证价值。",
         "【钩子最优素材】20260612_GrowMe_EN_9x16_FX-Book Reading_ZT-true yuya…：3秒播放率 36.67%，购物 0 · CTR 6.67% · 花费 $0.0。",
-        "【留存率最高素材】20260616_growme_EN_9x16_FX-aitalk_ZT-365book_LV1-jin…：完播留存率 2.69%，购物 0 · CTR 1.34% · 花费 $1.0。",
+        "【留存率最高素材】20260616_growme_EN_9x16_FX-aitalk_ZT-365book_LV1-jin…：完播留存率 13.16%，购物 0 · CTR 1.34% · 花费 $1.0。",
         "【方向表现】「LifeLessons」购物 21 单领先，有效素材 3/25，ROAS 0.43；共 25 条素材参与本周 WW 测试。"
       ]
     }

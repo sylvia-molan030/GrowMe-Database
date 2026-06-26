@@ -52,6 +52,8 @@ def _material_row(m: dict, rank: int) -> dict:
         "ctr": round(m["ctr"], 2),
         "spend": round(m["spend"], 2),
         "scaling_status": m.get("scaling_status"),
+        "hook_rate": round(m.get("hook_rate") or 0, 2),
+        "retention_rate": round(m.get("retention_rate") or 0, 2),
         "week_label": m.get("week_label"),
     }
 

@@ -217,9 +217,11 @@ class DataStore:
             installs = float(_safe_num(pd.Series([row.get("installs", 0)])).iloc[0])
             subscriptions = float(_safe_num(pd.Series([row.get("subscriptions", 0)])).iloc[0])
             hook_rate = _parse_rate(row.get("hook_rate"))
-            retention_rate = _parse_retention(row, impressions)
+            video_completions = _parse_count(row.get("video_completions"))
+            retention_rate = _parse_retention(video_completions, impressions, hook_rate)
             if hook_rate is None and CUSTOM_HOOK_COL in df.columns:
                 hook_rate = _parse_rate(row.get(CUSTOM_HOOK_COL))
+                retention_rate = _parse_retention(video_completions, impressions, hook_rate)
             if retention_rate is None and CUSTOM_RETENTION_COL in df.columns:
                 retention_rate = _parse_rate(row.get(CUSTOM_RETENTION_COL))
 
@@ -253,6 +255,7 @@ class DataStore:
                     "subscriptions": subscriptions,
                     "hook_rate": hook_rate or 0.0,
                     "retention_rate": retention_rate or 0.0,
+                    "video_completions": video_completions or 0.0,
                     "channel": channel,
                     "data_scope": data_scope,
                     "week_label": week_label,
@@ -275,17 +278,28 @@ def _parse_rate(value: Any) -> float | None:
     return round(num * 100, 4) if num <= 1 else round(num, 4)
 
 
-def _parse_retention(row: Any, impressions: float) -> float | None:
-    completions = row.get("video_completions")
-    if completions is None or (isinstance(completions, float) and pd.isna(completions)):
+def _parse_count(value: Any) -> float | None:
+    if value is None or (isinstance(value, float) and pd.isna(value)):
         return None
     try:
-        comp = float(completions)
+        num = float(value)
     except (TypeError, ValueError):
         return None
-    if impressions > 0:
-        return round(comp / impressions * 100, 4)
-    return None
+    return num if num > 0 else None
+
+
+def _parse_retention(
+    completions: float | None,
+    impressions: float,
+    hook_rate: float | None,
+) -> float | None:
+    """持续播放率 = 完播次数 / 达 3 秒播放次数 × 100%"""
+    if not completions or not hook_rate or hook_rate <= 0 or impressions <= 0:
+        return None
+    views_3s = impressions * hook_rate / 100
+    if views_3s <= 0:
+        return None
+    return round(completions / views_3s * 100, 4)
 
 
 def _scaling_status(spend: float, purchases: float) -> str:

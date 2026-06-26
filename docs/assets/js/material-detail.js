@@ -2,6 +2,11 @@ function escapeHtml(text) {
   return String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function formatRate(value) {
+  if (value === null || value === undefined || value === '' || Number(value) <= 0) return '-';
+  return `${Number(value).toFixed(2)}%`;
+}
+
 export function showMaterialDetail(mat) {
   const old = document.getElementById('material-modal');
   if (old) old.remove();
@@ -27,12 +32,11 @@ export function showMaterialDetail(mat) {
           <div class="detail-item"><span class="label">设计师</span><span class="value">${escapeHtml(mat.designer || '-')}</span></div>
           <div class="detail-item"><span class="label">方向</span><span class="value"><span class="tag">${escapeHtml(mat.direction || '-')}</span></span></div>
           <div class="detail-item"><span class="label">主题</span><span class="value">${escapeHtml(mat.theme || '-')}</span></div>
-          <div class="detail-item"><span class="label">风格</span><span class="value">${escapeHtml(mat.stylization || '-')}</span></div>
           <div class="detail-item"><span class="label">优化标签</span><span class="value">${escapeHtml(mat.optimization || '-')}</span></div>
-          <div class="detail-item"><span class="label">痛点等级</span><span class="value">${escapeHtml(mat.pain_point || '-')}</span></div>
-          <div class="detail-item"><span class="label">练习类型</span><span class="value">${escapeHtml(mat.exercise_type || '-')}</span></div>
           <div class="detail-item"><span class="label">渠道</span><span class="value">${escapeHtml(mat.channel || '-')}</span></div>
           <div class="detail-item"><span class="label">放量状态</span><span class="value"><span class="tag ${scalingCls}">${escapeHtml(mat.scaling_status || '-')}</span></span></div>
+          <div class="detail-item"><span class="label">吸睛率</span><span class="value" style="font-weight:600">${formatRate(mat.hook_rate)}</span></div>
+          <div class="detail-item"><span class="label">持续播放率</span><span class="value" style="font-weight:600">${formatRate(mat.retention_rate)}</span></div>
           <div class="detail-item"><span class="label">消耗</span><span class="value" style="color:var(--red)">$${mat.spend || 0}</span></div>
           <div class="detail-item"><span class="label">出单</span><span class="value" style="font-weight:700;color:#dc2626">${mat.purchases || 0}</span></div>
           <div class="detail-item"><span class="label">ROAS</span><span class="value" style="color:${roas >= 1.5 ? '#16a34a' : '#dc2626'}">${mat.roas ?? '-'}</span></div>

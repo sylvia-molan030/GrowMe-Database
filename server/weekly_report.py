@@ -54,6 +54,8 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
             grouped[mid]["retention_values"] = []
             grouped[mid]["hook_weights"] = []
             grouped[mid]["retention_weights"] = []
+            grouped[mid]["views_3s_sum"] = 0.0
+            grouped[mid]["video_completions_sum"] = 0.0
         g = grouped[mid]
         g["purchases"] += r.get("purchases", 0)
         g["subscriptions"] += r.get("subscriptions", 0)
@@ -65,12 +67,12 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if r.get("roas"):
             g["roas_values"].append(r["roas"])
         weight = r.get("impressions", 0) or 1.0
-        if r.get("hook_rate"):
-            g["hook_values"].append(r["hook_rate"])
+        hook = r.get("hook_rate", 0) or 0
+        if hook > 0:
+            g["hook_values"].append(hook)
             g["hook_weights"].append(weight)
-        if r.get("retention_rate"):
-            g["retention_values"].append(r["retention_rate"])
-            g["retention_weights"].append(weight)
+            g["views_3s_sum"] += weight * hook / 100
+        g["video_completions_sum"] += r.get("video_completions", 0) or 0
 
     result: list[dict[str, Any]] = []
     for g in grouped.values():
@@ -78,12 +80,12 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         roas_vals = g.pop("roas_values", [])
         hook_vals = g.pop("hook_values", [])
         hook_w = g.pop("hook_weights", [])
-        ret_vals = g.pop("retention_values", [])
-        ret_w = g.pop("retention_weights", [])
+        views_3s = g.pop("views_3s_sum", 0) or 0
+        comps = g.pop("video_completions_sum", 0) or 0
         g["ctr"] = sum(ctr_vals) / len(ctr_vals) if ctr_vals else 0
         g["roas"] = sum(roas_vals) / len(roas_vals) if roas_vals else 0
         g["hook_rate"] = _weighted_avg(hook_vals, hook_w)
-        g["retention_rate"] = _weighted_avg(ret_vals, ret_w)
+        g["retention_rate"] = round(comps / views_3s * 100, 2) if views_3s > 0 else 0
         g["effective"] = g["spend"] > EFFECTIVE_SPEND_MIN and g["purchases"] >= 1
         g["has_order"] = g["purchases"] >= 1
         result.append(g)

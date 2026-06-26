@@ -23,6 +23,16 @@ function kpiCard(title, value, sub = '') {
   `;
 }
 
+function kpiCardWithClass(title, value, sub, cls) {
+  return `
+    <div class="${cls}">
+      <div class="kpi-title">${title}</div>
+      <div class="kpi-value">${value}</div>
+      ${sub ? `<div class="kpi-sub">${sub}</div>` : ''}
+    </div>
+  `;
+}
+
 function renderKpis(summary, mode) {
   const title = mode === 'new' ? '上新素材成效统计' : '账户内成效统计';
   return `
@@ -34,9 +44,9 @@ function renderKpis(summary, mode) {
       ${kpiCard('素材出单率', `${summary.order_rate}%`)}
       ${kpiCard(`2单及以上素材率 (${summary.ge2_count}条)`, `${summary.ge2_rate}%`)}
       ${kpiCard(`5单及以上素材率 (${summary.ge5_count}条)`, `${summary.ge5_rate}%`)}
-      ${kpiCard('总消耗', `$${summary.total_spend || 0}`)}
-      ${kpiCard('平均CPA', `$${summary.avg_cpa || '-'}`)}
-      ${kpiCard('平均ROAS', summary.avg_roas || '-')}
+      ${kpiCardWithClass('总消耗', `$${summary.total_spend || 0}`, '', 'card kpi-card kpi-card-spend')}
+      ${kpiCardWithClass('平均CPA', `$${summary.avg_cpa || '-'}`, '', 'card kpi-card kpi-card-spend')}
+      ${kpiCardWithClass('平均ROAS', summary.avg_roas || '-', '', 'card kpi-card kpi-card-spend')}
     </div>
   `;
 }

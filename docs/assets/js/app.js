@@ -38,8 +38,23 @@ const contentEl = document.getElementById('page-content');
 const titleEl = document.getElementById('page-title');
 const metaEl = document.getElementById('sidebar-meta');
 
+function loadingSkeletonHtml() {
+  return `
+    <div class="skeleton-block">
+      <div class="skeleton" style="width:30%;height:24px;margin-bottom:16px"></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px">
+        ${Array(6).fill('<div class="skeleton-card"><div class="skeleton" style="width:60%"></div><div class="skeleton" style="width:40%;height:28px;margin-top:8px"></div></div>').join('')}
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton" style="width:40%"></div>
+        <div class="skeleton" style="width:100%;height:360px;margin-top:12px"></div>
+      </div>
+    </div>
+  `;
+}
+
 async function refreshPage() {
-  contentEl.innerHTML = '<div class="empty">加载中...</div>';
+  contentEl.innerHTML = loadingSkeletonHtml();
   try {
     if (state.view === 'golden-cross') await renderGoldenCross(contentEl, state);
     else if (state.view === 'leaderboard') await renderLeaderboard(contentEl, state);
@@ -85,6 +100,28 @@ function renderMeta(meta, scannedAt) {
     周度：${(meta.weekly_labels || []).join('、') || '-'}<br/>
     数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">≠本地时请 push 后等 1 分钟</span>' : ''}
   `;
+
+  const freshEl = document.getElementById('data-freshness');
+  if (freshEl) {
+    const scanned = scannedAt || meta.scanned_at || meta.generated_at;
+    if (scanned) {
+      const d = new Date(String(scanned).replace(' ', 'T'));
+      if (!Number.isNaN(d.getTime())) {
+        const now = new Date();
+        const hoursAgo = Math.max(0, Math.round((now - d) / 3600000));
+        let color = '#16a34a';
+        let text = `数据更新于 ${hoursAgo}h 前`;
+        if (hoursAgo > 48) {
+          color = '#dc2626';
+          text = `⚠️ 数据 ${Math.round(hoursAgo / 24)} 天前`;
+        } else if (hoursAgo > 24) {
+          color = '#ef9f27';
+        }
+        freshEl.style.color = color;
+        freshEl.textContent = text;
+      }
+    }
+  }
 }
 
 let apiMode = 'live';
@@ -108,7 +145,14 @@ async function bootstrap() {
   renderFilters(filtersEl, state, onFiltersChange);
 
   document.querySelectorAll('.nav-item').forEach((btn) => {
-    btn.addEventListener('click', () => setView(btn.dataset.page));
+    btn.addEventListener('click', () => {
+      setView(btn.dataset.page);
+      document.querySelector('.sidebar .nav')?.classList.remove('open');
+    });
+  });
+
+  document.getElementById('menu-toggle')?.addEventListener('click', () => {
+    document.querySelector('.sidebar .nav')?.classList.toggle('open');
   });
 
   uploadBtn.addEventListener('click', () => {

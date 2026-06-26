@@ -166,7 +166,8 @@ th.sorted { color: var(--primary); }
 }
 .tag.gray { background: #f3f4f6; color: #6b7280; }
 .tag.green { background: #dcfce7; color: #166534; }
-.pill { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 22px; border-radius: 6px; font-size: 11px; font-weight: 700; background: #eef2ff; color: #4338ca; }
+.pill { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; height: 22px; padding: 0 6px; border-radius: 6px; font-size: 11px; font-weight: 700; background: #eef2ff; color: #4338ca; }
+.pill-designer { text-transform: lowercase; }
 
 .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
 .tab {

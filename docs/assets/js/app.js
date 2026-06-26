@@ -6,6 +6,7 @@ import { renderDesigner } from './pages/designer.js';
 import { renderAssetLibrary } from './pages/asset-library.js';
 import { renderWeeklyUpdate } from './pages/weekly-update.js';
 import { renderRollback } from './pages/rollback.js';
+import { renderReviewBoard } from './pages/review-board.js';
 
 const PAGE_TITLES = {
   'golden-cross': '素材黄金交叉复盘',
@@ -14,6 +15,7 @@ const PAGE_TITLES = {
   'asset-library': '核心资产晋级库',
   'weekly-update': '周维度更新',
   rollback: '回滚素材',
+  'review-board': '每日决策面板',
 };
 
 const state = {
@@ -45,6 +47,7 @@ async function refreshPage() {
     else if (state.view === 'asset-library') await renderAssetLibrary(contentEl, state);
     else if (state.view === 'weekly-update') await renderWeeklyUpdate(contentEl, state);
     else if (state.view === 'rollback') await renderRollback(contentEl);
+    else if (state.view === 'review-board') await renderReviewBoard(contentEl, state);
     else contentEl.innerHTML = '<div class="empty">页面不存在或脚本未更新，请强制刷新（Cmd+Shift+R）</div>';
   } catch (err) {
     console.error(err);
@@ -63,7 +66,7 @@ function setView(view) {
   state.tablePage = 1;
   state.assetPage = 1;
   titleEl.textContent = PAGE_TITLES[view] || 'GrowMe';
-  filtersEl.style.display = (view === 'weekly-update' || view === 'rollback') ? 'none' : '';
+  filtersEl.style.display = (view === 'weekly-update' || view === 'rollback' || view === 'review-board') ? 'none' : '';
   document.querySelectorAll('.nav-item').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.page === view);
   });

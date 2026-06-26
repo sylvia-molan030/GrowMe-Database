@@ -415,6 +415,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "conversions": combined_kpi["conversions"],
             "subscriptions": combined_kpi["subscriptions"],
             "effective_rate": combined_kpi["effective_rate"],
+            "avg_roas": combined_kpi["roas"],
             "wow": wow,
         },
         "core_comparison": _comparison_table(current_metrics, prev_metrics),

@@ -118,6 +118,10 @@ function calcSummary(items) {
     avg_roas: Math.round(avg(roasVals) * 100) / 100,
     avg_ctr: Math.round(avg(ctrVals) * 100) / 100,
     avg_spend: Math.round(avg(spendVals) * 100) / 100,
+    total_spend: Math.round(spendVals.reduce((a, b) => a + b, 0) * 100) / 100,
+    avg_cpa: ordered.length
+      ? Math.round((spendVals.reduce((a, b) => a + b, 0) / ordered.length) * 100) / 100
+      : 0,
   };
 }
 

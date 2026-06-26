@@ -38,7 +38,28 @@ function renderKpiSection(kpi, prevWeek, effectiveRule) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
   const ruleHint = effectiveRule || '消耗 > $200 且有购物';
+
+  const orderRateDelta = wow.order_rate && wow.order_rate.pct !== null
+    ? `(${wow.order_rate.direction === 'up' ? '+' : ''}${wow.order_rate.pct}%)`
+    : '';
+  const spendDelta = wow.spend && wow.spend.pct !== null
+    ? `(${wow.spend.direction === 'up' ? '+' : ''}${wow.spend.pct}%)`
+    : '';
+
+  let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${kpi.total_materials || 0} 条素材`;
+  if (kpi.effective_materials) summaryLine += `，有效 ${kpi.effective_materials} 条`;
+  summaryLine += `，出单率 ${kpi.order_rate || 0}%${orderRateDelta}`;
+  if (kpi.avg_roas) summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
+
+  const summaryHtml = hasWow ? `
+    <div class="card" style="background:#f0f7ff;border-left:4px solid #378add;padding:12px 16px;border-radius:8px;margin-bottom:14px">
+      <div style="font-size:13px;font-weight:600;color:#0c447c;margin-bottom:4px">本周一句话总结</div>
+      <div style="font-size:13px;color:#185fa5;line-height:1.6">${summaryLine}</div>
+    </div>
+  ` : '';
+
   return `
+    ${summaryHtml}
     <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
     <div class="kpi-grid kpi-grid-4">
       ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}

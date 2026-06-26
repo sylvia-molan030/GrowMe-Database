@@ -2,6 +2,16 @@ import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 
 let survivalChart = null;
+let scatterChart = null;
+let decayChart = null;
+
+function initChart(instance, el) {
+  if (instance && instance.getDom && instance.getDom() !== el) {
+    instance.dispose();
+    instance = null;
+  }
+  return instance || echarts.init(el);
+}
 
 function kpiCard(title, value, sub = '') {
   return `
@@ -24,12 +34,15 @@ function renderKpis(summary, mode) {
       ${kpiCard('素材出单率', `${summary.order_rate}%`)}
       ${kpiCard(`2单及以上素材率 (${summary.ge2_count}条)`, `${summary.ge2_rate}%`)}
       ${kpiCard(`5单及以上素材率 (${summary.ge5_count}条)`, `${summary.ge5_rate}%`)}
+      ${kpiCard('总消耗', `$${summary.total_spend || 0}`)}
+      ${kpiCard('平均CPA', `$${summary.avg_cpa || '-'}`)}
+      ${kpiCard('平均ROAS', summary.avg_roas || '-')}
     </div>
   `;
 }
 
 function renderSurvivalChart(el, trend) {
-  if (!survivalChart) survivalChart = echarts.init(el);
+  survivalChart = initChart(survivalChart, el);
   survivalChart.setOption({
     tooltip: { trigger: 'axis' },
     legend: { data: ['每日素材数', '成活数（有购物）'] },
@@ -53,14 +66,101 @@ function renderSurvivalChart(el, trend) {
         symbolSize: 6,
       },
     ],
+  }, true);
+}
+
+function renderScatterChart(el, items) {
+  const data = items
+    .filter((m) => m.spend > 0 && m.purchases > 0)
+    .map((m) => [m.spend, m.purchases, m.roas || 0, m.material_id]);
+
+  if (data.length === 0) {
+    el.innerHTML = '<div class="empty">当前筛选条件下无有效散点数据</div>';
+    return;
+  }
+
+  el.innerHTML = '';
+  scatterChart = initChart(scatterChart, el);
+  scatterChart.setOption({
+    tooltip: {
+      formatter: (p) => `${p.data[3]}<br/>Spend: $${p.data[0]}<br/>Purchases: ${p.data[1]}<br/>ROAS: ${p.data[2]}`,
+    },
+    grid: { left: 60, right: 24, top: 24, bottom: 40 },
+    xAxis: { name: '消耗 ($)', type: 'value', nameTextStyle: { fontSize: 12 } },
+    yAxis: { name: '出单量', type: 'value', minInterval: 1, nameTextStyle: { fontSize: 12 } },
+    series: [{
+      type: 'scatter',
+      data,
+      symbolSize: (d) => Math.min(Math.max(Math.sqrt(d[1]) * 4, 4), 40),
+      itemStyle: {
+        color: (params) => {
+          const roas = params.data[2];
+          if (roas >= 2) return '#16a34a';
+          if (roas >= 1) return '#ef9f27';
+          return '#dc2626';
+        },
+        opacity: 0.65,
+      },
+    }],
+  }, true);
+}
+
+function renderDecayChart(el, items) {
+  if (!items || items.length === 0) {
+    el.innerHTML = '<div class="empty">暂无衰减数据</div>';
+    return;
+  }
+
+  const byDay = {};
+  items.forEach((m) => {
+    if (!m.first_seen) return;
+    const day = m.first_seen;
+    if (!byDay[day]) byDay[day] = { total: 0, alive: 0 };
+    byDay[day].total++;
+    if (m.purchases >= 1) byDay[day].alive++;
   });
+
+  const dates = Object.keys(byDay).sort();
+  const rates = dates.map((d) => ({
+    date: d,
+    rate: Math.round((byDay[d].alive / byDay[d].total) * 1000) / 10,
+  }));
+
+  const smoothed = rates.map((r, i) => {
+    let sum = 0;
+    let count = 0;
+    for (let j = Math.max(0, i - 3); j <= Math.min(rates.length - 1, i + 3); j++) {
+      sum += rates[j].rate;
+      count++;
+    }
+    return { date: r.date, rate: Math.round((sum / count) * 10) / 10 };
+  });
+
+  el.innerHTML = '';
+  decayChart = initChart(decayChart, el);
+  decayChart.setOption({
+    tooltip: { trigger: 'axis', formatter: (p) => `${p[0].axisValue}<br/>出单率(7日平滑): ${p[0].data}%` },
+    grid: { left: 48, right: 24, top: 24, bottom: 40 },
+    xAxis: { type: 'category', data: smoothed.map((r) => r.date), axisLabel: { rotate: 30, fontSize: 10 } },
+    yAxis: { type: 'value', name: '出单率 %', nameTextStyle: { fontSize: 12 } },
+    series: [{
+      type: 'line',
+      data: smoothed.map((r) => r.rate),
+      itemStyle: { color: '#7f77dd' },
+      lineStyle: { width: 2 },
+      symbol: 'circle',
+      symbolSize: 3,
+      areaStyle: { color: 'rgba(127,119,221,0.08)' },
+    }],
+  }, true);
 }
 
 export async function renderGoldenCross(container, state) {
   const q = queryFilters(state.filters);
-  const [summary, trend] = await Promise.all([
+  const [summary, trend, materialList] = await Promise.all([
     api.summary(q, state.filters.mode),
     api.survivalTrend(q, state.filters.mode),
+    api.materials(q, { mode: state.filters.mode, page_size: 9999 }),
   ]);
 
   container.innerHTML = `
@@ -69,8 +169,24 @@ export async function renderGoldenCross(container, state) {
       <div class="section-title">First-Seen 成活趋势图 <span style="font-size:12px;color:#6b7280;font-weight:400">（按素材名前缀日期，非报告日期）</span></div>
       <div id="survival-chart" class="chart"></div>
     </div>
+    <div class="card">
+      <div class="section-title">素材效率四象限 <span style="font-size:12px;color:#6b7280;font-weight:400">（气泡 = 出单量，颜色 = ROAS）</span></div>
+      <div id="scatter-chart" class="chart" style="height:420px"></div>
+    </div>
+    <div class="card">
+      <div class="section-title">素材出单率趋势 <span style="font-size:12px;color:#6b7280;font-weight:400">（7日移动平均）</span></div>
+      <div id="decay-chart" class="chart"></div>
+    </div>
   `;
 
   renderSurvivalChart(container.querySelector('#survival-chart'), trend);
-  window.addEventListener('resize', () => survivalChart && survivalChart.resize());
+  if (materialList?.rows) {
+    renderScatterChart(container.querySelector('#scatter-chart'), materialList.rows);
+    renderDecayChart(container.querySelector('#decay-chart'), materialList.rows);
+  }
+  window.addEventListener('resize', () => {
+    survivalChart && survivalChart.resize();
+    scatterChart && scatterChart.resize();
+    decayChart && decayChart.resize();
+  });
 }

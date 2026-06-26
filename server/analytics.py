@@ -168,6 +168,8 @@ def get_summary(filters: dict[str, str], mode: str = "account") -> dict[str, Any
         "avg_roas": round(sum(avg_roas_vals) / len(avg_roas_vals), 2) if avg_roas_vals else 0,
         "avg_ctr": round(sum(avg_ctr_vals) / len(avg_ctr_vals), 2) if avg_ctr_vals else 0,
         "avg_spend": round(sum(avg_spend_vals) / len(avg_spend_vals), 2) if avg_spend_vals else 0,
+        "total_spend": round(sum(m["spend"] for m in materials), 2),
+        "avg_cpa": round(sum(m["spend"] for m in materials) / len(ordered), 2) if ordered else 0,
     }
 
 

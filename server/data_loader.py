@@ -7,7 +7,7 @@ from typing import Any
 
 import pandas as pd
 
-from parser import parse_material
+from parser import parse_material, canonical_direction
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data_inputs"
 # 账户全量：全球+T1 按素材名合并；周度上新：仅 WW，不测 T1
@@ -233,7 +233,7 @@ class DataStore:
                     "internal_name": parsed.internal_name,
                     "language": parsed.language,
                     "size": parsed.size,
-                    "direction": parsed.direction,
+                    "direction": canonical_direction(parsed.direction),
                     "theme": parsed.theme,
                     "optimization": parsed.optimization,
                     "stylization": parsed.stylization,

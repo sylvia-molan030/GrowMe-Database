@@ -91,7 +91,7 @@ function renderSummaryBar(allRows) {
 function renderDirectionBar(rows) {
   const byDir = {};
   (rows || []).forEach((m) => {
-    const dir = extractFxDirection(m.material_id);
+    const dir = extractFxDirection(m.material_id).toLowerCase();
     if (!byDir[dir]) byDir[dir] = { total: 0, ordered: 0 };
     byDir[dir].total++;
     if (m.purchases >= 1) byDir[dir].ordered++;

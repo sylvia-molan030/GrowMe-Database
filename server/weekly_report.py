@@ -188,9 +188,11 @@ def _comparison_table(current: dict[str, Any], previous: dict[str, Any] | None) 
 
 
 def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    from parser import canonical_direction
+
     by_dir: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for m in materials:
-        by_dir[m.get("direction") or "未知"].append(m)
+        by_dir[canonical_direction(m.get("direction") or "未知")].append(m)
 
     rows = []
     for direction, items in sorted(by_dir.items(), key=lambda x: -sum(i["purchases"] for i in x[1])):

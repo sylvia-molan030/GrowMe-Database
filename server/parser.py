@@ -63,6 +63,13 @@ RMG_RE = re.compile(r"RMG-([A-Z0-9]+)", re.IGNORECASE)
 DESIGNER_CANONICAL = ("gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl")
 
 
+def canonical_direction(value: str) -> str:
+    v = (value or "").strip()
+    if not v or v == "未知":
+        return v or "未知"
+    return v.lower()
+
+
 def normalize_designer(raw: str, material_id: str = "") -> str:
     key = (raw or "").strip()
     low = key.lower()
@@ -204,7 +211,7 @@ def _parse_legacy(raw: str) -> ParsedMaterial | None:
         internal_name=internal,
         language="EN",
         size=size,
-        direction=label,
+        direction=canonical_direction(label),
         theme=label,
         optimization="",
         stylization=stylization,
@@ -259,7 +266,7 @@ def parse_material(name: str) -> ParsedMaterial:
 
     fx = FX_RE.search(body)
     if fx:
-        direction = fx.group(1).strip()
+        direction = canonical_direction(fx.group(1).strip())
         header = body[: fx.start()]
     else:
         header = body

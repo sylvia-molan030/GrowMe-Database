@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from typing import Any
 
 from data_loader import get_weekly_labels, store, WEEKLY_DATA_SCOPES
-from parser import DESIGNER_CANONICAL
+from parser import DESIGNER_CANONICAL, canonical_direction
 
 
 def _resolve_scope(mode: str = "account", scope: str | None = None) -> str:
@@ -42,7 +42,13 @@ def _in_range(first_seen: str | None, start: str | None, end: str | None) -> boo
 def _match_filters(record: dict[str, Any], filters: dict[str, str]) -> bool:
     for key in ("direction", "theme", "optimization", "stylization", "pain_point", "exercise_type", "channel"):
         val = filters.get(key, "全部")
-        if val and val != "全部" and record.get(key) != val:
+        if not val or val == "全部":
+            continue
+        rec_val = record.get(key)
+        if key == "direction":
+            if canonical_direction(rec_val or "") != canonical_direction(val):
+                return False
+        elif rec_val != val:
             return False
     if not _in_range(record.get("first_seen"), filters.get("date_start"), filters.get("date_end")):
         return False
@@ -146,7 +152,10 @@ def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
         for k in keys:
             v = r.get(k)
             if v and v not in {"未知", ""}:
-                options[k].add(v)
+                if k == "direction":
+                    options[k].add(canonical_direction(v))
+                else:
+                    options[k].add(v)
     designers = sorted({r.get("designer") for r in records if r.get("designer")})
     result = {k: ["全部", *sorted(v)] for k, v in options.items()}
     result["designer"] = ["全部", *designers]

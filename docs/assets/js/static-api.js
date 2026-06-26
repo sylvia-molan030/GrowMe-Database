@@ -79,7 +79,9 @@ function matchFilters(item, filters) {
     if (!val || val === '全部') continue;
     const itemVal = item[key];
     if (itemVal === undefined || itemVal === '' || itemVal === '未知') continue;
-    if (itemVal !== val) return false;
+    if (key === 'direction') {
+      if (String(itemVal).toLowerCase() !== String(val).toLowerCase()) return false;
+    } else if (itemVal !== val) return false;
   }
   return inRange(item.first_seen, filters.date_start, filters.date_end);
 }

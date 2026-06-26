@@ -9,6 +9,8 @@ import pandas as pd
 
 from data_loader import store
 
+from parser import canonical_direction
+
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "data_outputs"
 CATALOG_FILE = OUTPUT_DIR / "materials_catalog.csv"
 
@@ -129,7 +131,7 @@ def get_catalog_summary() -> dict[str, Any]:
     by_direction: dict[str, int] = defaultdict(int)
     by_designer: dict[str, int] = defaultdict(int)
     for row in rows:
-        by_direction[row.get("direction", "未知")] += 1
+        by_direction[canonical_direction(row.get("direction") or "未知")] += 1
         by_designer[row.get("designer", "未知")] += 1
 
     return {

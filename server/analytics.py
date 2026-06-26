@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from typing import Any
 
 from data_loader import get_weekly_labels, store, WEEKLY_DATA_SCOPES
-from parser import DESIGNER_CANONICAL, canonical_direction
+from parser import DESIGNER_CANONICAL, canonical_direction, _normalize_axis_value
 
 
 def _resolve_scope(mode: str = "account", scope: str | None = None) -> str:
@@ -110,6 +110,7 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
         g["retention_rate"] = round(comps / views_3s * 100, 2) if views_3s > 0 else 0
         for k in ("hook_weighted_sum", "hook_weight", "views_3s_sum", "video_completions_sum"):
             g.pop(k, None)
+        g["direction"] = canonical_direction(g.get("direction") or "未知")
         g["scaling_status"] = _scaling_status(g["spend"], g["purchases"])
         result.append(g)
     return result
@@ -262,13 +263,17 @@ def get_heatmap(
     records = filter_records(filters)
     materials = _aggregate_by_material(records)
 
-    y_vals = sorted({m.get(y_axis, "未知") for m in materials})
-    x_vals = sorted({m.get(x_axis, "未知") for m in materials})
+    y_vals = sorted({_normalize_axis_value(y_axis, m.get(y_axis)) for m in materials})
+    x_vals = sorted({_normalize_axis_value(x_axis, m.get(x_axis)) for m in materials})
 
     cells: list[dict[str, Any]] = []
     for y in y_vals:
         for x in x_vals:
-            subset = [m for m in materials if m.get(y_axis) == y and m.get(x_axis) == x]
+            subset = [
+                m for m in materials
+                if _normalize_axis_value(y_axis, m.get(y_axis)) == y
+                and _normalize_axis_value(x_axis, m.get(x_axis)) == x
+            ]
             if not subset:
                 continue
             ordered = sum(1 for m in subset if m["purchases"] >= 1)
@@ -308,9 +313,15 @@ def get_materials(
     materials = _aggregate_by_material(records)
 
     if y_axis and y_value:
-        materials = [m for m in materials if m.get(y_axis) == y_value]
+        materials = [
+            m for m in materials
+            if _normalize_axis_value(y_axis, m.get(y_axis)) == _normalize_axis_value(y_axis, y_value)
+        ]
     if x_axis and x_value:
-        materials = [m for m in materials if m.get(x_axis) == x_value]
+        materials = [
+            m for m in materials
+            if _normalize_axis_value(x_axis, m.get(x_axis)) == _normalize_axis_value(x_axis, x_value)
+        ]
     if min_orders > 0:
         materials = [m for m in materials if m["purchases"] >= min_orders]
     if keyword:
@@ -344,7 +355,7 @@ def get_materials(
                 "designer": m.get("designer"),
                 "designer_variant": m.get("designer_variant"),
                 "serial_code": m.get("serial_code"),
-                "direction": m.get("direction"),
+                "direction": canonical_direction(m.get("direction") or "未知"),
                 "theme": m.get("theme"),
                 "optimization": m.get("optimization"),
                 "purchases": int(m["purchases"]),

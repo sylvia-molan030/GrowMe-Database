@@ -64,10 +64,18 @@ DESIGNER_CANONICAL = ("gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl")
 
 
 def canonical_direction(value: str) -> str:
+    """方向统一为小写，Test / test 等合并为同一类统计。"""
     v = (value or "").strip()
     if not v or v == "未知":
         return v or "未知"
     return v.lower()
+
+
+def _normalize_axis_value(axis: str, value: str | None) -> str:
+    val = (value or "").strip() or "未知"
+    if axis == "direction":
+        return canonical_direction(val)
+    return val
 
 
 def normalize_designer(raw: str, material_id: str = "") -> str:

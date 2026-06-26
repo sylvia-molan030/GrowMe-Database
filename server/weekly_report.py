@@ -5,6 +5,7 @@ from collections import defaultdict
 from typing import Any
 
 from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES
+from parser import canonical_direction
 
 EFFECTIVE_SPEND_MIN = 200  # 有效素材：消耗 > $200 且有购物
 
@@ -86,6 +87,7 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         g["roas"] = sum(roas_vals) / len(roas_vals) if roas_vals else 0
         g["hook_rate"] = _weighted_avg(hook_vals, hook_w)
         g["retention_rate"] = round(comps / views_3s * 100, 2) if views_3s > 0 else 0
+        g["direction"] = canonical_direction(g.get("direction") or "未知")
         g["effective"] = g["spend"] > EFFECTIVE_SPEND_MIN and g["purchases"] >= 1
         g["has_order"] = g["purchases"] >= 1
         result.append(g)

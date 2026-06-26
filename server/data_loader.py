@@ -42,6 +42,11 @@ NEW_DIRECTION_FILE_RE = re.compile(r"数字人", re.IGNORECASE)
 # 周度 KPI / 上新素材：常规周度文件 + 新方向测试（如数字人）
 WEEKLY_DATA_SCOPES = frozenset({"weekly", "new_direction"})
 
+# 非我方素材，导入时永久跳过（账户全量更新亦不会带回）
+EXCLUDED_MATERIAL_IDS = frozenset({
+    "251231_AAA_AEO-Purchase_ios_pic_Growme_WW_周跑图组333_joy",
+})
+
 
 def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     lower_map = {str(c).strip().lower(): c for c in df.columns}
@@ -200,6 +205,8 @@ class DataStore:
         for _, row in df.iterrows():
             ad_name = str(row.get("ad_name", "")).strip()
             if not ad_name or ad_name == "nan":
+                continue
+            if ad_name in EXCLUDED_MATERIAL_IDS:
                 continue
 
             account = str(row.get("account", "") or "")

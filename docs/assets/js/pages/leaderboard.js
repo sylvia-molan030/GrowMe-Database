@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
+import { bindMaterialDetailLinks } from '../material-detail.js';
 
 let dirChart = null;
 
@@ -24,6 +25,10 @@ const FALLBACK_PALETTE = [
 ];
 
 const BAR_COLORS = ['#378add', '#534ab7', '#1d9e75', '#ef9f27', '#d85a30', '#d4537e', '#639922', '#888780'];
+
+function escapeHtml(text) {
+  return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 function ensureChartJS(cb) {
   if (window.Chart) return cb();
@@ -154,7 +159,7 @@ function renderTable(rows, sortBy, sortDir) {
   const body = rows.map((r) => `
     <tr>
       <td>${r.rank}</td>
-      <td title="${r.material_id}">${r.material_id}</td>
+      <td class="cell-material-name mat-detail-link" title="${escapeHtml(r.material_id)}">${escapeHtml(r.material_id)}</td>
       <td>${designerPill(r.designer)}</td>
       <td>${r.serial_code || '-'}</td>
       <td>$${r.spend}</td>
@@ -235,6 +240,7 @@ export async function renderLeaderboard(container, state) {
   `;
 
   paintDirectionChart(container, dirs);
+  bindMaterialDetailLinks(container, data.rows);
 
   container.querySelector('#search-btn').addEventListener('click', () => runSearch(state, container));
   container.querySelector('#keyword-input').addEventListener('keydown', (e) => {

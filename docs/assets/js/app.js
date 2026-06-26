@@ -64,6 +64,7 @@ async function refreshPage() {
     else if (state.view === 'rollback') await renderRollback(contentEl);
     else if (state.view === 'review-board') await renderReviewBoard(contentEl, state);
     else contentEl.innerHTML = '<div class="empty">页面不存在或脚本未更新，请强制刷新（Cmd+Shift+R）</div>';
+    updateFilterBadge(state);
   } catch (err) {
     console.error(err);
     contentEl.innerHTML = `<div class="empty">加载失败：${err.message}</div>`;
@@ -198,3 +199,25 @@ async function bootstrap() {
 bootstrap().catch((err) => {
   contentEl.innerHTML = `<div class="empty">初始化失败：${err.message}<br/>请确认后端已启动（./start.sh）。</div>`;
 });
+
+function updateFilterBadge(state) {
+  const badge = document.getElementById('filter-badge');
+  if (!badge) return;
+  const f = state.filters || {};
+  const active = [];
+  if (f.channel && f.channel !== 'ALL' && f.channel !== '全部') active.push(f.channel);
+  if (f.direction && f.direction !== '全部') active.push(`方向:${f.direction}`);
+  if (f.theme && f.theme !== '全部') active.push(`主题:${f.theme}`);
+  if (f.optimization && f.optimization !== '全部') active.push(`优化:${f.optimization}`);
+  if (f.stylization && f.stylization !== '全部') active.push(`风格:${f.stylization}`);
+  if (f.pain_point && f.pain_point !== '全部') active.push(`痛点:${f.pain_point}`);
+  if (f.exercise_type && f.exercise_type !== '全部') active.push(`锻炼:${f.exercise_type}`);
+  if (f.mode === 'new') active.push('上新素材');
+  if (f.preset && f.preset !== 'all') active.push('日期范围');
+  if (active.length) {
+    badge.textContent = `筛选: ${active.join(', ')}`;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
+}

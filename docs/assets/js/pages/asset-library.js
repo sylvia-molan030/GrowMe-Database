@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
+import { bindMaterialDetailLinks } from '../material-detail.js';
 
 let tierPieChart = null;
 
@@ -33,7 +34,7 @@ function ensureChartJS(cb) {
 }
 
 function statusTag(status) {
-  const cls = status === '增长期' ? 'green' : 'gray';
+  const cls = status === '增长期' ? 'green' : status === '炮灰' ? 'red' : status === '衰退期' ? 'orange' : 'gray';
   return `<span class="tag ${cls}">${status || '-'}</span>`;
 }
 
@@ -187,7 +188,7 @@ export async function renderAssetLibrary(container, state) {
             ${data.rows.map((r) => `
               <tr>
                 <td>${r.rank}</td>
-                <td class="cell-material-name">${escapeHtml(r.material_id)}</td>
+                <td class="cell-material-name mat-detail-link">${escapeHtml(r.material_id)}</td>
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
                 <td>$${r.spend}</td>
                 <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
@@ -208,6 +209,7 @@ export async function renderAssetLibrary(container, state) {
   `;
 
   paintTierPieChart(container, chartTiers);
+  bindMaterialDetailLinks(container, data.rows);
 
   container.querySelectorAll('[data-scope-mode]').forEach((btn) => {
     btn.addEventListener('click', () => {

@@ -95,11 +95,9 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
 def _scaling_status(spend: float, purchases: float) -> str:
     if purchases >= 5 and spend >= 50:
         return "增长期"
-    if purchases >= 1:
-        return "观察期"
-    if spend >= 30:
+    if purchases < 1 and spend >= 30:
         return "炮灰"
-    return "冷启动"
+    return "衰退期"
 
 
 def filter_records(

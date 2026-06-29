@@ -5,7 +5,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 from typing import Any
 
-from data_loader import get_weekly_labels, store, WEEKLY_DATA_SCOPES
+from data_loader import get_recent_weekly_labels, get_weekly_labels, store, WEEKLY_DATA_SCOPES
 from parser import DESIGNER_CANONICAL, canonical_direction, _normalize_axis_value
 
 
@@ -134,10 +134,12 @@ def filter_records(
     if target_scope == "weekly":
         records = [r for r in store.records if r.get("data_scope") in WEEKLY_DATA_SCOPES]
         records = [r for r in records if r.get("channel") == "WW"]
+        recent = set(get_recent_weekly_labels())
+        records = [r for r in records if r.get("week_label") in recent]
     else:
         records = [r for r in store.records if r.get("data_scope") == target_scope]
     if weekly_only:
-        allowed_weeks = set(get_weekly_labels())
+        allowed_weeks = set(get_recent_weekly_labels())
         records = [r for r in records if r.get("week_label") in allowed_weeks]
     return [r for r in records if _match_filters(r, filters)]
 
@@ -145,10 +147,14 @@ def filter_records(
 def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
     keys = ["direction", "theme", "optimization", "stylization", "pain_point", "exercise_type", "channel"]
     options: dict[str, set[str]] = {k: set() for k in keys}
-    records = [
-        r for r in store.records
-        if r.get("data_scope") in (WEEKLY_DATA_SCOPES if scope == "weekly" else {scope})
-    ]
+    if scope == "weekly":
+        recent = set(get_recent_weekly_labels())
+        records = [
+            r for r in store.records
+            if r.get("data_scope") in WEEKLY_DATA_SCOPES and r.get("week_label") in recent
+        ]
+    else:
+        records = [r for r in store.records if r.get("data_scope") == scope]
     for r in records:
         for k in keys:
             v = r.get(k)
@@ -200,13 +206,16 @@ def get_summary(filters: dict[str, str], mode: str = "account") -> dict[str, Any
 
 def get_data_date_range(scope: str = "account") -> tuple[str | None, str | None]:
     """基于素材名前缀日期（first_seen），而非报告文件日期。"""
+    if scope == "weekly":
+        recent = set(get_recent_weekly_labels())
+        scope_filter = lambda r: r.get("data_scope") in WEEKLY_DATA_SCOPES and r.get("week_label") in recent
+    else:
+        scope_filter = lambda r: r.get("data_scope") == scope
     dates = sorted(
         {
             r.get("first_seen")
             for r in store.records
-            if r.get("first_seen") and r.get("data_scope") in (
-                WEEKLY_DATA_SCOPES if scope == "weekly" else {scope}
-            )
+            if r.get("first_seen") and scope_filter(r)
         }
     )
     if not dates:

@@ -161,6 +161,17 @@ def get_weekly_labels() -> list[str]:
     return sorted(labels, key=week_sort_key)
 
 
+# 上新素材成效：仅统计最近 N 个已导入周度 Tab（周维度更新页仍展示全部历史周）
+RECENT_WEEKLY_WINDOW = 2
+
+
+def get_recent_weekly_labels(n: int = RECENT_WEEKLY_WINDOW) -> list[str]:
+    labels = get_weekly_labels()
+    if n <= 0 or len(labels) <= n:
+        return labels
+    return labels[-n:]
+
+
 class DataStore:
     def __init__(self) -> None:
         self.records: list[dict[str, Any]] = []

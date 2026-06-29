@@ -12,7 +12,7 @@ SERVER = ROOT / "server"
 sys.path.insert(0, str(SERVER))
 
 import analytics  # noqa: E402
-from data_loader import get_weekly_labels, store, week_sort_key  # noqa: E402
+from data_loader import get_recent_weekly_labels, get_weekly_labels, store, week_sort_key  # noqa: E402
 from new_direction_report import get_new_direction_report  # noqa: E402
 from parser import canonical_direction  # noqa: E402
 from rollback_report import get_rollback_report  # noqa: E402
@@ -99,6 +99,8 @@ def build() -> dict:
             "weekly_default_date_start": wds,
             "weekly_default_date_end": wde,
             "weekly_labels": get_weekly_labels(),
+            "recent_weekly_labels": get_recent_weekly_labels(),
+            "recent_weekly_window": 2,
             "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "其他"],
             "filter_options": analytics.get_filter_options("account"),
             "weekly_filter_options": analytics.get_filter_options("weekly"),
@@ -128,7 +130,7 @@ def main() -> None:
     print(f"✓ 静态数据已导出: {out}")
     print(f"✓ 周度报告已导出: {weekly_out}")
     print(f"  账户素材: {len(snapshot['materials_account'])} 条")
-    print(f"  周度上新素材: {len(snapshot['materials_weekly'])} 条（全部已导入周）")
+    print(f"  周度上新素材: {len(snapshot['materials_weekly'])} 条（最近 {snapshot['meta']['recent_weekly_window']} 周：{' · '.join(snapshot['meta']['recent_weekly_labels'])})")
     print(f"  周度 Tab: {' · '.join(snapshot['meta']['weekly_labels'])}")
 
 

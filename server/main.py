@@ -113,7 +113,7 @@ def _upload_message(saved: list[dict[str, Any]], kinds: list[str]) -> str:
 
 @app.get("/api/meta")
 def meta() -> dict[str, Any]:
-    from data_loader import get_weekly_labels
+    from data_loader import get_recent_weekly_labels, get_weekly_labels
 
     ds, de = analytics.default_date_range("account")
     wds, wde = analytics.default_date_range("weekly")
@@ -133,6 +133,8 @@ def meta() -> dict[str, Any]:
         "weekly_default_date_start": wds,
         "weekly_default_date_end": wde,
         "weekly_labels": get_weekly_labels(),
+        "recent_weekly_labels": get_recent_weekly_labels(),
+        "recent_weekly_window": 2,
         "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "其他"],
         "filter_options": analytics.get_filter_options("account"),
         "weekly_filter_options": analytics.get_filter_options("weekly"),

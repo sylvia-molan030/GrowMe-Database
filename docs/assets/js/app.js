@@ -97,8 +97,9 @@ function renderMeta(meta, scannedAt) {
     ${modeLabel}<br/>
     已加载 ${meta.files_loaded.length} 个文件<br/>
     共 ${meta.records} 条原始记录<br/>
-    账户素材 ${catalog.total_materials || '-'} 条 · 周度上新 ${catalog.weekly_materials || '-'} 条<br/>
-    周度：${(meta.weekly_labels || []).join('、') || '-'}<br/>
+    账户素材 ${catalog.total_materials || '-'} 条 · 上新素材 ${catalog.weekly_materials || '-'} 条（近2周）<br/>
+    全部周度：${(meta.weekly_labels || []).join('、') || '-'}<br/>
+    上新范围：${(meta.recent_weekly_labels || []).join('、') || '-'}<br/>
     数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">≠本地时请 push 后等 1 分钟</span>' : ''}
   `;
 
@@ -212,7 +213,7 @@ function updateFilterBadge(state) {
   if (f.stylization && f.stylization !== '全部') active.push(`风格:${f.stylization}`);
   if (f.pain_point && f.pain_point !== '全部') active.push(`痛点:${f.pain_point}`);
   if (f.exercise_type && f.exercise_type !== '全部') active.push(`锻炼:${f.exercise_type}`);
-  if (f.mode === 'new') active.push('上新素材');
+  if (f.mode === 'new') active.push('上新素材(近2周)');
   if (f.preset && f.preset !== 'all') active.push('日期范围');
   if (active.length) {
     badge.textContent = `筛选: ${active.join(', ')}`;

@@ -73,7 +73,7 @@ export function renderFilters(container, state, onChange) {
       <input class="date-input" type="date" id="date-end" value="${filters.date_end}" />
       <div class="toggle-group">
         <button class="toggle-btn ${filters.mode === 'account' ? 'active' : ''}" data-mode="account">账户内成效</button>
-        <button class="toggle-btn ${filters.mode === 'new' ? 'active' : ''}" data-mode="new">上新素材成效</button>
+        <button class="toggle-btn ${filters.mode === 'new' ? 'active' : ''}" data-mode="new">上新素材成效（近2周）</button>
       </div>
     </div>
     <div class="filter-row">

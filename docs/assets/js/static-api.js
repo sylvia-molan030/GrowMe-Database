@@ -91,8 +91,8 @@ function pickMaterials(mode, scope, weeklyOnly) {
   let list = mode === 'new' || scope === 'weekly'
     ? [...data.materials_weekly]
     : [...data.materials_account];
-  if (weeklyOnly) {
-    const labels = new Set(data.meta.weekly_labels || []);
+  if (weeklyOnly || mode === 'new') {
+    const labels = new Set(data.meta.recent_weekly_labels || data.meta.weekly_labels?.slice(-2) || []);
     list = list.filter((m) => labels.has(m.week_label));
   }
   return list;

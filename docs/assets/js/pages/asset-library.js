@@ -22,7 +22,7 @@ const TIER_BUCKETS = [
 
 const SCOPE_MODES = [
   { key: 'account', label: '账户内成效', sub: '全部素材（全球+T1 已合并）' },
-  { key: 'weekly', label: '上新素材成效', sub: '全部已导入周度上新（自动随 data_inputs 更新）' },
+  { key: 'weekly', label: '上新素材成效', sub: '最近 2 周上新（随 data_inputs 自动更新）' },
 ];
 
 function ensureChartJS(cb) {
@@ -103,7 +103,7 @@ function materialsQuery(state) {
   if (scopeMode === 'account') {
     return { q, extra: { mode: 'account', scope: 'account' } };
   }
-  const weeklyLabels = (state.meta?.weekly_labels || []).join('、');
+  const weeklyLabels = (state.meta?.recent_weekly_labels || state.meta?.weekly_labels?.slice(-2) || []).join('、');
   return {
     q,
     extra: {
@@ -148,7 +148,7 @@ export async function renderAssetLibrary(container, state) {
 
   const scopeMeta = SCOPE_MODES.find((m) => m.key === scopeMode);
   const subtitle = scopeMode === 'weekly'
-    ? `周度上新：${weeklyLabels || '暂无'}（全球+T1 已合并，每周导入后自动纳入）`
+    ? `最近 2 周上新：${weeklyLabels || '暂无'}（全球+T1 已合并）`
     : scopeMeta.sub;
 
   container.innerHTML = `

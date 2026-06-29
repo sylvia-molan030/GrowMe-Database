@@ -80,7 +80,7 @@ weekly_mats = analytics._aggregate_by_material(analytics.filter_records(f, mode=
 rollback = get_rollback_report()
 print("── 更新结果 ──")
 print(f"  周度 Tab：{' · '.join(labels)}")
-print(f"  上新素材成效（各栏目 mode=上新）：{len(weekly_mats)} 条素材（含全部已导入周）")
+print(f"  上新素材成效（各栏目 mode=上新）：{len(weekly_mats)} 条素材（最近 2 周）")
 if labels:
     latest = labels[-1]
     r = get_weekly_report(latest)["report"]

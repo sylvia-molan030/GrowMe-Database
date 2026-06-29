@@ -38,7 +38,7 @@ CUSTOM_RETENTION_COL = "custom_derived_metrics:468178872764785"
 
 WEEK_FILE_RE = re.compile(r"周|week", re.IGNORECASE)
 ROLLBACK_FILE_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
-NEW_DIRECTION_FILE_RE = re.compile(r"数字人", re.IGNORECASE)
+NEW_DIRECTION_FILE_RE = re.compile(r"数字人|新方向|图片素材", re.IGNORECASE)
 # 周度 KPI / 上新素材：常规周度文件 + 新方向测试（如数字人）
 WEEKLY_DATA_SCOPES = frozenset({"weekly", "new_direction"})
 

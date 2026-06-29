@@ -11,14 +11,14 @@ ALLOWED_SUFFIX = {".csv", ".xlsx", ".xls"}
 ACCOUNT_NAME_RE = re.compile(r"account_all|account_|Pingme_GrowMe|GrowMe.*IOS", re.IGNORECASE)
 WEEK_RE = re.compile(r"周|week", re.IGNORECASE)
 ROLLBACK_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
-NEW_DIRECTION_RE = re.compile(r"数字人", re.IGNORECASE)
+NEW_DIRECTION_RE = re.compile(r"数字人|新方向|图片素材", re.IGNORECASE)
 T1_RE = re.compile(r"T1", re.IGNORECASE)
 
 KIND_LABELS = {
     "account": "账户全量（更新账户内 4 个栏目）",
     "weekly": "周度上新（更新周维度 + 上新成效 + 可回滚推荐）",
     "rollback": "历史回滚素材",
-    "new_direction": "新方向测试（数字人）",
+    "new_direction": "新方向测试（数字人 / 图片素材等）",
 }
 
 

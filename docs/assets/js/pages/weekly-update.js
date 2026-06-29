@@ -185,9 +185,10 @@ function renderDirectionTable(rows, effectiveRule) {
 function renderNewDirectionCallout(block) {
   if (!block) return '';
   const s = block.summary || {};
+  const weekTag = block.week_label ? `${escapeHtml(block.week_label)} · ` : '';
   return `
     <div class="card weekly-callout">
-      <div class="section-title">新方向测试 · ${escapeHtml(block.label)} <span class="tag">FX-${escapeHtml(block.direction || 'aitalk')}</span></div>
+      <div class="section-title">${weekTag}新方向测试 · ${escapeHtml(block.label)} <span class="tag">FX-${escapeHtml(block.direction || 'pic')}</span></div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
       <div class="kpi-grid kpi-grid-4 weekly-callout-kpi">
         ${kpiCard('测试素材', s.total_materials ?? 0)}

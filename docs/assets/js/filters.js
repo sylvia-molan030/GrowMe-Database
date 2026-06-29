@@ -1,6 +1,6 @@
 const ATTR_FIELDS = [
-  { key: 'direction', label: '方向' },
-  { key: 'theme', label: '主题' },
+  { key: 'direction', label: '方向（用户人群）' },
+  { key: 'theme', label: '主题（ZT-）' },
   { key: 'optimization', label: '优化点' },
   { key: 'stylization', label: '风格化' },
   { key: 'pain_point', label: '痛点' },

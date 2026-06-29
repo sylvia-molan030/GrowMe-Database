@@ -1,7 +1,13 @@
 """从广告名称解析素材维度字段。
 
-标准命名规律：
-{年月日}_{内部名}_{语言}_{尺寸}_FX-{方向}_ZT-{主题}_LVL1{优化点}_RS-P1X1R3C1M3_{设计师名}
+标准命名规律（0629周前）：
+{年月日}_{内部名}_{语言}_{尺寸}_FX-{内容方向}_ZT-{主题}_LVL1{优化点}_RS-P1X1R3C1M3_{设计师名}
+
+0629周起：
+{年月日}_{内部名}_{语言}_{尺寸}_FX-{用户人群方向}_ZT-{主题}_LVL1{优化点}_RS-...
+
+用户人群方向（FX-）：Professionals / Women / Students / Readers /
+SelfGrowth / EnglishLearners / FinanceSeekers / Overthinkers
 
 历史素材可能缺少 LVL1 或 M 段，解析器会兼容。
 """
@@ -62,12 +68,85 @@ RMG_RE = re.compile(r"RMG-([A-Z0-9]+)", re.IGNORECASE)
 # 设计师：gy / wxx / fj / jql / 095KB / pingme / jpl（jql 独立统计，不归入 fj）
 DESIGNER_CANONICAL = ("gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl")
 
+# 0629周起：FX- 为用户人群方向
+NEW_SCHEMA_CUTOFF_WEEK = "0629周"
+NEW_SCHEMA_CUTOFF_DATE = "2026-06-29"
 
-def canonical_direction(value: str) -> str:
-    """方向统一为小写，Test / test 等合并为同一类统计。"""
+AUDIENCE_DIRECTIONS: tuple[str, ...] = (
+    "Professionals",
+    "Women",
+    "Students",
+    "Readers",
+    "SelfGrowth",
+    "EnglishLearners",
+    "FinanceSeekers",
+    "Overthinkers",
+)
+
+_AUDIENCE_MAP: dict[str, str] = {
+    re.sub(r"[^a-z0-9]", "", name.lower()): name for name in AUDIENCE_DIRECTIONS
+}
+
+
+def _week_sort_key(label: str) -> int:
+    m = re.search(r"(\d{4})", label or "")
+    if not m:
+        return 0
+    mmdd = int(m.group(1))
+    month, day = divmod(mmdd, 100)
+    return month * 100 + day
+
+
+_NEW_SCHEMA_WEEK_KEY = _week_sort_key(NEW_SCHEMA_CUTOFF_WEEK)
+
+
+def uses_new_schema(week_label: str | None = None, first_seen: str | None = None) -> bool:
+    """0629周及之后，或素材日期 ≥ 2026-06-29，采用 FX=用户人群 / ZT=主题。"""
+    if week_label and _week_sort_key(week_label) >= _NEW_SCHEMA_WEEK_KEY:
+        return True
+    if first_seen and first_seen >= NEW_SCHEMA_CUTOFF_DATE:
+        return True
+    return False
+
+
+def canonical_audience(value: str) -> str:
+    """用户人群方向 → 官方 PascalCase。"""
     v = (value or "").strip()
     if not v or v == "未知":
         return v or "未知"
+    key = re.sub(r"[^a-z0-9]", "", v.lower())
+    if key in _AUDIENCE_MAP:
+        return _AUDIENCE_MAP[key]
+    for norm, official in _AUDIENCE_MAP.items():
+        if key == norm or norm.startswith(key) or key.startswith(norm):
+            return official
+    return v
+
+
+def canonical_legacy_direction(value: str) -> str:
+    """0629周前：FX- 内容方向，统一小写。"""
+    v = (value or "").strip()
+    if not v or v == "未知":
+        return v or "未知"
+    return v.lower()
+
+
+def canonical_theme(value: str) -> str:
+    """主题（ZT-）统一小写合并统计。"""
+    v = (value or "").strip()
+    if not v or v == "未知":
+        return v or "未知"
+    return v.lower()
+
+
+def canonical_direction(value: str) -> str:
+    """方向：用户人群走官方名；历史内容方向统一小写。"""
+    v = (value or "").strip()
+    if not v or v == "未知":
+        return v or "未知"
+    key = re.sub(r"[^a-z0-9]", "", v.lower())
+    if key in _AUDIENCE_MAP:
+        return _AUDIENCE_MAP[key]
     return v.lower()
 
 
@@ -75,6 +154,8 @@ def _normalize_axis_value(axis: str, value: str | None) -> str:
     val = (value or "").strip() or "未知"
     if axis == "direction":
         return canonical_direction(val)
+    if axis == "theme":
+        return canonical_theme(val)
     return val
 
 
@@ -219,7 +300,7 @@ def _parse_legacy(raw: str) -> ParsedMaterial | None:
         internal_name=internal,
         language="EN",
         size=size,
-        direction=canonical_direction(label),
+        direction=canonical_legacy_direction(label),
         theme=label,
         optimization="",
         stylization=stylization,
@@ -235,7 +316,7 @@ def _parse_legacy(raw: str) -> ParsedMaterial | None:
     )
 
 
-def parse_material(name: str) -> ParsedMaterial:
+def parse_material(name: str, week_label: str | None = None) -> ParsedMaterial:
     raw = (name or "").strip()
     legacy = _parse_legacy(raw)
     if legacy:
@@ -274,7 +355,7 @@ def parse_material(name: str) -> ParsedMaterial:
 
     fx = FX_RE.search(body)
     if fx:
-        direction = canonical_direction(fx.group(1).strip())
+        direction = fx.group(1).strip()
         header = body[: fx.start()]
     else:
         header = body
@@ -289,6 +370,14 @@ def parse_material(name: str) -> ParsedMaterial:
         pain_point, exercise_type, r_version, c_version, m_version, rs_code = _apply_rs_detail(rs_code)
 
     first_seen = parse_first_seen(raw)
+    new_schema = uses_new_schema(week_label, first_seen)
+    if new_schema:
+        direction = canonical_audience(direction) if direction != unknown else unknown
+        theme = canonical_theme(theme) if theme != unknown else unknown
+    else:
+        direction = canonical_legacy_direction(direction) if direction != unknown else unknown
+        if theme != unknown:
+            theme = canonical_theme(theme)
     standard_id = _build_standard_id(
         first_seen,
         internal_name,

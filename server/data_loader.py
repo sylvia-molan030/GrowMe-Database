@@ -7,7 +7,7 @@ from typing import Any
 
 import pandas as pd
 
-from parser import parse_material, canonical_direction
+from parser import parse_material, canonical_direction, canonical_theme
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data_inputs"
 # 账户全量：全球+T1 按素材名合并；周度上新：仅 WW，不测 T1
@@ -224,7 +224,7 @@ class DataStore:
             if not _should_load_row(filename, account, data_scope):
                 continue
 
-            parsed = parse_material(ad_name)
+            parsed = parse_material(ad_name, week_label=week_label)
             channel = _detect_channel(filename, account)
 
             purchases = float(_safe_num(pd.Series([row.get("purchases", 0)])).iloc[0])
@@ -252,7 +252,7 @@ class DataStore:
                     "language": parsed.language,
                     "size": parsed.size,
                     "direction": canonical_direction(parsed.direction),
-                    "theme": parsed.theme,
+                    "theme": canonical_theme(parsed.theme),
                     "optimization": parsed.optimization,
                     "stylization": parsed.stylization,
                     "pain_point": parsed.pain_point,

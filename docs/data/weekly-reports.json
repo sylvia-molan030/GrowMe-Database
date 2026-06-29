@@ -1075,7 +1075,7 @@
         {
           "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-Reading habits_RS-P3X1R1C3_fj",
           "direction": "learning",
-          "theme": "Reading habits",
+          "theme": "reading habits",
           "designer": "fj",
           "purchases": 13,
           "subscriptions": 24,
@@ -1519,7 +1519,7 @@
             "rank": 3,
             "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx",
             "direction": "aitalk",
-            "theme": "IQ",
+            "theme": "iq",
             "designer": "wxx",
             "first_seen": "2026-06-10",
             "week_label": "0608周",
@@ -1822,7 +1822,7 @@
         {
           "material_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj",
           "direction": "test",
-          "theme": "niupizhi_LV1-rain",
+          "theme": "niupizhi_lv1-rain",
           "designer": "fj",
           "purchases": 2,
           "subscriptions": 3,

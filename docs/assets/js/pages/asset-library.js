@@ -2,8 +2,6 @@ import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 import { bindMaterialDetailLinks } from '../material-detail.js';
 
-let tierPieChart = null;
-
 const TIERS = [
   { key: 0, label: '全部素材' },
   { key: 1, label: '出单素材箱 (>= 1 单)' },
@@ -12,26 +10,10 @@ const TIERS = [
   { key: 10, label: '超级战神箱 (>= 10 单)' },
 ];
 
-const TIER_BUCKETS = [
-  { label: '0单', match: (p) => p < 1 },
-  { label: '1单', match: (p) => p === 1 },
-  { label: '2-4单', match: (p) => p >= 2 && p < 5 },
-  { label: '5-9单', match: (p) => p >= 5 && p < 10 },
-  { label: '10+单', match: (p) => p >= 10 },
-];
-
 const SCOPE_MODES = [
   { key: 'account', label: '账户内成效', sub: '全部素材（全球+T1 已合并）' },
   { key: 'weekly', label: '上新素材成效', sub: '最近 2 周上新（随 data_inputs 自动更新）' },
 ];
-
-function ensureChartJS(cb) {
-  if (window.Chart) return cb();
-  const s = document.createElement('script');
-  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js';
-  s.onload = cb;
-  document.head.appendChild(s);
-}
 
 function statusTag(status) {
   const cls = status === '增长期' ? 'green' : status === '炮灰' ? 'red' : status === '衰退期' ? 'orange' : 'gray';
@@ -44,50 +26,6 @@ function escapeHtml(text) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
-}
-
-function buildTierPieHtml(allRows) {
-  const chartTiers = TIER_BUCKETS.map((b) => ({
-    name: b.label,
-    value: allRows.filter((m) => b.match(m.purchases)).length,
-  })).filter((t) => t.value > 0);
-
-  if (chartTiers.length <= 1) return { html: '', chartTiers: [] };
-
-  return {
-    html: `
-      <div class="card">
-        <div class="section-title">素材出单分布</div>
-        <div style="height:280px"><canvas id="tier-pie-chart" role="img" aria-label="素材出单梯队饼图"></canvas></div>
-      </div>
-    `,
-    chartTiers,
-  };
-}
-
-function paintTierPieChart(container, chartTiers) {
-  setTimeout(() => {
-    const ctx = container.querySelector('#tier-pie-chart');
-    if (!ctx || chartTiers.length <= 1) return;
-    ensureChartJS(() => {
-      if (tierPieChart) tierPieChart.destroy();
-      tierPieChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: chartTiers.map((t) => t.name),
-          datasets: [{
-            data: chartTiers.map((t) => t.value),
-            backgroundColor: ['#d1d5db', '#93c5fd', '#60a5fa', '#3b82f6', '#1d4ed8'],
-          }],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-        },
-      });
-    });
-  }, 50);
 }
 
 function runSearch(state, container) {
@@ -124,27 +62,15 @@ export async function renderAssetLibrary(container, state) {
 
   const { q, extra, weeklyLabels } = materialsQuery(state);
 
-  const [data, allForPie] = await Promise.all([
-    api.materials(q, {
-      ...extra,
-      min_orders: minOrders,
-      keyword,
-      sort_by: 'purchases',
-      sort_dir: 'desc',
-      page,
-      page_size: 20,
-    }),
-    api.materials(q, {
-      ...extra,
-      min_orders: 0,
-      sort_by: 'purchases',
-      sort_dir: 'desc',
-      page: 1,
-      page_size: 9999,
-    }),
-  ]);
-
-  const { html: pieHtml, chartTiers } = buildTierPieHtml(allForPie.rows || []);
+  const data = await api.materials(q, {
+    ...extra,
+    min_orders: minOrders,
+    keyword,
+    sort_by: 'purchases',
+    sort_dir: 'desc',
+    page,
+    page_size: 20,
+  });
 
   const scopeMeta = SCOPE_MODES.find((m) => m.key === scopeMode);
   const subtitle = scopeMode === 'weekly'
@@ -152,7 +78,6 @@ export async function renderAssetLibrary(container, state) {
     : scopeMeta.sub;
 
   container.innerHTML = `
-    ${pieHtml}
     <div class="card">
       <div class="section-title">
         <span>核心资产晋级库 <span style="font-size:12px;color:#6b7280;font-weight:400">（${subtitle}）</span></span>
@@ -180,7 +105,7 @@ export async function renderAssetLibrary(container, state) {
         <table class="asset-table">
           <thead>
             <tr>
-              <th>排名</th><th>标准素材ID</th><th>素材方向 (FX)</th><th>总花费</th><th>期间总出单量</th>
+              <th>排名</th><th>标准素材ID</th><th>用户人群 (FX)</th><th>总花费</th><th>期间总出单量</th>
               <th>综合 CTR</th><th>综合 ROAS</th><th>跑量情况</th>
             </tr>
           </thead>
@@ -208,7 +133,6 @@ export async function renderAssetLibrary(container, state) {
     </div>
   `;
 
-  paintTierPieChart(container, chartTiers);
   bindMaterialDetailLinks(container, data.rows);
 
   container.querySelectorAll('[data-scope-mode]').forEach((btn) => {

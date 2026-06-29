@@ -135,6 +135,11 @@ def meta() -> dict[str, Any]:
         "weekly_labels": get_weekly_labels(),
         "recent_weekly_labels": get_recent_weekly_labels(),
         "recent_weekly_window": 2,
+        "schema_cutoff_week": "0629周",
+        "audience_directions": [
+            "Professionals", "Women", "Students", "Readers",
+            "SelfGrowth", "EnglishLearners", "FinanceSeekers", "Overthinkers",
+        ],
         "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "其他"],
         "filter_options": analytics.get_filter_options("account"),
         "weekly_filter_options": analytics.get_filter_options("weekly"),

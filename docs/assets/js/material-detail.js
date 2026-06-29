@@ -30,8 +30,8 @@ export function showMaterialDetail(mat) {
           <div class="detail-item"><span class="label">素材 ID</span><span class="value">${escapeHtml(mat.material_id)}</span></div>
           <div class="detail-item"><span class="label">首次上线</span><span class="value">${escapeHtml(mat.first_seen || '-')}</span></div>
           <div class="detail-item"><span class="label">设计师</span><span class="value">${escapeHtml(mat.designer || '-')}</span></div>
-          <div class="detail-item"><span class="label">方向</span><span class="value"><span class="tag">${escapeHtml(mat.direction || '-')}</span></span></div>
-          <div class="detail-item"><span class="label">主题</span><span class="value">${escapeHtml(mat.theme || '-')}</span></div>
+          <div class="detail-item"><span class="label">方向（用户人群）</span><span class="value"><span class="tag">${escapeHtml(mat.direction || '-')}</span></span></div>
+          <div class="detail-item"><span class="label">主题（ZT-）</span><span class="value">${escapeHtml(mat.theme || '-')}</span></div>
           <div class="detail-item"><span class="label">优化标签</span><span class="value">${escapeHtml(mat.optimization || '-')}</span></div>
           <div class="detail-item"><span class="label">渠道</span><span class="value">${escapeHtml(mat.channel || '-')}</span></div>
           <div class="detail-item"><span class="label">放量状态</span><span class="value"><span class="tag ${scalingCls}">${escapeHtml(mat.scaling_status || '-')}</span></span></div>

@@ -14,7 +14,7 @@ sys.path.insert(0, str(SERVER))
 import analytics  # noqa: E402
 from data_loader import get_recent_weekly_labels, get_weekly_labels, store, week_sort_key  # noqa: E402
 from new_direction_report import get_new_direction_report  # noqa: E402
-from parser import canonical_direction  # noqa: E402
+from parser import AUDIENCE_DIRECTIONS, NEW_SCHEMA_CUTOFF_WEEK, canonical_direction, canonical_theme  # noqa: E402
 from rollback_report import get_rollback_report  # noqa: E402
 from weekly_report import build_all_reports  # noqa: E402
 
@@ -42,7 +42,7 @@ def _material_row(m: dict, rank: int) -> dict:
         "designer_variant": m.get("designer_variant"),
         "serial_code": m.get("serial_code"),
         "direction": canonical_direction(m.get("direction") or "未知"),
-        "theme": m.get("theme"),
+        "theme": canonical_theme(m.get("theme") or "未知"),
         "optimization": m.get("optimization") or "",
         "stylization": m.get("stylization"),
         "pain_point": m.get("pain_point"),
@@ -101,6 +101,8 @@ def build() -> dict:
             "weekly_labels": get_weekly_labels(),
             "recent_weekly_labels": get_recent_weekly_labels(),
             "recent_weekly_window": 2,
+            "schema_cutoff_week": NEW_SCHEMA_CUTOFF_WEEK,
+            "audience_directions": list(AUDIENCE_DIRECTIONS),
             "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "其他"],
             "filter_options": analytics.get_filter_options("account"),
             "weekly_filter_options": analytics.get_filter_options("weekly"),

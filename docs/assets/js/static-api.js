@@ -81,6 +81,8 @@ function matchFilters(item, filters) {
     if (itemVal === undefined || itemVal === '' || itemVal === '未知') continue;
     if (key === 'direction') {
       if (String(itemVal).toLowerCase() !== String(val).toLowerCase()) return false;
+    } else if (key === 'theme') {
+      if (String(itemVal).toLowerCase() !== String(val).toLowerCase()) return false;
     } else if (itemVal !== val) return false;
   }
   return inRange(item.first_seen, filters.date_start, filters.date_end);

@@ -91,7 +91,7 @@ function renderSummaryBar(allRows) {
 function renderDirectionBar(rows) {
   const byDir = {};
   (rows || []).forEach((m) => {
-    const dir = extractFxDirection(m.material_id).toLowerCase();
+    const dir = m.direction || extractFxDirection(m.material_id);
     if (!byDir[dir]) byDir[dir] = { total: 0, ordered: 0 };
     byDir[dir].total++;
     if (m.purchases >= 1) byDir[dir].ordered++;
@@ -110,7 +110,7 @@ function renderDirectionBar(rows) {
   return {
     html: `
       <div class="card">
-        <div class="section-title">各方向出单率对比 (Top 8) <span class="muted" style="font-size:12px;font-weight:400">（FX- 方向，素材 ≥5 条才计入）</span></div>
+        <div class="section-title">各方向出单率对比 (Top 8) <span class="muted" style="font-size:12px;font-weight:400">（FX- 用户人群，素材 ≥5 条才计入）</span></div>
         <div style="height:260px">
           ${dirs.length
             ? '<canvas id="dir-chart" role="img" aria-label="方向出单率柱状图"></canvas>'

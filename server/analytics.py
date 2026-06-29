@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from typing import Any
 
 from data_loader import get_recent_weekly_labels, get_weekly_labels, store, WEEKLY_DATA_SCOPES
-from parser import DESIGNER_CANONICAL, canonical_direction, _normalize_axis_value
+from parser import DESIGNER_CANONICAL, canonical_direction, canonical_theme, _normalize_axis_value
 
 
 def _resolve_scope(mode: str = "account", scope: str | None = None) -> str:
@@ -47,6 +47,9 @@ def _match_filters(record: dict[str, Any], filters: dict[str, str]) -> bool:
         rec_val = record.get(key)
         if key == "direction":
             if canonical_direction(rec_val or "") != canonical_direction(val):
+                return False
+        elif key == "theme":
+            if canonical_theme(rec_val or "") != canonical_theme(val):
                 return False
         elif rec_val != val:
             return False
@@ -111,6 +114,7 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
         for k in ("hook_weighted_sum", "hook_weight", "views_3s_sum", "video_completions_sum"):
             g.pop(k, None)
         g["direction"] = canonical_direction(g.get("direction") or "未知")
+        g["theme"] = canonical_theme(g.get("theme") or "未知")
         g["scaling_status"] = _scaling_status(g["spend"], g["purchases"])
         result.append(g)
     return result
@@ -161,6 +165,8 @@ def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
             if v and v not in {"未知", ""}:
                 if k == "direction":
                     options[k].add(canonical_direction(v))
+                elif k == "theme":
+                    options[k].add(canonical_theme(v))
                 else:
                     options[k].add(v)
     designers = sorted({r.get("designer") for r in records if r.get("designer")})
@@ -365,7 +371,7 @@ def get_materials(
                 "designer_variant": m.get("designer_variant"),
                 "serial_code": m.get("serial_code"),
                 "direction": canonical_direction(m.get("direction") or "未知"),
-                "theme": m.get("theme"),
+                "theme": canonical_theme(m.get("theme") or "未知"),
                 "optimization": m.get("optimization"),
                 "purchases": int(m["purchases"]),
                 "roas": round(m["roas"], 2),

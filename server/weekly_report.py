@@ -7,8 +7,6 @@ from typing import Any
 from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES
 from parser import canonical_direction, canonical_theme
 
-EFFECTIVE_SPEND_MIN = 200  # 有效素材：消耗 > $200 且有购物
-
 
 def sorted_week_labels() -> list[str]:
     labels = {
@@ -89,7 +87,6 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         g["retention_rate"] = round(comps / views_3s * 100, 2) if views_3s > 0 else 0
         g["direction"] = canonical_direction(g.get("direction") or "未知")
         g["theme"] = canonical_theme(g.get("theme") or "未知")
-        g["effective"] = g["spend"] > EFFECTIVE_SPEND_MIN and g["purchases"] >= 1
         g["has_order"] = g["purchases"] >= 1
         result.append(g)
     return result
@@ -106,7 +103,6 @@ def _weighted_avg(values: list[float], weights: list[float]) -> float:
 
 def _channel_kpi(materials: list[dict[str, Any]]) -> dict[str, Any]:
     total = len(materials)
-    effective = [m for m in materials if m.get("effective")]
     ordered = [m for m in materials if m["purchases"] >= 1]
     ge2 = [m for m in materials if m["purchases"] >= 2]
     ge5 = [m for m in materials if m["purchases"] >= 5]
@@ -121,11 +117,10 @@ def _channel_kpi(materials: list[dict[str, Any]]) -> dict[str, Any]:
 
     return {
         "spend": round(spend, 2),
-        "effective_materials": len(effective),
+        "ordered_materials": len(ordered),
         "conversions": int(purchases),
         "subscriptions": int(subscriptions),
         "order_rate": round(len(ordered) / total * 100, 2) if total else 0,
-        "effective_rate": round(len(effective) / total * 100, 2) if total else 0,
         "ge2_rate": round(len(ge2) / total * 100, 2) if total else 0,
         "ge5_rate": round(len(ge5) / total * 100, 2) if total else 0,
         "empty_spend": round(empty_spend, 2),
@@ -154,7 +149,6 @@ def _core_metrics(materials: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "spend": kpi["spend"],
         "empty_spend": kpi["empty_spend"],
-        "effective_rate": kpi["effective_rate"],
         "cpi": kpi["cpi"],
         "cpm": kpi["cpm"],
         "subscriptions": kpi["subscriptions"],
@@ -167,12 +161,11 @@ def _comparison_table(current: dict[str, Any], previous: dict[str, Any] | None) 
     labels = {
         "spend": ("总消耗", "$"),
         "empty_spend": ("空消耗", "$"),
-        "effective_rate": ("有效率", "%"),
         "cpi": ("CPI", "$"),
         "cpm": ("CPM", "$"),
         "subscriptions": ("订阅数", ""),
-        "purchases": ("购物数", ""),
-        "roas": ("ROAS", ""),
+        "purchases": ("总出单量", ""),
+        "roas": ("平均 ROAS", ""),
     }
     rows = []
     for key, (label, unit) in labels.items():
@@ -204,7 +197,7 @@ def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
         installs = sum(i["installs"] for i in items)
         purchases = sum(i["purchases"] for i in items)
         subscriptions = sum(i.get("subscriptions", 0) for i in items)
-        effective = sum(1 for i in items if i.get("effective"))
+        ordered = sum(1 for i in items if i["purchases"] >= 1)
         ctr_vals = [i["ctr"] for i in items if i["ctr"] > 0]
         roas_vals = [(i["roas"], i["spend"]) for i in items if i["roas"] > 0 and i["spend"] > 0]
         hook_vals = [(i["hook_rate"], i["impressions"] or 1) for i in items if i.get("hook_rate")]
@@ -215,8 +208,8 @@ def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
             {
                 "direction": direction,
                 "total_materials": total,
-                "effective_materials": effective,
-                "effective_ratio": f"{effective}/{total}",
+                "ordered_materials": ordered,
+                "ordered_ratio": f"{ordered}/{total}",
                 "ctr": round(sum(ctr_vals) / len(ctr_vals), 2) if ctr_vals else 0,
                 "cpi": round(spend / installs, 2) if installs > 0 else None,
                 "roas": round(sum(r * s for r, s in roas_vals) / sum(s for _, s in roas_vals), 2) if roas_vals else 0,
@@ -294,21 +287,21 @@ def _generate_insights(
     insights: list[str] = []
     total = combined_kpi["total_materials"]
     order_rate = combined_kpi["order_rate"]
-    effective_rate = combined_kpi["effective_rate"]
+    ordered_materials = combined_kpi["ordered_materials"]
 
     if prev_week and prev_combined:
         rate_delta = order_rate - prev_combined["order_rate"]
-        eff_delta = effective_rate - prev_combined["effective_rate"]
+        ord_delta = ordered_materials - prev_combined["ordered_materials"]
         arrow = f"↑{rate_delta:.1f}" if rate_delta > 0 else f"↓{abs(rate_delta):.1f}" if rate_delta < 0 else "持平"
-        eff_arrow = f"↑{eff_delta:.1f}" if eff_delta > 0 else f"↓{abs(eff_delta):.1f}" if eff_delta < 0 else "持平"
+        ord_arrow = f"↑{ord_delta}" if ord_delta > 0 else f"↓{abs(ord_delta)}" if ord_delta < 0 else "持平"
         insights.append(
             f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%（较 {prev_week} {arrow}pp），"
-            f"有效率 {effective_rate}%（较上周 {eff_arrow}pp）。"
-            f"上周出单率 {prev_combined['order_rate']}%，有效率 {prev_combined['effective_rate']}%。"
+            f"出单素材 {ordered_materials} 条（较上周 {ord_arrow}）。"
+            f"上周出单率 {prev_combined['order_rate']}%，出单素材 {prev_combined['ordered_materials']} 条。"
         )
     else:
         insights.append(
-            f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%，有效率 {effective_rate}%。"
+            f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%，出单素材 {ordered_materials} 条。"
         )
 
     ordered = [m for m in materials if m.get("purchases", 0) >= 1]
@@ -361,7 +354,7 @@ def _generate_insights(
         top = max(directions, key=lambda d: d["purchases"])
         insights.append(
             f"【方向表现】「{top['direction']}」购物 {top['purchases']} 单领先，"
-            f"有效素材 {top['effective_ratio']}，ROAS {top['roas']}；"
+            f"出单素材 {top['ordered_ratio']}，ROAS {top['roas']}；"
             f"共 {top['total_materials']} 条素材参与本周 WW 测试。"
         )
 
@@ -401,27 +394,26 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "ge2_rate",
             "ge5_rate",
             "spend",
-            "effective_materials",
+            "ordered_materials",
             "conversions",
             "subscriptions",
         ):
             wow[key] = _wow_delta(combined_kpi.get(key), prev_combined.get(key))
+        wow["avg_roas"] = _wow_delta(combined_kpi.get("roas"), prev_combined.get("roas"))
 
     report = {
         "week": week,
         "prev_week": prev,
         "weeks": labels,
-        "effective_rule": f"消耗 > ${EFFECTIVE_SPEND_MIN} 且有购物",
         "kpi": {
             "total_materials": combined_kpi["total_materials"],
             "order_rate": combined_kpi["order_rate"],
             "ge2_rate": combined_kpi["ge2_rate"],
             "ge5_rate": combined_kpi["ge5_rate"],
             "spend": combined_kpi["spend"],
-            "effective_materials": combined_kpi["effective_materials"],
+            "ordered_materials": combined_kpi["ordered_materials"],
             "conversions": combined_kpi["conversions"],
             "subscriptions": combined_kpi["subscriptions"],
-            "effective_rate": combined_kpi["effective_rate"],
             "avg_roas": combined_kpi["roas"],
             "wow": wow,
         },

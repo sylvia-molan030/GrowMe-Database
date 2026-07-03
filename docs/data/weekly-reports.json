@@ -17,17 +17,15 @@
         "0615周",
         "0622周"
       ],
-      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 56,
         "order_rate": 5.36,
         "ge2_rate": 5.36,
         "ge5_rate": 1.79,
         "spend": 1837.86,
-        "effective_materials": 2,
+        "ordered_materials": 3,
         "conversions": 74,
         "subscriptions": 106,
-        "effective_rate": 3.57,
         "avg_roas": 0.88,
         "wow": {}
       },
@@ -45,14 +43,6 @@
           "label": "空消耗",
           "unit": "$",
           "current": 217.02,
-          "previous": null,
-          "wow": null
-        },
-        {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 3.57,
           "previous": null,
           "wow": null
         },
@@ -82,7 +72,7 @@
         },
         {
           "key": "purchases",
-          "label": "购物数",
+          "label": "总出单量",
           "unit": "",
           "current": 74,
           "previous": null,
@@ -90,7 +80,7 @@
         },
         {
           "key": "roas",
-          "label": "ROAS",
+          "label": "平均 ROAS",
           "unit": "",
           "current": 0.88,
           "previous": null,
@@ -136,8 +126,8 @@
         {
           "direction": "test",
           "total_materials": 15,
-          "effective_materials": 1,
-          "effective_ratio": "1/15",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/15",
           "ctr": 1.89,
           "cpi": 0.82,
           "roas": 1.08,
@@ -151,8 +141,8 @@
         {
           "direction": "creative",
           "total_materials": 29,
-          "effective_materials": 1,
-          "effective_ratio": "1/29",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/29",
           "ctr": 2.96,
           "cpi": 3.47,
           "roas": 0.21,
@@ -166,8 +156,8 @@
         {
           "direction": "creatives",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/4",
           "ctr": 1.54,
           "cpi": 1.86,
           "roas": 0.15,
@@ -181,8 +171,8 @@
         {
           "direction": "formats",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.57,
           "cpi": null,
           "roas": 0,
@@ -196,8 +186,8 @@
         {
           "direction": "oneway2",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.01,
           "cpi": null,
           "roas": 0,
@@ -211,8 +201,8 @@
         {
           "direction": "speak",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.97,
           "cpi": null,
           "roas": 0,
@@ -226,8 +216,8 @@
         {
           "direction": "convercation",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 12.82,
           "cpi": null,
           "roas": 0,
@@ -241,8 +231,8 @@
         {
           "direction": "form",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0,
           "cpi": null,
           "roas": 0,
@@ -256,8 +246,8 @@
         {
           "direction": "shengjing",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.92,
           "cpi": null,
           "roas": 0,
@@ -293,12 +283,12 @@
         ]
       },
       "insights": [
-        "【素材测出率】0525周 上新 56 条，出单率 5.36%，有效率 3.57%。",
+        "【素材测出率】0525周 上新 56 条，出单率 5.36%，出单素材 3 条。",
         "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0。",
         "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0，具备放量验证价值。",
         "【钩子最优素材】20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_w…：3秒播放率 77.78%，购物 0 · CTR 1.46% · 花费 $3.0。",
         "【留存率最高素材】本周缺少完播/留存数据，暂无法评选。",
-        "【方向表现】「test」购物 68 单领先，有效素材 1/15，ROAS 1.08；共 15 条素材参与本周 WW 测试。"
+        "【方向表现】「test」购物 68 单领先，出单素材 1/15，ROAS 1.08；共 15 条素材参与本周 WW 测试。"
       ]
     },
     "0601周": {
@@ -311,17 +301,15 @@
         "0615周",
         "0622周"
       ],
-      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 105,
         "order_rate": 19.05,
         "ge2_rate": 8.57,
         "ge5_rate": 3.81,
         "spend": 3223.0,
-        "effective_materials": 4,
+        "ordered_materials": 20,
         "conversions": 61,
         "subscriptions": 131,
-        "effective_rate": 3.81,
         "avg_roas": 0.37,
         "wow": {
           "total_materials": {
@@ -349,9 +337,9 @@
             "pct": 75.4,
             "direction": "up"
           },
-          "effective_materials": {
-            "delta": 2.0,
-            "pct": 100.0,
+          "ordered_materials": {
+            "delta": 17.0,
+            "pct": 566.7,
             "direction": "up"
           },
           "conversions": {
@@ -363,6 +351,11 @@
             "delta": 25.0,
             "pct": 23.6,
             "direction": "up"
+          },
+          "avg_roas": {
+            "delta": -0.51,
+            "pct": -58.0,
+            "direction": "down"
           }
         }
       },
@@ -388,18 +381,6 @@
           "wow": {
             "delta": 48.21,
             "pct": 22.2,
-            "direction": "up"
-          }
-        },
-        {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 3.81,
-          "previous": 3.57,
-          "wow": {
-            "delta": 0.24,
-            "pct": 6.7,
             "direction": "up"
           }
         },
@@ -437,7 +418,7 @@
         },
         {
           "key": "purchases",
-          "label": "购物数",
+          "label": "总出单量",
           "unit": "",
           "current": 61,
           "previous": 74,
@@ -449,7 +430,7 @@
         },
         {
           "key": "roas",
-          "label": "ROAS",
+          "label": "平均 ROAS",
           "unit": "",
           "current": 0.37,
           "previous": 0.88,
@@ -598,8 +579,8 @@
         {
           "direction": "learning",
           "total_materials": 19,
-          "effective_materials": 3,
-          "effective_ratio": "3/19",
+          "ordered_materials": 7,
+          "ordered_ratio": "7/19",
           "ctr": 1.46,
           "cpi": 1.09,
           "roas": 0.4,
@@ -613,8 +594,8 @@
         {
           "direction": "communication",
           "total_materials": 6,
-          "effective_materials": 1,
-          "effective_ratio": "1/6",
+          "ordered_materials": 4,
+          "ordered_ratio": "4/6",
           "ctr": 1.32,
           "cpi": 0.86,
           "roas": 0.17,
@@ -628,8 +609,8 @@
         {
           "direction": "lifelessons",
           "total_materials": 16,
-          "effective_materials": 0,
-          "effective_ratio": "0/16",
+          "ordered_materials": 3,
+          "ordered_ratio": "3/16",
           "ctr": 1.49,
           "cpi": 1.94,
           "roas": 0.35,
@@ -643,8 +624,8 @@
         {
           "direction": "emotionalhealth",
           "total_materials": 6,
-          "effective_materials": 0,
-          "effective_ratio": "0/6",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/6",
           "ctr": 1.6,
           "cpi": 3.27,
           "roas": 0.61,
@@ -658,8 +639,8 @@
         {
           "direction": "mindset",
           "total_materials": 12,
-          "effective_materials": 0,
-          "effective_ratio": "0/12",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/12",
           "ctr": 1.12,
           "cpi": 2.61,
           "roas": 0.56,
@@ -673,8 +654,8 @@
         {
           "direction": "quotes",
           "total_materials": 11,
-          "effective_materials": 0,
-          "effective_ratio": "0/11",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/11",
           "ctr": 1.44,
           "cpi": 6.14,
           "roas": 0.49,
@@ -688,8 +669,8 @@
         {
           "direction": "womenempowerment",
           "total_materials": 7,
-          "effective_materials": 0,
-          "effective_ratio": "0/7",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/7",
           "ctr": 1.36,
           "cpi": 3.99,
           "roas": 0.17,
@@ -703,8 +684,8 @@
         {
           "direction": "fear",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/1",
           "ctr": 1.07,
           "cpi": 2.36,
           "roas": 0.47,
@@ -718,8 +699,8 @@
         {
           "direction": "growth",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/3",
           "ctr": 1.32,
           "cpi": 1.37,
           "roas": 0.24,
@@ -733,8 +714,8 @@
         {
           "direction": "successful",
           "total_materials": 2,
-          "effective_materials": 0,
-          "effective_ratio": "0/2",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
           "ctr": 1.0,
           "cpi": null,
           "roas": 0,
@@ -748,8 +729,8 @@
         {
           "direction": "finance",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 0.54,
           "cpi": null,
           "roas": 0,
@@ -763,8 +744,8 @@
         {
           "direction": "formats",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 1.82,
           "cpi": null,
           "roas": 0,
@@ -778,8 +759,8 @@
         {
           "direction": "selfimprovement",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0.44,
           "cpi": null,
           "roas": 0,
@@ -793,8 +774,8 @@
         {
           "direction": "discipline",
           "total_materials": 2,
-          "effective_materials": 0,
-          "effective_ratio": "0/2",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
           "ctr": 1.25,
           "cpi": null,
           "roas": 0,
@@ -808,8 +789,8 @@
         {
           "direction": "lifeisnoteasy",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.69,
           "cpi": 0.36,
           "roas": 0,
@@ -823,8 +804,8 @@
         {
           "direction": "focus",
           "total_materials": 2,
-          "effective_materials": 0,
-          "effective_ratio": "0/2",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
           "ctr": 1.37,
           "cpi": null,
           "roas": 0,
@@ -838,8 +819,8 @@
         {
           "direction": "creative",
           "total_materials": 10,
-          "effective_materials": 0,
-          "effective_ratio": "0/10",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/10",
           "ctr": 1.35,
           "cpi": 9.81,
           "roas": 0,
@@ -878,12 +859,12 @@
         ]
       },
       "insights": [
-        "【素材测出率】0601周 上新 105 条，出单率 19.05%（较 0525周 ↑13.7pp），有效率 3.81%（较上周 ↑0.2pp）。上周出单率 5.36%，有效率 3.57%。",
+        "【素材测出率】0601周 上新 105 条，出单率 19.05%（较 0525周 ↑13.7pp），出单素材 20 条（较上周 ↑17）。上周出单率 5.36%，出单素材 3 条。",
         "【本周最强素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（learning / gy）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0。",
         "【高转化信号素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（购物+订阅双达标）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0，具备放量验证价值。",
         "【钩子最优素材】20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-…：3秒播放率 42.03%，购物 0 · CTR 0.62% · 花费 $1.0。",
         "【留存率最高素材】20260604_GrowMe_EN_9x16_FX-LifeLessons_ZTdontworry_R…：完播留存率 100.0%，购物 0 · 花费 $0.0。",
-        "【方向表现】「learning」购物 42 单领先，有效素材 3/19，ROAS 0.4；共 19 条素材参与本周 WW 测试。"
+        "【方向表现】「learning」购物 42 单领先，出单素材 7/19，ROAS 0.4；共 19 条素材参与本周 WW 测试。"
       ]
     },
     "0608周": {
@@ -896,17 +877,15 @@
         "0615周",
         "0622周"
       ],
-      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 111,
         "order_rate": 15.32,
         "ge2_rate": 9.01,
         "ge5_rate": 4.5,
         "spend": 6642.11,
-        "effective_materials": 6,
+        "ordered_materials": 17,
         "conversions": 100,
         "subscriptions": 217,
-        "effective_rate": 5.41,
         "avg_roas": 0.4,
         "wow": {
           "total_materials": {
@@ -934,10 +913,10 @@
             "pct": 106.1,
             "direction": "up"
           },
-          "effective_materials": {
-            "delta": 2.0,
-            "pct": 50.0,
-            "direction": "up"
+          "ordered_materials": {
+            "delta": -3.0,
+            "pct": -15.0,
+            "direction": "down"
           },
           "conversions": {
             "delta": 39.0,
@@ -947,6 +926,11 @@
           "subscriptions": {
             "delta": 86.0,
             "pct": 65.6,
+            "direction": "up"
+          },
+          "avg_roas": {
+            "delta": 0.03,
+            "pct": 8.1,
             "direction": "up"
           }
         }
@@ -973,18 +957,6 @@
           "wow": {
             "delta": 796.28,
             "pct": 300.2,
-            "direction": "up"
-          }
-        },
-        {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 5.41,
-          "previous": 3.81,
-          "wow": {
-            "delta": 1.6,
-            "pct": 42.0,
             "direction": "up"
           }
         },
@@ -1026,7 +998,7 @@
         },
         {
           "key": "purchases",
-          "label": "购物数",
+          "label": "总出单量",
           "unit": "",
           "current": 100,
           "previous": 61,
@@ -1038,7 +1010,7 @@
         },
         {
           "key": "roas",
-          "label": "ROAS",
+          "label": "平均 ROAS",
           "unit": "",
           "current": 0.4,
           "previous": 0.37,
@@ -1187,8 +1159,8 @@
         {
           "direction": "lifelessons",
           "total_materials": 17,
-          "effective_materials": 2,
-          "effective_ratio": "2/17",
+          "ordered_materials": 5,
+          "ordered_ratio": "5/17",
           "ctr": 1.55,
           "cpi": 2.01,
           "roas": 0.41,
@@ -1202,8 +1174,8 @@
         {
           "direction": "learning",
           "total_materials": 31,
-          "effective_materials": 2,
-          "effective_ratio": "2/31",
+          "ordered_materials": 5,
+          "ordered_ratio": "5/31",
           "ctr": 1.74,
           "cpi": 1.62,
           "roas": 0.4,
@@ -1217,8 +1189,8 @@
         {
           "direction": "mindset",
           "total_materials": 26,
-          "effective_materials": 1,
-          "effective_ratio": "1/26",
+          "ordered_materials": 3,
+          "ordered_ratio": "3/26",
           "ctr": 1.45,
           "cpi": 2.25,
           "roas": 0.39,
@@ -1232,8 +1204,8 @@
         {
           "direction": "aitalk",
           "total_materials": 3,
-          "effective_materials": 1,
-          "effective_ratio": "1/3",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/3",
           "ctr": 0.94,
           "cpi": 5.34,
           "roas": 0.4,
@@ -1247,8 +1219,8 @@
         {
           "direction": "selfimprovement",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 2,
+          "ordered_ratio": "2/4",
           "ctr": 0.81,
           "cpi": 3.38,
           "roas": 0.29,
@@ -1262,8 +1234,8 @@
         {
           "direction": "communication",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/4",
           "ctr": 1.44,
           "cpi": 1.92,
           "roas": 0.2,
@@ -1277,8 +1249,8 @@
         {
           "direction": "mood",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/4",
           "ctr": 0.71,
           "cpi": null,
           "roas": 0,
@@ -1292,8 +1264,8 @@
         {
           "direction": "challenge",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/4",
           "ctr": 1.67,
           "cpi": null,
           "roas": 0,
@@ -1307,8 +1279,8 @@
         {
           "direction": "book reading",
           "total_materials": 2,
-          "effective_materials": 0,
-          "effective_ratio": "0/2",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
           "ctr": 2.6,
           "cpi": 2.41,
           "roas": 0,
@@ -1322,8 +1294,8 @@
         {
           "direction": "successful",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 1.03,
           "cpi": 5.77,
           "roas": 0,
@@ -1337,8 +1309,8 @@
         {
           "direction": "finance",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0,
           "cpi": null,
           "roas": 0,
@@ -1352,8 +1324,8 @@
         {
           "direction": "reading",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0.56,
           "cpi": null,
           "roas": 0,
@@ -1367,8 +1339,8 @@
         {
           "direction": "habitst",
           "total_materials": 5,
-          "effective_materials": 0,
-          "effective_ratio": "0/5",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/5",
           "ctr": 2.46,
           "cpi": 5.0,
           "roas": 0,
@@ -1382,8 +1354,8 @@
         {
           "direction": "form",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 0,
           "cpi": null,
           "roas": 0,
@@ -1397,8 +1369,8 @@
         {
           "direction": "ugcproof",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0,
           "cpi": null,
           "roas": 0,
@@ -1412,8 +1384,8 @@
         {
           "direction": "creative",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.22,
           "cpi": null,
           "roas": 0,
@@ -1427,8 +1399,8 @@
         {
           "direction": "emotionalhealth",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0.46,
           "cpi": null,
           "roas": 0,
@@ -1465,12 +1437,12 @@
       },
       "insights": [
         "【新方向测试·数字人】本周 数字人 新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。 共 3 条，消耗 $304.39，购物 4 / 订阅 8。",
-        "【素材测出率】0608周 上新 111 条，出单率 15.32%（较 0601周 ↓3.7pp），有效率 5.41%（较上周 ↑1.6pp）。上周出单率 19.05%，有效率 3.81%。",
+        "【素材测出率】0608周 上新 111 条，出单率 15.32%（较 0601周 ↓3.7pp），出单素材 17 条（较上周 ↓3）。上周出单率 19.05%，出单素材 20 条。",
         "【本周最强素材】20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-self_RS-P3…（lifelessons / gy）：购物 25 · 订阅 43 · ROAS 0.43 · CTR 1.09% · 花费 $1188.0。",
         "【高转化信号素材】20260609_GrowMe_EN_9x16_FX-Mindset_ZT-think_RS-P3X1R…（购物+订阅双达标）：购物 24 · 订阅 45 · ROAS 0.36 · CTR 1.18% · 花费 $1212.0，具备放量验证价值。",
         "【钩子最优素材】20260608_growme_EN_9x16_FX-lifelessons_ZT-beokay_RS-…：3秒播放率 37.1%，购物 0 · CTR 3.23% · 花费 $0.0。",
         "【留存率最高素材】20260609_growme_EN_9x16_FX-Form_ZT-readingchallenge_…：完播留存率 50.0%，购物 0 · 花费 $0.0。",
-        "【方向表现】「lifelessons」购物 36 单领先，有效素材 2/17，ROAS 0.41；共 17 条素材参与本周 WW 测试。"
+        "【方向表现】「lifelessons」购物 36 单领先，出单素材 5/17，ROAS 0.41；共 17 条素材参与本周 WW 测试。"
       ],
       "new_direction_test": {
         "label": "数字人",
@@ -1544,17 +1516,15 @@
         "0615周",
         "0622周"
       ],
-      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 104,
         "order_rate": 15.38,
         "ge2_rate": 13.46,
         "ge5_rate": 4.81,
         "spend": 5596.59,
-        "effective_materials": 8,
+        "ordered_materials": 16,
         "conversions": 86,
         "subscriptions": 143,
-        "effective_rate": 7.69,
         "avg_roas": 0.48,
         "wow": {
           "total_materials": {
@@ -1582,10 +1552,10 @@
             "pct": -15.7,
             "direction": "down"
           },
-          "effective_materials": {
-            "delta": 2.0,
-            "pct": 33.3,
-            "direction": "up"
+          "ordered_materials": {
+            "delta": -1.0,
+            "pct": -5.9,
+            "direction": "down"
           },
           "conversions": {
             "delta": -14.0,
@@ -1596,6 +1566,11 @@
             "delta": -74.0,
             "pct": -34.1,
             "direction": "down"
+          },
+          "avg_roas": {
+            "delta": 0.08,
+            "pct": 20.0,
+            "direction": "up"
           }
         }
       },
@@ -1622,18 +1597,6 @@
             "delta": -46.8,
             "pct": -4.4,
             "direction": "down"
-          }
-        },
-        {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 7.69,
-          "previous": 5.41,
-          "wow": {
-            "delta": 2.28,
-            "pct": 42.1,
-            "direction": "up"
           }
         },
         {
@@ -1674,7 +1637,7 @@
         },
         {
           "key": "purchases",
-          "label": "购物数",
+          "label": "总出单量",
           "unit": "",
           "current": 86,
           "previous": 100,
@@ -1686,7 +1649,7 @@
         },
         {
           "key": "roas",
-          "label": "ROAS",
+          "label": "平均 ROAS",
           "unit": "",
           "current": 0.48,
           "previous": 0.4,
@@ -1835,8 +1798,8 @@
         {
           "direction": "lifelessons",
           "total_materials": 33,
-          "effective_materials": 3,
-          "effective_ratio": "3/33",
+          "ordered_materials": 7,
+          "ordered_ratio": "7/33",
           "ctr": 1.67,
           "cpi": 1.75,
           "roas": 0.5,
@@ -1850,8 +1813,8 @@
         {
           "direction": "learning",
           "total_materials": 29,
-          "effective_materials": 5,
-          "effective_ratio": "5/29",
+          "ordered_materials": 5,
+          "ordered_ratio": "5/29",
           "ctr": 1.74,
           "cpi": 1.85,
           "roas": 0.44,
@@ -1865,8 +1828,8 @@
         {
           "direction": "mindset",
           "total_materials": 11,
-          "effective_materials": 0,
-          "effective_ratio": "0/11",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/11",
           "ctr": 1.48,
           "cpi": 2.29,
           "roas": 0.41,
@@ -1880,8 +1843,8 @@
         {
           "direction": "creative",
           "total_materials": 5,
-          "effective_materials": 0,
-          "effective_ratio": "0/5",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/5",
           "ctr": 1.4,
           "cpi": 2.3,
           "roas": 0.19,
@@ -1895,8 +1858,8 @@
         {
           "direction": "test",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/1",
           "ctr": 0.95,
           "cpi": 2.1,
           "roas": 0.44,
@@ -1910,8 +1873,8 @@
         {
           "direction": "communication",
           "total_materials": 6,
-          "effective_materials": 0,
-          "effective_ratio": "0/6",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/6",
           "ctr": 1.67,
           "cpi": 2.15,
           "roas": 1.31,
@@ -1925,8 +1888,8 @@
         {
           "direction": "challenge",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 3.42,
           "cpi": 1.5,
           "roas": 0,
@@ -1940,8 +1903,8 @@
         {
           "direction": "successful",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.78,
           "cpi": null,
           "roas": 0,
@@ -1955,8 +1918,8 @@
         {
           "direction": "selfimprovement",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0.86,
           "cpi": 3.63,
           "roas": 0,
@@ -1970,8 +1933,8 @@
         {
           "direction": "financet",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.45,
           "cpi": null,
           "roas": 0,
@@ -1985,8 +1948,8 @@
         {
           "direction": "quetes",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.68,
           "cpi": null,
           "roas": 0,
@@ -2000,8 +1963,8 @@
         {
           "direction": "habits",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 3.7,
           "cpi": 5.02,
           "roas": 0,
@@ -2015,8 +1978,8 @@
         {
           "direction": "book reading",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 3.92,
           "cpi": null,
           "roas": 0,
@@ -2030,8 +1993,8 @@
         {
           "direction": "faith",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.59,
           "cpi": 4.82,
           "roas": 0,
@@ -2045,8 +2008,8 @@
         {
           "direction": "creative_jb-061801-zr",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 2.58,
           "cpi": 2.38,
           "roas": 0,
@@ -2060,8 +2023,8 @@
         {
           "direction": "aitalk",
           "total_materials": 5,
-          "effective_materials": 0,
-          "effective_ratio": "0/5",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/5",
           "ctr": 1.66,
           "cpi": null,
           "roas": 0,
@@ -2075,8 +2038,8 @@
         {
           "direction": "emotionalhealth",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.21,
           "cpi": 1.93,
           "roas": 0,
@@ -2090,8 +2053,8 @@
         {
           "direction": "bookreading",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.13,
           "cpi": 2.21,
           "roas": 0,
@@ -2105,8 +2068,8 @@
         {
           "direction": "reading",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.43,
           "cpi": 2.96,
           "roas": 0,
@@ -2142,12 +2105,12 @@
         ]
       },
       "insights": [
-        "【素材测出率】0615周 上新 104 条，出单率 15.38%（较 0608周 ↑0.1pp），有效率 7.69%（较上周 ↑2.3pp）。上周出单率 15.32%，有效率 5.41%。",
+        "【素材测出率】0615周 上新 104 条，出单率 15.38%（较 0608周 ↑0.1pp），出单素材 16 条（较上周 ↓1）。上周出单率 15.32%，出单素材 17 条。",
         "【本周最强素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（lifelessons / wxx）：购物 26 · 订阅 37 · ROAS 0.61 · CTR 1.57% · 花费 $990.0。",
         "【高转化信号素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（购物+订阅双达标）：购物 26 · 订阅 37 · ROAS 0.61 · CTR 1.57% · 花费 $990.0，具备放量验证价值。",
         "【钩子最优素材】20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-explain_RS…：3秒播放率 36.54%，购物 0 · CTR 6.19% · 花费 $0.0。",
         "【留存率最高素材】20260617_growme_EN_9x16_FX-aitalk_ZT-365_RS-P1X1R3C3…：完播留存率 15.62%，购物 0 · CTR 1.32% · 花费 $1.0。",
-        "【方向表现】「lifelessons」购物 46 单领先，有效素材 3/33，ROAS 0.5；共 33 条素材参与本周 WW 测试。"
+        "【方向表现】「lifelessons」购物 46 单领先，出单素材 7/33，ROAS 0.5；共 33 条素材参与本周 WW 测试。"
       ]
     },
     "0622周": {
@@ -2160,17 +2123,15 @@
         "0615周",
         "0622周"
       ],
-      "effective_rule": "消耗 > $200 且有购物",
       "kpi": {
         "total_materials": 118,
         "order_rate": 15.25,
         "ge2_rate": 9.32,
         "ge5_rate": 5.08,
         "spend": 5741.18,
-        "effective_materials": 6,
+        "ordered_materials": 18,
         "conversions": 94,
         "subscriptions": 167,
-        "effective_rate": 5.08,
         "avg_roas": 0.45,
         "wow": {
           "total_materials": {
@@ -2198,10 +2159,10 @@
             "pct": 2.6,
             "direction": "up"
           },
-          "effective_materials": {
-            "delta": -2.0,
-            "pct": -25.0,
-            "direction": "down"
+          "ordered_materials": {
+            "delta": 2.0,
+            "pct": 12.5,
+            "direction": "up"
           },
           "conversions": {
             "delta": 8.0,
@@ -2212,6 +2173,11 @@
             "delta": 24.0,
             "pct": 16.8,
             "direction": "up"
+          },
+          "avg_roas": {
+            "delta": -0.03,
+            "pct": -6.2,
+            "direction": "down"
           }
         }
       },
@@ -2238,18 +2204,6 @@
             "delta": 242.27,
             "pct": 23.9,
             "direction": "up"
-          }
-        },
-        {
-          "key": "effective_rate",
-          "label": "有效率",
-          "unit": "%",
-          "current": 5.08,
-          "previous": 7.69,
-          "wow": {
-            "delta": -2.61,
-            "pct": -33.9,
-            "direction": "down"
           }
         },
         {
@@ -2290,7 +2244,7 @@
         },
         {
           "key": "purchases",
-          "label": "购物数",
+          "label": "总出单量",
           "unit": "",
           "current": 94,
           "previous": 86,
@@ -2302,7 +2256,7 @@
         },
         {
           "key": "roas",
-          "label": "ROAS",
+          "label": "平均 ROAS",
           "unit": "",
           "current": 0.45,
           "previous": 0.48,
@@ -2451,8 +2405,8 @@
         {
           "direction": "lifelessons",
           "total_materials": 28,
-          "effective_materials": 3,
-          "effective_ratio": "3/28",
+          "ordered_materials": 4,
+          "ordered_ratio": "4/28",
           "ctr": 1.57,
           "cpi": 2.71,
           "roas": 0.4,
@@ -2466,8 +2420,8 @@
         {
           "direction": "learning",
           "total_materials": 29,
-          "effective_materials": 3,
-          "effective_ratio": "3/29",
+          "ordered_materials": 7,
+          "ordered_ratio": "7/29",
           "ctr": 1.2,
           "cpi": 1.6,
           "roas": 0.44,
@@ -2481,8 +2435,8 @@
         {
           "direction": "communication",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/4",
           "ctr": 1.65,
           "cpi": 3.13,
           "roas": 1.27,
@@ -2496,8 +2450,8 @@
         {
           "direction": "pic",
           "total_materials": 11,
-          "effective_materials": 0,
-          "effective_ratio": "0/11",
+          "ordered_materials": 2,
+          "ordered_ratio": "2/11",
           "ctr": 1.77,
           "cpi": 2.55,
           "roas": 0.34,
@@ -2511,8 +2465,8 @@
         {
           "direction": "selfimprovement",
           "total_materials": 10,
-          "effective_materials": 0,
-          "effective_ratio": "0/10",
+          "ordered_materials": 2,
+          "ordered_ratio": "2/10",
           "ctr": 1.57,
           "cpi": 1.91,
           "roas": 0.54,
@@ -2526,8 +2480,8 @@
         {
           "direction": "readingbook",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/1",
           "ctr": 1.42,
           "cpi": 0.89,
           "roas": 1.63,
@@ -2541,8 +2495,8 @@
         {
           "direction": "mindset",
           "total_materials": 18,
-          "effective_materials": 0,
-          "effective_ratio": "0/18",
+          "ordered_materials": 1,
+          "ordered_ratio": "1/18",
           "ctr": 1.47,
           "cpi": 1.72,
           "roas": 0.57,
@@ -2556,8 +2510,8 @@
         {
           "direction": "reading",
           "total_materials": 4,
-          "effective_materials": 0,
-          "effective_ratio": "0/4",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/4",
           "ctr": 1.33,
           "cpi": 2.1,
           "roas": 0,
@@ -2571,8 +2525,8 @@
         {
           "direction": "mood",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0.55,
           "cpi": null,
           "roas": 0,
@@ -2586,8 +2540,8 @@
         {
           "direction": "test",
           "total_materials": 2,
-          "effective_materials": 0,
-          "effective_ratio": "0/2",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
           "ctr": 1.29,
           "cpi": 3.76,
           "roas": 0,
@@ -2601,8 +2555,8 @@
         {
           "direction": "communication_",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.29,
           "cpi": 3.85,
           "roas": 0,
@@ -2616,8 +2570,8 @@
         {
           "direction": "learning1",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.73,
           "cpi": 2.84,
           "roas": 0,
@@ -2631,8 +2585,8 @@
         {
           "direction": "focus",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 0.49,
           "cpi": null,
           "roas": 0,
@@ -2646,8 +2600,8 @@
         {
           "direction": "learning2",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 2.19,
           "cpi": 2.48,
           "roas": 0,
@@ -2661,8 +2615,8 @@
         {
           "direction": "successful",
           "total_materials": 3,
-          "effective_materials": 0,
-          "effective_ratio": "0/3",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
           "ctr": 1.22,
           "cpi": null,
           "roas": 0,
@@ -2676,8 +2630,8 @@
         {
           "direction": "habits",
           "total_materials": 2,
-          "effective_materials": 0,
-          "effective_ratio": "0/2",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
           "ctr": 0.92,
           "cpi": null,
           "roas": 0,
@@ -2691,8 +2645,8 @@
         {
           "direction": "lifeleesons",
           "total_materials": 1,
-          "effective_materials": 0,
-          "effective_ratio": "0/1",
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
           "ctr": 1.68,
           "cpi": 14.49,
           "roas": 0,
@@ -2729,12 +2683,12 @@
       },
       "insights": [
         "【新方向测试·图片素材】0622周 图片素材新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。 共 11 条，消耗 $454.42，购物 5 / 订阅 7。",
-        "【素材测出率】0622周 上新 118 条，出单率 15.25%（较 0615周 ↓0.1pp），有效率 5.08%（较上周 ↓2.6pp）。上周出单率 15.38%，有效率 7.69%。",
+        "【素材测出率】0622周 上新 118 条，出单率 15.25%（较 0615周 ↓0.1pp），出单素材 18 条（较上周 ↑2）。上周出单率 15.38%，出单素材 16 条。",
         "【本周最强素材】20260623_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R…（learning / gy）：购物 20 · 订阅 32 · ROAS 0.44 · CTR 1.06% · 花费 $872.0。",
         "【高转化信号素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（购物+订阅双达标）：购物 19 · 订阅 49 · ROAS 0.41 · CTR 1.26% · 花费 $1053.0，具备放量验证价值。",
         "【钩子最优素材】20260623_growme_EN_9x16_FX-LifeLessons_ZT-readvsnotr…：3秒播放率 51.64%，购物 0 · CTR 0.56% · 花费 $6.0。",
         "【留存率最高素材】20260625_GrowMe_EN_9x16_FX-Lifelessons_ZT-perfectly_…：完播留存率 25.0%，购物 0 · CTR 1.89% · 花费 $0.0。",
-        "【方向表现】「lifelessons」购物 41 单领先，有效素材 3/28，ROAS 0.4；共 28 条素材参与本周 WW 测试。"
+        "【方向表现】「lifelessons」购物 41 单领先，出单素材 4/28，ROAS 0.4；共 28 条素材参与本周 WW 测试。"
       ],
       "new_direction_test": {
         "label": "图片素材",

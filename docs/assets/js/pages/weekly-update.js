@@ -34,10 +34,9 @@ function kpiCard(title, value, wow = null, sub = '') {
   `;
 }
 
-function renderKpiSection(kpi, prevWeek, effectiveRule) {
+function renderKpiSection(kpi, prevWeek) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
-  const ruleHint = effectiveRule || '消耗 > $200 且有购物';
 
   const orderRateDelta = wow.order_rate && wow.order_rate.pct !== null
     ? `(${wow.order_rate.direction === 'up' ? '+' : ''}${wow.order_rate.pct}%)`
@@ -47,7 +46,7 @@ function renderKpiSection(kpi, prevWeek, effectiveRule) {
     : '';
 
   let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${kpi.total_materials || 0} 条素材`;
-  if (kpi.effective_materials) summaryLine += `，有效 ${kpi.effective_materials} 条`;
+  if (kpi.ordered_materials != null) summaryLine += `，出单素材 ${kpi.ordered_materials} 条`;
   summaryLine += `，出单率 ${kpi.order_rate || 0}%${orderRateDelta}`;
   if (kpi.avg_roas) summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
 
@@ -64,12 +63,12 @@ function renderKpiSection(kpi, prevWeek, effectiveRule) {
     <div class="kpi-grid kpi-grid-4">
       ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}
       ${kpiCard('总素材量', kpi.total_materials, hasWow ? wow.total_materials : null)}
-      ${kpiCard('WW 有效素材', kpi.effective_materials, hasWow ? wow.effective_materials : null, ruleHint)}
-      ${kpiCard('WW 转化数', kpi.conversions, hasWow ? wow.conversions : null)}
+      ${kpiCard('出单素材数', kpi.ordered_materials, hasWow ? wow.ordered_materials : null, '有购物即计入')}
+      ${kpiCard('总出单量', kpi.conversions, hasWow ? wow.conversions : null)}
       ${kpiCard('WW 出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
       ${kpiCard('≥2 单素材率', `${kpi.ge2_rate}%`, hasWow ? wow.ge2_rate : null)}
       ${kpiCard('≥5 单素材率', `${kpi.ge5_rate}%`, hasWow ? wow.ge5_rate : null)}
-      ${kpiCard('有效率', `${kpi.effective_rate}%`, null, ruleHint)}
+      ${kpiCard('平均 ROAS', kpi.avg_roas ?? '-', hasWow ? wow.avg_roas : null)}
     </div>
   `;
 }
@@ -146,16 +145,15 @@ function formatWeekLabel(label) {
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
-function renderDirectionTable(rows, effectiveRule) {
-  const ruleHint = effectiveRule || '消耗 > $200 且有购物';
+function renderDirectionTable(rows) {
   return `
     <div class="card">
-      <div class="section-title">各方向标签表现对比 <span class="muted">（有效素材 = ${escapeHtml(ruleHint)}）</span></div>
+      <div class="section-title">各方向标签表现对比</div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>方向</th><th>素材量</th><th>有效素材</th><th>消耗</th><th>CTR</th><th>CPI</th><th>ROAS</th>
+              <th>方向</th><th>素材量</th><th>出单素材</th><th>消耗</th><th>CTR</th><th>CPI</th><th>ROAS</th>
               <th>订阅</th><th>购物</th><th>钩子率</th><th>留存率</th>
             </tr>
           </thead>
@@ -164,7 +162,7 @@ function renderDirectionTable(rows, effectiveRule) {
               <tr>
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
                 <td>${r.total_materials ?? '-'}</td>
-                <td><strong>${r.effective_ratio || `${r.effective_materials}/${r.total_materials || '-'}`}</strong></td>
+                <td><strong>${r.ordered_ratio || `${r.ordered_materials}/${r.total_materials || '-'}`}</strong></td>
                 <td>$${r.spend ?? '-'}</td>
                 <td>${r.ctr}%</td>
                 <td>${r.cpi !== null ? `$${r.cpi}` : '-'}</td>
@@ -283,11 +281,11 @@ export async function renderWeeklyUpdate(container, state) {
         <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
       `).join('')}
     </div>
-    ${renderKpiSection(report.kpi, report.prev_week, report.effective_rule)}
+    ${renderKpiSection(report.kpi, report.prev_week)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
     ${renderNewDirectionCallout(report.new_direction_test)}
     ${renderGoodMaterials(report.good_materials)}
-    ${renderDirectionTable(report.direction_table, report.effective_rule)}
+    ${renderDirectionTable(report.direction_table)}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>
       <div id="weekly-survival-chart" class="chart"></div>

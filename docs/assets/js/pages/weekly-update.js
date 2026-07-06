@@ -283,7 +283,7 @@ export async function renderWeeklyUpdate(container, state) {
     </div>
     ${renderKpiSection(report.kpi, report.prev_week)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
-    ${renderNewDirectionCallout(report.new_direction_test)}
+    ${(report.new_direction_tests || (report.new_direction_test ? [report.new_direction_test] : [])).map((block) => renderNewDirectionCallout(block)).join('')}
     ${renderGoodMaterials(report.good_materials)}
     ${renderDirectionTable(report.direction_table)}
     <div class="card">

@@ -425,20 +425,22 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             week, prev, all_materials, combined_kpi, prev_combined, directions
         ),
     }
-    new_dir = None
+    new_dirs: list[dict[str, Any]] = []
     try:
-        from new_direction_report import get_new_direction_for_week
-        new_dir = get_new_direction_for_week(week)
+        from new_direction_report import get_new_direction_blocks_for_week
+        new_dirs = get_new_direction_blocks_for_week(week)
     except ImportError:
         pass
-    if new_dir:
-        report["new_direction_test"] = new_dir
-        report["insights"].insert(
-            0,
-            f"【新方向测试·{new_dir['label']}】{new_dir['note']} "
-            f"共 {new_dir['summary']['total_materials']} 条，消耗 ${new_dir['summary']['spend']}，"
-            f"购物 {new_dir['summary']['purchases']} / 订阅 {new_dir['summary']['subscriptions']}。",
-        )
+    if new_dirs:
+        report["new_direction_tests"] = new_dirs
+        report["new_direction_test"] = new_dirs[0]
+        for block in reversed(new_dirs):
+            report["insights"].insert(
+                0,
+                f"【新方向测试·{block['label']}】{block['note']} "
+                f"共 {block['summary']['total_materials']} 条，消耗 ${block['summary']['spend']}，"
+                f"购物 {block['summary']['purchases']} / 订阅 {block['summary']['subscriptions']}。",
+            )
     return {"weeks": labels, "report": report}
 
 

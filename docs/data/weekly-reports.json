@@ -4,7 +4,8 @@
     "0601周",
     "0608周",
     "0615周",
-    "0622周"
+    "0622周",
+    "0629周"
   ],
   "reports": {
     "0525周": {
@@ -15,7 +16,8 @@
         "0601周",
         "0608周",
         "0615周",
-        "0622周"
+        "0622周",
+        "0629周"
       ],
       "kpi": {
         "total_materials": 56,
@@ -299,7 +301,8 @@
         "0601周",
         "0608周",
         "0615周",
-        "0622周"
+        "0622周",
+        "0629周"
       ],
       "kpi": {
         "total_materials": 105,
@@ -875,7 +878,8 @@
         "0601周",
         "0608周",
         "0615周",
-        "0622周"
+        "0622周",
+        "0629周"
       ],
       "kpi": {
         "total_materials": 111,
@@ -1436,13 +1440,76 @@
         ]
       },
       "insights": [
-        "【新方向测试·数字人】本周 数字人 新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。 共 3 条，消耗 $304.39，购物 4 / 订阅 8。",
+        "【新方向测试·数字人】0608周 数字人新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。 共 3 条，消耗 $304.39，购物 4 / 订阅 8。",
         "【素材测出率】0608周 上新 111 条，出单率 15.32%（较 0601周 ↓3.7pp），出单素材 17 条（较上周 ↓3）。上周出单率 19.05%，出单素材 20 条。",
         "【本周最强素材】20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-self_RS-P3…（lifelessons / gy）：购物 25 · 订阅 43 · ROAS 0.43 · CTR 1.09% · 花费 $1188.0。",
         "【高转化信号素材】20260609_GrowMe_EN_9x16_FX-Mindset_ZT-think_RS-P3X1R…（购物+订阅双达标）：购物 24 · 订阅 45 · ROAS 0.36 · CTR 1.18% · 花费 $1212.0，具备放量验证价值。",
         "【钩子最优素材】20260608_growme_EN_9x16_FX-lifelessons_ZT-beokay_RS-…：3秒播放率 37.1%，购物 0 · CTR 3.23% · 花费 $0.0。",
         "【留存率最高素材】20260609_growme_EN_9x16_FX-Form_ZT-readingchallenge_…：完播留存率 50.0%，购物 0 · 花费 $0.0。",
         "【方向表现】「lifelessons」购物 36 单领先，出单素材 5/17，ROAS 0.41；共 17 条素材参与本周 WW 测试。"
+      ],
+      "new_direction_tests": [
+        {
+          "label": "数字人",
+          "week_label": "0608周",
+          "direction": "aitalk",
+          "summary": {
+            "total_materials": 3,
+            "spend": 304.39,
+            "purchases": 4,
+            "subscriptions": 8,
+            "ordered_materials": 1,
+            "order_rate": 33.33
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
+              "direction": "aitalk",
+              "theme": "365book",
+              "designer": "wxx",
+              "first_seen": "2026-06-10",
+              "week_label": "0608周",
+              "spend": 202.24,
+              "purchases": 4,
+              "subscriptions": 8,
+              "roas": 0.4,
+              "ctr": 0.94,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 2,
+              "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-income_RS-P1X1R3C3_wxx",
+              "direction": "aitalk",
+              "theme": "income",
+              "designer": "wxx",
+              "first_seen": "2026-06-10",
+              "week_label": "0608周",
+              "spend": 79.37,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.15,
+              "scaling_status": "炮灰"
+            },
+            {
+              "rank": 3,
+              "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx",
+              "direction": "aitalk",
+              "theme": "iq",
+              "designer": "wxx",
+              "first_seen": "2026-06-10",
+              "week_label": "0608周",
+              "spend": 22.78,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 0.72,
+              "scaling_status": "衰退期"
+            }
+          ],
+          "note": "0608周 数字人新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。"
+        }
       ],
       "new_direction_test": {
         "label": "数字人",
@@ -1503,7 +1570,7 @@
             "scaling_status": "衰退期"
           }
         ],
-        "note": "本周 数字人 新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。"
+        "note": "0608周 数字人新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。"
       }
     },
     "0615周": {
@@ -1514,7 +1581,8 @@
         "0601周",
         "0608周",
         "0615周",
-        "0622周"
+        "0622周",
+        "0629周"
       ],
       "kpi": {
         "total_materials": 104,
@@ -2121,7 +2189,8 @@
         "0601周",
         "0608周",
         "0615周",
-        "0622周"
+        "0622周",
+        "0629周"
       ],
       "kpi": {
         "total_materials": 118,
@@ -2682,7 +2751,7 @@
         ]
       },
       "insights": [
-        "【新方向测试·图片素材】0622周 图片素材新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。 共 11 条，消耗 $454.42，购物 5 / 订阅 7。",
+        "【新方向测试·新方向测试】0622周 新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。 共 11 条，消耗 $454.42，购物 5 / 订阅 7。",
         "【素材测出率】0622周 上新 118 条，出单率 15.25%（较 0615周 ↓0.1pp），出单素材 18 条（较上周 ↑2）。上周出单率 15.38%，出单素材 16 条。",
         "【本周最强素材】20260623_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R…（learning / gy）：购物 20 · 订阅 32 · ROAS 0.44 · CTR 1.06% · 花费 $872.0。",
         "【高转化信号素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（购物+订阅双达标）：购物 19 · 订阅 49 · ROAS 0.41 · CTR 1.26% · 花费 $1053.0，具备放量验证价值。",
@@ -2690,8 +2759,191 @@
         "【留存率最高素材】20260625_GrowMe_EN_9x16_FX-Lifelessons_ZT-perfectly_…：完播留存率 25.0%，购物 0 · CTR 1.89% · 花费 $0.0。",
         "【方向表现】「lifelessons」购物 41 单领先，出单素材 4/28，ROAS 0.4；共 28 条素材参与本周 WW 测试。"
       ],
+      "new_direction_tests": [
+        {
+          "label": "新方向测试",
+          "week_label": "0622周",
+          "direction": "pic",
+          "summary": {
+            "total_materials": 11,
+            "spend": 454.42,
+            "purchases": 5,
+            "subscriptions": 7,
+            "ordered_materials": 2,
+            "order_rate": 18.18
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-7-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-7-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 162.76,
+              "purchases": 3,
+              "subscriptions": 4,
+              "roas": 0.37,
+              "ctr": 1.37,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 2,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-5-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-5-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 99.87,
+              "purchases": 2,
+              "subscriptions": 1,
+              "roas": 0.28,
+              "ctr": 1.25,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 3,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-6-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-6-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 45.83,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.77,
+              "scaling_status": "炮灰"
+            },
+            {
+              "rank": 4,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-1-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-1-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 30.23,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.82,
+              "scaling_status": "炮灰"
+            },
+            {
+              "rank": 5,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-8-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-8-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 27.64,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.68,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 6,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-9-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-9-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 24.69,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.69,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 7,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-10-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-10-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 23.87,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.99,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 8,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-2-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-2-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 20.85,
+              "purchases": 0,
+              "subscriptions": 2,
+              "roas": 0,
+              "ctr": 2.61,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 9,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-4-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-4-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 15.25,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.36,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 10,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-11-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-11-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 2.7,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.15,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 11,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-3-_RS-P3X1R1C3_gy",
+              "direction": "pic",
+              "theme": "test-3-",
+              "designer": "gy",
+              "first_seen": "2026-06-24",
+              "week_label": "0622周",
+              "spend": 0.73,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 0.71,
+              "scaling_status": "衰退期"
+            }
+          ],
+          "note": "0622周 新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。"
+        }
+      ],
       "new_direction_test": {
-        "label": "图片素材",
+        "label": "新方向测试",
         "week_label": "0622周",
         "direction": "pic",
         "summary": {
@@ -2869,7 +3121,1117 @@
             "scaling_status": "衰退期"
           }
         ],
-        "note": "0622周 图片素材新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。"
+        "note": "0622周 新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。"
+      }
+    },
+    "0629周": {
+      "week": "0629周",
+      "prev_week": "0622周",
+      "weeks": [
+        "0525周",
+        "0601周",
+        "0608周",
+        "0615周",
+        "0622周",
+        "0629周"
+      ],
+      "kpi": {
+        "total_materials": 115,
+        "order_rate": 11.3,
+        "ge2_rate": 7.83,
+        "ge5_rate": 3.48,
+        "spend": 3447.27,
+        "ordered_materials": 13,
+        "conversions": 41,
+        "subscriptions": 64,
+        "avg_roas": 0.47,
+        "wow": {
+          "total_materials": {
+            "delta": -3.0,
+            "pct": -2.5,
+            "direction": "down"
+          },
+          "order_rate": {
+            "delta": -3.95,
+            "pct": -25.9,
+            "direction": "down"
+          },
+          "ge2_rate": {
+            "delta": -1.49,
+            "pct": -16.0,
+            "direction": "down"
+          },
+          "ge5_rate": {
+            "delta": -1.6,
+            "pct": -31.5,
+            "direction": "down"
+          },
+          "spend": {
+            "delta": -2293.91,
+            "pct": -40.0,
+            "direction": "down"
+          },
+          "ordered_materials": {
+            "delta": -5.0,
+            "pct": -27.8,
+            "direction": "down"
+          },
+          "conversions": {
+            "delta": -53.0,
+            "pct": -56.4,
+            "direction": "down"
+          },
+          "subscriptions": {
+            "delta": -103.0,
+            "pct": -61.7,
+            "direction": "down"
+          },
+          "avg_roas": {
+            "delta": 0.02,
+            "pct": 4.4,
+            "direction": "up"
+          }
+        }
+      },
+      "core_comparison": [
+        {
+          "key": "spend",
+          "label": "总消耗",
+          "unit": "$",
+          "current": 3447.27,
+          "previous": 5741.18,
+          "wow": {
+            "delta": -2293.91,
+            "pct": -40.0,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "empty_spend",
+          "label": "空消耗",
+          "unit": "$",
+          "current": 1471.59,
+          "previous": 1256.98,
+          "wow": {
+            "delta": 214.61,
+            "pct": 17.1,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "cpi",
+          "label": "CPI",
+          "unit": "$",
+          "current": 3.23,
+          "previous": 2.08,
+          "wow": {
+            "delta": 1.15,
+            "pct": 55.3,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "cpm",
+          "label": "CPM",
+          "unit": "$",
+          "current": 3.4,
+          "previous": 2.5,
+          "wow": {
+            "delta": 0.9,
+            "pct": 36.0,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "subscriptions",
+          "label": "订阅数",
+          "unit": "",
+          "current": 64,
+          "previous": 167,
+          "wow": {
+            "delta": -103.0,
+            "pct": -61.7,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "purchases",
+          "label": "总出单量",
+          "unit": "",
+          "current": 41,
+          "previous": 94,
+          "wow": {
+            "delta": -53.0,
+            "pct": -56.4,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "roas",
+          "label": "平均 ROAS",
+          "unit": "",
+          "current": 0.47,
+          "previous": 0.45,
+          "wow": {
+            "delta": 0.02,
+            "pct": 4.4,
+            "direction": "up"
+          }
+        }
+      ],
+      "good_materials": [
+        {
+          "material_id": "20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-women_RS-P1X1R3C3_fj",
+          "direction": "Women",
+          "theme": "selfimprovement-women",
+          "designer": "fj",
+          "purchases": 7,
+          "subscriptions": 9,
+          "roas": 0.67,
+          "ctr": 0.8,
+          "spend": 242.19
+        },
+        {
+          "material_id": "20260702_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic9_RS-P1X1R3C3_gy",
+          "direction": "englishreaders",
+          "theme": "learning-pic9",
+          "designer": "gy",
+          "purchases": 7,
+          "subscriptions": 8,
+          "roas": 0.65,
+          "ctr": 1.86,
+          "spend": 180.86
+        },
+        {
+          "material_id": "20260701_GrowMe_EN_9x16_FX-SelfGrowth_ZT-lifelessons-old_RS-P1X1R3C3_wxx",
+          "direction": "SelfGrowth",
+          "theme": "lifelessons-old",
+          "designer": "wxx",
+          "purchases": 5,
+          "subscriptions": 7,
+          "roas": 0.52,
+          "ctr": 2.04,
+          "spend": 253.5
+        },
+        {
+          "material_id": "20260630_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Challenge-habit_RS-P1X1R3C3_wxx",
+          "direction": "SelfGrowth",
+          "theme": "challenge-habit",
+          "designer": "wxx",
+          "purchases": 5,
+          "subscriptions": 6,
+          "roas": 0.31,
+          "ctr": 1.97,
+          "spend": 388.32
+        },
+        {
+          "material_id": "20260629_growme_EN_9x16_FX-SelfGrowth_ZT-Habits-change_RS-P1X1R3C3_wxx",
+          "direction": "SelfGrowth",
+          "theme": "habits-change",
+          "designer": "wxx",
+          "purchases": 4,
+          "subscriptions": 5,
+          "roas": 0.36,
+          "ctr": 1.68,
+          "spend": 147.3
+        },
+        {
+          "material_id": "20260702_growme_EN_9x16_FX-Readers_ZT-learning-pic7_RS-P1X1R3C3_gy",
+          "direction": "Readers",
+          "theme": "learning-pic7",
+          "designer": "gy",
+          "purchases": 3,
+          "subscriptions": 2,
+          "roas": 1.31,
+          "ctr": 1.28,
+          "spend": 33.71
+        },
+        {
+          "material_id": "20260703_GrowMe_EN_9x16_FX-SelfGrowth_ZT-learning-book_RS-P1X1R3C3_wxx",
+          "direction": "SelfGrowth",
+          "theme": "learning-book",
+          "designer": "wxx",
+          "purchases": 2,
+          "subscriptions": 3,
+          "roas": 0.42,
+          "ctr": 1.47,
+          "spend": 142.9
+        },
+        {
+          "material_id": "20260630_GrowMe_EN_9x16_FX-SelfGrowth_ZT-LifeLessons-11things_RS-P3X1R1C3_fj",
+          "direction": "SelfGrowth",
+          "theme": "lifelessons-11things",
+          "designer": "fj",
+          "purchases": 2,
+          "subscriptions": 2,
+          "roas": 0.29,
+          "ctr": 1.11,
+          "spend": 129.61
+        },
+        {
+          "material_id": "20260701_growme_EN_9x16_FX-Students_ZT-SelfImprovement_RS-P1X1R3C3_fj",
+          "direction": "Students",
+          "theme": "selfimprovement",
+          "designer": "fj",
+          "purchases": 2,
+          "subscriptions": 1,
+          "roas": 0.23,
+          "ctr": 1.07,
+          "spend": 65.66
+        },
+        {
+          "material_id": "20260702_GrowMe_EN_9x16_FX-Readers_ZT-Book Reading-read_RS-P3X1R1C3_gy_czy",
+          "direction": "Readers",
+          "theme": "book reading-read",
+          "designer": "gy",
+          "purchases": 1,
+          "subscriptions": 3,
+          "roas": 1.64,
+          "ctr": 0.85,
+          "spend": 28.31
+        },
+        {
+          "material_id": "20260703_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-niupizhi_LV1-color1_RS-P1X1R3C1_gy",
+          "direction": "EnglishLearners",
+          "theme": "learning-niupizhi_lv1-color1",
+          "designer": "gy",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.11,
+          "ctr": 1.07,
+          "spend": 75.19
+        },
+        {
+          "material_id": "20260701_GrowMe_EN_9x16_FX-Students_ZT-lifelessons-3min_RS-P1X1R3C3_wxx",
+          "direction": "Students",
+          "theme": "lifelessons-3min",
+          "designer": "wxx",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.24,
+          "ctr": 1.89,
+          "spend": 48.55
+        }
+      ],
+      "direction_table": [
+        {
+          "direction": "SelfGrowth",
+          "total_materials": 27,
+          "ordered_materials": 5,
+          "ordered_ratio": "5/27",
+          "ctr": 1.65,
+          "cpi": 3.92,
+          "roas": 0.38,
+          "subscriptions": 25,
+          "purchases": 18,
+          "hook_rate": 16.41,
+          "retention_rate": 4.35,
+          "spend": 1482.61,
+          "cpm": 4.05
+        },
+        {
+          "direction": "Women",
+          "total_materials": 12,
+          "ordered_materials": 1,
+          "ordered_ratio": "1/12",
+          "ctr": 2.15,
+          "cpi": 3.24,
+          "roas": 0.67,
+          "subscriptions": 11,
+          "purchases": 7,
+          "hook_rate": 12.76,
+          "retention_rate": 6.51,
+          "spend": 404.42,
+          "cpm": 2.68
+        },
+        {
+          "direction": "englishreaders",
+          "total_materials": 3,
+          "ordered_materials": 1,
+          "ordered_ratio": "1/3",
+          "ctr": 2.57,
+          "cpi": 1.58,
+          "roas": 0.65,
+          "subscriptions": 8,
+          "purchases": 7,
+          "hook_rate": 11.72,
+          "retention_rate": 0.0,
+          "spend": 185.06,
+          "cpm": 2.79
+        },
+        {
+          "direction": "Readers",
+          "total_materials": 7,
+          "ordered_materials": 2,
+          "ordered_ratio": "2/7",
+          "ctr": 1.53,
+          "cpi": 2.32,
+          "roas": 1.46,
+          "subscriptions": 7,
+          "purchases": 4,
+          "hook_rate": 14.88,
+          "retention_rate": 6.31,
+          "spend": 164.46,
+          "cpm": 3.59
+        },
+        {
+          "direction": "Students",
+          "total_materials": 3,
+          "ordered_materials": 2,
+          "ordered_ratio": "2/3",
+          "ctr": 1.35,
+          "cpi": 4.8,
+          "roas": 0.23,
+          "subscriptions": 2,
+          "purchases": 3,
+          "hook_rate": 12.76,
+          "retention_rate": 3.75,
+          "spend": 115.28,
+          "cpm": 3.0
+        },
+        {
+          "direction": "Overthinkers",
+          "total_materials": 17,
+          "ordered_materials": 1,
+          "ordered_ratio": "1/17",
+          "ctr": 1.96,
+          "cpi": 6.93,
+          "roas": 0.55,
+          "subscriptions": 1,
+          "purchases": 1,
+          "hook_rate": 14.48,
+          "retention_rate": 6.46,
+          "spend": 208.03,
+          "cpm": 3.11
+        },
+        {
+          "direction": "EnglishLearners",
+          "total_materials": 25,
+          "ordered_materials": 1,
+          "ordered_ratio": "1/25",
+          "ctr": 1.44,
+          "cpi": 2.84,
+          "roas": 0.11,
+          "subscriptions": 9,
+          "purchases": 1,
+          "hook_rate": 17.28,
+          "retention_rate": 5.88,
+          "spend": 547.53,
+          "cpm": 3.15
+        },
+        {
+          "direction": "Professionals",
+          "total_materials": 11,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/11",
+          "ctr": 1.59,
+          "cpi": 3.36,
+          "roas": 0,
+          "subscriptions": 1,
+          "purchases": 0,
+          "hook_rate": 16.43,
+          "retention_rate": 3.88,
+          "spend": 184.7,
+          "cpm": 3.73
+        },
+        {
+          "direction": "FinanceSeekers",
+          "total_materials": 2,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
+          "ctr": 0.92,
+          "cpi": 8.95,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 20.48,
+          "retention_rate": 4.11,
+          "spend": 26.84,
+          "cpm": 4.08
+        },
+        {
+          "direction": "lifelessons",
+          "total_materials": 2,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/2",
+          "ctr": 1.41,
+          "cpi": 3.83,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 18.27,
+          "retention_rate": 3.16,
+          "spend": 15.34,
+          "cpm": 3.85
+        },
+        {
+          "direction": "selfimprovement",
+          "total_materials": 1,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
+          "ctr": 1.18,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 18.38,
+          "retention_rate": 5.6,
+          "spend": 3.03,
+          "cpm": 4.46
+        },
+        {
+          "direction": "ofinaceseekers",
+          "total_materials": 1,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
+          "ctr": 1.91,
+          "cpi": 2.47,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 16.01,
+          "retention_rate": 2.79,
+          "spend": 22.23,
+          "cpm": 2.92
+        },
+        {
+          "direction": "creative_jb-061801-zr",
+          "total_materials": 3,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
+          "ctr": 1.25,
+          "cpi": 1.4,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 17.11,
+          "retention_rate": 7.54,
+          "spend": 69.99,
+          "cpm": 2.12
+        },
+        {
+          "direction": "learning",
+          "total_materials": 1,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
+          "ctr": 4.61,
+          "cpi": 2.22,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 26.18,
+          "retention_rate": 14.04,
+          "spend": 17.75,
+          "cpm": 6.15
+        }
+      ],
+      "survival_trend": {
+        "dates": [
+          "2026-06-29",
+          "2026-06-30",
+          "2026-07-01",
+          "2026-07-02",
+          "2026-07-03"
+        ],
+        "counts": [
+          18,
+          12,
+          25,
+          39,
+          21
+        ],
+        "survived_counts": [
+          3,
+          2,
+          3,
+          3,
+          2
+        ]
+      },
+      "insights": [
+        "【新方向测试·数字人】0629周 数字人新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。 共 6 条，消耗 $161.5，购物 0 / 订阅 1。",
+        "【新方向测试·图片素材】0629周 图片素材新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。 共 23 条，消耗 $401.29，购物 10 / 订阅 13。",
+        "【素材测出率】0629周 上新 115 条，出单率 11.3%（较 0622周 ↓3.9pp），出单素材 13 条（较上周 ↓5）。上周出单率 15.25%，出单素材 18 条。",
+        "【本周最强素材】20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-…（Women / fj）：购物 7 · 订阅 9 · ROAS 0.67 · CTR 0.8% · 花费 $242.0。",
+        "【高转化信号素材】20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-…（购物+订阅双达标）：购物 7 · 订阅 9 · ROAS 0.67 · CTR 0.8% · 花费 $242.0，具备放量验证价值。",
+        "【钩子最优素材】20260629_GrowMe_EN_0_9x16_FX-Women_ZT-Communication-…：3秒播放率 36.61%，购物 0 · CTR 1.88% · 花费 $19.0。",
+        "【留存率最高素材】20260629_growme_EN_9x16_FX-Overthinkers_ZT-LifeLesso…：完播留存率 22.22%，购物 0 · 花费 $0.0。",
+        "【方向表现】「SelfGrowth」购物 18 单领先，出单素材 5/27，ROAS 0.38；共 27 条素材参与本周 WW 测试。"
+      ],
+      "new_direction_tests": [
+        {
+          "label": "数字人",
+          "week_label": "0629周",
+          "direction": "aitalk",
+          "summary": {
+            "total_materials": 6,
+            "spend": 161.5,
+            "purchases": 0,
+            "subscriptions": 1,
+            "ordered_materials": 0,
+            "order_rate": 0.0
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260630_GrowMe_EN_9x16_FX-Overthinkers_ZT-aitalk-thinking_RS-P1X1R3C3_wxx",
+              "direction": "Overthinkers",
+              "theme": "aitalk-thinking",
+              "designer": "wxx",
+              "first_seen": "2026-06-30",
+              "week_label": "0629周",
+              "spend": 37.88,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 3.25,
+              "scaling_status": "炮灰"
+            },
+            {
+              "rank": 2,
+              "material_id": "20260702_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-365_RS-P1X1R3C3_wxx",
+              "direction": "SelfGrowth",
+              "theme": "aitalk-365",
+              "designer": "wxx",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 34.16,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 0.9,
+              "scaling_status": "炮灰"
+            },
+            {
+              "rank": 3,
+              "material_id": "20260630_GrowMe_EN_9x16_FX-EnglishLearners_ZT-aitalk-english_RS-P1X1R3C3_wxx",
+              "direction": "EnglishLearners",
+              "theme": "aitalk-english",
+              "designer": "wxx",
+              "first_seen": "2026-06-30",
+              "week_label": "0629周",
+              "spend": 25.16,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.36,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 4,
+              "material_id": "20260701_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-book_RS-P1X1R3C3_wxx",
+              "direction": "SelfGrowth",
+              "theme": "aitalk-book",
+              "designer": "wxx",
+              "first_seen": "2026-07-01",
+              "week_label": "0629周",
+              "spend": 22.19,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.03,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 5,
+              "material_id": "20260701_GrowMe_EN_9x16_FX-Professionals_ZT-aitalk-ceo_RS-P1X1R3C3_wxx",
+              "direction": "Professionals",
+              "theme": "aitalk-ceo",
+              "designer": "wxx",
+              "first_seen": "2026-07-01",
+              "week_label": "0629周",
+              "spend": 21.19,
+              "purchases": 0,
+              "subscriptions": 1,
+              "roas": 0,
+              "ctr": 0.81,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 6,
+              "material_id": "20260701_GrowMe_EN_9x16_FX-EnglishLearners_ZT-aitalk-english_RS-P1X1R3C3_wxx",
+              "direction": "EnglishLearners",
+              "theme": "aitalk-english",
+              "designer": "wxx",
+              "first_seen": "2026-07-01",
+              "week_label": "0629周",
+              "spend": 20.92,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.66,
+              "scaling_status": "衰退期"
+            }
+          ],
+          "note": "0629周 数字人新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。"
+        },
+        {
+          "label": "图片素材",
+          "week_label": "0629周",
+          "direction": "pic",
+          "summary": {
+            "total_materials": 23,
+            "spend": 401.29,
+            "purchases": 10,
+            "subscriptions": 13,
+            "ordered_materials": 2,
+            "order_rate": 8.7
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260702_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic9_RS-P1X1R3C3_gy",
+              "direction": "englishreaders",
+              "theme": "learning-pic9",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 180.86,
+              "purchases": 7,
+              "subscriptions": 8,
+              "roas": 0.65,
+              "ctr": 1.86,
+              "scaling_status": "增长期"
+            },
+            {
+              "rank": 2,
+              "material_id": "20260702_growme_EN_9x16_FX-Readers_ZT-learning-pic7_RS-P1X1R3C3_gy",
+              "direction": "Readers",
+              "theme": "learning-pic7",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 33.71,
+              "purchases": 3,
+              "subscriptions": 2,
+              "roas": 1.31,
+              "ctr": 1.28,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 3,
+              "material_id": "20260702_GrowMe_EN_4x5_FX-Women_ZT-WomenEmpowerment-pic4_RS-P3X1R1C3_fj",
+              "direction": "Women",
+              "theme": "womenempowerment-pic4",
+              "designer": "fj",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 32.48,
+              "purchases": 0,
+              "subscriptions": 2,
+              "roas": 0,
+              "ctr": 3.0,
+              "scaling_status": "炮灰"
+            },
+            {
+              "rank": 4,
+              "material_id": "20260703_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic8_RS-P1X1R3C3_wxx.jpg",
+              "direction": "SelfGrowth",
+              "theme": "selfimprovement-pic8",
+              "designer": "其他",
+              "first_seen": "2026-07-03",
+              "week_label": "0629周",
+              "spend": 26.19,
+              "purchases": 0,
+              "subscriptions": 1,
+              "roas": 0,
+              "ctr": 1.97,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 5,
+              "material_id": "20260703_growme_EN_9x16_FX-Women_ZT-SelfImprovement-pic6_RS-P1X1R3C3_wxx",
+              "direction": "Women",
+              "theme": "selfimprovement-pic6",
+              "designer": "wxx",
+              "first_seen": "2026-07-03",
+              "week_label": "0629周",
+              "spend": 20.77,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.07,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 6,
+              "material_id": "20260702_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic5_RS-P1X1R3C3_gy",
+              "direction": "SelfGrowth",
+              "theme": "selfimprovement-pic5",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 18.97,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.56,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 7,
+              "material_id": "20260702_growme_EN_9x16_FX-Women_ZT-learning-pic5_RS-P1X1R3C3_wxx",
+              "direction": "Women",
+              "theme": "learning-pic5",
+              "designer": "wxx",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 15.76,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.54,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 8,
+              "material_id": "20260702_GrowMe_EN_1x1_FX-Women_ZT-Mindset-pic2_RS-P3X1R1C3_gy",
+              "direction": "Women",
+              "theme": "mindset-pic2",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 12.95,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.59,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 9,
+              "material_id": "20260702_GrowMe_EN_4x5_FX-Overthinkers_ZT-EmotionalHealth-pic1_RS-P3X1R1C3_fj",
+              "direction": "Overthinkers",
+              "theme": "emotionalhealth-pic1",
+              "designer": "fj",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 10.97,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 3.18,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 10,
+              "material_id": "20260702_growme_EN_9x16_FX-Readers_ZT-learning-pic4_RS-P1X1R3C3_gy",
+              "direction": "Readers",
+              "theme": "learning-pic4",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 10.56,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.46,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 11,
+              "material_id": "20260702_growme_EN_9x16_FX-Overthinkers _ZT-Mindset-pic2_RS-P1X1R3C3_wxx",
+              "direction": "Overthinkers",
+              "theme": "mindset-pic2",
+              "designer": "wxx",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 7.88,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.12,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 12,
+              "material_id": "20260702_GrowMe_EN_4x5_FX-Women_ZT-Mindset-pic1_RS-P3X1R1C3_gy",
+              "direction": "Women",
+              "theme": "mindset-pic1",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 7.09,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 3.2,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 13,
+              "material_id": "20260702_GrowMe_EN_4x5_FX-Women_ZT-Mindset-pic2_RS-P3X1R1C3_fj",
+              "direction": "Women",
+              "theme": "mindset-pic2",
+              "designer": "fj",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 6.65,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 3.17,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 14,
+              "material_id": "20260702_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic8_RS-P1X1R3C3_gy",
+              "direction": "englishreaders",
+              "theme": "learning-pic8",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 3.13,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.98,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 15,
+              "material_id": "20260702_growme_EN_9x16_FX-Professionals_ZT-SelfImprovement-pic6_RS-P1X1R3C3_gy",
+              "direction": "Professionals",
+              "theme": "selfimprovement-pic6",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 2.61,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.94,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 16,
+              "material_id": "20260702_GrowMe_EN_4x5_FX-Professionals _ZT-SelfImprovement-pic5_RS-P3X1R1C3_fj",
+              "direction": "Professionals",
+              "theme": "selfimprovement-pic5",
+              "designer": "fj",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 2.12,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.86,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 17,
+              "material_id": "20260702_growme_EN_4x5_FX-SelfGrowth_ZT-lifelessons-pic3_RS-P1X1R3C3_gy",
+              "direction": "SelfGrowth",
+              "theme": "lifelessons-pic3",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 2.09,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.53,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 18,
+              "material_id": "20260702_growme_EN_9x16_FX-SelfGrowth_ZT-learning-pic3_RS-P1X1R3C3_wxx",
+              "direction": "SelfGrowth",
+              "theme": "learning-pic3",
+              "designer": "wxx",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 2.05,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 1.14,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 19,
+              "material_id": "20260703_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic7_RS-P1X1R3C3_wxx",
+              "direction": "SelfGrowth",
+              "theme": "selfimprovement-pic7",
+              "designer": "wxx",
+              "first_seen": "2026-07-03",
+              "week_label": "0629周",
+              "spend": 1.91,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.64,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 20,
+              "material_id": "20260702_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic10_RS-P1X1R3C3_gy.jpg",
+              "direction": "englishreaders",
+              "theme": "learning-pic10",
+              "designer": "gy",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 1.07,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 3.88,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 21,
+              "material_id": "20260702_growme_EN_9x16_FX-Overthinkers _ZT-Mindset-pic1_RS-P1X1R3C3_wxx",
+              "direction": "Overthinkers",
+              "theme": "mindset-pic1",
+              "designer": "wxx",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 0.6,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 0.56,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 22,
+              "material_id": "20260702_GrowMe_EN_4x5_FX-Overthinkers_ZT-Mindset-pic3_RS-P3X1R1C3_fj",
+              "direction": "Overthinkers",
+              "theme": "mindset-pic3",
+              "designer": "fj",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 0.47,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.86,
+              "scaling_status": "衰退期"
+            },
+            {
+              "rank": 23,
+              "material_id": "20260702_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic4_RS-P1X1R3C3_wxx",
+              "direction": "SelfGrowth",
+              "theme": "selfimprovement-pic4",
+              "designer": "wxx",
+              "first_seen": "2026-07-02",
+              "week_label": "0629周",
+              "spend": 0.4,
+              "purchases": 0,
+              "subscriptions": 0,
+              "roas": 0,
+              "ctr": 2.86,
+              "scaling_status": "衰退期"
+            }
+          ],
+          "note": "0629周 图片素材新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。"
+        }
+      ],
+      "new_direction_test": {
+        "label": "数字人",
+        "week_label": "0629周",
+        "direction": "aitalk",
+        "summary": {
+          "total_materials": 6,
+          "spend": 161.5,
+          "purchases": 0,
+          "subscriptions": 1,
+          "ordered_materials": 0,
+          "order_rate": 0.0
+        },
+        "materials": [
+          {
+            "rank": 1,
+            "material_id": "20260630_GrowMe_EN_9x16_FX-Overthinkers_ZT-aitalk-thinking_RS-P1X1R3C3_wxx",
+            "direction": "Overthinkers",
+            "theme": "aitalk-thinking",
+            "designer": "wxx",
+            "first_seen": "2026-06-30",
+            "week_label": "0629周",
+            "spend": 37.88,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 3.25,
+            "scaling_status": "炮灰"
+          },
+          {
+            "rank": 2,
+            "material_id": "20260702_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-365_RS-P1X1R3C3_wxx",
+            "direction": "SelfGrowth",
+            "theme": "aitalk-365",
+            "designer": "wxx",
+            "first_seen": "2026-07-02",
+            "week_label": "0629周",
+            "spend": 34.16,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 0.9,
+            "scaling_status": "炮灰"
+          },
+          {
+            "rank": 3,
+            "material_id": "20260630_GrowMe_EN_9x16_FX-EnglishLearners_ZT-aitalk-english_RS-P1X1R3C3_wxx",
+            "direction": "EnglishLearners",
+            "theme": "aitalk-english",
+            "designer": "wxx",
+            "first_seen": "2026-06-30",
+            "week_label": "0629周",
+            "spend": 25.16,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 1.36,
+            "scaling_status": "衰退期"
+          },
+          {
+            "rank": 4,
+            "material_id": "20260701_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-book_RS-P1X1R3C3_wxx",
+            "direction": "SelfGrowth",
+            "theme": "aitalk-book",
+            "designer": "wxx",
+            "first_seen": "2026-07-01",
+            "week_label": "0629周",
+            "spend": 22.19,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 1.03,
+            "scaling_status": "衰退期"
+          },
+          {
+            "rank": 5,
+            "material_id": "20260701_GrowMe_EN_9x16_FX-Professionals_ZT-aitalk-ceo_RS-P1X1R3C3_wxx",
+            "direction": "Professionals",
+            "theme": "aitalk-ceo",
+            "designer": "wxx",
+            "first_seen": "2026-07-01",
+            "week_label": "0629周",
+            "spend": 21.19,
+            "purchases": 0,
+            "subscriptions": 1,
+            "roas": 0,
+            "ctr": 0.81,
+            "scaling_status": "衰退期"
+          },
+          {
+            "rank": 6,
+            "material_id": "20260701_GrowMe_EN_9x16_FX-EnglishLearners_ZT-aitalk-english_RS-P1X1R3C3_wxx",
+            "direction": "EnglishLearners",
+            "theme": "aitalk-english",
+            "designer": "wxx",
+            "first_seen": "2026-07-01",
+            "week_label": "0629周",
+            "spend": 20.92,
+            "purchases": 0,
+            "subscriptions": 0,
+            "roas": 0,
+            "ctr": 1.66,
+            "scaling_status": "衰退期"
+          }
+        ],
+        "note": "0629周 数字人新方向测试（FX-aitalk），已计入上方周度 KPI，此处单独展开明细。"
       }
     }
   }

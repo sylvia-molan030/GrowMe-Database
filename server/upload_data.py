@@ -11,7 +11,7 @@ ALLOWED_SUFFIX = {".csv", ".xlsx", ".xls"}
 ACCOUNT_NAME_RE = re.compile(r"account_all|account_|Pingme_GrowMe|GrowMe.*IOS", re.IGNORECASE)
 WEEK_RE = re.compile(r"周|week", re.IGNORECASE)
 ROLLBACK_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
-NEW_DIRECTION_RE = re.compile(r"数字人|新方向|图片素材", re.IGNORECASE)
+NEW_DIRECTION_RE = re.compile(r"数字人|新方向|图片素材|图片数据", re.IGNORECASE)
 T1_RE = re.compile(r"T1", re.IGNORECASE)
 
 KIND_LABELS = {

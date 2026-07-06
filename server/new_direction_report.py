@@ -58,8 +58,13 @@ def _material_row(m: dict[str, Any], rank: int) -> dict[str, Any]:
     }
 
 
+def _has_conversion(m: dict[str, Any]) -> bool:
+    return m.get("purchases", 0) >= 1 or m.get("subscriptions", 0) >= 1
+
+
 def _build_block(records: list[dict[str, Any]], label: str, week_label: str) -> dict[str, Any]:
     materials = _aggregate_materials(records)
+    materials = [m for m in materials if _has_conversion(m)]
     materials.sort(key=lambda m: (-m.get("purchases", 0), -m.get("spend", 0)))
 
     total = len(materials)
@@ -70,10 +75,13 @@ def _build_block(records: list[dict[str, Any]], label: str, week_label: str) -> 
     direction = _display_direction(label, materials)
 
     note_map = {
-        "图片": f"{week_label} 图片新方向测试（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。",
-        "数字人": f"{week_label} 数字人新方向测试（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。",
+        "图片": f"{week_label} 图片新方向测试（FX-{direction}），已计入上方周度 KPI；以下仅展示有购物或订阅的素材。",
+        "数字人": f"{week_label} 数字人新方向测试（FX-{direction}），已计入上方周度 KPI；以下仅展示有购物或订阅的素材。",
     }
-    note = note_map.get(label, f"{week_label} {label}（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。")
+    note = note_map.get(
+        label,
+        f"{week_label} {label}（FX-{direction}），已计入上方周度 KPI；以下仅展示有购物或订阅的素材。",
+    )
 
     return {
         "label": label,
@@ -109,7 +117,9 @@ def get_new_direction_blocks_for_week(week_label: str) -> list[dict[str, Any]]:
     order = {"图片": 0, "数字人": 1, "新方向测试": 2}
     blocks = []
     for label in sorted(grouped, key=lambda k: order.get(k, 9)):
-        blocks.append(_build_block(grouped[label], label, week_label))
+        block = _build_block(grouped[label], label, week_label)
+        if block["materials"]:
+            blocks.append(block)
     return blocks
 
 

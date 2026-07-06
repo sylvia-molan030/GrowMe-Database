@@ -249,7 +249,7 @@ function renderNewDirectionCallout(block) {
                 <td>${m.ctr}%</td>
                 <td><span class="tag gray">${escapeHtml(m.scaling_status || '-')}</span></td>
               </tr>
-            `).join('') || '<tr><td colspan="9" class="empty">暂无数据</td></tr>'}
+            `).join('') || '<tr><td colspan="9" class="empty">暂无有购物或订阅的素材</td></tr>'}
           </tbody>
         </table>
       </div>

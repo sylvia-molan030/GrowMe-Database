@@ -1,21 +1,25 @@
 /** GitHub Pages 静态模式：从 snapshot.json 读取数据并在前端过滤。 */
 
-let snapshot = null;
-let snapshotPromise = null;
-let weeklyReportsCache = null;
-let weeklyReportsPromise = null;
-
 export const IS_STATIC = document.documentElement.dataset.static === 'true'
   || window.location.hostname.endsWith('github.io');
 
-const BUILD_VER = document.documentElement.dataset.build || '';
+function buildVer() {
+  return document.documentElement.dataset.build || '';
+}
+
 const withCacheBust = (path) => {
   const url = new URL(path, window.location.href);
-  if (BUILD_VER) url.searchParams.set('v', BUILD_VER);
+  const ver = buildVer();
+  if (ver) url.searchParams.set('v', ver);
   return url.href;
 };
-const DATA_URL = withCacheBust('./data/snapshot.json');
-const WEEKLY_URL = withCacheBust('./data/weekly-reports.json');
+
+let snapshot = null;
+let snapshotPromise = null;
+let snapshotLoadedVer = null;
+let weeklyReportsCache = null;
+let weeklyReportsPromise = null;
+let weeklyReportsLoadedVer = null;
 
 async function fetchJSON(url, label) {
   const res = await fetch(url, { cache: 'no-store' });
@@ -24,35 +28,36 @@ async function fetchJSON(url, label) {
 }
 
 export async function loadSnapshot() {
-  if (snapshot) return snapshot;
-  if (!snapshotPromise) {
-    snapshotPromise = fetchJSON(DATA_URL, '静态数据').then((data) => {
-      snapshot = data;
-      return data;
-    });
-  }
+  const ver = buildVer();
+  if (snapshot && snapshotLoadedVer === ver) return snapshot;
+  snapshotPromise = fetchJSON(withCacheBust('./data/snapshot.json'), '静态数据').then((data) => {
+    snapshot = data;
+    snapshotLoadedVer = ver;
+    return data;
+  });
   return snapshotPromise;
 }
 
 async function loadWeeklyReports() {
-  if (weeklyReportsCache) return weeklyReportsCache;
-  if (!weeklyReportsPromise) {
-    weeklyReportsPromise = (async () => {
-      try {
-        weeklyReportsCache = await fetchJSON(WEEKLY_URL, '周度报告');
-        return weeklyReportsCache;
-      } catch {
-        await loadSnapshot();
-        const reports = snapshot?.weekly_reports || {};
-        const weeks = Object.keys(reports).sort((a, b) => {
-          const key = (s) => { const m = s.match(/(\d{4})/); return m ? parseInt(m[1], 10) : 0; };
-          return key(a) - key(b);
-        });
-        weeklyReportsCache = { weeks, reports };
-        return weeklyReportsCache;
-      }
-    })();
-  }
+  const ver = buildVer();
+  if (weeklyReportsCache && weeklyReportsLoadedVer === ver) return weeklyReportsCache;
+  weeklyReportsPromise = (async () => {
+    try {
+      weeklyReportsCache = await fetchJSON(withCacheBust('./data/weekly-reports.json'), '周度报告');
+      weeklyReportsLoadedVer = ver;
+      return weeklyReportsCache;
+    } catch {
+      await loadSnapshot();
+      const reports = snapshot?.weekly_reports || {};
+      const weeks = Object.keys(reports).sort((a, b) => {
+        const key = (s) => { const m = s.match(/(\d{4})/); return m ? parseInt(m[1], 10) : 0; };
+        return key(a) - key(b);
+      });
+      weeklyReportsCache = { weeks, reports };
+      weeklyReportsLoadedVer = ver;
+      return weeklyReportsCache;
+    }
+  })();
   return weeklyReportsPromise;
 }
 
@@ -312,10 +317,15 @@ export function createStaticApi() {
       return { rows: designerStats(items) };
     },
     weeklyReport: async (week) => {
-      const { weeks, reports } = await loadWeeklyReports();
+      const [{ weeks, reports }, snap] = await Promise.all([loadWeeklyReports(), loadSnapshot()]);
       const target = week && reports[week] ? week : weeks[weeks.length - 1];
-      const report = reports[target] || null;
-      if (report && !report.weeks) report.weeks = weeks;
+      const report = reports[target] ? { ...reports[target] } : null;
+      if (report) {
+        if (!report.weeks) report.weeks = weeks;
+        if (!report.audience_test && snap?.audience_tests?.[target]) {
+          report.audience_test = snap.audience_tests[target];
+        }
+      }
       return { weeks, report };
     },
     rollback: async () => {

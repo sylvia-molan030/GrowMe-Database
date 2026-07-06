@@ -14,6 +14,7 @@ sys.path.insert(0, str(SERVER))
 
 import analytics  # noqa: E402
 from data_loader import get_recent_weekly_labels, get_weekly_labels, store, week_sort_key  # noqa: E402
+from audience_test_report import AUDIENCE_TESTS, get_audience_test_for_week  # noqa: E402
 from new_direction_report import get_new_direction_report  # noqa: E402
 from parser import AUDIENCE_DIRECTIONS, NEW_SCHEMA_CUTOFF_WEEK, canonical_direction, canonical_theme, primary_theme  # noqa: E402
 from rollback_report import get_rollback_report  # noqa: E402
@@ -123,6 +124,11 @@ def build() -> dict:
     account_materials = _export_materials("account")
     weekly_materials = _export_materials("new")
     weekly_reports = _export_weekly_reports()
+    audience_tests = {
+        week: block
+        for week in AUDIENCE_TESTS
+        if (block := get_audience_test_for_week(week))
+    }
 
     ds, de = analytics.default_date_range("account")
     wds, wde = analytics.default_date_range("weekly")
@@ -162,6 +168,7 @@ def build() -> dict:
         "materials_account": account_materials,
         "materials_weekly": weekly_materials,
         "weekly_reports": weekly_reports["reports"],
+        "audience_tests": audience_tests,
         "rollback": get_rollback_report(),
         "new_direction": get_new_direction_report(),
     }

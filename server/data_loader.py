@@ -137,6 +137,29 @@ def _detect_rollback_label(filename: str) -> str:
     return "回滚素材"
 
 
+def _first_seen_to_week_label(first_seen: str | None, weekly_labels: list[str]) -> str:
+    """按素材名日期归入最近一周度 Tab。"""
+    if not first_seen or len(first_seen) < 10 or not weekly_labels:
+        return "未知周"
+    key = int(first_seen[5:7]) * 100 + int(first_seen[8:10])
+    matched = weekly_labels[0]
+    for lab in weekly_labels:
+        if week_sort_key(lab) <= key:
+            matched = lab
+    return matched
+
+
+def _detect_rollback_week(first_seen: str | None, account: str, weekly_labels: list[str]) -> str:
+    """从广告组 back 批次或 first_seen 推断回滚所属周。"""
+    m = re.search(r"(\d{4})(\d{4})?back", account or "", re.I)
+    if m and m.group(2) is None:
+        batch = m.group(1)
+        week = f"{batch}周"
+        if len(batch) == 4 and week in weekly_labels:
+            return week
+    return _first_seen_to_week_label(first_seen, weekly_labels)
+
+
 def _detect_week_label(filename: str) -> str:
     m = re.search(r"(\d{4})周", filename)
     if m:
@@ -211,7 +234,10 @@ class DataStore:
             return
 
         data_scope = _detect_data_scope(filename)
-        week_label = _detect_rollback_label(filename) if data_scope == "rollback" else _detect_week_label(filename)
+        if data_scope == "rollback":
+            week_label = _detect_rollback_label(filename)
+        else:
+            week_label = _detect_week_label(filename)
 
         for _, row in df.iterrows():
             ad_name = str(row.get("ad_name", "")).strip()
@@ -226,6 +252,9 @@ class DataStore:
 
             parsed = parse_material(ad_name, week_label=week_label)
             channel = _detect_channel(filename, account)
+
+            if data_scope == "rollback":
+                week_label = _detect_rollback_week(parsed.first_seen, account, get_weekly_labels())
 
             purchases = float(_safe_num(pd.Series([row.get("purchases", 0)])).iloc[0])
             spend = float(_safe_num(pd.Series([row.get("spend", 0)])).iloc[0])

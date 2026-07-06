@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
+import { renderCrossRubricHeatmap } from '../heatmap-grid.js';
 
 let survivalChart = null;
 let scatterChart = null;
@@ -213,10 +214,11 @@ function renderROASHistogram(el, items) {
 
 export async function renderGoldenCross(container, state) {
   const q = queryFilters(state.filters);
-  const [summary, trend, materialList] = await Promise.all([
+  const [summary, trend, materialList, crossHeatmap] = await Promise.all([
     api.summary(q, state.filters.mode),
     api.survivalTrend(q, state.filters.mode),
     api.materials(q, { mode: state.filters.mode, page_size: 9999 }),
+    api.crossRubricHeatmap(q, state.filters.mode),
   ]);
 
   container.innerHTML = `
@@ -225,6 +227,7 @@ export async function renderGoldenCross(container, state) {
       <div class="section-title">First-Seen 成活趋势图 <span style="font-size:12px;color:#6b7280;font-weight:400">（按素材名前缀日期，非报告日期）</span></div>
       <div id="survival-chart" class="chart"></div>
     </div>
+    ${renderCrossRubricHeatmap(crossHeatmap, { hideIfEmpty: true })}
     <div class="card">
       <div class="section-title">素材效率四象限 <span style="font-size:12px;color:#6b7280;font-weight:400">（气泡 = 出单量，颜色 = ROAS）</span></div>
       <div id="scatter-chart" class="chart" style="height:420px"></div>

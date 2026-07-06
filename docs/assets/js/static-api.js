@@ -129,6 +129,73 @@ function calcSummary(items) {
   };
 }
 
+const NEW_SCHEMA_CUTOFF = '2026-06-29';
+
+function usesNewSchema(firstSeen) {
+  return Boolean(firstSeen && firstSeen >= NEW_SCHEMA_CUTOFF);
+}
+
+function primaryTheme(theme) {
+  if (!theme || theme === '未知') return theme || '未知';
+  let t = String(theme).toLowerCase().replace(/_lvl\d+.*$/i, '');
+  const firstSeg = t.split('-')[0];
+  return (firstSeg.split(' ')[0] || firstSeg);
+}
+
+function audienceDirections() {
+  return snapshot?.meta?.audience_directions || [];
+}
+
+function directionLabel(direction, audiences) {
+  const raw = (direction || '').trim();
+  if (!raw || raw === '未知') return null;
+  const norm = raw.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const hit = audiences.find((a) => {
+    const an = a.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return an === norm || an.startsWith(norm) || norm.startsWith(an);
+  });
+  return hit || null;
+}
+
+function crossRubricHeatmap(items) {
+  const audiences = audienceDirections();
+  const audienceOrder = Object.fromEntries(audiences.map((a, i) => [a, i]));
+  const mapped = [];
+  items.forEach((m) => {
+    if (!usesNewSchema(m.first_seen)) return;
+    const y = directionLabel(m.direction, audiences);
+    const x = primaryTheme(m.theme);
+    if (y && x && x !== '未知') mapped.push({ ...m, _fx: y, _zt: x });
+  });
+  if (!mapped.length) return null;
+
+  const yVals = [...new Set(mapped.map((m) => m._fx))].sort((a, b) => (audienceOrder[a] ?? 99) - (audienceOrder[b] ?? 99));
+  const xVals = [...new Set(mapped.map((m) => m._zt))].sort();
+  const cells = [];
+  yVals.forEach((y) => {
+    xVals.forEach((x) => {
+      const subset = mapped.filter((m) => m._fx === y && m._zt === x);
+      if (!subset.length) return;
+      const ordered = subset.filter((m) => m.purchases >= 1).length;
+      const rate = Math.round((ordered / subset.length) * 10000) / 100;
+      cells.push({
+        y, x, rate, ordered, total: subset.length,
+        label: `${rate}%`, fraction: `${ordered}/${subset.length}`,
+      });
+    });
+  });
+  if (!cells.length) return null;
+  return {
+    y_axis: 'direction',
+    x_axis: 'theme',
+    y_label: '方向 (FX-)',
+    x_label: '主题 (ZT-)',
+    y_values: yVals,
+    x_values: xVals,
+    cells,
+  };
+}
+
 function survivalTrend(items) {
   const byDay = {};
   items.forEach((m) => {
@@ -229,6 +296,11 @@ export function createStaticApi() {
       await loadSnapshot();
       const items = pickMaterials(mode).filter((m) => matchFilters(m, filters));
       return survivalTrend(items);
+    },
+    crossRubricHeatmap: async (filters, mode) => {
+      await loadSnapshot();
+      const items = pickMaterials(mode).filter((m) => matchFilters(m, filters));
+      return crossRubricHeatmap(items);
     },
     materials: async (filters, extra) => {
       await loadSnapshot();

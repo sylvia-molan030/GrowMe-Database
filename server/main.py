@@ -182,6 +182,24 @@ def survival_trend(
     return analytics.get_survival_trend(f, mode=mode)
 
 
+@app.get("/api/cross-rubric-heatmap")
+def cross_rubric_heatmap(
+    mode: str = Query("account"),
+    date_start: Optional[str] = None,
+    date_end: Optional[str] = None,
+    direction: str = "全部",
+    theme: str = "全部",
+    optimization: str = "全部",
+    stylization: str = "全部",
+    pain_point: str = "全部",
+    exercise_type: str = "全部",
+    channel: str = "全部",
+) -> dict[str, Any]:
+    f = _filters(date_start, date_end, direction, theme, optimization, stylization, pain_point, exercise_type, channel)
+    result = analytics.get_cross_rubric_heatmap(f, mode=mode)
+    return result or {"cells": []}
+
+
 @app.get("/api/heatmap")
 def heatmap(
     y_axis: str = "direction",

@@ -7,6 +7,7 @@ from typing import Any
 
 from data_loader import get_recent_weekly_labels, get_weekly_labels, store, WEEKLY_DATA_SCOPES
 from parser import DESIGNER_CANONICAL, canonical_direction, canonical_theme, _normalize_axis_value
+from cross_rubric import cross_rubric_heatmap_from_materials
 
 
 def _resolve_scope(mode: str = "account", scope: str | None = None) -> str:
@@ -306,6 +307,12 @@ def get_heatmap(
             )
 
     return {"y_axis": y_axis, "x_axis": x_axis, "y_values": y_vals, "x_values": x_vals, "cells": cells}
+
+
+def get_cross_rubric_heatmap(filters: dict[str, str], mode: str = "account") -> dict[str, Any] | None:
+    records = filter_records(filters, mode=mode)
+    materials = _aggregate_by_material(records)
+    return cross_rubric_heatmap_from_materials(materials)
 
 
 def get_materials(

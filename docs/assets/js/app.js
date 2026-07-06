@@ -61,7 +61,7 @@ async function refreshPage() {
     else if (state.view === 'designer') await renderDesigner(contentEl, state);
     else if (state.view === 'asset-library') await renderAssetLibrary(contentEl, state);
     else if (state.view === 'weekly-update') await renderWeeklyUpdate(contentEl, state);
-    else if (state.view === 'rollback') await renderRollback(contentEl);
+    else if (state.view === 'rollback') await renderRollback(contentEl, state);
     else if (state.view === 'review-board') await renderReviewBoard(contentEl, state);
     else contentEl.innerHTML = '<div class="empty">页面不存在或脚本未更新，请强制刷新（Cmd+Shift+R）</div>';
     updateFilterBadge(state);

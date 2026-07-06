@@ -1,6 +1,7 @@
-"""回滚素材：历史回滚成效 + 最新周可回滚推荐。"""
+"""回滚素材：历史回滚成效（按周）+ 最新周可回滚推荐。"""
 from __future__ import annotations
 
+from collections import defaultdict
 from typing import Any
 
 from data_loader import store, week_sort_key
@@ -26,6 +27,7 @@ def _material_row(m: dict[str, Any], rank: int, tag: str = "") -> dict[str, Any]
         "theme": m.get("theme"),
         "designer": m.get("designer"),
         "first_seen": m.get("first_seen"),
+        "week_label": m.get("week_label"),
         "purchases": int(m.get("purchases", 0)),
         "subscriptions": int(m.get("subscriptions", 0)),
         "spend": round(m.get("spend", 0), 2),
@@ -36,24 +38,49 @@ def _material_row(m: dict[str, Any], rank: int, tag: str = "") -> dict[str, Any]
     }
 
 
+def _week_summary(materials: list[dict[str, Any]]) -> dict[str, Any]:
+    total = len(materials)
+    spend = sum(m.get("spend", 0) for m in materials)
+    purchases = sum(m.get("purchases", 0) for m in materials)
+    subscriptions = sum(m.get("subscriptions", 0) for m in materials)
+    ordered = sum(1 for m in materials if m.get("purchases", 0) >= 1)
+    return {
+        "total_materials": total,
+        "ordered_materials": ordered,
+        "spend": round(spend, 2),
+        "purchases": int(purchases),
+        "subscriptions": int(subscriptions),
+        "order_rate": round(ordered / total * 100, 2) if total else 0,
+    }
+
+
 def _aggregate_rollback_records() -> list[dict[str, Any]]:
     records = [r for r in store.records if r.get("data_scope") == "rollback"]
     return _aggregate_materials(records)
 
 
-def _rollback_period_label() -> str:
-    labels = sorted(
-        {r.get("week_label", "") for r in store.records if r.get("data_scope") == "rollback" and r.get("week_label")}
-    )
-    return labels[0] if labels else "回滚素材"
-
-
 def get_rollback_report() -> dict[str, Any]:
     historical_raw = _aggregate_rollback_records()
-    historical = [
-        m for m in historical_raw if m.get("purchases", 0) >= 1
-    ]
+    historical = [m for m in historical_raw if m.get("purchases", 0) >= 1]
     historical.sort(key=lambda m: (m.get("purchases", 0), m.get("subscriptions", 0)), reverse=True)
+
+    by_week: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for m in historical:
+        by_week[m.get("week_label") or "未知周"].append(m)
+
+    historical_weeks = sorted(by_week.keys(), key=week_sort_key)
+    historical_by_week = []
+    for week in historical_weeks:
+        items = sorted(
+            by_week[week],
+            key=lambda m: (m.get("purchases", 0), m.get("subscriptions", 0)),
+            reverse=True,
+        )
+        historical_by_week.append({
+            "week": week,
+            "summary": _week_summary(items),
+            "materials": [_material_row(m, i + 1, "已回滚") for i, m in enumerate(items)],
+        })
 
     weeks = sorted_week_labels()
     recommend_week = weeks[-1] if weeks else None
@@ -67,12 +94,13 @@ def get_rollback_report() -> dict[str, Any]:
         recommended.sort(key=lambda m: (m.get("purchases", 0), -m.get("spend", 0)), reverse=True)
 
     return {
-        "period_label": _rollback_period_label(),
+        "historical_weeks": historical_weeks,
+        "historical_by_week": historical_by_week,
         "historical": [_material_row(m, i + 1, "已回滚") for i, m in enumerate(historical)],
         "recommend_week": recommend_week,
         "recommended": [_material_row(m, i + 1, "可回滚") for i, m in enumerate(recommended)],
         "criteria": {
-            "historical": "有购物",
+            "historical": "有购物，按素材所属周分组",
             "recommended": f"消耗 < ${int(ROLLBACK_SPEND_MAX)} 且有购物",
         },
     }

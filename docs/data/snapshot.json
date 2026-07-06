@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 09:35:17",
+  "generated_at": "2026-07-06 09:40:59",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -17,7 +17,7 @@
       "account_all_WW.csv"
     ],
     "records": 5911,
-    "scanned_at": "2026-07-06 09:35:17",
+    "scanned_at": "2026-07-06 09:40:59",
     "default_date_start": "2026-06-20",
     "default_date_end": "2026-06-26",
     "data_date_start": "2025-01-04",
@@ -62763,7 +62763,196 @@
     }
   },
   "rollback": {
-    "period_label": "回滚素材",
+    "historical_weeks": [
+      "0608周",
+      "0615周",
+      "0622周"
+    ],
+    "historical_by_week": [
+      {
+        "week": "0608周",
+        "summary": {
+          "total_materials": 5,
+          "ordered_materials": 5,
+          "spend": 3706.49,
+          "purchases": 92,
+          "subscriptions": 153,
+          "order_rate": 100.0
+        },
+        "materials": [
+          {
+            "rank": 1,
+            "material_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS-P3X1R1C3_gy",
+            "direction": "lifelessons",
+            "theme": "compare",
+            "designer": "gy",
+            "first_seen": "2026-06-10",
+            "week_label": "0608周",
+            "purchases": 58,
+            "subscriptions": 94,
+            "spend": 2580.53,
+            "roas": 0.52,
+            "ctr": 1.55,
+            "scaling_status": "增长期",
+            "tag": "已回滚"
+          },
+          {
+            "rank": 2,
+            "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT- read pic_RS-P3X1R1C3_fj",
+            "direction": "learning",
+            "theme": "read pic",
+            "designer": "fj",
+            "first_seen": "2026-06-09",
+            "week_label": "0608周",
+            "purchases": 15,
+            "subscriptions": 24,
+            "spend": 707.14,
+            "roas": 0.41,
+            "ctr": 1.41,
+            "scaling_status": "增长期",
+            "tag": "已回滚"
+          },
+          {
+            "rank": 3,
+            "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
+            "direction": "lifelessons",
+            "theme": "jounrey",
+            "designer": "wxx",
+            "first_seen": "2026-06-12",
+            "week_label": "0608周",
+            "purchases": 15,
+            "subscriptions": 21,
+            "spend": 236.36,
+            "roas": 0.99,
+            "ctr": 1.21,
+            "scaling_status": "增长期",
+            "tag": "已回滚"
+          },
+          {
+            "rank": 4,
+            "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
+            "direction": "learning",
+            "theme": "brain",
+            "designer": "wxx",
+            "first_seen": "2026-06-10",
+            "week_label": "0608周",
+            "purchases": 3,
+            "subscriptions": 13,
+            "spend": 136.63,
+            "roas": 0.37,
+            "ctr": 1.05,
+            "scaling_status": "衰退期",
+            "tag": "已回滚"
+          },
+          {
+            "rank": 5,
+            "material_id": "20260611_GrowMe_EN_9x16_FX-Learning_ZT-Reading habits_RS-P3X1R1C3_fj",
+            "direction": "learning",
+            "theme": "reading habits",
+            "designer": "fj",
+            "first_seen": "2026-06-11",
+            "week_label": "0608周",
+            "purchases": 1,
+            "subscriptions": 1,
+            "spend": 45.83,
+            "roas": 0.25,
+            "ctr": 0.8,
+            "scaling_status": "衰退期",
+            "tag": "已回滚"
+          }
+        ]
+      },
+      {
+        "week": "0615周",
+        "summary": {
+          "total_materials": 3,
+          "ordered_materials": 3,
+          "spend": 514.75,
+          "purchases": 11,
+          "subscriptions": 21,
+          "order_rate": 100.0
+        },
+        "materials": [
+          {
+            "rank": 1,
+            "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R1C3_gy_jql",
+            "direction": "learning",
+            "theme": "pace",
+            "designer": "jql",
+            "first_seen": "2026-06-18",
+            "week_label": "0615周",
+            "purchases": 5,
+            "subscriptions": 12,
+            "spend": 172.04,
+            "roas": 0.86,
+            "ctr": 0.99,
+            "scaling_status": "增长期",
+            "tag": "已回滚"
+          },
+          {
+            "rank": 2,
+            "material_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-readAI_RS-P3X1R1C3_gy_jql",
+            "direction": "learning",
+            "theme": "readai",
+            "designer": "jql",
+            "first_seen": "2026-06-16",
+            "week_label": "0615周",
+            "purchases": 5,
+            "subscriptions": 8,
+            "spend": 269.4,
+            "roas": 0.35,
+            "ctr": 0.84,
+            "scaling_status": "增长期",
+            "tag": "已回滚"
+          },
+          {
+            "rank": 3,
+            "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-failureai_RS-P3X1R1C3_gy_jql",
+            "direction": "lifelessons",
+            "theme": "failureai",
+            "designer": "jql",
+            "first_seen": "2026-06-16",
+            "week_label": "0615周",
+            "purchases": 1,
+            "subscriptions": 1,
+            "spend": 73.31,
+            "roas": 0.36,
+            "ctr": 1.12,
+            "scaling_status": "衰退期",
+            "tag": "已回滚"
+          }
+        ]
+      },
+      {
+        "week": "0622周",
+        "summary": {
+          "total_materials": 1,
+          "ordered_materials": 1,
+          "spend": 170.88,
+          "purchases": 3,
+          "subscriptions": 7,
+          "order_rate": 100.0
+        },
+        "materials": [
+          {
+            "rank": 1,
+            "material_id": "20260626_GrowMe_EN_9x16_FX-Learning_ZT-habit_RS-P3X1R1C3_gy_jql",
+            "direction": "learning",
+            "theme": "habit",
+            "designer": "jql",
+            "first_seen": "2026-06-26",
+            "week_label": "0622周",
+            "purchases": 3,
+            "subscriptions": 7,
+            "spend": 170.88,
+            "roas": 0.41,
+            "ctr": 0.86,
+            "scaling_status": "衰退期",
+            "tag": "已回滚"
+          }
+        ]
+      }
+    ],
     "historical": [
       {
         "rank": 1,
@@ -62772,6 +62961,7 @@
         "theme": "compare",
         "designer": "gy",
         "first_seen": "2026-06-10",
+        "week_label": "0608周",
         "purchases": 58,
         "subscriptions": 94,
         "spend": 2580.53,
@@ -62787,6 +62977,7 @@
         "theme": "read pic",
         "designer": "fj",
         "first_seen": "2026-06-09",
+        "week_label": "0608周",
         "purchases": 15,
         "subscriptions": 24,
         "spend": 707.14,
@@ -62802,6 +62993,7 @@
         "theme": "jounrey",
         "designer": "wxx",
         "first_seen": "2026-06-12",
+        "week_label": "0608周",
         "purchases": 15,
         "subscriptions": 21,
         "spend": 236.36,
@@ -62817,6 +63009,7 @@
         "theme": "pace",
         "designer": "jql",
         "first_seen": "2026-06-18",
+        "week_label": "0615周",
         "purchases": 5,
         "subscriptions": 12,
         "spend": 172.04,
@@ -62832,6 +63025,7 @@
         "theme": "readai",
         "designer": "jql",
         "first_seen": "2026-06-16",
+        "week_label": "0615周",
         "purchases": 5,
         "subscriptions": 8,
         "spend": 269.4,
@@ -62847,6 +63041,7 @@
         "theme": "brain",
         "designer": "wxx",
         "first_seen": "2026-06-10",
+        "week_label": "0608周",
         "purchases": 3,
         "subscriptions": 13,
         "spend": 136.63,
@@ -62862,6 +63057,7 @@
         "theme": "habit",
         "designer": "jql",
         "first_seen": "2026-06-26",
+        "week_label": "0622周",
         "purchases": 3,
         "subscriptions": 7,
         "spend": 170.88,
@@ -62877,6 +63073,7 @@
         "theme": "reading habits",
         "designer": "fj",
         "first_seen": "2026-06-11",
+        "week_label": "0608周",
         "purchases": 1,
         "subscriptions": 1,
         "spend": 45.83,
@@ -62892,6 +63089,7 @@
         "theme": "failureai",
         "designer": "jql",
         "first_seen": "2026-06-16",
+        "week_label": "0615周",
         "purchases": 1,
         "subscriptions": 1,
         "spend": 73.31,
@@ -62910,6 +63108,7 @@
         "theme": "habits",
         "designer": "wxx",
         "first_seen": "2026-06-29",
+        "week_label": "0629周",
         "purchases": 4,
         "subscriptions": 5,
         "spend": 147.3,
@@ -62925,6 +63124,7 @@
         "theme": "selfimprovement",
         "designer": "fj",
         "first_seen": "2026-07-01",
+        "week_label": "0629周",
         "purchases": 2,
         "subscriptions": 1,
         "spend": 65.66,
@@ -62940,6 +63140,7 @@
         "theme": "lifelessons",
         "designer": "fj",
         "first_seen": "2026-06-30",
+        "week_label": "0629周",
         "purchases": 2,
         "subscriptions": 2,
         "spend": 129.61,
@@ -62955,6 +63156,7 @@
         "theme": "learning",
         "designer": "wxx",
         "first_seen": "2026-07-03",
+        "week_label": "0629周",
         "purchases": 2,
         "subscriptions": 3,
         "spend": 142.9,
@@ -62970,6 +63172,7 @@
         "theme": "book",
         "designer": "gy",
         "first_seen": "2026-07-02",
+        "week_label": "0629周",
         "purchases": 1,
         "subscriptions": 3,
         "spend": 28.31,
@@ -62985,6 +63188,7 @@
         "theme": "lifelessons",
         "designer": "wxx",
         "first_seen": "2026-07-01",
+        "week_label": "0629周",
         "purchases": 1,
         "subscriptions": 1,
         "spend": 48.55,
@@ -63000,6 +63204,7 @@
         "theme": "lifelessons",
         "designer": "wxx",
         "first_seen": "2026-06-29",
+        "week_label": "0629周",
         "purchases": 1,
         "subscriptions": 1,
         "spend": 51.66,
@@ -63015,6 +63220,7 @@
         "theme": "learning",
         "designer": "gy",
         "first_seen": "2026-07-03",
+        "week_label": "0629周",
         "purchases": 1,
         "subscriptions": 1,
         "spend": 75.19,
@@ -63025,7 +63231,7 @@
       }
     ],
     "criteria": {
-      "historical": "有购物",
+      "historical": "有购物，按素材所属周分组",
       "recommended": "消耗 < $200 且有购物"
     }
   },

@@ -1,11 +1,9 @@
 import { api } from '../api.js';
+import { escapeHtml } from '../heatmap-grid.js';
 
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+function formatWeekLabel(label) {
+  if (!label) return label;
+  return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
 function renderTable(rows, emptyText) {
@@ -39,30 +37,74 @@ function renderTable(rows, emptyText) {
   `;
 }
 
-export async function renderRollback(container) {
+function renderWeekSummary(summary) {
+  if (!summary) return '';
+  return `
+    <div class="kpi-grid kpi-grid-4" style="margin-bottom:12px">
+      <div class="card kpi-card"><div class="kpi-title">素材数</div><div class="kpi-value">${summary.total_materials}</div></div>
+      <div class="card kpi-card"><div class="kpi-title">出单素材</div><div class="kpi-value">${summary.ordered_materials}</div></div>
+      <div class="card kpi-card"><div class="kpi-title">消耗</div><div class="kpi-value">$${summary.spend}</div></div>
+      <div class="card kpi-card"><div class="kpi-title">购物 / 订阅</div><div class="kpi-value">${summary.purchases} / ${summary.subscriptions}</div></div>
+    </div>
+  `;
+}
+
+function renderHistoricalSection(data, activeWeek) {
+  const blocks = data.historical_by_week || [];
+  if (!blocks.length) {
+    return `
+      <div class="card">
+        <div class="section-title">历史回滚素材 <span class="muted">（${escapeHtml(data.criteria.historical)}）</span></div>
+        <div class="empty">暂无符合条件的回滚素材</div>
+      </div>
+    `;
+  }
+
+  const week = activeWeek && blocks.some((b) => b.week === activeWeek)
+    ? activeWeek
+    : blocks[blocks.length - 1].week;
+  const current = blocks.find((b) => b.week === week) || blocks[0];
+
+  return `
+    <div class="card">
+      <div class="section-title">历史回滚素材 <span class="muted">（按周 · ${escapeHtml(data.criteria.historical)}）</span></div>
+      <p style="font-size:13px;color:#6b7280;margin:0 0 12px">
+        来自回滚广告组投放数据，按素材所属周分组，仅展示有购物的素材。
+      </p>
+      <div class="week-tabs">
+        ${blocks.map((b) => `
+          <button class="tab ${b.week === week ? 'active' : ''}" data-rollback-week="${escapeHtml(b.week)}">${escapeHtml(formatWeekLabel(b.week))}</button>
+        `).join('')}
+      </div>
+      ${renderWeekSummary(current.summary)}
+      ${renderTable(current.materials, '该周暂无回滚出单素材')}
+    </div>
+  `;
+}
+
+export async function renderRollback(container, state = {}) {
   const data = await api.rollback();
-  const week = data.recommend_week || '最新周';
+  const recommendWeek = data.recommend_week || '最新周';
+  const activeWeek = state.rollbackWeek || data.historical_weeks?.slice(-1)[0];
 
   container.innerHTML = `
+    ${renderHistoricalSection(data, activeWeek)}
     <div class="card">
       <div class="section-title">
-        历史回滚素材 <span class="muted">（${escapeHtml(data.period_label)} · ${data.criteria.historical}）</span>
-      </div>
-      <p style="font-size:13px;color:#6b7280;margin:0 0 12px">
-        来自回滚广告组投放数据，仅展示有购物的素材。
-      </p>
-      ${renderTable(data.historical, '暂无符合条件的回滚素材')}
-    </div>
-
-    <div class="card">
-      <div class="section-title">
-        ${escapeHtml(week)} 可回滚推荐
+        ${escapeHtml(recommendWeek)} 可回滚推荐
         <span class="muted">（${escapeHtml(data.criteria.recommended)}）</span>
       </div>
       <p style="font-size:13px;color:#6b7280;margin:0 0 12px">
         本周上新中「没跑起来但出了单」的素材，适合回滚再测。每周导入新周数据后自动更新。
       </p>
-      ${renderTable(data.recommended, `「${escapeHtml(week)}」暂无符合${escapeHtml(data.criteria.recommended || '条件')}的素材`)}
+      ${renderTable(data.recommended, `「${escapeHtml(recommendWeek)}」暂无符合${escapeHtml(data.criteria.recommended || '条件')}的素材`)}
     </div>
   `;
+
+  container.querySelectorAll('[data-rollback-week]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      state.rollbackWeek = btn.dataset.rollbackWeek;
+      await renderRollback(container, state);
+    });
+  });
 }

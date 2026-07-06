@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -19,6 +20,51 @@ from rollback_report import get_rollback_report  # noqa: E402
 from weekly_report import build_all_reports  # noqa: E402
 
 OUTPUT_DIR = ROOT / "docs" / "data"
+JS_DIR = ROOT / "docs" / "assets" / "js"
+INDEX_HTML = ROOT / "docs" / "index.html"
+IMPORT_RE = re.compile(r"""from\s+['"](\.\.?/[^'"?]+)(?:\?v=\d+)?['"]""")
+
+
+def _collect_importmap_scopes(version: int) -> dict[str, dict[str, str]]:
+    """为 ES module 子依赖生成 importmap scopes，避免仅 app.js 带版本时子模块仍走浏览器旧缓存。"""
+    scopes: dict[str, dict[str, str]] = {}
+    for path in sorted(JS_DIR.rglob("*.js")):
+        rel_dir = path.parent.relative_to(JS_DIR)
+        scope = "./assets/js/" if rel_dir == Path(".") else f"./assets/js/{rel_dir.as_posix()}/"
+        for match in IMPORT_RE.finditer(path.read_text(encoding="utf-8")):
+            spec = match.group(1)
+            scopes.setdefault(scope, {})[spec] = f"{spec}?v={version}"
+    return scopes
+
+
+def bump_frontend_cache() -> int:
+    html = INDEX_HTML.read_text(encoding="utf-8")
+    build_match = re.search(r'data-build="(\d+)"', html)
+    version = int(build_match.group(1)) + 1 if build_match else 1
+
+    scopes = _collect_importmap_scopes(version)
+    importmap_json = json.dumps({"scopes": scopes}, ensure_ascii=False, indent=2)
+    importmap_block = f"  <script type=\"importmap\">\n{importmap_json}\n  </script>\n"
+
+    html = re.sub(r'data-build="\d+"', f'data-build="{version}"', html)
+    html = re.sub(
+        r'href="\./assets/css/style\.css(?:\?v=\d+)?"',
+        f'href="./assets/css/style.css?v={version}"',
+        html,
+    )
+    html = re.sub(
+        r'<script type="module" src="\./assets/js/app\.js(?:\?v=\d+)?"></script>',
+        f'<script type="module" src="./assets/js/app.js?v={version}"></script>',
+        html,
+    )
+    if 'type="importmap"' in html:
+        html = re.sub(r'  <script type="importmap">.*?</script>\n', importmap_block, html, flags=re.DOTALL)
+    else:
+        html = html.replace("  <script type=\"module\"", importmap_block + "  <script type=\"module\"")
+
+    INDEX_HTML.write_text(html, encoding="utf-8")
+    print(f"✓ 前端缓存版本已更新: v{version}（importmap + CSS/JS）")
+    return version
 ALL_FILTERS = {
     "date_start": "2020-01-01",
     "date_end": "2030-12-31",
@@ -123,6 +169,7 @@ def build() -> dict:
 
 
 def main() -> None:
+    bump_frontend_cache()
     snapshot, weekly_reports = build()
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUTPUT_DIR / "snapshot.json"

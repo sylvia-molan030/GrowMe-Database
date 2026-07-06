@@ -937,6 +937,12 @@
             "pct": 8.1,
             "direction": "up"
           }
+        },
+        "breakdown": {
+          "weekly": 108,
+          "image": 0,
+          "digital_human": 3,
+          "other_new_direction": 0
         }
       },
       "core_comparison": [
@@ -2248,6 +2254,12 @@
             "pct": -6.2,
             "direction": "down"
           }
+        },
+        "breakdown": {
+          "weekly": 107,
+          "image": 11,
+          "digital_human": 0,
+          "other_new_direction": 0
         }
       },
       "core_comparison": [
@@ -3191,6 +3203,12 @@
             "pct": 4.4,
             "direction": "up"
           }
+        },
+        "breakdown": {
+          "weekly": 86,
+          "image": 23,
+          "digital_human": 6,
+          "other_new_direction": 0
         }
       },
       "core_comparison": [

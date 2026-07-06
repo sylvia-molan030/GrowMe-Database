@@ -430,6 +430,33 @@ def _generate_insights(
     return insights
 
 
+def _material_breakdown(week: str, new_dirs: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """拆分常规周素材 vs 图片/数字人新方向，便于 KPI 展示口径。"""
+    if not new_dirs:
+        return None
+    weekly_recs = [
+        r for r in store.records
+        if r.get("data_scope") == "weekly" and r.get("week_label") == week
+    ]
+    weekly_count = len(_aggregate_materials(weekly_recs))
+    image = digital_human = other = 0
+    for block in new_dirs:
+        n = block["summary"]["total_materials"]
+        label = block.get("label") or ""
+        if label == "图片":
+            image = n
+        elif label == "数字人":
+            digital_human = n
+        else:
+            other += n
+    return {
+        "weekly": weekly_count,
+        "image": image,
+        "digital_human": digital_human,
+        "other_new_direction": other,
+    }
+
+
 def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
     labels = sorted_week_labels()
     if not labels:
@@ -507,6 +534,9 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
     if new_dirs:
         report["new_direction_tests"] = new_dirs
         report["new_direction_test"] = new_dirs[0]
+        breakdown = _material_breakdown(week, new_dirs)
+        if breakdown:
+            report["kpi"]["breakdown"] = breakdown
         for block in reversed(new_dirs):
             report["insights"].insert(
                 0,

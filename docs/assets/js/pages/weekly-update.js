@@ -34,6 +34,16 @@ function kpiCard(title, value, wow = null, sub = '') {
   `;
 }
 
+function formatMaterialBreakdown(kpi) {
+  const b = kpi?.breakdown;
+  if (!b) return `${kpi?.total_materials || 0}`;
+  const parts = [`${b.weekly} 常规`];
+  if (b.image) parts.push(`${b.image} 图片`);
+  if (b.digital_human) parts.push(`${b.digital_human} 数字人`);
+  if (b.other_new_direction) parts.push(`${b.other_new_direction} 新方向`);
+  return `${kpi.total_materials} 条（${parts.join(' + ')}）`;
+}
+
 function renderSummary(kpi, prevWeek) {
   const wow = kpi.wow || {};
   const orderRateDelta = wow.order_rate && wow.order_rate.pct !== null
@@ -43,7 +53,7 @@ function renderSummary(kpi, prevWeek) {
     ? `(${wow.spend.direction === 'up' ? '+' : ''}${wow.spend.pct}%)`
     : '';
 
-  let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${kpi.total_materials || 0} 条素材`;
+  let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${formatMaterialBreakdown(kpi)}`;
   if (kpi.ordered_materials != null) summaryLine += `，出单素材 ${kpi.ordered_materials} 条`;
   summaryLine += `，出单率 ${kpi.order_rate || 0}%${orderRateDelta}`;
   if (kpi.avg_roas) summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
@@ -60,11 +70,15 @@ function renderKpiSection(kpi, prevWeek) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
 
+  const breakdownHint = kpi.breakdown
+    ? `<span class="muted">（常规 ${kpi.breakdown.weekly} + 图片 ${kpi.breakdown.image || 0} + 数字人 ${kpi.breakdown.digital_human || 0}，指标已合并统计）</span>`
+    : '';
+
   return `
-    <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
+    <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''} ${breakdownHint}</div>
     <div class="kpi-grid kpi-grid-4">
       ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}
-      ${kpiCard('总素材量', kpi.total_materials, hasWow ? wow.total_materials : null)}
+      ${kpiCard('总素材量', formatMaterialBreakdown(kpi), hasWow ? wow.total_materials : null)}
       ${kpiCard('出单素材数', kpi.ordered_materials, hasWow ? wow.ordered_materials : null, '有购物即计入')}
       ${kpiCard('总出单量', kpi.conversions, hasWow ? wow.conversions : null)}
       ${kpiCard('WW 出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}

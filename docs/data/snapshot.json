@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 09:28:07",
+  "generated_at": "2026-07-06 09:35:17",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -17,7 +17,7 @@
       "account_all_WW.csv"
     ],
     "records": 5911,
-    "scanned_at": "2026-07-06 09:28:07",
+    "scanned_at": "2026-07-06 09:35:17",
     "default_date_start": "2026-06-20",
     "default_date_end": "2026-06-26",
     "data_date_start": "2025-01-04",
@@ -58794,6 +58794,12 @@
             "pct": 8.1,
             "direction": "up"
           }
+        },
+        "breakdown": {
+          "weekly": 108,
+          "image": 0,
+          "digital_human": 3,
+          "other_new_direction": 0
         }
       },
       "core_comparison": [
@@ -60105,6 +60111,12 @@
             "pct": -6.2,
             "direction": "down"
           }
+        },
+        "breakdown": {
+          "weekly": 107,
+          "image": 11,
+          "digital_human": 0,
+          "other_new_direction": 0
         }
       },
       "core_comparison": [
@@ -61048,6 +61060,12 @@
             "pct": 4.4,
             "direction": "up"
           }
+        },
+        "breakdown": {
+          "weekly": 86,
+          "image": 23,
+          "digital_human": 6,
+          "other_new_direction": 0
         }
       },
       "core_comparison": [

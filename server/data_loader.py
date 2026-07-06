@@ -98,7 +98,7 @@ def _detect_data_scope(filename: str) -> str:
 
 def _should_load_row(filename: str, account: str, data_scope: str) -> bool:
     channel = _detect_channel(filename, account)
-    if data_scope == "weekly" and WEEKLY_WW_ONLY:
+    if data_scope in ("weekly", "new_direction") and WEEKLY_WW_ONLY:
         return channel == "WW"
     if WW_ONLY:
         return channel == "WW"

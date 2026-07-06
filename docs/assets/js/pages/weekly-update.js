@@ -246,6 +246,46 @@ function renderSurvivalChart(el, trend) {
   });
 }
 
+function renderCrossRubricHeatmap(heatmap) {
+  if (!heatmap?.cells?.length) return '';
+
+  const { y_values: yVals, x_values: xVals, cells } = heatmap;
+  const cellMap = new Map(cells.map((c) => [`${c.y}|${c.x}`, c]));
+
+  const rateBg = (rate) => {
+    const hue = Math.min(120, Math.round(rate * 1.2));
+    const light = rate === 0 ? 96 : 90 - Math.min(rate, 50) * 0.35;
+    return `hsl(${hue}, 60%, ${light}%)`;
+  };
+
+  const gridStyle = `grid-template-columns: minmax(100px,auto) repeat(${xVals.length}, minmax(72px,1fr));`;
+  let grid = `<div class="heatmap-grid" style="${gridStyle}">`;
+  grid += `<div class="heatmap-corner">${escapeHtml(heatmap.y_label || 'FX')} \\ ${escapeHtml(heatmap.x_label || 'ZT')}</div>`;
+  xVals.forEach((x) => {
+    const short = x.length > 14 ? `${x.slice(0, 12)}…` : x;
+    grid += `<div class="heatmap-col-head" title="${escapeHtml(x)}">${escapeHtml(short)}</div>`;
+  });
+  yVals.forEach((y) => {
+    grid += `<div class="heatmap-row-head">${escapeHtml(y)}</div>`;
+    xVals.forEach((x) => {
+      const c = cellMap.get(`${y}|${x}`);
+      if (c) {
+        grid += `<div class="heatmap-cell" style="background:${rateBg(c.rate)}" title="${escapeHtml(y)} × ${escapeHtml(x)}: ${c.fraction}">${c.label}<span class="fraction">${c.fraction}</span></div>`;
+      } else {
+        grid += `<div class="heatmap-cell" style="background:#f3f4f6;color:#9ca3af">-</div>`;
+      }
+    });
+  });
+  grid += '</div>';
+
+  return `
+    <div class="card">
+      <div class="section-title">交叉魔方 · 出单率热力图 <span class="muted">（纵轴 FX- 用户人群 · 横轴 ZT- 主题，颜色越深出单率越高）</span></div>
+      ${grid}
+    </div>
+  `;
+}
+
 function renderInsights(items) {
   return `
     <div class="card insights-card">
@@ -286,6 +326,7 @@ export async function renderWeeklyUpdate(container, state) {
     ${(report.new_direction_tests || (report.new_direction_test ? [report.new_direction_test] : [])).map((block) => renderNewDirectionCallout(block)).join('')}
     ${renderGoodMaterials(report.good_materials)}
     ${renderDirectionTable(report.direction_table)}
+    ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>
       <div id="weekly-survival-chart" class="chart"></div>

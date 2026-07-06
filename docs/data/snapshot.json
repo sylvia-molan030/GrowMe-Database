@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 09:15:36",
+  "generated_at": "2026-07-06 09:18:48",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -17,7 +17,7 @@
       "account_all_WW.csv"
     ],
     "records": 5911,
-    "scanned_at": "2026-07-06 09:15:36",
+    "scanned_at": "2026-07-06 09:18:48",
     "default_date_start": "2026-06-20",
     "default_date_end": "2026-06-26",
     "data_date_start": "2025-01-04",
@@ -61597,6 +61597,1036 @@
         "【留存率最高素材】20260629_growme_EN_9x16_FX-Overthinkers_ZT-LifeLesso…：完播留存率 22.22%，购物 0 · 花费 $0.0。",
         "【方向表现】「SelfGrowth」购物 18 单领先，出单素材 5/27，ROAS 0.38；共 27 条素材参与本周 WW 测试。"
       ],
+      "cross_rubric_heatmap": {
+        "y_axis": "direction",
+        "x_axis": "theme",
+        "y_label": "方向 (FX-)",
+        "x_label": "主题 (ZT-)",
+        "y_values": [
+          "Professionals",
+          "Women",
+          "Students",
+          "Readers",
+          "SelfGrowth",
+          "EnglishLearners",
+          "FinanceSeekers",
+          "Overthinkers"
+        ],
+        "x_values": [
+          "aitalk-365",
+          "aitalk-book",
+          "aitalk-ceo",
+          "aitalk-english",
+          "aitalk-thinking",
+          "book reading-feel",
+          "book reading-read",
+          "bookreading-read",
+          "challenge-consistency",
+          "challenge-fivemins",
+          "challenge-habit",
+          "communication-love",
+          "communication-think",
+          "discipline",
+          "emotionalhealth-pic1",
+          "growth-2540",
+          "growth-30women",
+          "growth-leader",
+          "habits-change",
+          "healing-childhoodwounds",
+          "learning",
+          "learning- rap",
+          "learning- rap2",
+          "learning-1000",
+          "learning-afraid",
+          "learning-best",
+          "learning-book",
+          "learning-everyday",
+          "learning-habbit",
+          "learning-learn",
+          "learning-lifelonglearn",
+          "learning-niupizhi_lv1-color1",
+          "learning-niupizhi_lv1-color2",
+          "learning-niupizhi_lv1-color3",
+          "learning-niupizhi_lv1-hua",
+          "learning-niupizhi_lv1-paper",
+          "learning-niupizhi_lv1-peak",
+          "learning-niupizhi_lv1-xinwen",
+          "learning-pic3",
+          "learning-pic4",
+          "learning-pic5",
+          "learning-pic7",
+          "learning-practice_lv1-xinwen",
+          "learning-reader_lv1-xinwen",
+          "learning-slow",
+          "learning-slow-2",
+          "learning-speak",
+          "learning-translate",
+          "learning-water",
+          "learning-work",
+          "lifelessons- dream",
+          "lifelessons-11things",
+          "lifelessons-20",
+          "lifelessons-3min",
+          "lifelessons-confidence_lv1-xinwen",
+          "lifelessons-consistency",
+          "lifelessons-explain",
+          "lifelessons-life",
+          "lifelessons-life2",
+          "lifelessons-loveyourself",
+          "lifelessons-old",
+          "lifelessons-pic3",
+          "lifelessons-responsibility",
+          "lifelessons-speed_lv1-xinwen",
+          "lifelessons-thelast",
+          "lifelessons-travel",
+          "lifelessons-water_lv1-xinwen",
+          "mindset-choose",
+          "mindset-compare",
+          "mindset-enough",
+          "mindset-money",
+          "mindset-overthink",
+          "mindset-overthinkers",
+          "mindset-pic1",
+          "mindset-pic2",
+          "mindset-pic3",
+          "mindset-team",
+          "selfimprovement",
+          "selfimprovement-2540",
+          "selfimprovement-learning",
+          "selfimprovement-overthink",
+          "selfimprovement-pic4",
+          "selfimprovement-pic5",
+          "selfimprovement-pic6",
+          "selfimprovement-pic7",
+          "selfimprovement-pic8",
+          "selfimprovement-read",
+          "selfimprovement-women",
+          "successful- changelife",
+          "successful-ceo",
+          "women",
+          "womenempowerment-pic4"
+        ],
+        "cells": [
+          {
+            "y": "Professionals",
+            "x": "aitalk-ceo",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "growth-leader",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "learning-work",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "lifelessons-20",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "lifelessons-responsibility",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "mindset-team",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "selfimprovement-pic5",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "selfimprovement-pic6",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "selfimprovement-read",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "successful-ceo",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "communication-love",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "communication-think",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "growth-30women",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "learning-pic5",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "mindset-choose",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "mindset-pic1",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "mindset-pic2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Women",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "selfimprovement-pic6",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "selfimprovement-women",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Women",
+            "x": "womenempowerment-pic4",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Students",
+            "x": "lifelessons-3min",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Students",
+            "x": "selfimprovement",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Students",
+            "x": "selfimprovement-learning",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "book reading-feel",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "book reading-read",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Readers",
+            "x": "bookreading-read",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "learning-habbit",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "learning-pic4",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "learning-pic7",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "aitalk-365",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "aitalk-book",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "challenge-consistency",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "challenge-fivemins",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "challenge-habit",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "discipline",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "growth-2540",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "habits-change",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "learning-book",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "learning-lifelonglearn",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "learning-pic3",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons- dream",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-11things",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-confidence_lv1-xinwen",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-life",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-life2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-loveyourself",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-old",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-pic3",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons-water_lv1-xinwen",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement-2540",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement-pic4",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement-pic5",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement-pic7",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement-pic8",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "successful- changelife",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "aitalk-english",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning- rap",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning- rap2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-1000",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-afraid",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-best",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-everyday",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-learn",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-color1",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-color2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-color3",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-hua",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-paper",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-peak",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-niupizhi_lv1-xinwen",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-practice_lv1-xinwen",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-reader_lv1-xinwen",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-slow",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-slow-2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-speak",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-translate",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning-water",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "lifelessons-travel",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "mindset-money",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "aitalk-thinking",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "emotionalhealth-pic1",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "healing-childhoodwounds",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "lifelessons-consistency",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "lifelessons-explain",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "lifelessons-speed_lv1-xinwen",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "lifelessons-thelast",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-compare",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-enough",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-overthink",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-overthinkers",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-pic1",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-pic2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset-pic3",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "selfimprovement-overthink",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "women",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          }
+        ]
+      },
       "new_direction_tests": [
         {
           "label": "数字人",

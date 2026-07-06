@@ -2,10 +2,82 @@
 from __future__ import annotations
 
 from collections import defaultdict
+import re
 from typing import Any
 
 from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES
-from parser import canonical_direction, canonical_theme
+from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme
+
+
+_NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
+
+
+def _is_new_schema_week(week_label: str) -> bool:
+    return week_sort_key(week_label) >= _NEW_SCHEMA_WEEK_KEY
+
+
+def _theme_label(theme: str) -> str:
+    t = canonical_theme(theme)
+    if not t or t == "未知":
+        return "未知"
+    return re.sub(r"_lvl\d+.*$", "", t, flags=re.I)
+
+
+def _direction_label(direction: str) -> str | None:
+    raw = (direction or "").strip()
+    if not raw or raw == "未知":
+        return None
+    mapped = canonical_audience(canonical_direction(raw))
+    return mapped if mapped in AUDIENCE_DIRECTIONS else None
+
+
+def _cross_rubric_heatmap(materials: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """0629周起：FX 用户人群 × ZT 主题出单率热力图。"""
+    items = []
+    for m in materials:
+        y = _direction_label(m.get("direction") or "")
+        x = _theme_label(m.get("theme") or "")
+        if y and x != "未知":
+            items.append({**m, "_fx": y, "_zt": x})
+    if not items:
+        return None
+
+    audience_order = {name: i for i, name in enumerate(AUDIENCE_DIRECTIONS)}
+    y_vals = sorted({m["_fx"] for m in items}, key=lambda v: audience_order.get(v, 99))
+    x_vals = sorted({m["_zt"] for m in items})
+
+    cells: list[dict[str, Any]] = []
+    for y in y_vals:
+        for x in x_vals:
+            subset = [m for m in items if m["_fx"] == y and m["_zt"] == x]
+            if not subset:
+                continue
+            ordered = sum(1 for m in subset if m.get("purchases", 0) >= 1)
+            rate = round(ordered / len(subset) * 100, 2)
+            cells.append(
+                {
+                    "y": y,
+                    "x": x,
+                    "rate": rate,
+                    "ordered": ordered,
+                    "total": len(subset),
+                    "label": f"{rate}%",
+                    "fraction": f"{ordered}/{len(subset)}",
+                }
+            )
+
+    if not cells:
+        return None
+
+    return {
+        "y_axis": "direction",
+        "x_axis": "theme",
+        "y_label": "方向 (FX-)",
+        "x_label": "主题 (ZT-)",
+        "y_values": y_vals,
+        "x_values": x_vals,
+        "cells": cells,
+    }
 
 
 def sorted_week_labels() -> list[str]:
@@ -425,6 +497,10 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             week, prev, all_materials, combined_kpi, prev_combined, directions
         ),
     }
+    if _is_new_schema_week(week):
+        heatmap = _cross_rubric_heatmap(all_materials)
+        if heatmap:
+            report["cross_rubric_heatmap"] = heatmap
     new_dirs: list[dict[str, Any]] = []
     try:
         from new_direction_report import get_new_direction_blocks_for_week

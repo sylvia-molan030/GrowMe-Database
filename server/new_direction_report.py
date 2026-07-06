@@ -1,6 +1,7 @@
 """新方向测试：独立跟踪数字人、图片素材等试验性方向。"""
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from data_loader import store, week_sort_key
@@ -20,15 +21,16 @@ def _group_key_from_source(source_file: str) -> str:
     name = source_file or ""
     if "数字人" in name:
         return "数字人"
-    if "图片" in name.lower():
-        return "图片素材"
+    if "图片" in name or re.search(r"pic", name, re.I):
+        return "图片"
     if "新方向" in name:
-        return "新方向测试"
+        # 0622周新方向测试.csv 等为图片素材测试
+        return "图片"
     return "新方向测试"
 
 
 def _display_direction(label: str, materials: list[dict[str, Any]]) -> str:
-    if label == "图片素材":
+    if label == "图片":
         return "pic"
     if label == "数字人":
         themes = " ".join(m.get("theme") or "" for m in materials).lower()
@@ -68,7 +70,7 @@ def _build_block(records: list[dict[str, Any]], label: str, week_label: str) -> 
     direction = _display_direction(label, materials)
 
     note_map = {
-        "图片素材": f"{week_label} 图片素材新方向测试（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。",
+        "图片": f"{week_label} 图片新方向测试（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。",
         "数字人": f"{week_label} 数字人新方向测试（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。",
     }
     note = note_map.get(label, f"{week_label} {label}（FX-{direction}），已计入上方周度 KPI，此处单独展开明细。")
@@ -104,7 +106,7 @@ def get_new_direction_blocks_for_week(week_label: str) -> list[dict[str, Any]]:
         key = _group_key_from_source(r.get("source_file", ""))
         grouped.setdefault(key, []).append(r)
 
-    order = {"数字人": 0, "图片素材": 1, "新方向测试": 2}
+    order = {"数字人": 0, "图片": 1, "新方向测试": 2}
     blocks = []
     for label in sorted(grouped, key=lambda k: order.get(k, 9)):
         blocks.append(_build_block(grouped[label], label, week_label))

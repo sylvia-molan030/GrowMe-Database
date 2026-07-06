@@ -175,6 +175,45 @@ function renderDirectionTable(rows) {
   `;
 }
 
+function renderAudienceTest(block) {
+  if (!block?.materials?.length) return '';
+  return `
+    <div class="card weekly-callout">
+      <div class="section-title">新方向 · 人群测试</div>
+      <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>目标人群</th><th>设计师</th>
+              <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th>
+              <th>3秒播放率</th><th>留存率</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${block.materials.map((m) => `
+              <tr>
+                <td>
+                  <div style="font-weight:600">${escapeHtml(m.target_audience)}</div>
+                  <div class="cell-material-name" style="font-size:11px;margin-top:4px">${escapeHtml(m.material_id)}</div>
+                </td>
+                <td>${escapeHtml(m.designer || '-')}</td>
+                <td>$${m.spend}</td>
+                <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
+                <td>${m.subscriptions}</td>
+                <td>${m.roas}</td>
+                <td>${m.ctr}%</td>
+                <td>${m.hook_rate != null ? `${m.hook_rate}%` : '-'}</td>
+                <td>${m.retention_rate != null ? `${m.retention_rate}%` : '-'}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
 function renderNewDirectionCallout(block) {
   if (!block) return '';
   const s = block.summary || {};
@@ -288,6 +327,7 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
     ${renderDirectionTable(report.direction_table)}
     ${renderGoodMaterials(report.good_materials)}
+    ${renderAudienceTest(report.audience_test)}
     ${sortNewDirectionTests(report).map((block) => renderNewDirectionCallout(block)).join('')}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>

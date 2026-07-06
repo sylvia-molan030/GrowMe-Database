@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 10:03:48",
+  "generated_at": "2026-07-06 10:13:27",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -17,7 +17,7 @@
       "account_all_WW.csv"
     ],
     "records": 6445,
-    "scanned_at": "2026-07-06 10:03:48",
+    "scanned_at": "2026-07-06 10:13:27",
     "default_date_start": "2026-06-27",
     "default_date_end": "2026-07-03",
     "data_date_start": "2025-01-04",
@@ -66163,6 +66163,55 @@
           }
         ],
         "note": "0629周 图片新方向测试（FX-pic），已计入上方周度 KPI，此处单独展开明细。"
+      },
+      "audience_test": {
+        "label": "人群测试",
+        "week_label": "0629周",
+        "materials": [
+          {
+            "material_id": "20260701_GrowMe_EN_9x16_FX-SelfGrowth_ZT-lifelessons-old_RS-P1X1R3C3_wxx",
+            "target_audience": "年龄焦虑/落后于时代的人",
+            "direction": "SelfGrowth",
+            "theme": "lifelessons",
+            "designer": "wxx",
+            "spend": 253.5,
+            "purchases": 5,
+            "subscriptions": 7,
+            "roas": 0.52,
+            "ctr": 2.04,
+            "hook_rate": 13.53,
+            "retention_rate": 4.21
+          },
+          {
+            "material_id": "20260701_growme_EN_9x16_FX-Students_ZT-SelfImprovement_RS-P1X1R3C3_fj",
+            "target_audience": "想多读书却总是读不完一本书的学生",
+            "direction": "Students",
+            "theme": "selfimprovement",
+            "designer": "fj",
+            "spend": 65.66,
+            "purchases": 2,
+            "subscriptions": 1,
+            "roas": 0.23,
+            "ctr": 1.07,
+            "hook_rate": 12.38,
+            "retention_rate": 3.8
+          },
+          {
+            "material_id": "20260701_GrowMe_EN_9x16_FX-Students_ZT-lifelessons-3min_RS-P1X1R3C3_wxx",
+            "target_audience": "3分钟热度的人",
+            "direction": "Students",
+            "theme": "lifelessons",
+            "designer": "wxx",
+            "spend": 48.55,
+            "purchases": 1,
+            "subscriptions": 1,
+            "roas": 0.24,
+            "ctr": 1.89,
+            "hook_rate": 13.18,
+            "retention_rate": 3.74
+          }
+        ],
+        "note": "针对细分目标人群定向测试，目标人群文案为业务标注。"
       }
     }
   },

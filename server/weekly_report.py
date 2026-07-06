@@ -484,6 +484,13 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
                 f"共 {block['summary']['total_materials']} 条，消耗 ${block['summary']['spend']}，"
                 f"购物 {block['summary']['purchases']} / 订阅 {block['summary']['subscriptions']}。",
             )
+    try:
+        from audience_test_report import get_audience_test_for_week
+        audience_test = get_audience_test_for_week(week)
+        if audience_test:
+            report["audience_test"] = audience_test
+    except ImportError:
+        pass
     return {"weeks": labels, "report": report}
 
 

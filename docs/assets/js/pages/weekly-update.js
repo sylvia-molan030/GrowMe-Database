@@ -34,10 +34,8 @@ function kpiCard(title, value, wow = null, sub = '') {
   `;
 }
 
-function renderKpiSection(kpi, prevWeek) {
+function renderSummary(kpi, prevWeek) {
   const wow = kpi.wow || {};
-  const hasWow = Boolean(prevWeek);
-
   const orderRateDelta = wow.order_rate && wow.order_rate.pct !== null
     ? `(${wow.order_rate.direction === 'up' ? '+' : ''}${wow.order_rate.pct}%)`
     : '';
@@ -50,15 +48,19 @@ function renderKpiSection(kpi, prevWeek) {
   summaryLine += `，出单率 ${kpi.order_rate || 0}%${orderRateDelta}`;
   if (kpi.avg_roas) summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
 
-  const summaryHtml = hasWow ? `
+  return `
     <div class="card" style="background:#f0f7ff;border-left:4px solid #378add;padding:12px 16px;border-radius:8px;margin-bottom:14px">
       <div style="font-size:13px;font-weight:600;color:#0c447c;margin-bottom:4px">本周一句话总结</div>
       <div style="font-size:13px;color:#185fa5;line-height:1.6">${summaryLine}</div>
     </div>
-  ` : '';
+  `;
+}
+
+function renderKpiSection(kpi, prevWeek) {
+  const wow = kpi.wow || {};
+  const hasWow = Boolean(prevWeek);
 
   return `
-    ${summaryHtml}
     <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
     <div class="kpi-grid kpi-grid-4">
       ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}
@@ -297,6 +299,12 @@ function renderInsights(items) {
   `;
 }
 
+function sortNewDirectionTests(report) {
+  const blocks = report.new_direction_tests || (report.new_direction_test ? [report.new_direction_test] : []);
+  const order = { 图片: 0, 数字人: 1 };
+  return [...blocks].sort((a, b) => (order[a.label] ?? 9) - (order[b.label] ?? 9));
+}
+
 export async function renderWeeklyUpdate(container, state) {
   const week = state.weeklyWeek || state.meta?.weekly_labels?.slice(-1)[0];
   let data;
@@ -321,12 +329,13 @@ export async function renderWeeklyUpdate(container, state) {
         <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
       `).join('')}
     </div>
+    ${renderSummary(report.kpi, report.prev_week)}
     ${renderKpiSection(report.kpi, report.prev_week)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
-    ${(report.new_direction_tests || (report.new_direction_test ? [report.new_direction_test] : [])).map((block) => renderNewDirectionCallout(block)).join('')}
-    ${renderGoodMaterials(report.good_materials)}
-    ${renderDirectionTable(report.direction_table)}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
+    ${renderDirectionTable(report.direction_table)}
+    ${renderGoodMaterials(report.good_materials)}
+    ${sortNewDirectionTests(report).map((block) => renderNewDirectionCallout(block)).join('')}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>
       <div id="weekly-survival-chart" class="chart"></div>

@@ -139,6 +139,16 @@ def canonical_theme(value: str) -> str:
     return v.lower()
 
 
+def primary_theme(value: str) -> str:
+    """ZT- 后仅取第一个单词（第二个 - 之后不计）。"""
+    t = canonical_theme(value)
+    if not t or t == "未知":
+        return t or "未知"
+    t = re.sub(r"_lvl\d+.*$", "", t, flags=re.I)
+    first_seg = t.split("-")[0]
+    return first_seg.split()[0] if first_seg else first_seg
+
+
 def canonical_direction(value: str) -> str:
     """方向：用户人群走官方名；历史内容方向统一小写。"""
     v = (value or "").strip()
@@ -373,7 +383,7 @@ def parse_material(name: str, week_label: str | None = None) -> ParsedMaterial:
     new_schema = uses_new_schema(week_label, first_seen)
     if new_schema:
         direction = canonical_audience(direction) if direction != unknown else unknown
-        theme = canonical_theme(theme) if theme != unknown else unknown
+        theme = primary_theme(theme) if theme != unknown else unknown
     else:
         direction = canonical_legacy_direction(direction) if direction != unknown else unknown
         if theme != unknown:

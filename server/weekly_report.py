@@ -6,7 +6,7 @@ import re
 from typing import Any
 
 from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES
-from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme
+from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme, primary_theme
 
 
 _NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
@@ -17,10 +17,7 @@ def _is_new_schema_week(week_label: str) -> bool:
 
 
 def _theme_label(theme: str) -> str:
-    t = canonical_theme(theme)
-    if not t or t == "未知":
-        return "未知"
-    return re.sub(r"_lvl\d+.*$", "", t, flags=re.I)
+    return primary_theme(theme)
 
 
 def _direction_label(direction: str) -> str | None:

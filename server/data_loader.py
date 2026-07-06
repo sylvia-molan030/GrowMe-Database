@@ -7,7 +7,7 @@ from typing import Any
 
 import pandas as pd
 
-from parser import parse_material, canonical_direction, canonical_theme
+from parser import parse_material, canonical_direction, canonical_theme, primary_theme, uses_new_schema
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data_inputs"
 # 账户全量：全球+T1 按素材名合并；周度上新：仅 WW，不测 T1
@@ -252,7 +252,7 @@ class DataStore:
                     "language": parsed.language,
                     "size": parsed.size,
                     "direction": canonical_direction(parsed.direction),
-                    "theme": canonical_theme(parsed.theme),
+                    "theme": primary_theme(parsed.theme) if uses_new_schema(week_label, parsed.first_seen) else canonical_theme(parsed.theme),
                     "optimization": parsed.optimization,
                     "stylization": parsed.stylization,
                     "pain_point": parsed.pain_point,

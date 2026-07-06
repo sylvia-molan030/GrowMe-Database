@@ -106,7 +106,7 @@ def get_new_direction_blocks_for_week(week_label: str) -> list[dict[str, Any]]:
         key = _group_key_from_source(r.get("source_file", ""))
         grouped.setdefault(key, []).append(r)
 
-    order = {"数字人": 0, "图片": 1, "新方向测试": 2}
+    order = {"图片": 0, "数字人": 1, "新方向测试": 2}
     blocks = []
     for label in sorted(grouped, key=lambda k: order.get(k, 9)):
         blocks.append(_build_block(grouped[label], label, week_label))

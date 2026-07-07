@@ -12,6 +12,7 @@ const DESIGNER_STYLES = {
   '095kb': { bg: '#e0e7ff', color: '#4338ca' },
   pingme: { bg: '#ffedd5', color: '#c2410c' },
   jpl: { bg: '#f3e8ff', color: '#7e22ce' },
+  czy: { bg: '#e0f2fe', color: '#0369a1' },
   joy: { bg: '#ccfbf1', color: '#0f766e' },
   thagirl: { bg: '#ffe4e6', color: '#be123c' },
 };

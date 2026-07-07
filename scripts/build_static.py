@@ -155,7 +155,7 @@ def build() -> dict:
             "recent_weekly_window": 2,
             "schema_cutoff_week": NEW_SCHEMA_CUTOFF_WEEK,
             "audience_directions": list(AUDIENCE_DIRECTIONS),
-            "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "其他"],
+            "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "其他"],
             "filter_options": analytics.get_filter_options("account"),
             "weekly_filter_options": analytics.get_filter_options("weekly"),
             "channel_labels": {"T1": "T1（美国等）", "WW": "WW（全球）"},

@@ -33,7 +33,7 @@ export async function renderDesigner(container, state) {
     <div class="card">
       <div class="section-title">
         设计师绩效明细
-        <span style="font-size:12px;color:#6b7280;font-weight:400">（gy / wxx / fj / jql / 095KB / pingme / jpl）</span>
+        <span style="font-size:12px;color:#6b7280;font-weight:400">（gy / wxx / fj / jql / 095KB / pingme / jpl / czy）</span>
       </div>
       <div class="table-wrap">
         <table>

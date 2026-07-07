@@ -78,17 +78,17 @@ function inRange(firstSeen, start, end) {
 }
 
 function matchFilters(item, filters) {
-  const keys = ['direction', 'theme', 'optimization', 'stylization', 'pain_point', 'exercise_type', 'channel'];
-  for (const key of keys) {
+  const checks = [
+    ['direction', (itemVal, val) => String(itemVal || '').toLowerCase() === String(val).toLowerCase()],
+    ['theme', (itemVal, val) => primaryTheme(itemVal) === primaryTheme(val)],
+    ['designer', (itemVal, val) => itemVal === val],
+  ];
+  for (const [key, cmp] of checks) {
     const val = filters[key] || '全部';
     if (!val || val === '全部') continue;
     const itemVal = item[key];
-    if (itemVal === undefined || itemVal === '' || itemVal === '未知') continue;
-    if (key === 'direction') {
-      if (String(itemVal).toLowerCase() !== String(val).toLowerCase()) return false;
-    } else if (key === 'theme') {
-      if (String(itemVal).toLowerCase() !== String(val).toLowerCase()) return false;
-    } else if (itemVal !== val) return false;
+    if (itemVal === undefined || itemVal === '' || itemVal === '未知') return false;
+    if (!cmp(itemVal, val)) return false;
   }
   return inRange(item.first_seen, filters.date_start, filters.date_end);
 }

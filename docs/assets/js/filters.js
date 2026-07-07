@@ -1,10 +1,7 @@
 const ATTR_FIELDS = [
-  { key: 'direction', label: '方向（用户人群）' },
-  { key: 'theme', label: '主题（ZT-）' },
-  { key: 'optimization', label: '优化点' },
-  { key: 'stylization', label: '风格化' },
-  { key: 'pain_point', label: '痛点' },
-  { key: 'exercise_type', label: '锻炼类型' },
+  { key: 'direction', label: 'FX-方向' },
+  { key: 'theme', label: 'ZT-主题' },
+  { key: 'designer', label: '设计师' },
 ];
 
 export function createDefaultFilters(meta) {
@@ -15,10 +12,7 @@ export function createDefaultFilters(meta) {
     mode: 'account',
     direction: '全部',
     theme: '全部',
-    optimization: '全部',
-    stylization: '全部',
-    pain_point: '全部',
-    exercise_type: '全部',
+    designer: '全部',
     channel: 'ALL',
   }, 'all', meta);
 }
@@ -54,9 +48,16 @@ export function applyPreset(filters, preset, meta = {}) {
   return copy;
 }
 
+function filterOptionsForMode(meta, mode) {
+  if (mode === 'new') {
+    return meta.weekly_filter_options || meta.filter_options || {};
+  }
+  return meta.filter_options || {};
+}
+
 export function renderFilters(container, state, onChange) {
   const { filters, meta } = state;
-  const options = meta.filter_options || {};
+  const options = filterOptionsForMode(meta, filters.mode);
 
   container.innerHTML = `
     <div class="filter-row">
@@ -79,7 +80,7 @@ export function renderFilters(container, state, onChange) {
     <div class="filter-row">
       <span class="filter-label">属性</span>
       ${ATTR_FIELDS.map((f) => `
-        <select class="select" data-key="${f.key}">
+        <select class="select" data-key="${f.key}" title="${f.label}">
           <option value="全部">全部</option>
           ${(options[f.key] || []).filter((v) => v !== '全部').map((v) => `
             <option value="${v}" ${filters[f.key] === v ? 'selected' : ''}>${v}</option>

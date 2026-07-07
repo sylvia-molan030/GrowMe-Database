@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from typing import Any
 
 from data_loader import get_recent_weekly_labels, get_weekly_labels, store, WEEKLY_DATA_SCOPES
-from parser import DESIGNER_CANONICAL, canonical_direction, canonical_theme, _normalize_axis_value
+from parser import DESIGNER_CANONICAL, canonical_direction, canonical_theme, primary_theme, _normalize_axis_value
 from cross_rubric import cross_rubric_heatmap_from_materials
 
 
@@ -41,7 +41,7 @@ def _in_range(first_seen: str | None, start: str | None, end: str | None) -> boo
 
 
 def _match_filters(record: dict[str, Any], filters: dict[str, str]) -> bool:
-    for key in ("direction", "theme", "optimization", "stylization", "pain_point", "exercise_type", "channel"):
+    for key in ("direction", "theme", "designer"):
         val = filters.get(key, "全部")
         if not val or val == "全部":
             continue
@@ -50,7 +50,7 @@ def _match_filters(record: dict[str, Any], filters: dict[str, str]) -> bool:
             if canonical_direction(rec_val or "") != canonical_direction(val):
                 return False
         elif key == "theme":
-            if canonical_theme(rec_val or "") != canonical_theme(val):
+            if primary_theme(rec_val or "") != primary_theme(val):
                 return False
         elif rec_val != val:
             return False
@@ -150,8 +150,6 @@ def filter_records(
 
 
 def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
-    keys = ["direction", "theme", "optimization", "stylization", "pain_point", "exercise_type", "channel"]
-    options: dict[str, set[str]] = {k: set() for k in keys}
     if scope == "weekly":
         recent = set(get_recent_weekly_labels())
         records = [
@@ -160,20 +158,27 @@ def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
         ]
     else:
         records = [r for r in store.records if r.get("data_scope") == scope]
+
+    directions: set[str] = set()
+    themes: set[str] = set()
+    designers: set[str] = set()
     for r in records:
-        for k in keys:
-            v = r.get(k)
-            if v and v not in {"未知", ""}:
-                if k == "direction":
-                    options[k].add(canonical_direction(v))
-                elif k == "theme":
-                    options[k].add(canonical_theme(v))
-                else:
-                    options[k].add(v)
-    designers = sorted({r.get("designer") for r in records if r.get("designer")})
-    result = {k: ["全部", *sorted(v)] for k, v in options.items()}
-    result["designer"] = ["全部", *designers]
-    return result
+        d = r.get("direction")
+        if d and d != "未知":
+            directions.add(canonical_direction(d))
+        t = r.get("theme")
+        if t and t != "未知":
+            themes.add(primary_theme(t))
+        des = r.get("designer")
+        if des:
+            designers.add(des)
+
+    designer_order = {name: i for i, name in enumerate([*DESIGNER_CANONICAL, "其他"])}
+    return {
+        "direction": ["全部", *sorted(directions, key=lambda v: v.lower())],
+        "theme": ["全部", *sorted(themes, key=lambda v: v.lower())],
+        "designer": ["全部", *sorted(designers, key=lambda v: (designer_order.get(v, 99), v))],
+    }
 
 
 def get_summary(filters: dict[str, str], mode: str = "account") -> dict[str, Any]:

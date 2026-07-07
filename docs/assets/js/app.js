@@ -207,12 +207,9 @@ function updateFilterBadge(state) {
   const f = state.filters || {};
   const active = [];
   if (f.channel && f.channel !== 'ALL' && f.channel !== '全部') active.push(f.channel);
-  if (f.direction && f.direction !== '全部') active.push(`方向:${f.direction}`);
-  if (f.theme && f.theme !== '全部') active.push(`主题:${f.theme}`);
-  if (f.optimization && f.optimization !== '全部') active.push(`优化:${f.optimization}`);
-  if (f.stylization && f.stylization !== '全部') active.push(`风格:${f.stylization}`);
-  if (f.pain_point && f.pain_point !== '全部') active.push(`痛点:${f.pain_point}`);
-  if (f.exercise_type && f.exercise_type !== '全部') active.push(`锻炼:${f.exercise_type}`);
+  if (f.direction && f.direction !== '全部') active.push(`FX:${f.direction}`);
+  if (f.theme && f.theme !== '全部') active.push(`ZT:${f.theme}`);
+  if (f.designer && f.designer !== '全部') active.push(`设计师:${f.designer}`);
   if (f.mode === 'new') active.push('上新素材(近2周)');
   if (f.preset && f.preset !== 'all') active.push('日期范围');
   if (active.length) {

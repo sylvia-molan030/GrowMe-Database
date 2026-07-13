@@ -117,16 +117,27 @@ function sortRows(rows, sort, defaults = { by: 'purchases', dir: 'desc' }) {
   const by = sort?.by || defaults.by;
   const dir = sort?.dir || defaults.dir;
   const mult = dir === 'asc' ? 1 : -1;
-  return [...(rows || [])].sort((a, b) => {
-    const av = a[by];
-    const bv = b[by];
+  const cmpVal = (av, bv, m) => {
     if (av == null && bv == null) return 0;
     if (av == null) return 1;
     if (bv == null) return -1;
     if (typeof av === 'string' || typeof bv === 'string') {
-      return String(av).localeCompare(String(bv), 'zh') * mult;
+      return String(av).localeCompare(String(bv), 'zh') * m;
     }
-    return (av - bv) * mult;
+    return (av - bv) * m;
+  };
+  return [...(rows || [])].sort((a, b) => {
+    const primary = cmpVal(a[by], b[by], mult);
+    if (primary !== 0) return primary;
+    // 购物一致时 ROAS 高的在前；其它列相同时也用购物 → ROAS 兜底
+    if (by !== 'purchases') {
+      const byPurchases = cmpVal(a.purchases, b.purchases, -1);
+      if (byPurchases !== 0) return byPurchases;
+    }
+    if (by !== 'roas') {
+      return cmpVal(a.roas, b.roas, -1);
+    }
+    return 0;
   });
 }
 

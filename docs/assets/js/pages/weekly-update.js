@@ -292,8 +292,10 @@ function renderInsights(items) {
 }
 
 function sortMaterialTestBlocks(report) {
-  const blocks = report.material_test_blocks || [];
-  const order = { 老形式: 0, 新创意: 1, 图片: 2 };
+  const blocks = (report.material_test_blocks || []).filter(
+    (b) => (b?.summary?.total_materials ?? 0) > 0
+  );
+  const order = { 新方向: 0, 老方向: 1, 老形式: 1, 新创意: 0, 图片: 2 };
   return [...blocks].sort((a, b) => (order[a.label] ?? 9) - (order[b.label] ?? 9));
 }
 
@@ -324,10 +326,10 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderSummary(report.kpi, report.prev_week)}
     ${renderKpiSection(report.kpi, report.prev_week)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
+    ${sortMaterialTestBlocks(report).map((block) => renderMaterialTestBlock(block)).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
     ${renderDirectionTable(report.direction_table)}
     ${renderGoodMaterials(report.good_materials)}
-    ${sortMaterialTestBlocks(report).map((block) => renderMaterialTestBlock(block)).join('')}
     ${renderAudienceTest(report.audience_test)}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>

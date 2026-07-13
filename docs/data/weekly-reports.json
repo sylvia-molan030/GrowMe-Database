@@ -292,7 +292,7 @@
         ]
       },
       "insights": [
-        "【老形式】测试 56 条，出单 74 单，出单率 5.36%。",
+        "【老方向】测试 56 条，出单 74 单，出单率 5.36%。",
         "【素材测出率】0525周 上新 56 条，出单率 5.36%，出单素材 3 条。",
         "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0。",
         "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0，具备放量验证价值。",
@@ -302,7 +302,7 @@
       ],
       "material_test_blocks": [
         {
-          "label": "老形式",
+          "label": "老方向",
           "week_label": "0525周",
           "summary": {
             "total_materials": 56,
@@ -356,7 +356,7 @@
               "retention_rate": null
             }
           ],
-          "note": "0525周 常规上新素材（老命名形式），已计入周度 KPI。"
+          "note": "0525周 老方向（常规上新）素材，已计入周度 KPI。"
         }
       ]
     },
@@ -935,7 +935,7 @@
         ]
       },
       "insights": [
-        "【老形式】测试 105 条，出单 61 单，出单率 19.05%。",
+        "【老方向】测试 105 条，出单 61 单，出单率 19.05%。",
         "【素材测出率】0601周 上新 105 条，出单率 19.05%（较 0525周 ↑13.7pp），出单素材 20 条（较上周 ↑17）。上周出单率 5.36%，出单素材 3 条。",
         "【本周最强素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（learning / gy）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0。",
         "【高转化信号素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（购物+订阅双达标）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0，具备放量验证价值。",
@@ -945,7 +945,7 @@
       ],
       "material_test_blocks": [
         {
-          "label": "老形式",
+          "label": "老方向",
           "week_label": "0601周",
           "summary": {
             "total_materials": 105,
@@ -1237,7 +1237,7 @@
               "retention_rate": 3.85
             }
           ],
-          "note": "0601周 常规上新素材（老命名形式），已计入周度 KPI。"
+          "note": "0601周 老方向（常规上新）素材，已计入周度 KPI。"
         }
       ]
     },
@@ -1817,8 +1817,8 @@
         ]
       },
       "insights": [
-        "【老形式】测试 108 条，出单 96 单，出单率 14.81%。",
-        "【新创意】测试 3 条，出单 4 单，出单率 33.33%。",
+        "【新方向】测试 3 条，出单 4 单，出单率 33.33%。",
+        "【老方向】测试 108 条，出单 96 单，出单率 14.81%。",
         "【素材测出率】0608周 上新 111 条，出单率 15.32%（较 0601周 ↓3.7pp），出单素材 17 条（较上周 ↓3）。上周出单率 19.05%，出单素材 20 条。",
         "【本周最强素材】20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS…（lifelessons / gy）：购物 59 · 订阅 97 · ROAS 0.34 · CTR 1.51% · 花费 $2671.0。",
         "【高转化信号素材】20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS…（购物+订阅双达标）：购物 59 · 订阅 97 · ROAS 0.34 · CTR 1.51% · 花费 $2671.0，具备放量验证价值。",
@@ -1828,7 +1828,36 @@
       ],
       "material_test_blocks": [
         {
-          "label": "老形式",
+          "label": "新方向",
+          "week_label": "0608周",
+          "summary": {
+            "total_materials": 3,
+            "ordered_materials": 1,
+            "conversions": 4,
+            "order_rate": 33.33,
+            "spend": 304.39,
+            "subscriptions": 8
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
+              "direction": "aitalk",
+              "theme": "365book",
+              "designer": "wxx",
+              "spend": 202.24,
+              "purchases": 4,
+              "subscriptions": 8,
+              "roas": 0.4,
+              "ctr": 0.94,
+              "hook_rate": 9.5,
+              "retention_rate": null
+            }
+          ],
+          "note": "0608周 新方向（新形式/数字人等）测试素材，已计入周度 KPI。"
+        },
+        {
+          "label": "老方向",
           "week_label": "0608周",
           "summary": {
             "total_materials": 108,
@@ -2064,36 +2093,7 @@
               "retention_rate": 6.07
             }
           ],
-          "note": "0608周 常规上新素材（老命名形式），已计入周度 KPI。"
-        },
-        {
-          "label": "新创意",
-          "week_label": "0608周",
-          "summary": {
-            "total_materials": 3,
-            "ordered_materials": 1,
-            "conversions": 4,
-            "order_rate": 33.33,
-            "spend": 304.39,
-            "subscriptions": 8
-          },
-          "materials": [
-            {
-              "rank": 1,
-              "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
-              "direction": "aitalk",
-              "theme": "365book",
-              "designer": "wxx",
-              "spend": 202.24,
-              "purchases": 4,
-              "subscriptions": 8,
-              "roas": 0.4,
-              "ctr": 0.94,
-              "hook_rate": 9.5,
-              "retention_rate": null
-            }
-          ],
-          "note": "0608周 新形式/新创意方向测试（如数字人），已计入周度 KPI。"
+          "note": "0608周 老方向（常规上新）素材，已计入周度 KPI。"
         }
       ]
     },
@@ -2703,7 +2703,7 @@
         ]
       },
       "insights": [
-        "【老形式】测试 104 条，出单 86 单，出单率 15.38%。",
+        "【老方向】测试 104 条，出单 86 单，出单率 15.38%。",
         "【素材测出率】0615周 上新 104 条，出单率 16.35%（较 0608周 ↑1.0pp），出单素材 17 条（较上周 持平）。上周出单率 15.32%，出单素材 17 条。",
         "【本周最强素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（lifelessons / wxx）：购物 26 · 订阅 37 · ROAS 0.61 · CTR 1.57% · 花费 $990.0。",
         "【高转化信号素材】20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R…（购物+订阅双达标）：购物 23 · 订阅 42 · ROAS 0.61 · CTR 1.05% · 花费 $1041.0，具备放量验证价值。",
@@ -2713,7 +2713,7 @@
       ],
       "material_test_blocks": [
         {
-          "label": "老形式",
+          "label": "老方向",
           "week_label": "0615周",
           "summary": {
             "total_materials": 104,
@@ -2949,7 +2949,7 @@
               "retention_rate": 3.29
             }
           ],
-          "note": "0615周 常规上新素材（老命名形式），已计入周度 KPI。"
+          "note": "0615周 老方向（常规上新）素材，已计入周度 KPI。"
         }
       ]
     },
@@ -3529,7 +3529,7 @@
         ]
       },
       "insights": [
-        "【老形式】测试 107 条，出单 89 单，出单率 14.95%。",
+        "【老方向】测试 107 条，出单 89 单，出单率 14.95%。",
         "【图片】测试 11 条，出单 5 单，出单率 18.18%。",
         "【素材测出率】0622周 上新 118 条，出单率 16.1%（较 0615周 ↓0.2pp），出单素材 19 条（较上周 ↑2）。上周出单率 16.35%，出单素材 17 条。",
         "【本周最强素材】20260623_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R…（learning / gy）：购物 20 · 订阅 32 · ROAS 0.44 · CTR 1.06% · 花费 $872.0。",
@@ -3540,7 +3540,7 @@
       ],
       "material_test_blocks": [
         {
-          "label": "老形式",
+          "label": "老方向",
           "week_label": "0622周",
           "summary": {
             "total_materials": 107,
@@ -3776,7 +3776,7 @@
               "retention_rate": 6.74
             }
           ],
-          "note": "0622周 常规上新素材（老命名形式），已计入周度 KPI。"
+          "note": "0622周 老方向（常规上新）素材，已计入周度 KPI。"
         },
         {
           "label": "图片",
@@ -4354,8 +4354,8 @@
         ]
       },
       "insights": [
-        "【老形式】测试 86 条，出单 31 单，出单率 12.79%。",
-        "【新创意】测试 6 条，出单 0 单，出单率 0.0%。",
+        "【新方向】测试 6 条，出单 0 单，出单率 0.0%。",
+        "【老方向】测试 86 条，出单 31 单，出单率 12.79%。",
         "【图片】测试 23 条，出单 10 单，出单率 8.7%。",
         "【素材测出率】0629周 上新 115 条，出单率 12.17%（较 0622周 ↓3.9pp），出单素材 14 条（较上周 ↓5）。上周出单率 16.1%，出单素材 19 条。",
         "【本周最强素材】20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-…（Women / fj）：购物 7 · 订阅 9 · ROAS 0.67 · CTR 0.8% · 花费 $242.0。",
@@ -4763,7 +4763,21 @@
       },
       "material_test_blocks": [
         {
-          "label": "老形式",
+          "label": "新方向",
+          "week_label": "0629周",
+          "summary": {
+            "total_materials": 6,
+            "ordered_materials": 0,
+            "conversions": 0,
+            "order_rate": 0.0,
+            "spend": 161.5,
+            "subscriptions": 1
+          },
+          "materials": [],
+          "note": "0629周 新方向（新形式/数字人等）测试素材，已计入周度 KPI。"
+        },
+        {
+          "label": "老方向",
           "week_label": "0629周",
           "summary": {
             "total_materials": 86,
@@ -4929,21 +4943,7 @@
               "retention_rate": 5.02
             }
           ],
-          "note": "0629周 常规上新素材（老命名形式），已计入周度 KPI。"
-        },
-        {
-          "label": "新创意",
-          "week_label": "0629周",
-          "summary": {
-            "total_materials": 6,
-            "ordered_materials": 0,
-            "conversions": 0,
-            "order_rate": 0.0,
-            "spend": 161.5,
-            "subscriptions": 1
-          },
-          "materials": [],
-          "note": "0629周 新形式/新创意方向测试（如数字人），已计入周度 KPI。"
+          "note": "0629周 老方向（常规上新）素材，已计入周度 KPI。"
         },
         {
           "label": "图片",
@@ -5525,8 +5525,8 @@
         ]
       },
       "insights": [
-        "【老形式】测试 91 条，出单 20 单，出单率 8.79%。",
-        "【新创意】测试 50 条，出单 14 单，出单率 16.0%。",
+        "【新方向】测试 50 条，出单 14 单，出单率 16.0%。",
+        "【老方向】测试 91 条，出单 20 单，出单率 8.79%。",
         "【图片】测试 30 条，出单 5 单，出单率 6.67%。",
         "【素材测出率】0706周 上新 171 条，出单率 10.53%（较 0629周 ↓1.6pp），出单素材 18 条（较上周 ↑4）。上周出单率 12.17%，出单素材 14 条。",
         "【本周最强素材】20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning_RS-P…（Students / czy）：购物 6 · 订阅 10 · ROAS 0.54 · CTR 1.17% · 花费 $325.0。",
@@ -5984,134 +5984,7 @@
       },
       "material_test_blocks": [
         {
-          "label": "老形式",
-          "week_label": "0706周",
-          "summary": {
-            "total_materials": 91,
-            "ordered_materials": 8,
-            "conversions": 20,
-            "order_rate": 8.79,
-            "spend": 1796.0,
-            "subscriptions": 36
-          },
-          "materials": [
-            {
-              "rank": 1,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning_RS-P1X1R3C3_czy",
-              "direction": "Students",
-              "theme": "learning",
-              "designer": "czy",
-              "spend": 325.48,
-              "purchases": 6,
-              "subscriptions": 10,
-              "roas": 0.54,
-              "ctr": 1.17,
-              "hook_rate": 15.43,
-              "retention_rate": 3.27
-            },
-            {
-              "rank": 2,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-Introverts_ZT-Mindset_RS-P1X1R3C3_czy",
-              "direction": "introverts",
-              "theme": "mindset",
-              "designer": "czy",
-              "spend": 233.3,
-              "purchases": 5,
-              "subscriptions": 4,
-              "roas": 0.4,
-              "ctr": 2.05,
-              "hook_rate": 14.45,
-              "retention_rate": 4.11
-            },
-            {
-              "rank": 3,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-1_RS-P1X1R3C3_czy",
-              "direction": "Students",
-              "theme": "learning",
-              "designer": "czy",
-              "spend": 54.84,
-              "purchases": 3,
-              "subscriptions": 4,
-              "roas": 1.0,
-              "ctr": 1.31,
-              "hook_rate": 15.58,
-              "retention_rate": 2.32
-            },
-            {
-              "rank": 4,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Action_RS-P1X1R3C3_czy",
-              "direction": "SelfGrowth",
-              "theme": "action",
-              "designer": "czy",
-              "spend": 54.39,
-              "purchases": 2,
-              "subscriptions": 1,
-              "roas": 0.67,
-              "ctr": 1.93,
-              "hook_rate": 17.03,
-              "retention_rate": 1.23
-            },
-            {
-              "rank": 5,
-              "material_id": "20260708_GrowMe_EN_9x16_FX-Readers_ZT-BookReading-3_RS-P1X1R3C3_aitool_czy",
-              "direction": "Readers",
-              "theme": "bookreading",
-              "designer": "czy",
-              "spend": 57.76,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.2,
-              "ctr": 0.66,
-              "hook_rate": 15.6,
-              "retention_rate": 2.79
-            },
-            {
-              "rank": 6,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
-              "direction": "Students",
-              "theme": "learning",
-              "designer": "czy",
-              "spend": 9.79,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.93,
-              "ctr": 1.11,
-              "hook_rate": 19.88,
-              "retention_rate": 2.58
-            },
-            {
-              "rank": 7,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Finance_RS-P1X1R3C3_czy",
-              "direction": "Professionals",
-              "theme": "finance",
-              "designer": "czy",
-              "spend": 7.18,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 4.83,
-              "ctr": 1.42,
-              "hook_rate": 14.55,
-              "retention_rate": 3.05
-            },
-            {
-              "rank": 8,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-EmotionalHealth_RS-P1X1R3C3_czy",
-              "direction": "SelfGrowth",
-              "theme": "emotionalhealth",
-              "designer": "czy",
-              "spend": 4.43,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 2.06,
-              "ctr": 1.5,
-              "hook_rate": 16.26,
-              "retention_rate": 3.85
-            }
-          ],
-          "note": "0706周 常规上新素材（老命名形式），已计入周度 KPI。"
-        },
-        {
-          "label": "新创意",
+          "label": "新方向",
           "week_label": "0706周",
           "summary": {
             "total_materials": 50,
@@ -6235,7 +6108,134 @@
               "retention_rate": 38.16
             }
           ],
-          "note": "0706周 新形式/新创意方向测试（如数字人），已计入周度 KPI。"
+          "note": "0706周 新方向（新形式/数字人等）测试素材，已计入周度 KPI。"
+        },
+        {
+          "label": "老方向",
+          "week_label": "0706周",
+          "summary": {
+            "total_materials": 91,
+            "ordered_materials": 8,
+            "conversions": 20,
+            "order_rate": 8.79,
+            "spend": 1796.0,
+            "subscriptions": 36
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning_RS-P1X1R3C3_czy",
+              "direction": "Students",
+              "theme": "learning",
+              "designer": "czy",
+              "spend": 325.48,
+              "purchases": 6,
+              "subscriptions": 10,
+              "roas": 0.54,
+              "ctr": 1.17,
+              "hook_rate": 15.43,
+              "retention_rate": 3.27
+            },
+            {
+              "rank": 2,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-Introverts_ZT-Mindset_RS-P1X1R3C3_czy",
+              "direction": "introverts",
+              "theme": "mindset",
+              "designer": "czy",
+              "spend": 233.3,
+              "purchases": 5,
+              "subscriptions": 4,
+              "roas": 0.4,
+              "ctr": 2.05,
+              "hook_rate": 14.45,
+              "retention_rate": 4.11
+            },
+            {
+              "rank": 3,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-1_RS-P1X1R3C3_czy",
+              "direction": "Students",
+              "theme": "learning",
+              "designer": "czy",
+              "spend": 54.84,
+              "purchases": 3,
+              "subscriptions": 4,
+              "roas": 1.0,
+              "ctr": 1.31,
+              "hook_rate": 15.58,
+              "retention_rate": 2.32
+            },
+            {
+              "rank": 4,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Action_RS-P1X1R3C3_czy",
+              "direction": "SelfGrowth",
+              "theme": "action",
+              "designer": "czy",
+              "spend": 54.39,
+              "purchases": 2,
+              "subscriptions": 1,
+              "roas": 0.67,
+              "ctr": 1.93,
+              "hook_rate": 17.03,
+              "retention_rate": 1.23
+            },
+            {
+              "rank": 5,
+              "material_id": "20260708_GrowMe_EN_9x16_FX-Readers_ZT-BookReading-3_RS-P1X1R3C3_aitool_czy",
+              "direction": "Readers",
+              "theme": "bookreading",
+              "designer": "czy",
+              "spend": 57.76,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.2,
+              "ctr": 0.66,
+              "hook_rate": 15.6,
+              "retention_rate": 2.79
+            },
+            {
+              "rank": 6,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
+              "direction": "Students",
+              "theme": "learning",
+              "designer": "czy",
+              "spend": 9.79,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.93,
+              "ctr": 1.11,
+              "hook_rate": 19.88,
+              "retention_rate": 2.58
+            },
+            {
+              "rank": 7,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Finance_RS-P1X1R3C3_czy",
+              "direction": "Professionals",
+              "theme": "finance",
+              "designer": "czy",
+              "spend": 7.18,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 4.83,
+              "ctr": 1.42,
+              "hook_rate": 14.55,
+              "retention_rate": 3.05
+            },
+            {
+              "rank": 8,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-EmotionalHealth_RS-P1X1R3C3_czy",
+              "direction": "SelfGrowth",
+              "theme": "emotionalhealth",
+              "designer": "czy",
+              "spend": 4.43,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 2.06,
+              "ctr": 1.5,
+              "hook_rate": 16.26,
+              "retention_rate": 3.85
+            }
+          ],
+          "note": "0706周 老方向（常规上新）素材，已计入周度 KPI。"
         },
         {
           "label": "图片",

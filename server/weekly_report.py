@@ -377,7 +377,7 @@ def _generate_insights(
 
 
 def _material_breakdown(week: str, test_blocks: list[dict[str, Any]]) -> dict[str, Any] | None:
-    """拆分老形式 / 新创意 / 图片，便于 KPI 展示口径。"""
+    """拆分老方向 / 新方向 / 图片，便于 KPI 展示口径。"""
     if not test_blocks:
         return None
     breakdown: dict[str, Any] = {
@@ -388,9 +388,9 @@ def _material_breakdown(week: str, test_blocks: list[dict[str, Any]]) -> dict[st
     for block in test_blocks:
         n = block["summary"]["total_materials"]
         label = block.get("label") or ""
-        if label == "老形式":
+        if label in ("老方向", "老形式"):
             breakdown["weekly"] = n
-        elif label == "新创意":
+        elif label in ("新方向", "新创意"):
             breakdown["new_creative"] = n
         elif label == "图片":
             breakdown["image"] = n

@@ -77,7 +77,7 @@ function renderComparisonTable(rows, prevWeek) {
         <table class="compare-table">
           <thead>
             <tr>
-              <th>指标</th><th>本周</th><th>上周</th><th>环比</th>
+              <th class="no-sort">指标</th><th class="no-sort">本周</th><th class="no-sort">上周</th><th class="no-sort">环比</th>
             </tr>
           </thead>
           <tbody>
@@ -103,20 +103,77 @@ function renderComparisonTable(rows, prevWeek) {
   `;
 }
 
-function renderGoodMaterials(items) {
+function sortArrow(sort, col) {
+  if (!sort || sort.by !== col) return '';
+  return sort.dir === 'desc' ? ' ↓' : ' ↑';
+}
+
+function sortTh(label, col, sort, extraClass = '') {
+  const cls = [sort?.by === col ? 'sorted' : '', extraClass].filter(Boolean).join(' ');
+  return `<th data-sort="${col}"${cls ? ` class="${cls}"` : ''}>${label}${sortArrow(sort, col)}</th>`;
+}
+
+function sortRows(rows, sort, defaults = { by: 'purchases', dir: 'desc' }) {
+  const by = sort?.by || defaults.by;
+  const dir = sort?.dir || defaults.dir;
+  const mult = dir === 'asc' ? 1 : -1;
+  return [...(rows || [])].sort((a, b) => {
+    const av = a[by];
+    const bv = b[by];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    if (typeof av === 'string' || typeof bv === 'string') {
+      return String(av).localeCompare(String(bv), 'zh') * mult;
+    }
+    return (av - bv) * mult;
+  });
+}
+
+function getTableSort(state, key, defaults = { by: 'purchases', dir: 'desc' }) {
+  state.weeklyTableSort = state.weeklyTableSort || {};
+  return state.weeklyTableSort[key] || defaults;
+}
+
+function bindTableSort(container, state, report) {
+  container.querySelectorAll('th[data-sort]').forEach((th) => {
+    th.addEventListener('click', async () => {
+      const table = th.closest('table');
+      const key = table?.dataset?.sortKey;
+      if (!key) return;
+      const col = th.dataset.sort;
+      const cur = getTableSort(state, key);
+      state.weeklyTableSort[key] = {
+        by: col,
+        dir: cur.by === col && cur.dir === 'desc' ? 'asc' : 'desc',
+      };
+      container.innerHTML = '<div class="empty">加载中...</div>';
+      await renderWeeklyUpdate(container, state);
+    });
+  });
+}
+
+function renderGoodMaterials(items, sort) {
+  const rows = sortRows(items, sort);
   return `
     <div class="card">
-      <div class="section-title">本周好素材 <span class="muted">（购物 + 订阅双达标）</span></div>
+      <div class="section-title">本周好素材 <span class="muted">（购物 + 订阅双达标 · 点击表头排序）</span></div>
       <div class="table-wrap">
-        <table>
+        <table data-sort-key="good">
           <thead>
             <tr>
-              <th>素材</th><th>方向</th><th>设计师</th>
-              <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th>
+              ${sortTh('素材', 'material_id', sort)}
+              ${sortTh('方向', 'direction', sort)}
+              ${sortTh('设计师', 'designer', sort)}
+              ${sortTh('花费', 'spend', sort)}
+              ${sortTh('购物', 'purchases', sort)}
+              ${sortTh('订阅', 'subscriptions', sort)}
+              ${sortTh('ROAS', 'roas', sort)}
+              ${sortTh('CTR', 'ctr', sort)}
             </tr>
           </thead>
           <tbody>
-            ${items.length ? items.map((m) => `
+            ${rows.length ? rows.map((m) => `
               <tr>
                 <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
                 <td><span class="tag">${escapeHtml(m.direction)}</span></td>
@@ -140,27 +197,37 @@ function formatWeekLabel(label) {
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
-function renderDirectionTable(rows) {
+function renderDirectionTable(rows, sort) {
+  const sorted = sortRows(rows, sort, { by: 'purchases', dir: 'desc' });
   return `
     <div class="card">
-      <div class="section-title">各方向标签表现对比</div>
+      <div class="section-title">各方向标签表现对比 <span class="muted">（点击表头排序）</span></div>
       <div class="table-wrap">
-        <table>
+        <table data-sort-key="direction">
           <thead>
             <tr>
-              <th>方向</th><th>素材量</th><th>出单素材</th><th>消耗</th><th>CTR</th><th>CPI</th><th>ROAS</th>
-              <th>订阅</th><th>购物</th><th>钩子率</th><th>留存率</th>
+              ${sortTh('方向', 'direction', sort)}
+              ${sortTh('素材量', 'total_materials', sort)}
+              ${sortTh('出单素材', 'ordered_materials', sort)}
+              ${sortTh('消耗', 'spend', sort)}
+              ${sortTh('CTR', 'ctr', sort)}
+              ${sortTh('CPI', 'cpi', sort)}
+              ${sortTh('ROAS', 'roas', sort)}
+              ${sortTh('订阅', 'subscriptions', sort)}
+              ${sortTh('购物', 'purchases', sort)}
+              ${sortTh('钩子率', 'hook_rate', sort)}
+              ${sortTh('留存率', 'retention_rate', sort)}
             </tr>
           </thead>
           <tbody>
-            ${rows.map((r) => `
+            ${sorted.map((r) => `
               <tr>
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
                 <td>${r.total_materials ?? '-'}</td>
                 <td><strong>${r.ordered_ratio || `${r.ordered_materials}/${r.total_materials || '-'}`}</strong></td>
                 <td>$${r.spend ?? '-'}</td>
                 <td>${r.ctr}%</td>
-                <td>${r.cpi !== null ? `$${r.cpi}` : '-'}</td>
+                <td>${r.cpi !== null && r.cpi !== undefined ? `$${r.cpi}` : '-'}</td>
                 <td>${r.roas}</td>
                 <td>${r.subscriptions}</td>
                 <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
@@ -175,23 +242,30 @@ function renderDirectionTable(rows) {
   `;
 }
 
-function renderAudienceTest(block) {
+function renderAudienceTest(block, sort) {
   if (!block?.materials?.length) return '';
+  const rows = sortRows(block.materials, sort);
   return `
     <div class="card weekly-callout">
-      <div class="section-title">新方向 · 人群测试</div>
+      <div class="section-title">新方向 · 人群测试 <span class="muted">（点击表头排序）</span></div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
       <div class="table-wrap">
-        <table>
+        <table data-sort-key="audience">
           <thead>
             <tr>
-              <th>目标人群</th><th>设计师</th>
-              <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th>
-              <th>3秒播放率</th><th>留存率</th>
+              ${sortTh('目标人群', 'target_audience', sort)}
+              ${sortTh('设计师', 'designer', sort)}
+              ${sortTh('花费', 'spend', sort)}
+              ${sortTh('购物', 'purchases', sort)}
+              ${sortTh('订阅', 'subscriptions', sort)}
+              ${sortTh('ROAS', 'roas', sort)}
+              ${sortTh('CTR', 'ctr', sort)}
+              ${sortTh('3秒播放率', 'hook_rate', sort)}
+              ${sortTh('留存率', 'retention_rate', sort)}
             </tr>
           </thead>
           <tbody>
-            ${block.materials.map((m) => `
+            ${rows.map((m) => `
               <tr>
                 <td>
                   <div style="font-weight:600">${escapeHtml(m.target_audience)}</div>
@@ -214,29 +288,39 @@ function renderAudienceTest(block) {
   `;
 }
 
-function renderMaterialTestBlock(block) {
+function renderMaterialTestBlock(block, sort) {
   if (!block) return '';
   const s = block.summary || {};
+  const sortKey = `test_${block.label}`;
+  const rows = sortRows(block.materials || [], sort);
   return `
     <div class="card weekly-callout">
-      <div class="section-title">本周测试 · ${escapeHtml(block.label)}</div>
+      <div class="section-title">本周测试 · ${escapeHtml(block.label)} <span class="muted">（点击表头排序）</span></div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
-      <div class="kpi-grid kpi-grid-3 weekly-callout-kpi">
+      <div class="kpi-grid kpi-grid-4 weekly-callout-kpi">
         ${kpiCard('测试素材量', `${s.total_materials ?? 0} 条`)}
-        ${kpiCard('出单量', s.conversions ?? 0)}
-        ${kpiCard('出单率', `${s.order_rate ?? 0}%`, null, s.ordered_materials != null ? `出单素材 ${s.ordered_materials} 条` : '')}
+        ${kpiCard('出单素材量', `${s.ordered_materials ?? 0} 条`)}
+        ${kpiCard('总出单量', s.conversions ?? 0)}
+        ${kpiCard('出单率', `${s.order_rate ?? 0}%`)}
       </div>
       <div class="table-wrap">
-        <table>
+        <table data-sort-key="${escapeHtml(sortKey)}">
           <thead>
             <tr>
-              <th>素材</th><th>方向</th><th>主题</th><th>设计师</th>
-              <th>花费</th><th>购物</th><th>ROAS</th><th>CTR</th>
-              <th>3秒播放率</th><th>留存率</th>
+              ${sortTh('素材', 'material_id', sort)}
+              ${sortTh('方向', 'direction', sort)}
+              ${sortTh('主题', 'theme', sort)}
+              ${sortTh('设计师', 'designer', sort)}
+              ${sortTh('花费', 'spend', sort)}
+              ${sortTh('购物', 'purchases', sort)}
+              ${sortTh('ROAS', 'roas', sort)}
+              ${sortTh('CTR', 'ctr', sort)}
+              ${sortTh('3秒播放率', 'hook_rate', sort)}
+              ${sortTh('留存率', 'retention_rate', sort)}
             </tr>
           </thead>
           <tbody>
-            ${block.materials?.length ? block.materials.map((m) => `
+            ${rows.length ? rows.map((m) => `
               <tr>
                 <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
                 <td><span class="tag">${escapeHtml(m.direction || '-')}</span></td>
@@ -316,6 +400,7 @@ export async function renderWeeklyUpdate(container, state) {
 
   const weeks = report.weeks || data.weeks || [];
   state.weeklyWeek = report.week;
+  const testBlocks = sortMaterialTestBlocks(report);
 
   container.innerHTML = `
     <div class="week-tabs">
@@ -326,11 +411,11 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderSummary(report.kpi, report.prev_week)}
     ${renderKpiSection(report.kpi, report.prev_week)}
     ${renderComparisonTable(report.core_comparison, report.prev_week)}
-    ${sortMaterialTestBlocks(report).map((block) => renderMaterialTestBlock(block)).join('')}
+    ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`))).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
-    ${renderDirectionTable(report.direction_table)}
-    ${renderGoodMaterials(report.good_materials)}
-    ${renderAudienceTest(report.audience_test)}
+    ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction'))}
+    ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good'))}
+    ${renderAudienceTest(report.audience_test, getTableSort(state, 'audience'))}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>
       <div id="weekly-survival-chart" class="chart"></div>
@@ -341,10 +426,13 @@ export async function renderWeeklyUpdate(container, state) {
   container.querySelectorAll('[data-week]').forEach((btn) => {
     btn.addEventListener('click', async () => {
       state.weeklyWeek = btn.dataset.week;
+      state.weeklyTableSort = {};
       container.innerHTML = '<div class="empty">加载中...</div>';
       await renderWeeklyUpdate(container, state);
     });
   });
+
+  bindTableSort(container, state, report);
 
   const chartEl = container.querySelector('#weekly-survival-chart');
   if (chartEl && report.survival_trend) {

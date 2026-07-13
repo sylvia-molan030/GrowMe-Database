@@ -173,6 +173,7 @@ th, td { padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: 
 .asset-table td:nth-child(2) { white-space: normal; }
 th { color: var(--muted); font-weight: 600; cursor: pointer; user-select: none; }
 th.sorted { color: var(--primary); }
+th.no-sort { cursor: default; }
 .tag {
   display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px;
   background: var(--primary-soft); color: var(--primary);

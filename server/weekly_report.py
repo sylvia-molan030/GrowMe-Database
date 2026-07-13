@@ -5,7 +5,7 @@ from collections import defaultdict
 import re
 from typing import Any
 
-from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES
+from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES, WEEKLY_KPI_SCOPES
 from cross_rubric import cross_rubric_heatmap_from_materials
 from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme, primary_theme
 
@@ -34,11 +34,17 @@ def _prev_week_label(week: str) -> str | None:
     return labels[idx - 1] if idx > 0 else None
 
 
-def _week_records(week_label: str, channel: str | None = None) -> list[dict[str, Any]]:
+def _week_records(
+    week_label: str,
+    channel: str | None = None,
+    *,
+    kpi: bool = False,
+) -> list[dict[str, Any]]:
+    scopes = WEEKLY_KPI_SCOPES if kpi else WEEKLY_DATA_SCOPES
     rows = [
         r
         for r in store.records
-        if r.get("data_scope") in WEEKLY_DATA_SCOPES and r.get("week_label") == week_label
+        if r.get("data_scope") in scopes and r.get("week_label") == week_label
     ]
     if channel:
         rows = [r for r in rows if r.get("channel") == channel]
@@ -370,31 +376,27 @@ def _generate_insights(
     return insights
 
 
-def _material_breakdown(week: str, new_dirs: list[dict[str, Any]]) -> dict[str, Any] | None:
-    """拆分常规周素材 vs 图片/数字人新方向，便于 KPI 展示口径。"""
-    if not new_dirs:
+def _material_breakdown(week: str, test_blocks: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """拆分老形式 / 新创意 / 图片，便于 KPI 展示口径。"""
+    if not test_blocks:
         return None
-    weekly_recs = [
-        r for r in store.records
-        if r.get("data_scope") == "weekly" and r.get("week_label") == week
-    ]
-    weekly_count = len(_aggregate_materials(weekly_recs))
-    image = digital_human = other = 0
-    for block in new_dirs:
+    breakdown: dict[str, Any] = {
+        "weekly": 0,
+        "new_creative": 0,
+        "image": 0,
+    }
+    for block in test_blocks:
         n = block["summary"]["total_materials"]
         label = block.get("label") or ""
-        if label == "图片":
-            image = n
-        elif label == "数字人":
-            digital_human = n
-        else:
-            other += n
-    return {
-        "weekly": weekly_count,
-        "image": image,
-        "digital_human": digital_human,
-        "other_new_direction": other,
-    }
+        if label == "老形式":
+            breakdown["weekly"] = n
+        elif label == "新创意":
+            breakdown["new_creative"] = n
+        elif label == "图片":
+            breakdown["image"] = n
+    if not any(breakdown.values()):
+        return None
+    return breakdown
 
 
 def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
@@ -408,13 +410,13 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    all_materials = _aggregate_materials(_week_records(week))
+    all_materials = _aggregate_materials(_week_records(week, kpi=True))
     combined_kpi = _channel_kpi(all_materials)
 
     prev_combined = None
     prev_metrics = None
     if prev:
-        prev_all = _aggregate_materials(_week_records(prev))
+        prev_all = _aggregate_materials(_week_records(prev, kpi=True))
         prev_combined = _channel_kpi(prev_all)
         prev_metrics = _core_metrics(prev_all)
 
@@ -465,24 +467,23 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         heatmap = cross_rubric_heatmap_from_materials(all_materials)
         if heatmap:
             report["cross_rubric_heatmap"] = heatmap
-    new_dirs: list[dict[str, Any]] = []
+    test_blocks: list[dict[str, Any]] = []
     try:
-        from new_direction_report import get_new_direction_blocks_for_week
-        new_dirs = get_new_direction_blocks_for_week(week)
+        from weekly_test_blocks import get_weekly_test_blocks
+        test_blocks = get_weekly_test_blocks(week)
     except ImportError:
         pass
-    if new_dirs:
-        report["new_direction_tests"] = new_dirs
-        report["new_direction_test"] = new_dirs[0]
-        breakdown = _material_breakdown(week, new_dirs)
+    if test_blocks:
+        report["material_test_blocks"] = test_blocks
+        breakdown = _material_breakdown(week, test_blocks)
         if breakdown:
             report["kpi"]["breakdown"] = breakdown
-        for block in reversed(new_dirs):
+        for block in reversed(test_blocks):
+            s = block["summary"]
             report["insights"].insert(
                 0,
-                f"【新方向测试·{block['label']}】{block['note']} "
-                f"共 {block['summary']['total_materials']} 条，消耗 ${block['summary']['spend']}，"
-                f"购物 {block['summary']['purchases']} / 订阅 {block['summary']['subscriptions']}。",
+                f"【{block['label']}】测试 {s['total_materials']} 条，"
+                f"出单 {s['conversions']} 单，出单率 {s['order_rate']}%。",
             )
     try:
         from audience_test_report import get_audience_test_for_week

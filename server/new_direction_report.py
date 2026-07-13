@@ -19,7 +19,7 @@ def _new_direction_labels() -> list[str]:
 
 def _group_key_from_source(source_file: str) -> str:
     name = source_file or ""
-    if "数字人" in name:
+    if "数字人" in name or "新创意" in name or "新形式" in name:
         return "数字人"
     if "图片" in name or re.search(r"pic", name, re.I):
         return "图片"

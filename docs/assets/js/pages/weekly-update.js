@@ -214,42 +214,42 @@ function renderAudienceTest(block) {
   `;
 }
 
-function renderNewDirectionCallout(block) {
+function renderMaterialTestBlock(block) {
   if (!block) return '';
   const s = block.summary || {};
-  const weekTag = block.week_label ? `${escapeHtml(block.week_label)} · ` : '';
   return `
     <div class="card weekly-callout">
-      <div class="section-title">${weekTag}新方向测试 · ${escapeHtml(block.label)} <span class="tag">FX-${escapeHtml(block.direction || 'pic')}</span></div>
+      <div class="section-title">本周测试 · ${escapeHtml(block.label)}</div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
-      <div class="kpi-grid kpi-grid-4 weekly-callout-kpi">
-        ${kpiCard('测试素材', s.total_materials ?? 0)}
-        ${kpiCard('消耗', `$${s.spend ?? 0}`)}
-        ${kpiCard('购物 / 订阅', `${s.purchases ?? 0} / ${s.subscriptions ?? 0}`)}
-        ${kpiCard('出单率', `${s.order_rate ?? 0}%`)}
+      <div class="kpi-grid kpi-grid-3 weekly-callout-kpi">
+        ${kpiCard('测试素材量', `${s.total_materials ?? 0} 条`)}
+        ${kpiCard('出单量', s.conversions ?? 0)}
+        ${kpiCard('出单率', `${s.order_rate ?? 0}%`, null, s.ordered_materials != null ? `出单素材 ${s.ordered_materials} 条` : '')}
       </div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>素材</th><th>方向</th><th>设计师</th>
-              <th>花费</th><th>购物</th><th>订阅</th><th>ROAS</th><th>CTR</th><th>跑量</th>
+              <th>素材</th><th>方向</th><th>主题</th><th>设计师</th>
+              <th>花费</th><th>购物</th><th>ROAS</th><th>CTR</th>
+              <th>3秒播放率</th><th>留存率</th>
             </tr>
           </thead>
           <tbody>
-            ${block.materials?.map((m) => `
+            ${block.materials?.length ? block.materials.map((m) => `
               <tr>
                 <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
-                <td><span class="tag">${escapeHtml(m.direction)}</span></td>
+                <td><span class="tag">${escapeHtml(m.direction || '-')}</span></td>
+                <td>${escapeHtml(m.theme || '-')}</td>
                 <td>${escapeHtml(m.designer || '-')}</td>
                 <td>$${m.spend}</td>
                 <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
-                <td>${m.subscriptions}</td>
                 <td>${m.roas}</td>
                 <td>${m.ctr}%</td>
-                <td><span class="tag gray">${escapeHtml(m.scaling_status || '-')}</span></td>
+                <td>${m.hook_rate != null ? `${m.hook_rate}%` : '-'}</td>
+                <td>${m.retention_rate != null ? `${m.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') || '<tr><td colspan="9" class="empty">暂无有购物或订阅的素材</td></tr>'}
+            `).join('') : '<tr><td colspan="10" class="empty">本板块暂无出单素材</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -291,9 +291,9 @@ function renderInsights(items) {
   `;
 }
 
-function sortNewDirectionTests(report) {
-  const blocks = report.new_direction_tests || (report.new_direction_test ? [report.new_direction_test] : []);
-  const order = { 图片: 0, 数字人: 1 };
+function sortMaterialTestBlocks(report) {
+  const blocks = report.material_test_blocks || [];
+  const order = { 老形式: 0, 新创意: 1, 图片: 2 };
   return [...blocks].sort((a, b) => (order[a.label] ?? 9) - (order[b.label] ?? 9));
 }
 
@@ -327,8 +327,8 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
     ${renderDirectionTable(report.direction_table)}
     ${renderGoodMaterials(report.good_materials)}
+    ${sortMaterialTestBlocks(report).map((block) => renderMaterialTestBlock(block)).join('')}
     ${renderAudienceTest(report.audience_test)}
-    ${sortNewDirectionTests(report).map((block) => renderNewDirectionCallout(block)).join('')}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>
       <div id="weekly-survival-chart" class="chart"></div>

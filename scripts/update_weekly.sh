@@ -42,8 +42,8 @@ if [ ${#FILES[@]} -gt 0 ]; then
       exit 1
     fi
     base="$(basename "$src")"
-    if ! echo "$base" | grep -qiE '周|week|回滚|rollback'; then
-      echo "✗ 文件名须含「周」「week」或「回滚」，例如 0615周WW的数据.csv 或 6月份回滚素材.csv"
+    if ! echo "$base" | grep -qiE '周|week|回滚|rollback|老形式|新形式|新创意|图片素材|数字人'; then
+      echo "✗ 文件名须含「周」「week」「回滚」「老形式」「新形式」或「图片素材」等关键词"
       echo "  当前: $base"
       exit 1
     fi
@@ -51,8 +51,17 @@ if [ ${#FILES[@]} -gt 0 ]; then
       echo "✗ 周度上新不测 T1，请只导入 WW 文件: $base"
       exit 1
     fi
-    cp "$src" "$DATA_DIR/$base"
-    echo "  ✓ $base"
+    # 规范为「MMDD周…」以便 week_label 识别（如 0706老形式素材.csv → 0706周老形式素材.csv）
+    dest="$base"
+    if echo "$base" | grep -qE '^[0-9]{4}' && ! echo "$base" | grep -qE '^[0-9]{4}周'; then
+      dest="$(echo "$base" | sed -E 's/^([0-9]{4})/\1周/')"
+    fi
+    cp "$src" "$DATA_DIR/$dest"
+    if [ "$dest" != "$base" ]; then
+      echo "  ✓ $base → $dest"
+    else
+      echo "  ✓ $dest"
+    fi
   done
 fi
 

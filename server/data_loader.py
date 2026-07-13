@@ -38,9 +38,13 @@ CUSTOM_RETENTION_COL = "custom_derived_metrics:468178872764785"
 
 WEEK_FILE_RE = re.compile(r"周|week", re.IGNORECASE)
 ROLLBACK_FILE_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
-NEW_DIRECTION_FILE_RE = re.compile(r"数字人|新方向|图片素材|图片数据", re.IGNORECASE)
-# 周度 KPI / 上新素材：常规周度文件 + 新方向测试（如数字人）
+NEW_DIRECTION_FILE_RE = re.compile(
+    r"数字人|新创意|新形式|新方向|图片素材|图片数据", re.IGNORECASE
+)
+# 周度上新素材：常规周度文件 + 新方向测试（如数字人）
 WEEKLY_DATA_SCOPES = frozenset({"weekly", "new_direction"})
+# 周度 KPI 口径：在上新素材基础上合并按日期归入当周的回滚成效
+WEEKLY_KPI_SCOPES = WEEKLY_DATA_SCOPES | frozenset({"rollback"})
 
 # 非我方素材，导入时永久跳过（账户全量更新亦不会带回）
 EXCLUDED_MATERIAL_IDS = frozenset({

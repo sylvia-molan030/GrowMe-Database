@@ -84,6 +84,7 @@ body {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px;
 }
 .kpi-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.kpi-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .week-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .muted { font-size: 12px; color: var(--muted); font-weight: 400; }
 .wow-badge {
@@ -194,7 +195,7 @@ th.sorted { color: var(--primary); }
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
 @media (max-width: 1100px) {
-  .kpi-grid, .kpi-grid-4, .summary-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-grid, .kpi-grid-4, .kpi-grid-3, .summary-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
   .app { flex-direction: column; }

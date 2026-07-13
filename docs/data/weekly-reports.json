@@ -109,17 +109,6 @@
           "spend": 1254.1
         },
         {
-          "material_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-fluency_RS-P1X1R3C3_wxx",
-          "direction": "creatives",
-          "theme": "fluency",
-          "designer": "wxx",
-          "purchases": 3,
-          "subscriptions": 5,
-          "roas": 0.15,
-          "ctr": 1.38,
-          "spend": 120.24
-        },
-        {
           "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-11things_RS-P3X1R1C3_fj",
           "direction": "creative",
           "theme": "11things",
@@ -129,6 +118,17 @@
           "roas": 0.21,
           "ctr": 2.01,
           "spend": 246.5
+        },
+        {
+          "material_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-fluency_RS-P1X1R3C3_wxx",
+          "direction": "creatives",
+          "theme": "fluency",
+          "designer": "wxx",
+          "purchases": 3,
+          "subscriptions": 5,
+          "roas": 0.15,
+          "ctr": 1.38,
+          "spend": 120.24
         }
       ],
       "direction_table": [
@@ -574,17 +574,6 @@
           "spend": 219.06
         },
         {
-          "material_id": "20260604_GrowMe_EN_9x16_FX-EmotionalHealth_ZT- anxiety_RS-P3X1R1C3_fj_jql",
-          "direction": "emotionalhealth",
-          "theme": "anxiety",
-          "designer": "jql",
-          "purchases": 3,
-          "subscriptions": 5,
-          "roas": 0.61,
-          "ctr": 1.86,
-          "spend": 86.72
-        },
-        {
           "material_id": "20260601_growme_EN_9x16_FX-lifelessons_ZT-education_RS-P1X1R3C3_wxx",
           "direction": "lifelessons",
           "theme": "education",
@@ -596,15 +585,15 @@
           "spend": 35.95
         },
         {
-          "material_id": "20260603_GrowMe_EN_9x16_FX-Growth_ZT-change_RS-P3X1R1C3_gy",
-          "direction": "growth",
-          "theme": "change",
-          "designer": "gy",
-          "purchases": 2,
-          "subscriptions": 6,
-          "roas": 0.18,
-          "ctr": 0.95,
-          "spend": 151.24
+          "material_id": "20260604_GrowMe_EN_9x16_FX-EmotionalHealth_ZT- anxiety_RS-P3X1R1C3_fj_jql",
+          "direction": "emotionalhealth",
+          "theme": "anxiety",
+          "designer": "jql",
+          "purchases": 3,
+          "subscriptions": 5,
+          "roas": 0.61,
+          "ctr": 1.86,
+          "spend": 86.72
         },
         {
           "material_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT-strat_RS-P3X1R1C3_fj_jql",
@@ -618,6 +607,17 @@
           "spend": 74.56
         },
         {
+          "material_id": "20260603_GrowMe_EN_9x16_FX-Growth_ZT-change_RS-P3X1R1C3_gy",
+          "direction": "growth",
+          "theme": "change",
+          "designer": "gy",
+          "purchases": 2,
+          "subscriptions": 6,
+          "roas": 0.18,
+          "ctr": 0.95,
+          "spend": 151.24
+        },
+        {
           "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-reading_RS-P3X1R1C3_fj",
           "direction": "communication",
           "theme": "reading",
@@ -629,26 +629,26 @@
           "spend": 214.71
         },
         {
-          "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT- voice_RS-P3X1R1C3_fj",
-          "direction": "communication",
-          "theme": "voice",
-          "designer": "fj",
-          "purchases": 1,
-          "subscriptions": 3,
-          "roas": 0.17,
-          "ctr": 1.25,
-          "spend": 63.49
-        },
-        {
-          "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-d1_RS-P3X1R1C3_fj",
-          "direction": "communication",
+          "material_id": "20260603_GrowMe_EN_9x16_FX-fear_ZT-d1_RS-P3X1R1C3_fj",
+          "direction": "fear",
           "theme": "d1",
           "designer": "fj",
           "purchases": 1,
-          "subscriptions": 3,
-          "roas": 0.32,
-          "ctr": 1.96,
-          "spend": 118.11
+          "subscriptions": 2,
+          "roas": 0.47,
+          "ctr": 1.07,
+          "spend": 56.6
+        },
+        {
+          "material_id": "20260601_GrowMe_EN_9x16_FX-Communication_ZT-read_RS-P3X1R1C3_gy",
+          "direction": "communication",
+          "theme": "read",
+          "designer": "gy",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.44,
+          "ctr": 0.98,
+          "spend": 17.49
         }
       ],
       "direction_table": [
@@ -1014,20 +1014,6 @@
             },
             {
               "rank": 5,
-              "material_id": "20260604_GrowMe_EN_9x16_FX-EmotionalHealth_ZT- anxiety_RS-P3X1R1C3_fj_jql",
-              "direction": "emotionalhealth",
-              "theme": "anxiety",
-              "designer": "jql",
-              "spend": 86.72,
-              "purchases": 3,
-              "subscriptions": 5,
-              "roas": 0.61,
-              "ctr": 1.86,
-              "hook_rate": 19.07,
-              "retention_rate": 2.91
-            },
-            {
-              "rank": 6,
               "material_id": "20260601_growme_EN_9x16_FX-lifelessons_ZT-education_RS-P1X1R3C3_wxx",
               "direction": "lifelessons",
               "theme": "education",
@@ -1041,21 +1027,21 @@
               "retention_rate": 5.06
             },
             {
-              "rank": 7,
-              "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-reading_RS-P3X1R1C3_fj",
-              "direction": "communication",
-              "theme": "reading",
-              "designer": "fj",
-              "spend": 214.71,
-              "purchases": 2,
-              "subscriptions": 4,
-              "roas": 0.06,
-              "ctr": 1.87,
-              "hook_rate": 17.6,
-              "retention_rate": 7.8
+              "rank": 6,
+              "material_id": "20260604_GrowMe_EN_9x16_FX-EmotionalHealth_ZT- anxiety_RS-P3X1R1C3_fj_jql",
+              "direction": "emotionalhealth",
+              "theme": "anxiety",
+              "designer": "jql",
+              "spend": 86.72,
+              "purchases": 3,
+              "subscriptions": 5,
+              "roas": 0.61,
+              "ctr": 1.86,
+              "hook_rate": 19.07,
+              "retention_rate": 2.91
             },
             {
-              "rank": 8,
+              "rank": 7,
               "material_id": "20260604_GrowMe_EN_9x16_FX-Mindset_ZT-strat_RS-P3X1R1C3_fj_jql",
               "direction": "mindset",
               "theme": "strat",
@@ -1069,7 +1055,7 @@
               "retention_rate": 1.82
             },
             {
-              "rank": 9,
+              "rank": 8,
               "material_id": "20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
               "direction": "learning",
               "theme": "speak",
@@ -1083,63 +1069,21 @@
               "retention_rate": 6.43
             },
             {
-              "rank": 10,
-              "material_id": "20260603_growme_EN_9x16_FX-lifelessons_ZT-youshouldtry_RS-P1X1R3C3_wxx",
-              "direction": "lifelessons",
-              "theme": "youshouldtry",
-              "designer": "wxx",
-              "spend": 156.8,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.18,
-              "ctr": 1.33,
-              "hook_rate": 19.77,
-              "retention_rate": 5.59
-            },
-            {
-              "rank": 11,
-              "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-d1_RS-P3X1R1C3_fj",
+              "rank": 9,
+              "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-reading_RS-P3X1R1C3_fj",
               "direction": "communication",
-              "theme": "d1",
+              "theme": "reading",
               "designer": "fj",
-              "spend": 118.11,
-              "purchases": 1,
-              "subscriptions": 3,
-              "roas": 0.32,
-              "ctr": 1.96,
-              "hook_rate": 17.58,
-              "retention_rate": 9.88
+              "spend": 214.71,
+              "purchases": 2,
+              "subscriptions": 4,
+              "roas": 0.06,
+              "ctr": 1.87,
+              "hook_rate": 17.6,
+              "retention_rate": 7.8
             },
             {
-              "rank": 12,
-              "material_id": "20260602_GrowMe_0_EN_9x16_FX-LifeLessons_ZT-confidence_RS-P3X1R1C3_gy",
-              "direction": "lifelessons",
-              "theme": "confidence",
-              "designer": "gy",
-              "spend": 86.14,
-              "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.26,
-              "ctr": 1.3,
-              "hook_rate": 16.78,
-              "retention_rate": 15.3
-            },
-            {
-              "rank": 13,
-              "material_id": "20260601_growme_EN_9x16_FX-Learning_ZT-communication_RS-P1X1R3C3_wxx",
-              "direction": "learning",
-              "theme": "communication",
-              "designer": "wxx",
-              "spend": 77.46,
-              "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.17,
-              "ctr": 1.97,
-              "hook_rate": 17.49,
-              "retention_rate": 6.99
-            },
-            {
-              "rank": 14,
+              "rank": 10,
               "material_id": "20260602_growme_EN_9x16_FX-Quotes_ZT-book_RS-P1X1R3C3_wxx",
               "direction": "quotes",
               "theme": "book",
@@ -1153,35 +1097,7 @@
               "retention_rate": 6.98
             },
             {
-              "rank": 15,
-              "material_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-forgive_RS-P3X1R1C3_gy",
-              "direction": "womenempowerment",
-              "theme": "forgive",
-              "designer": "gy",
-              "spend": 64.38,
-              "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.17,
-              "ctr": 1.42,
-              "hook_rate": 20.22,
-              "retention_rate": 5.8
-            },
-            {
-              "rank": 16,
-              "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT- voice_RS-P3X1R1C3_fj",
-              "direction": "communication",
-              "theme": "voice",
-              "designer": "fj",
-              "spend": 63.49,
-              "purchases": 1,
-              "subscriptions": 3,
-              "roas": 0.17,
-              "ctr": 1.25,
-              "hook_rate": 20.46,
-              "retention_rate": 21.14
-            },
-            {
-              "rank": 17,
+              "rank": 11,
               "material_id": "20260603_GrowMe_EN_9x16_FX-fear_ZT-d1_RS-P3X1R1C3_fj",
               "direction": "fear",
               "theme": "d1",
@@ -1195,7 +1111,49 @@
               "retention_rate": 4.13
             },
             {
-              "rank": 18,
+              "rank": 12,
+              "material_id": "20260601_GrowMe_EN_9x16_FX-Communication_ZT-read_RS-P3X1R1C3_gy",
+              "direction": "communication",
+              "theme": "read",
+              "designer": "gy",
+              "spend": 17.49,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.44,
+              "ctr": 0.98,
+              "hook_rate": 21.53,
+              "retention_rate": 3.85
+            },
+            {
+              "rank": 13,
+              "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT-d1_RS-P3X1R1C3_fj",
+              "direction": "communication",
+              "theme": "d1",
+              "designer": "fj",
+              "spend": 118.11,
+              "purchases": 1,
+              "subscriptions": 3,
+              "roas": 0.32,
+              "ctr": 1.96,
+              "hook_rate": 17.58,
+              "retention_rate": 9.88
+            },
+            {
+              "rank": 14,
+              "material_id": "20260602_GrowMe_0_EN_9x16_FX-LifeLessons_ZT-confidence_RS-P3X1R1C3_gy",
+              "direction": "lifelessons",
+              "theme": "confidence",
+              "designer": "gy",
+              "spend": 86.14,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.26,
+              "ctr": 1.3,
+              "hook_rate": 16.78,
+              "retention_rate": 15.3
+            },
+            {
+              "rank": 15,
               "material_id": "20260603_GrowMe_EN_9x16_FX-Growth_ZT-change_RS-P3X1R1C3_gy",
               "direction": "growth",
               "theme": "change",
@@ -1209,7 +1167,63 @@
               "retention_rate": 7.64
             },
             {
+              "rank": 16,
+              "material_id": "20260603_growme_EN_9x16_FX-lifelessons_ZT-youshouldtry_RS-P1X1R3C3_wxx",
+              "direction": "lifelessons",
+              "theme": "youshouldtry",
+              "designer": "wxx",
+              "spend": 156.8,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.18,
+              "ctr": 1.33,
+              "hook_rate": 19.77,
+              "retention_rate": 5.59
+            },
+            {
+              "rank": 17,
+              "material_id": "20260602_GrowMe_EN_9x16_FX-Communication_ZT- voice_RS-P3X1R1C3_fj",
+              "direction": "communication",
+              "theme": "voice",
+              "designer": "fj",
+              "spend": 63.49,
+              "purchases": 1,
+              "subscriptions": 3,
+              "roas": 0.17,
+              "ctr": 1.25,
+              "hook_rate": 20.46,
+              "retention_rate": 21.14
+            },
+            {
+              "rank": 18,
+              "material_id": "20260603_GrowMe_EN_9x16_FX-WomenEmpowerment_ZT-forgive_RS-P3X1R1C3_gy",
+              "direction": "womenempowerment",
+              "theme": "forgive",
+              "designer": "gy",
+              "spend": 64.38,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.17,
+              "ctr": 1.42,
+              "hook_rate": 20.22,
+              "retention_rate": 5.8
+            },
+            {
               "rank": 19,
+              "material_id": "20260601_growme_EN_9x16_FX-Learning_ZT-communication_RS-P1X1R3C3_wxx",
+              "direction": "learning",
+              "theme": "communication",
+              "designer": "wxx",
+              "spend": 77.46,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.17,
+              "ctr": 1.97,
+              "hook_rate": 17.49,
+              "retention_rate": 6.99
+            },
+            {
+              "rank": 20,
               "material_id": "20260605_GrowMe_EN_9x16_FX-Learning_ZT-b1_RS-P3X1R1C3_fj",
               "direction": "learning",
               "theme": "b1",
@@ -1221,20 +1235,6 @@
               "ctr": 1.22,
               "hook_rate": 18.52,
               "retention_rate": 4.09
-            },
-            {
-              "rank": 20,
-              "material_id": "20260601_GrowMe_EN_9x16_FX-Communication_ZT-read_RS-P3X1R1C3_gy",
-              "direction": "communication",
-              "theme": "read",
-              "designer": "gy",
-              "spend": 17.49,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.44,
-              "ctr": 0.98,
-              "hook_rate": 21.53,
-              "retention_rate": 3.85
             }
           ],
           "note": "0601周 老方向（常规上新）素材，已计入周度 KPI。"
@@ -1492,17 +1492,6 @@
           "spend": 342.43
         },
         {
-          "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
-          "direction": "learning",
-          "theme": "brain",
-          "designer": "wxx",
-          "purchases": 4,
-          "subscriptions": 17,
-          "roas": 0.22,
-          "ctr": 1.35,
-          "spend": 263.29
-        },
-        {
           "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
           "direction": "aitalk",
           "theme": "365book",
@@ -1512,6 +1501,17 @@
           "roas": 0.4,
           "ctr": 0.94,
           "spend": 202.24
+        },
+        {
+          "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
+          "direction": "learning",
+          "theme": "brain",
+          "designer": "wxx",
+          "purchases": 4,
+          "subscriptions": 17,
+          "roas": 0.22,
+          "ctr": 1.35,
+          "spend": 263.29
         },
         {
           "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
@@ -1525,15 +1525,15 @@
           "spend": 136.32
         },
         {
-          "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
-          "direction": "lifelessons",
-          "theme": "opinion",
-          "designer": "gy",
+          "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_gy_jql",
+          "direction": "mindset",
+          "theme": "waste",
+          "designer": "jql",
           "purchases": 2,
-          "subscriptions": 6,
-          "roas": 0.33,
-          "ctr": 1.18,
-          "spend": 114.68
+          "subscriptions": 2,
+          "roas": 2.06,
+          "ctr": 2.12,
+          "spend": 20.63
         }
       ],
       "direction_table": [
@@ -1940,20 +1940,6 @@
             },
             {
               "rank": 6,
-              "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
-              "direction": "learning",
-              "theme": "speak",
-              "designer": "gy",
-              "spend": 94.25,
-              "purchases": 3,
-              "subscriptions": 4,
-              "roas": 0.22,
-              "ctr": 1.1,
-              "hook_rate": 18.82,
-              "retention_rate": 5.95
-            },
-            {
-              "rank": 7,
               "material_id": "20260612_growme_EN_9x16_FX-LifeLessons_ZT-jounrey_RS-P1X1R3C3_wxx",
               "direction": "lifelessons",
               "theme": "jounrey",
@@ -1967,21 +1953,21 @@
               "retention_rate": 6.09
             },
             {
-              "rank": 8,
-              "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
-              "direction": "lifelessons",
-              "theme": "opinion",
+              "rank": 7,
+              "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
+              "direction": "learning",
+              "theme": "speak",
               "designer": "gy",
-              "spend": 100.67,
-              "purchases": 2,
-              "subscriptions": 6,
-              "roas": 0.33,
-              "ctr": 1.03,
-              "hook_rate": 15.04,
-              "retention_rate": 5.24
+              "spend": 94.25,
+              "purchases": 3,
+              "subscriptions": 4,
+              "roas": 0.22,
+              "ctr": 1.1,
+              "hook_rate": 18.82,
+              "retention_rate": 5.95
             },
             {
-              "rank": 9,
+              "rank": 8,
               "material_id": "20260609_GrowMe_EN_9x16_FX-Mindset_ZT-waste_RS-P3X1R1C3_gy_jql",
               "direction": "mindset",
               "theme": "waste",
@@ -1995,35 +1981,35 @@
               "retention_rate": 3.3
             },
             {
+              "rank": 9,
+              "material_id": "20260608_GrowMe_EN_9x16_FX-LifeLessons_ZT-opinion_RS-P3X1R1C3_gy",
+              "direction": "lifelessons",
+              "theme": "opinion",
+              "designer": "gy",
+              "spend": 100.67,
+              "purchases": 2,
+              "subscriptions": 6,
+              "roas": 0.33,
+              "ctr": 1.03,
+              "hook_rate": 15.04,
+              "retention_rate": 5.24
+            },
+            {
               "rank": 10,
-              "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
-              "direction": "learning",
-              "theme": "brain",
-              "designer": "wxx",
-              "spend": 126.66,
+              "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-stop_RS-P3X1R1C3_fj_jql",
+              "direction": "selfimprovement",
+              "theme": "stop",
+              "designer": "jql",
+              "spend": 63.11,
               "purchases": 1,
-              "subscriptions": 4,
-              "roas": 0.07,
-              "ctr": 1.65,
-              "hook_rate": 16.53,
-              "retention_rate": 3.3
+              "subscriptions": 1,
+              "roas": 0.39,
+              "ctr": 1.11,
+              "hook_rate": 19.24,
+              "retention_rate": 2.21
             },
             {
               "rank": 11,
-              "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT- read pic_RS-P3X1R1C3_fj",
-              "direction": "learning",
-              "theme": "read pic",
-              "designer": "fj",
-              "spend": 104.22,
-              "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.37,
-              "ctr": 1.88,
-              "hook_rate": 15.36,
-              "retention_rate": 4.87
-            },
-            {
-              "rank": 12,
               "material_id": "20260611_GrowMe_EN_9x16_FX-Mindset_ZT-brain_RS-P3X1R1C3_gy_jql",
               "direction": "mindset",
               "theme": "brain",
@@ -2035,6 +2021,20 @@
               "ctr": 1.58,
               "hook_rate": 16.71,
               "retention_rate": 2.12
+            },
+            {
+              "rank": 12,
+              "material_id": "20260609_GrowMe_EN_9x16_FX-Learning_ZT- read pic_RS-P3X1R1C3_fj",
+              "direction": "learning",
+              "theme": "read pic",
+              "designer": "fj",
+              "spend": 104.22,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.37,
+              "ctr": 1.88,
+              "hook_rate": 15.36,
+              "retention_rate": 4.87
             },
             {
               "rank": 13,
@@ -2052,20 +2052,6 @@
             },
             {
               "rank": 14,
-              "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-stop_RS-P3X1R1C3_fj_jql",
-              "direction": "selfimprovement",
-              "theme": "stop",
-              "designer": "jql",
-              "spend": 63.11,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.39,
-              "ctr": 1.11,
-              "hook_rate": 19.24,
-              "retention_rate": 2.21
-            },
-            {
-              "rank": 15,
               "material_id": "20260608_GrowMe_EN_9x16_FX-SelfImprovement_ZT-consistency_RS-P3X1R1C3_fj_jql",
               "direction": "selfimprovement",
               "theme": "consistency",
@@ -2079,7 +2065,7 @@
               "retention_rate": 1.02
             },
             {
-              "rank": 16,
+              "rank": 15,
               "material_id": "20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS-P3X1R1C3_gy",
               "direction": "lifelessons",
               "theme": "compare",
@@ -2091,6 +2077,20 @@
               "ctr": 1.43,
               "hook_rate": 16.14,
               "retention_rate": 6.07
+            },
+            {
+              "rank": 16,
+              "material_id": "20260610_growme_EN_9x16_FX-learning_ZT-brain_RS-P1X1R3C3_wxx",
+              "direction": "learning",
+              "theme": "brain",
+              "designer": "wxx",
+              "spend": 126.66,
+              "purchases": 1,
+              "subscriptions": 4,
+              "roas": 0.07,
+              "ctr": 1.65,
+              "hook_rate": 16.53,
+              "retention_rate": 3.3
             }
           ],
           "note": "0608周 老方向（常规上新）素材，已计入周度 KPI。"
@@ -2304,17 +2304,6 @@
           "spend": 351.84
         },
         {
-          "material_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-readAI_RS-P3X1R1C3_gy_jql",
-          "direction": "learning",
-          "theme": "readai",
-          "designer": "jql",
-          "purchases": 5,
-          "subscriptions": 11,
-          "roas": 0.35,
-          "ctr": 0.92,
-          "spend": 314.26
-        },
-        {
           "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-language_RS-P3X1R1C3_gy_jql",
           "direction": "learning",
           "theme": "language",
@@ -2326,26 +2315,15 @@
           "spend": 282.35
         },
         {
-          "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
+          "material_id": "20260616_GrowMe_EN_9x16_FX-Learning_ZT-readAI_RS-P3X1R1C3_gy_jql",
           "direction": "learning",
-          "theme": "10mins",
-          "designer": "gy",
-          "purchases": 4,
-          "subscriptions": 6,
-          "roas": 0.34,
-          "ctr": 0.99,
-          "spend": 404.71
-        },
-        {
-          "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-present_RS-P3X1R1C3_gy_jql",
-          "direction": "lifelessons",
-          "theme": "present",
+          "theme": "readai",
           "designer": "jql",
-          "purchases": 4,
-          "subscriptions": 4,
-          "roas": 0.68,
-          "ctr": 1.49,
-          "spend": 99.97
+          "purchases": 5,
+          "subscriptions": 11,
+          "roas": 0.35,
+          "ctr": 0.92,
+          "spend": 314.26
         },
         {
           "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-failureai_RS-P3X1R1C3_gy_jql",
@@ -2359,15 +2337,37 @@
           "spend": 77.9
         },
         {
-          "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_gy_jql",
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-present_RS-P3X1R1C3_gy_jql",
           "direction": "lifelessons",
-          "theme": "peaple",
+          "theme": "present",
+          "designer": "jql",
+          "purchases": 4,
+          "subscriptions": 4,
+          "roas": 0.68,
+          "ctr": 1.49,
+          "spend": 99.97
+        },
+        {
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
+          "direction": "learning",
+          "theme": "10mins",
+          "designer": "gy",
+          "purchases": 4,
+          "subscriptions": 6,
+          "roas": 0.34,
+          "ctr": 0.99,
+          "spend": 404.71
+        },
+        {
+          "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
+          "direction": "mindset",
+          "theme": "gentle1",
           "designer": "jql",
           "purchases": 3,
-          "subscriptions": 8,
-          "roas": 0.33,
-          "ctr": 1.32,
-          "spend": 257.53
+          "subscriptions": 3,
+          "roas": 0.41,
+          "ctr": 1.3,
+          "spend": 141.15
         },
         {
           "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
@@ -2381,15 +2381,15 @@
           "spend": 224.88
         },
         {
-          "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
-          "direction": "mindset",
-          "theme": "gentle1",
+          "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_gy_jql",
+          "direction": "lifelessons",
+          "theme": "peaple",
           "designer": "jql",
           "purchases": 3,
-          "subscriptions": 3,
-          "roas": 0.41,
-          "ctr": 1.3,
-          "spend": 141.15
+          "subscriptions": 8,
+          "roas": 0.33,
+          "ctr": 1.32,
+          "spend": 257.53
         }
       ],
       "direction_table": [
@@ -2796,20 +2796,6 @@
             },
             {
               "rank": 6,
-              "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
-              "direction": "learning",
-              "theme": "10mins",
-              "designer": "gy",
-              "spend": 377.16,
-              "purchases": 4,
-              "subscriptions": 6,
-              "roas": 0.34,
-              "ctr": 1.08,
-              "hook_rate": 14.6,
-              "retention_rate": 7.72
-            },
-            {
-              "rank": 7,
               "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-present_RS-P3X1R1C3_gy_jql",
               "direction": "lifelessons",
               "theme": "present",
@@ -2823,49 +2809,21 @@
               "retention_rate": 3.76
             },
             {
-              "rank": 8,
-              "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_gy_jql",
-              "direction": "lifelessons",
-              "theme": "peaple",
-              "designer": "jql",
-              "spend": 257.53,
-              "purchases": 3,
-              "subscriptions": 8,
-              "roas": 0.33,
-              "ctr": 1.32,
-              "hook_rate": 12.34,
-              "retention_rate": 3.32
-            },
-            {
-              "rank": 9,
-              "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
+              "rank": 7,
+              "material_id": "20260617_GrowMe_EN_9x16_FX-Learning_ZT-10mins_RS-P3X1R1C3_gy",
               "direction": "learning",
-              "theme": "listen",
-              "designer": "jql",
-              "spend": 205.04,
-              "purchases": 3,
-              "subscriptions": 3,
+              "theme": "10mins",
+              "designer": "gy",
+              "spend": 377.16,
+              "purchases": 4,
+              "subscriptions": 6,
               "roas": 0.34,
-              "ctr": 2.01,
-              "hook_rate": 16.04,
-              "retention_rate": 2.63
+              "ctr": 1.08,
+              "hook_rate": 14.6,
+              "retention_rate": 7.72
             },
             {
-              "rank": 10,
-              "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
-              "direction": "mindset",
-              "theme": "gentle1",
-              "designer": "jql",
-              "spend": 83.01,
-              "purchases": 3,
-              "subscriptions": 3,
-              "roas": 0.41,
-              "ctr": 1.12,
-              "hook_rate": 16.14,
-              "retention_rate": 2.82
-            },
-            {
-              "rank": 11,
+              "rank": 8,
               "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-failureai_RS-P3X1R1C3_gy_jql",
               "direction": "lifelessons",
               "theme": "failureai",
@@ -2879,35 +2837,49 @@
               "retention_rate": 2.89
             },
             {
-              "rank": 12,
-              "material_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj",
-              "direction": "test",
-              "theme": "niupizhi_lv1-rain",
-              "designer": "fj",
-              "spend": 113.32,
-              "purchases": 2,
+              "rank": 9,
+              "material_id": "20260617_GrowMe_EN_9x16_FX-Mindset_ZT-gentle1_RS-P3X1R1C3_gy_jql",
+              "direction": "mindset",
+              "theme": "gentle1",
+              "designer": "jql",
+              "spend": 83.01,
+              "purchases": 3,
               "subscriptions": 3,
-              "roas": 0.44,
-              "ctr": 0.95,
-              "hook_rate": 17.95,
-              "retention_rate": 3.1
+              "roas": 0.41,
+              "ctr": 1.12,
+              "hook_rate": 16.14,
+              "retention_rate": 2.82
             },
             {
-              "rank": 13,
-              "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Publicspeaking_RS-P1X1R1C3_HJ_RMG-5219G",
-              "direction": "creative",
-              "theme": "publicspeaking",
-              "designer": "其他",
-              "spend": 68.9,
-              "purchases": 2,
-              "subscriptions": 1,
-              "roas": 0.19,
-              "ctr": 1.48,
-              "hook_rate": 20.89,
-              "retention_rate": 6.36
+              "rank": 10,
+              "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-listen_RS-P3X1R1C3_gy_jql",
+              "direction": "learning",
+              "theme": "listen",
+              "designer": "jql",
+              "spend": 205.04,
+              "purchases": 3,
+              "subscriptions": 3,
+              "roas": 0.34,
+              "ctr": 2.01,
+              "hook_rate": 16.04,
+              "retention_rate": 2.63
             },
             {
-              "rank": 14,
+              "rank": 11,
+              "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-peaple_RS-P3X1R1C3_gy_jql",
+              "direction": "lifelessons",
+              "theme": "peaple",
+              "designer": "jql",
+              "spend": 257.53,
+              "purchases": 3,
+              "subscriptions": 8,
+              "roas": 0.33,
+              "ctr": 1.32,
+              "hook_rate": 12.34,
+              "retention_rate": 3.32
+            },
+            {
+              "rank": 12,
               "material_id": "20260617_GrowMe_EN_9x16_FX-Communication_ZT-powerCommunication_RS-P3X1R1C3_fj",
               "direction": "communication",
               "theme": "powercommunication",
@@ -2921,21 +2893,35 @@
               "retention_rate": 5.51
             },
             {
-              "rank": 15,
-              "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-positive_RS-P3X1R1C3_gy",
-              "direction": "lifelessons",
-              "theme": "positive",
-              "designer": "gy",
-              "spend": 70.89,
-              "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.15,
-              "ctr": 1.52,
-              "hook_rate": 13.36,
-              "retention_rate": 8.92
+              "rank": 13,
+              "material_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj",
+              "direction": "test",
+              "theme": "niupizhi_lv1-rain",
+              "designer": "fj",
+              "spend": 113.32,
+              "purchases": 2,
+              "subscriptions": 3,
+              "roas": 0.44,
+              "ctr": 0.95,
+              "hook_rate": 17.95,
+              "retention_rate": 3.1
             },
             {
-              "rank": 16,
+              "rank": 14,
+              "material_id": "20260616_growme_EN_9x16_FX-Creative_ZT-Publicspeaking_RS-P1X1R1C3_HJ_RMG-5219G",
+              "direction": "creative",
+              "theme": "publicspeaking",
+              "designer": "其他",
+              "spend": 68.9,
+              "purchases": 2,
+              "subscriptions": 1,
+              "roas": 0.19,
+              "ctr": 1.48,
+              "hook_rate": 20.89,
+              "retention_rate": 6.36
+            },
+            {
+              "rank": 15,
               "material_id": "20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-stuck_RS-P3X1R1C3_gy_jql",
               "direction": "lifelessons",
               "theme": "stuck",
@@ -2947,6 +2933,20 @@
               "ctr": 2.19,
               "hook_rate": 16.19,
               "retention_rate": 3.29
+            },
+            {
+              "rank": 16,
+              "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-positive_RS-P3X1R1C3_gy",
+              "direction": "lifelessons",
+              "theme": "positive",
+              "designer": "gy",
+              "spend": 70.89,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.15,
+              "ctr": 1.52,
+              "hook_rate": 13.36,
+              "retention_rate": 8.92
             }
           ],
           "note": "0615周 老方向（常规上新）素材，已计入周度 KPI。"
@@ -3160,17 +3160,6 @@
           "spend": 229.16
         },
         {
-          "material_id": "20260626_GrowMe_EN_9x16_FX-Lifelessons_ZT-respond_RS-P3X1R1C3_gy",
-          "direction": "lifelessons",
-          "theme": "respond",
-          "designer": "gy",
-          "purchases": 6,
-          "subscriptions": 9,
-          "roas": 0.34,
-          "ctr": 1.16,
-          "spend": 274.72
-        },
-        {
           "material_id": "20260625_GrowMe_EN_9x16_FX-Communication_ZT-shy_RS-P3X1R1C3_gy_jql",
           "direction": "communication",
           "theme": "shy",
@@ -3180,6 +3169,17 @@
           "roas": 1.27,
           "ctr": 0.98,
           "spend": 137.67
+        },
+        {
+          "material_id": "20260626_GrowMe_EN_9x16_FX-Lifelessons_ZT-respond_RS-P3X1R1C3_gy",
+          "direction": "lifelessons",
+          "theme": "respond",
+          "designer": "gy",
+          "purchases": 6,
+          "subscriptions": 9,
+          "roas": 0.34,
+          "ctr": 1.16,
+          "spend": 274.72
         },
         {
           "material_id": "20260623_GrowMe_EN_9x16_FX-Learning_ZT-english-2_RS-P3X1R1C3_fj",
@@ -3226,17 +3226,6 @@
           "spend": 154.0
         },
         {
-          "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-5-_RS-P3X1R1C3_gy",
-          "direction": "pic",
-          "theme": "test-5-",
-          "designer": "gy",
-          "purchases": 2,
-          "subscriptions": 1,
-          "roas": 0.28,
-          "ctr": 1.25,
-          "spend": 99.87
-        },
-        {
           "material_id": "20260624_growme_EN_9x16_FX-Readingbook_ZT-poordad_RS-P1X1R3C3_wxx",
           "direction": "readingbook",
           "theme": "poordad",
@@ -3246,6 +3235,17 @@
           "roas": 1.63,
           "ctr": 1.42,
           "spend": 8.92
+        },
+        {
+          "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-5-_RS-P3X1R1C3_gy",
+          "direction": "pic",
+          "theme": "test-5-",
+          "designer": "gy",
+          "purchases": 2,
+          "subscriptions": 1,
+          "roas": 0.28,
+          "ctr": 1.25,
+          "spend": 99.87
         }
       ],
       "direction_table": [
@@ -3609,20 +3609,6 @@
             },
             {
               "rank": 5,
-              "material_id": "20260626_GrowMe_EN_9x16_FX-Lifelessons_ZT-respond_RS-P3X1R1C3_gy",
-              "direction": "lifelessons",
-              "theme": "respond",
-              "designer": "gy",
-              "spend": 274.72,
-              "purchases": 6,
-              "subscriptions": 9,
-              "roas": 0.34,
-              "ctr": 1.16,
-              "hook_rate": 14.76,
-              "retention_rate": 11.93
-            },
-            {
-              "rank": 6,
               "material_id": "20260625_GrowMe_EN_9x16_FX-Communication_ZT-shy_RS-P3X1R1C3_gy_jql",
               "direction": "communication",
               "theme": "shy",
@@ -3634,6 +3620,20 @@
               "ctr": 0.98,
               "hook_rate": 13.26,
               "retention_rate": 4.02
+            },
+            {
+              "rank": 6,
+              "material_id": "20260626_GrowMe_EN_9x16_FX-Lifelessons_ZT-respond_RS-P3X1R1C3_gy",
+              "direction": "lifelessons",
+              "theme": "respond",
+              "designer": "gy",
+              "spend": 274.72,
+              "purchases": 6,
+              "subscriptions": 9,
+              "roas": 0.34,
+              "ctr": 1.16,
+              "hook_rate": 14.76,
+              "retention_rate": 11.93
             },
             {
               "rank": 7,
@@ -3679,62 +3679,6 @@
             },
             {
               "rank": 10,
-              "material_id": "20260622_GrowMe_EN_9x16_FX-Learning_ZT-speaking_RS-P3X1R1C3_gy",
-              "direction": "learning",
-              "theme": "speaking",
-              "designer": "gy",
-              "spend": 121.03,
-              "purchases": 1,
-              "subscriptions": 5,
-              "roas": 0.13,
-              "ctr": 0.98,
-              "hook_rate": 15.32,
-              "retention_rate": 6.13
-            },
-            {
-              "rank": 11,
-              "material_id": "20260625_growme_EN_9x16_FX-SelfImprovement_ZT-grow_RS-P1X1R3C3_wxx",
-              "direction": "selfimprovement",
-              "theme": "grow",
-              "designer": "wxx",
-              "spend": 94.22,
-              "purchases": 1,
-              "subscriptions": 4,
-              "roas": 0.37,
-              "ctr": 1.37,
-              "hook_rate": 16.91,
-              "retention_rate": 3.6
-            },
-            {
-              "rank": 12,
-              "material_id": "20260624_GrowMe_EN_9x16_FX-Learning_ZT-important_RS-P3X1R1C3_gy",
-              "direction": "learning",
-              "theme": "important",
-              "designer": "gy",
-              "spend": 67.64,
-              "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.21,
-              "ctr": 2.08,
-              "hook_rate": 17.9,
-              "retention_rate": 9.29
-            },
-            {
-              "rank": 13,
-              "material_id": "20260625_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
-              "direction": "learning",
-              "theme": "speak",
-              "designer": "gy",
-              "spend": 52.05,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.2,
-              "ctr": 0.94,
-              "hook_rate": 17.19,
-              "retention_rate": 8.79
-            },
-            {
-              "rank": 14,
               "material_id": "20260626_growme_EN_9x16_FX-SelfImprovement_ZT-move_RS-P1X1R3C3_fj",
               "direction": "selfimprovement",
               "theme": "move",
@@ -3748,7 +3692,7 @@
               "retention_rate": 6.2
             },
             {
-              "rank": 15,
+              "rank": 11,
               "material_id": "20260623_GrowMe_EN_9x16_FX-LifeLessons_ZT-explain_RS-P3X1R1C3_gy",
               "direction": "lifelessons",
               "theme": "explain",
@@ -3762,7 +3706,7 @@
               "retention_rate": 10.13
             },
             {
-              "rank": 16,
+              "rank": 12,
               "material_id": "20260625_GrowMe_EN_9x16_FX-Mindset_ZT-forget_RS-P3X1R1C3_gy",
               "direction": "mindset",
               "theme": "forget",
@@ -3774,6 +3718,62 @@
               "ctr": 1.85,
               "hook_rate": 16.97,
               "retention_rate": 6.74
+            },
+            {
+              "rank": 13,
+              "material_id": "20260625_growme_EN_9x16_FX-SelfImprovement_ZT-grow_RS-P1X1R3C3_wxx",
+              "direction": "selfimprovement",
+              "theme": "grow",
+              "designer": "wxx",
+              "spend": 94.22,
+              "purchases": 1,
+              "subscriptions": 4,
+              "roas": 0.37,
+              "ctr": 1.37,
+              "hook_rate": 16.91,
+              "retention_rate": 3.6
+            },
+            {
+              "rank": 14,
+              "material_id": "20260624_GrowMe_EN_9x16_FX-Learning_ZT-important_RS-P3X1R1C3_gy",
+              "direction": "learning",
+              "theme": "important",
+              "designer": "gy",
+              "spend": 67.64,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.21,
+              "ctr": 2.08,
+              "hook_rate": 17.9,
+              "retention_rate": 9.29
+            },
+            {
+              "rank": 15,
+              "material_id": "20260625_GrowMe_EN_9x16_FX-Learning_ZT-speak_RS-P3X1R1C3_gy",
+              "direction": "learning",
+              "theme": "speak",
+              "designer": "gy",
+              "spend": 52.05,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.2,
+              "ctr": 0.94,
+              "hook_rate": 17.19,
+              "retention_rate": 8.79
+            },
+            {
+              "rank": 16,
+              "material_id": "20260622_GrowMe_EN_9x16_FX-Learning_ZT-speaking_RS-P3X1R1C3_gy",
+              "direction": "learning",
+              "theme": "speaking",
+              "designer": "gy",
+              "spend": 121.03,
+              "purchases": 1,
+              "subscriptions": 5,
+              "roas": 0.13,
+              "ctr": 0.98,
+              "hook_rate": 15.32,
+              "retention_rate": 6.13
             }
           ],
           "note": "0622周 老方向（常规上新）素材，已计入周度 KPI。"
@@ -4096,17 +4096,6 @@
           "spend": 30.71
         },
         {
-          "material_id": "20260703_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-niupizhi_LV1-color1_RS-P1X1R3C1_gy",
-          "direction": "EnglishLearners",
-          "theme": "learning",
-          "designer": "gy",
-          "purchases": 1,
-          "subscriptions": 1,
-          "roas": 0.11,
-          "ctr": 1.11,
-          "spend": 111.09
-        },
-        {
           "material_id": "20260702_GrowMe_EN_9x16_FX-Readers_ZT-Learning-habbit_RS-P3X1R1C3_fj",
           "direction": "Readers",
           "theme": "learning",
@@ -4116,6 +4105,17 @@
           "roas": 0.57,
           "ctr": 1.87,
           "spend": 86.02
+        },
+        {
+          "material_id": "20260629_growme_EN_9x16_FX-Overthinkers_ZT-LifeLessons-consistency_RS-P1X1R3C3_wxx",
+          "direction": "Overthinkers",
+          "theme": "lifelessons",
+          "designer": "wxx",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.55,
+          "ctr": 2.02,
+          "spend": 57.11
         }
       ],
       "direction_table": [
@@ -4804,20 +4804,6 @@
             },
             {
               "rank": 2,
-              "material_id": "20260630_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Challenge-habit_RS-P1X1R3C3_wxx",
-              "direction": "SelfGrowth",
-              "theme": "challenge",
-              "designer": "wxx",
-              "spend": 388.32,
-              "purchases": 5,
-              "subscriptions": 6,
-              "roas": 0.31,
-              "ctr": 1.97,
-              "hook_rate": 14.55,
-              "retention_rate": 3.19
-            },
-            {
-              "rank": 3,
               "material_id": "20260701_GrowMe_EN_9x16_FX-SelfGrowth_ZT-lifelessons-old_RS-P1X1R3C3_wxx",
               "direction": "SelfGrowth",
               "theme": "lifelessons",
@@ -4829,6 +4815,20 @@
               "ctr": 2.04,
               "hook_rate": 13.53,
               "retention_rate": 4.21
+            },
+            {
+              "rank": 3,
+              "material_id": "20260630_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Challenge-habit_RS-P1X1R3C3_wxx",
+              "direction": "SelfGrowth",
+              "theme": "challenge",
+              "designer": "wxx",
+              "spend": 388.32,
+              "purchases": 5,
+              "subscriptions": 6,
+              "roas": 0.31,
+              "ctr": 1.97,
+              "hook_rate": 14.55,
+              "retention_rate": 3.19
             },
             {
               "rank": 4,
@@ -4888,17 +4888,17 @@
             },
             {
               "rank": 8,
-              "material_id": "20260703_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-niupizhi_LV1-color1_RS-P1X1R3C1_gy",
-              "direction": "EnglishLearners",
-              "theme": "learning",
-              "designer": "gy",
-              "spend": 75.19,
+              "material_id": "20260702_GrowMe_EN_9x16_FX-Readers_ZT-Book Reading-read_RS-P3X1R1C3_gy_czy",
+              "direction": "Readers",
+              "theme": "book",
+              "designer": "czy",
+              "spend": 28.31,
               "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.11,
-              "ctr": 1.07,
-              "hook_rate": 15.06,
-              "retention_rate": 6.23
+              "subscriptions": 3,
+              "roas": 1.64,
+              "ctr": 0.85,
+              "hook_rate": 16.61,
+              "retention_rate": 5.02
             },
             {
               "rank": 9,
@@ -4930,17 +4930,17 @@
             },
             {
               "rank": 11,
-              "material_id": "20260702_GrowMe_EN_9x16_FX-Readers_ZT-Book Reading-read_RS-P3X1R1C3_gy_czy",
-              "direction": "Readers",
-              "theme": "book",
-              "designer": "czy",
-              "spend": 28.31,
+              "material_id": "20260703_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-niupizhi_LV1-color1_RS-P1X1R3C1_gy",
+              "direction": "EnglishLearners",
+              "theme": "learning",
+              "designer": "gy",
+              "spend": 75.19,
               "purchases": 1,
-              "subscriptions": 3,
-              "roas": 1.64,
-              "ctr": 0.85,
-              "hook_rate": 16.61,
-              "retention_rate": 5.02
+              "subscriptions": 1,
+              "roas": 0.11,
+              "ctr": 1.07,
+              "hook_rate": 15.06,
+              "retention_rate": 6.23
             }
           ],
           "note": "0629周 老方向（常规上新）素材，已计入周度 KPI。"
@@ -5235,17 +5235,6 @@
           "spend": 233.3
         },
         {
-          "material_id": "20260709_GrowMe_EN_9x16_FX-Women_ZT-healing-pic_RS-P1X1R3C3_wxx",
-          "direction": "Women",
-          "theme": "healing",
-          "designer": "wxx",
-          "purchases": 3,
-          "subscriptions": 6,
-          "roas": 0.84,
-          "ctr": 5.12,
-          "spend": 48.18
-        },
-        {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-1_RS-P1X1R3C3_czy",
           "direction": "Students",
           "theme": "learning",
@@ -5257,15 +5246,15 @@
           "spend": 54.84
         },
         {
-          "material_id": "20260707_growme_EN_9x16_FX-Readers_ZT-Atomic-woman_RS-P1X1R3C3_gy",
-          "direction": "Readers",
-          "theme": "atomic",
-          "designer": "gy",
-          "purchases": 2,
-          "subscriptions": 3,
-          "roas": 0.29,
-          "ctr": 0.8,
-          "spend": 149.76
+          "material_id": "20260709_GrowMe_EN_9x16_FX-Women_ZT-healing-pic_RS-P1X1R3C3_wxx",
+          "direction": "Women",
+          "theme": "healing",
+          "designer": "wxx",
+          "purchases": 3,
+          "subscriptions": 6,
+          "roas": 0.84,
+          "ctr": 5.12,
+          "spend": 48.18
         },
         {
           "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-2_RS-P1X1R3C3_wxx",
@@ -5279,17 +5268,6 @@
           "spend": 61.13
         },
         {
-          "material_id": "20260708_GrowMe_EN_9x16_FX-SelfGrowth _ZT- Learning-pic7_RS-P3X1R1C3_fj",
-          "direction": "SelfGrowth",
-          "theme": "learning",
-          "designer": "fj",
-          "purchases": 2,
-          "subscriptions": 1,
-          "roas": 0.21,
-          "ctr": 2.3,
-          "spend": 58.84
-        },
-        {
           "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Action_RS-P1X1R3C3_czy",
           "direction": "SelfGrowth",
           "theme": "action",
@@ -5301,37 +5279,59 @@
           "spend": 54.39
         },
         {
-          "material_id": "20260707_growme_EN_9x16_FX-EnglishReaders_ZT-learning-woman_RS-P1X1R3C3_gy",
-          "direction": "englishreaders",
-          "theme": "learning",
+          "material_id": "20260707_growme_EN_9x16_FX-Readers_ZT-Atomic-woman_RS-P1X1R3C3_gy",
+          "direction": "Readers",
+          "theme": "atomic",
           "designer": "gy",
-          "purchases": 1,
+          "purchases": 2,
           "subscriptions": 3,
-          "roas": 0.39,
-          "ctr": 0.99,
-          "spend": 96.28
+          "roas": 0.29,
+          "ctr": 0.8,
+          "spend": 149.76
         },
         {
-          "material_id": "20260706_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-water_RS-P3X1R1C3_fj",
-          "direction": "EnglishLearners",
+          "material_id": "20260708_GrowMe_EN_9x16_FX-SelfGrowth _ZT- Learning-pic7_RS-P3X1R1C3_fj",
+          "direction": "SelfGrowth",
           "theme": "learning",
           "designer": "fj",
-          "purchases": 1,
-          "subscriptions": 2,
-          "roas": 0.05,
-          "ctr": 0.87,
-          "spend": 155.58
+          "purchases": 2,
+          "subscriptions": 1,
+          "roas": 0.21,
+          "ctr": 2.3,
+          "spend": 58.84
         },
         {
-          "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-1_RS-P1X1R3C3_wxx",
-          "direction": "EnglishLearners",
-          "theme": "vp",
-          "designer": "wxx",
+          "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Finance_RS-P1X1R3C3_czy",
+          "direction": "Professionals",
+          "theme": "finance",
+          "designer": "czy",
           "purchases": 1,
-          "subscriptions": 2,
-          "roas": 0.45,
-          "ctr": 1.07,
-          "spend": 103.08
+          "subscriptions": 1,
+          "roas": 4.83,
+          "ctr": 1.42,
+          "spend": 7.18
+        },
+        {
+          "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-EmotionalHealth_RS-P1X1R3C3_czy",
+          "direction": "SelfGrowth",
+          "theme": "emotionalhealth",
+          "designer": "czy",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 2.06,
+          "ctr": 1.5,
+          "spend": 4.43
+        },
+        {
+          "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
+          "direction": "Students",
+          "theme": "learning",
+          "designer": "czy",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.93,
+          "ctr": 1.11,
+          "spend": 9.79
         }
       ],
       "direction_table": [
@@ -6011,20 +6011,6 @@
             },
             {
               "rank": 2,
-              "material_id": "20260707_growme_EN_9x16_FX-Readers_ZT-Atomic-woman_RS-P1X1R3C3_gy",
-              "direction": "Readers",
-              "theme": "atomic",
-              "designer": "gy",
-              "spend": 149.76,
-              "purchases": 2,
-              "subscriptions": 3,
-              "roas": 0.29,
-              "ctr": 0.8,
-              "hook_rate": 23.34,
-              "retention_rate": 1.48
-            },
-            {
-              "rank": 3,
               "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-2_RS-P1X1R3C3_wxx",
               "direction": "EnglishLearners",
               "theme": "vp",
@@ -6038,18 +6024,32 @@
               "retention_rate": 1.91
             },
             {
+              "rank": 3,
+              "material_id": "20260707_growme_EN_9x16_FX-Readers_ZT-Atomic-woman_RS-P1X1R3C3_gy",
+              "direction": "Readers",
+              "theme": "atomic",
+              "designer": "gy",
+              "spend": 149.76,
+              "purchases": 2,
+              "subscriptions": 3,
+              "roas": 0.29,
+              "ctr": 0.8,
+              "hook_rate": 23.34,
+              "retention_rate": 1.48
+            },
+            {
               "rank": 4,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-water_RS-P3X1R1C3_fj",
+              "material_id": "20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning_RS-P3X1R1C3_fj",
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "fj",
-              "spend": 155.58,
+              "spend": 17.49,
               "purchases": 1,
-              "subscriptions": 2,
-              "roas": 0.05,
-              "ctr": 0.87,
-              "hook_rate": 13.73,
-              "retention_rate": 4.65
+              "subscriptions": 1,
+              "roas": 0.79,
+              "ctr": 0.83,
+              "hook_rate": 16.29,
+              "retention_rate": 38.16
             },
             {
               "rank": 5,
@@ -6095,17 +6095,17 @@
             },
             {
               "rank": 8,
-              "material_id": "20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning_RS-P3X1R1C3_fj",
+              "material_id": "20260706_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-water_RS-P3X1R1C3_fj",
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "fj",
-              "spend": 17.49,
+              "spend": 155.58,
               "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.79,
-              "ctr": 0.83,
-              "hook_rate": 16.29,
-              "retention_rate": 38.16
+              "subscriptions": 2,
+              "roas": 0.05,
+              "ctr": 0.87,
+              "hook_rate": 13.73,
+              "retention_rate": 4.65
             }
           ],
           "note": "0706周 新方向（新形式/数字人等）测试素材，已计入周度 KPI。"
@@ -6180,34 +6180,6 @@
             },
             {
               "rank": 5,
-              "material_id": "20260708_GrowMe_EN_9x16_FX-Readers_ZT-BookReading-3_RS-P1X1R3C3_aitool_czy",
-              "direction": "Readers",
-              "theme": "bookreading",
-              "designer": "czy",
-              "spend": 57.76,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.2,
-              "ctr": 0.66,
-              "hook_rate": 15.6,
-              "retention_rate": 2.79
-            },
-            {
-              "rank": 6,
-              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
-              "direction": "Students",
-              "theme": "learning",
-              "designer": "czy",
-              "spend": 9.79,
-              "purchases": 1,
-              "subscriptions": 1,
-              "roas": 0.93,
-              "ctr": 1.11,
-              "hook_rate": 19.88,
-              "retention_rate": 2.58
-            },
-            {
-              "rank": 7,
               "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Finance_RS-P1X1R3C3_czy",
               "direction": "Professionals",
               "theme": "finance",
@@ -6221,7 +6193,7 @@
               "retention_rate": 3.05
             },
             {
-              "rank": 8,
+              "rank": 6,
               "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-EmotionalHealth_RS-P1X1R3C3_czy",
               "direction": "SelfGrowth",
               "theme": "emotionalhealth",
@@ -6233,6 +6205,34 @@
               "ctr": 1.5,
               "hook_rate": 16.26,
               "retention_rate": 3.85
+            },
+            {
+              "rank": 7,
+              "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
+              "direction": "Students",
+              "theme": "learning",
+              "designer": "czy",
+              "spend": 9.79,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.93,
+              "ctr": 1.11,
+              "hook_rate": 19.88,
+              "retention_rate": 2.58
+            },
+            {
+              "rank": 8,
+              "material_id": "20260708_GrowMe_EN_9x16_FX-Readers_ZT-BookReading-3_RS-P1X1R3C3_aitool_czy",
+              "direction": "Readers",
+              "theme": "bookreading",
+              "designer": "czy",
+              "spend": 57.76,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.2,
+              "ctr": 0.66,
+              "hook_rate": 15.6,
+              "retention_rate": 2.79
             }
           ],
           "note": "0706周 老方向（常规上新）素材，已计入周度 KPI。"

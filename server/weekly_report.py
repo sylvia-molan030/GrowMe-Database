@@ -255,7 +255,7 @@ def _survival_trend(materials: list[dict[str, Any]]) -> dict[str, Any]:
 
 def _good_materials(materials: list[dict[str, Any]], limit: int = 12) -> list[dict[str, Any]]:
     items = [m for m in materials if m["purchases"] >= 1 and m.get("subscriptions", 0) >= 1]
-    items.sort(key=lambda m: (m["purchases"], m.get("subscriptions", 0)), reverse=True)
+    items.sort(key=lambda m: (m["purchases"], m.get("roas", 0), m.get("subscriptions", 0)), reverse=True)
     return [
         {
             "material_id": m["material_id"],

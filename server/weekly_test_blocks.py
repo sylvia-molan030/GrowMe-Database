@@ -49,7 +49,7 @@ def _build_block(records: list[dict[str, Any]], label: str, week_label: str) -> 
         return None
     kpi = _channel_kpi(materials)
     ordered = [m for m in materials if m.get("purchases", 0) >= 1]
-    ordered.sort(key=lambda m: (-m.get("purchases", 0), -m.get("spend", 0)))
+    ordered.sort(key=lambda m: (-m.get("purchases", 0), -m.get("roas", 0), -m.get("spend", 0)))
 
     notes = {
         "老方向": f"{week_label} 老方向（常规上新）素材，已计入周度 KPI。",

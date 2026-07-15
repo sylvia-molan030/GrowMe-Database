@@ -5,7 +5,13 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 from typing import Any
 
-from data_loader import get_recent_weekly_labels, get_weekly_labels, store, WEEKLY_DATA_SCOPES
+from data_loader import (
+    get_recent_weekly_labels,
+    get_recent_new_material_window,
+    cohort_week_label_from_first_seen,
+    get_weekly_labels,
+    store,
+)
 from parser import DESIGNER_CANONICAL, canonical_direction, canonical_theme, primary_theme, _normalize_axis_value
 from cross_rubric import cross_rubric_heatmap_from_materials
 
@@ -136,26 +142,36 @@ def filter_records(
     weekly_only: bool = False,
 ) -> list[dict[str, Any]]:
     target_scope = _resolve_scope(mode, scope)
-    if target_scope == "weekly":
-        records = [r for r in store.records if r.get("data_scope") in WEEKLY_DATA_SCOPES]
-        records = [r for r in records if r.get("channel") == "WW"]
-        recent = set(get_recent_weekly_labels())
-        records = [r for r in records if r.get("week_label") in recent]
+    if target_scope == "weekly" or weekly_only:
+        # 上新素材成效：账户全量成效 + 素材名前缀日期落在最近 2 自然周
+        _, start, end = get_recent_new_material_window()
+        records: list[dict[str, Any]] = []
+        for r in store.records:
+            if r.get("data_scope") != "account":
+                continue
+            fs = r.get("first_seen")
+            if not fs or not start or not end:
+                continue
+            day = str(fs)[:10]
+            if day < start or day > end:
+                continue
+            lab = cohort_week_label_from_first_seen(fs) or r.get("week_label")
+            records.append({**r, "week_label": lab})
     else:
         records = [r for r in store.records if r.get("data_scope") == target_scope]
-    if weekly_only:
-        allowed_weeks = set(get_recent_weekly_labels())
-        records = [r for r in records if r.get("week_label") in allowed_weeks]
     return [r for r in records if _match_filters(r, filters)]
 
 
 def get_filter_options(scope: str = "account") -> dict[str, list[str]]:
     if scope == "weekly":
-        recent = set(get_recent_weekly_labels())
-        records = [
-            r for r in store.records
-            if r.get("data_scope") in WEEKLY_DATA_SCOPES and r.get("week_label") in recent
-        ]
+        _, start, end = get_recent_new_material_window()
+        records = []
+        for r in store.records:
+            if r.get("data_scope") != "account" or not r.get("first_seen"):
+                continue
+            day = str(r["first_seen"])[:10]
+            if start and end and start <= day <= end:
+                records.append(r)
     else:
         records = [r for r in store.records if r.get("data_scope") == scope]
 
@@ -219,17 +235,24 @@ def get_summary(filters: dict[str, str], mode: str = "account") -> dict[str, Any
 def get_data_date_range(scope: str = "account") -> tuple[str | None, str | None]:
     """基于素材名前缀日期（first_seen），而非报告文件日期。"""
     if scope == "weekly":
-        recent = set(get_recent_weekly_labels())
-        scope_filter = lambda r: r.get("data_scope") in WEEKLY_DATA_SCOPES and r.get("week_label") in recent
+        _, start, end = get_recent_new_material_window()
+        if start and end:
+            return start, end
+        dates = sorted(
+            {
+                r.get("first_seen")
+                for r in store.records
+                if r.get("first_seen") and r.get("data_scope") == "account"
+            }
+        )
     else:
-        scope_filter = lambda r: r.get("data_scope") == scope
-    dates = sorted(
-        {
-            r.get("first_seen")
-            for r in store.records
-            if r.get("first_seen") and scope_filter(r)
-        }
-    )
+        dates = sorted(
+            {
+                r.get("first_seen")
+                for r in store.records
+                if r.get("first_seen") and r.get("data_scope") == scope
+            }
+        )
     if not dates:
         return None, None
     return dates[0], dates[-1]

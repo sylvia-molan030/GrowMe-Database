@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# 账户全量数据：仅更新「账户内」栏目，不动周维度
+# 账户全量数据：更新「账户内」栏目，并按素材日期刷新「上新素材成效（近2周）」
 #
 # 更新范围：
-#   ✓ 素材黄金交叉复盘（账户内）
-#   ✓ 智能排行榜（账户内）
-#   ✓ 设计师绩效看板（账户内）
-#   ✓ 核心资产晋级库（账户内）
-#   ✗ 周维度更新（须单独给周度文件，用 update_weekly.sh）
+#   ✓ 素材黄金交叉复盘（账户内 + 上新）
+#   ✓ 智能排行榜（账户内 + 上新）
+#   ✓ 设计师绩效看板（账户内 + 上新）
+#   ✓ 核心资产晋级库（账户内 + 上新）
+#   ✗ 周维度更新页（须单独给周度文件，用 update_weekly.sh）
 #
 # 用法：
 #   ./scripts/update_account.sh ~/Downloads/account_export.csv
@@ -71,8 +71,8 @@ print("── 更新结果 ──")
 print(f"  账户内素材：{len(account_mats)} 条")
 print(f"  周度 Tab（未改动文件）：{' · '.join(labels) or '—'}")
 print("")
-print("  已更新：黄金交叉·账户内 / 排行榜·账户内 / 设计师·账户内 / 资产库·账户内")
-print("  未更新：周维度更新（请用 ./scripts/update_weekly.sh 导入周度文件）")
+print("  已更新：黄金交叉 / 排行榜 / 设计师 / 资产库（账户内 + 上新·全量近2周）")
+print("  未更新：周维度更新页（请用 ./scripts/update_weekly.sh 导入周度文件）")
 PY
 
 if [ "$PUSH" = true ]; then

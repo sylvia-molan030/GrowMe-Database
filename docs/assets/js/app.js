@@ -210,7 +210,7 @@ function updateFilterBadge(state) {
   if (f.direction && f.direction !== '全部') active.push(`FX:${f.direction}`);
   if (f.theme && f.theme !== '全部') active.push(`ZT:${f.theme}`);
   if (f.designer && f.designer !== '全部') active.push(`设计师:${f.designer}`);
-  if (f.mode === 'new') active.push('上新素材(近2周)');
+  if (f.mode === 'new') active.push('上新素材(全量·近2周)');
   if (f.preset && f.preset !== 'all') active.push('日期范围');
   if (active.length) {
     badge.textContent = `筛选: ${active.join(', ')}`;

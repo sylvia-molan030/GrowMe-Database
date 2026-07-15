@@ -13,7 +13,7 @@ SERVER = ROOT / "server"
 sys.path.insert(0, str(SERVER))
 
 import analytics  # noqa: E402
-from data_loader import get_recent_weekly_labels, get_weekly_labels, store, week_sort_key  # noqa: E402
+from data_loader import get_recent_weekly_labels, get_recent_new_material_window, get_weekly_labels, store, week_sort_key  # noqa: E402
 from audience_test_report import AUDIENCE_TESTS, get_audience_test_for_week  # noqa: E402
 from new_direction_report import get_new_direction_report  # noqa: E402
 from parser import AUDIENCE_DIRECTIONS, NEW_SCHEMA_CUTOFF_WEEK, canonical_direction, canonical_theme, primary_theme  # noqa: E402
@@ -186,7 +186,10 @@ def main() -> None:
     print(f"✓ 静态数据已导出: {out}")
     print(f"✓ 周度报告已导出: {weekly_out}")
     print(f"  账户素材: {len(snapshot['materials_account'])} 条")
-    print(f"  周度上新素材: {len(snapshot['materials_weekly'])} 条（最近 {snapshot['meta']['recent_weekly_window']} 周：{' · '.join(snapshot['meta']['recent_weekly_labels'])})")
+    print(f"  上新素材成效: {len(snapshot['materials_weekly'])} 条（全量·按素材日期近 {snapshot['meta']['recent_weekly_window']} 周：{' · '.join(snapshot['meta']['recent_weekly_labels'])}）")
+    window = get_recent_new_material_window()
+    if window[1] and window[2]:
+        print(f"  上新日期窗: {window[1]} → {window[2]}")
     print(f"  周度 Tab: {' · '.join(snapshot['meta']['weekly_labels'])}")
 
 

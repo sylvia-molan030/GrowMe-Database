@@ -188,15 +188,73 @@ def get_weekly_labels() -> list[str]:
     return sorted(labels, key=week_sort_key)
 
 
-# 上新素材成效：仅统计最近 N 个已导入周度 Tab（周维度更新页仍展示全部历史周）
+# 上新素材成效：按账户全量里素材名日期，取最近 N 个自然周（周一为周起点）
 RECENT_WEEKLY_WINDOW = 2
 
 
+def cohort_week_label_from_first_seen(first_seen: str | None) -> str | None:
+    """素材名前缀日期 → 所在自然周标签（该周周一的 MMDD周）。"""
+    if not first_seen or len(str(first_seen)) < 10:
+        return None
+    try:
+        from datetime import datetime, timedelta
+
+        d = datetime.strptime(str(first_seen)[:10], "%Y-%m-%d")
+    except ValueError:
+        return None
+    monday = d - timedelta(days=d.weekday())
+    return f"{monday.month:02d}{monday.day:02d}周"
+
+
+def get_recent_new_material_window(
+    n: int = RECENT_WEEKLY_WINDOW,
+) -> tuple[list[str], str | None, str | None]:
+    """账户全量最新素材日期所在周起，回溯 n 个自然周。
+
+    返回 (周标签列表, first_seen 起, first_seen 止)。
+    """
+    from datetime import datetime, timedelta
+
+    dates = [
+        str(r.get("first_seen"))[:10]
+        for r in store.records
+        if r.get("data_scope") == "account" and r.get("first_seen")
+    ]
+    if not dates:
+        labels = get_weekly_labels()
+        if n > 0 and len(labels) > n:
+            labels = labels[-n:]
+        return labels, None, None
+
+    max_d = datetime.strptime(max(dates), "%Y-%m-%d")
+    latest_monday = max_d - timedelta(days=max_d.weekday())
+    start_monday = latest_monday - timedelta(days=7 * max(n - 1, 0))
+    end_sunday = latest_monday + timedelta(days=6)
+
+    labels: list[str] = []
+    for i in range(max(n - 1, 0), -1, -1):
+        mon = latest_monday - timedelta(days=7 * i)
+        labels.append(f"{mon.month:02d}{mon.day:02d}周")
+
+    return (
+        labels,
+        start_monday.strftime("%Y-%m-%d"),
+        min(max_d, end_sunday).strftime("%Y-%m-%d"),
+    )
+
+
 def get_recent_weekly_labels(n: int = RECENT_WEEKLY_WINDOW) -> list[str]:
-    labels = get_weekly_labels()
-    if n <= 0 or len(labels) <= n:
-        return labels
-    return labels[-n:]
+    """上新素材成效口径：账户全量素材日期最近 n 周。"""
+    labels, _, _ = get_recent_new_material_window(n)
+    return labels
+
+
+def first_seen_in_recent_window(first_seen: str | None, n: int = RECENT_WEEKLY_WINDOW) -> bool:
+    _, start, end = get_recent_new_material_window(n)
+    if not first_seen or not start or not end:
+        return False
+    day = str(first_seen)[:10]
+    return start <= day <= end
 
 
 class DataStore:

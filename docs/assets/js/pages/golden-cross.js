@@ -36,7 +36,7 @@ function kpiCardWithClass(title, value, sub, cls) {
 }
 
 function renderKpis(summary, mode) {
-  const title = mode === 'new' ? '上新素材成效统计（最近 2 周）' : '账户内成效统计';
+  const title = mode === 'new' ? '上新素材成效统计（全量 · 按素材日期近 2 周）' : '账户内成效统计';
   return `
     <div class="section-title">${title}</div>
     <div class="kpi-grid">

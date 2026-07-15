@@ -12,7 +12,7 @@ const TIERS = [
 
 const SCOPE_MODES = [
   { key: 'account', label: '账户内成效', sub: '全部素材（全球+T1 已合并）' },
-  { key: 'weekly', label: '上新素材成效', sub: '最近 2 周上新（随 data_inputs 自动更新）' },
+  { key: 'weekly', label: '上新素材成效', sub: '全量数据 · 按素材日期最近 2 周' },
 ];
 
 function statusTag(status) {
@@ -74,7 +74,7 @@ export async function renderAssetLibrary(container, state) {
 
   const scopeMeta = SCOPE_MODES.find((m) => m.key === scopeMode);
   const subtitle = scopeMode === 'weekly'
-    ? `最近 2 周上新：${weeklyLabels || '暂无'}（全球+T1 已合并）`
+    ? `全量近 2 周（按素材日期）：${weeklyLabels || '暂无'}`
     : scopeMeta.sub;
 
   container.innerHTML = `

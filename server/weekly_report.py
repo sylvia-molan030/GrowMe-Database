@@ -82,19 +82,59 @@ def _account_records_for_week(week_label: str) -> list[dict[str, Any]]:
     return rows
 
 
-def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
-    """返回 (kpi, source)。0713 用周度文件快照；其余周用账户全量生命周期。"""
+def _account_materials_index() -> dict[str, dict[str, Any]]:
+    """账户全量按素材名聚合，供历史周覆盖出单/消耗等生命周期指标。"""
+    rows = [r for r in store.records if r.get("data_scope") == "account"]
+    return {_norm_material_id(m["material_id"]): m for m in _aggregate_materials(rows)}
+
+
+def _overlay_lifecycle_metrics(
+    materials: list[dict[str, Any]],
+    account_by_id: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """用账户全量指标覆盖同名素材的出单/消耗等（保留周度文件上的分类字段）。"""
+    index = account_by_id if account_by_id is not None else _account_materials_index()
+    out: list[dict[str, Any]] = []
+    for m in materials:
+        acc = index.get(_norm_material_id(m.get("material_id", "")))
+        if not acc:
+            out.append(m)
+            continue
+        merged = {**m}
+        for key in (
+            "purchases",
+            "subscriptions",
+            "spend",
+            "impressions",
+            "installs",
+            "roas",
+            "ctr",
+            "hook_rate",
+            "retention_rate",
+        ):
+            if key in acc:
+                merged[key] = acc[key]
+        merged["has_order"] = merged.get("purchases", 0) >= 1
+        out.append(merged)
+    return out
+
+
+def _report_materials_for_week(week_label: str) -> tuple[list[dict[str, Any]], str]:
+    """报告用素材列表：0713 周度快照；其余周账户全量生命周期。"""
     if _uses_snapshot_kpi(week_label):
-        mats = _aggregate_materials(_week_records(week_label, kpi=True))
-        return _channel_kpi(mats), "weekly_files"
+        return _aggregate_materials(_week_records(week_label, kpi=True)), "weekly_files"
 
     account_mats = _aggregate_materials(_account_records_for_week(week_label))
     if account_mats:
-        return _channel_kpi(account_mats), "account_lifecycle"
+        return account_mats, "account_lifecycle"
 
-    # 全量无归属时回退周度文件，避免空 KPI
-    mats = _aggregate_materials(_week_records(week_label, kpi=True))
-    return _channel_kpi(mats), "weekly_files_fallback"
+    return _aggregate_materials(_week_records(week_label, kpi=True)), "weekly_files_fallback"
+
+
+def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
+    """返回 (kpi, source)。0713 用周度文件快照；其余周用账户全量生命周期。"""
+    mats, source = _report_materials_for_week(week_label)
+    return _channel_kpi(mats), source
 
 
 def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -460,15 +500,15 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    # 方向表 / 好素材 / 热力图等仍用当周测试文件；KPI 按口径分流
-    all_materials = _aggregate_materials(_week_records(week, kpi=True))
+    # 0713：周度测试快照；其余周：账户全量生命周期（方向表/好素材/热力图同步）
+    all_materials, materials_source = _report_materials_for_week(week)
     combined_kpi, kpi_source = _kpi_for_week(week)
 
     prev_combined = None
     prev_metrics = None
     if prev:
         prev_combined, _ = _kpi_for_week(prev)
-        prev_materials = _aggregate_materials(_week_records(prev, kpi=True))
+        prev_materials, _ = _report_materials_for_week(prev)
         prev_metrics = _core_metrics(prev_materials)
 
     current_metrics = _core_metrics(all_materials)
@@ -506,6 +546,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "avg_roas": combined_kpi["roas"],
             "wow": wow,
             "kpi_source": kpi_source,
+            "materials_source": materials_source,
         },
         "core_comparison": _comparison_table(current_metrics, prev_metrics),
         "good_materials": good,
@@ -522,7 +563,10 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
     test_blocks: list[dict[str, Any]] = []
     try:
         from weekly_test_blocks import get_weekly_test_blocks
-        test_blocks = get_weekly_test_blocks(week)
+        test_blocks = get_weekly_test_blocks(
+            week,
+            lifecycle=not _uses_snapshot_kpi(week),
+        )
     except ImportError:
         pass
     if test_blocks:

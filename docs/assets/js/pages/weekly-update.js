@@ -144,11 +144,14 @@ function bindTableSort(container, state, report) {
   });
 }
 
-function renderGoodMaterials(items, sort) {
+function renderGoodMaterials(items, sort, kpiSource) {
   const rows = sortRows(items, sort);
+  const hint = kpiSource === 'account_lifecycle'
+    ? '全量生命周期 · 购物 + 订阅双达标 · 点击表头排序'
+    : '购物 + 订阅双达标 · 点击表头排序';
   return `
     <div class="card">
-      <div class="section-title">本周好素材 <span class="muted">（购物 + 订阅双达标 · 点击表头排序）</span></div>
+      <div class="section-title">本周好素材 <span class="muted">（${hint}）</span></div>
       <div class="table-wrap">
         <table data-sort-key="good">
           <thead>
@@ -188,11 +191,14 @@ function formatWeekLabel(label) {
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
-function renderDirectionTable(rows, sort) {
+function renderDirectionTable(rows, sort, kpiSource) {
   const sorted = sortRows(rows, sort, { by: 'purchases', dir: 'desc' });
+  const hint = kpiSource === 'account_lifecycle'
+    ? '全量生命周期 · 点击表头排序'
+    : '点击表头排序';
   return `
     <div class="card">
-      <div class="section-title">各方向标签表现对比 <span class="muted">（点击表头排序）</span></div>
+      <div class="section-title">各方向标签表现对比 <span class="muted">（${hint}）</span></div>
       <div class="table-wrap">
         <table data-sort-key="direction">
           <thead>
@@ -404,8 +410,8 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderKpiSection(report.kpi, report.prev_week)}
     ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`))).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
-    ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction'))}
-    ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good'))}
+    ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction'), report.kpi?.kpi_source)}
+    ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good'), report.kpi?.kpi_source)}
     ${renderAudienceTest(report.audience_test, getTableSort(state, 'audience'))}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>

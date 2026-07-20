@@ -5,7 +5,13 @@ import re
 from typing import Any
 
 from data_loader import store
-from weekly_report import _aggregate_materials, _channel_kpi
+from weekly_report import (
+    _aggregate_materials,
+    _channel_kpi,
+    _overlay_lifecycle_metrics,
+    _account_materials_index,
+)
+
 
 # 展示顺序：新方向 → 老方向 → 图片（仅有数据的板块会输出）
 BLOCK_LABELS = ("新方向", "老方向", "图片")
@@ -42,19 +48,28 @@ def _material_row(m: dict[str, Any], rank: int) -> dict[str, Any]:
     }
 
 
-def _build_block(records: list[dict[str, Any]], label: str, week_label: str) -> dict[str, Any] | None:
+def _build_block(
+    records: list[dict[str, Any]],
+    label: str,
+    week_label: str,
+    *,
+    lifecycle: bool = False,
+    account_by_id: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any] | None:
     materials = _aggregate_materials(records)
-    # 有量：至少有一条测试素材
+    if lifecycle:
+        materials = _overlay_lifecycle_metrics(materials, account_by_id)
     if not materials:
         return None
     kpi = _channel_kpi(materials)
     ordered = [m for m in materials if m.get("purchases", 0) >= 1]
     ordered.sort(key=lambda m: (-m.get("purchases", 0), -m.get("roas", 0), -m.get("spend", 0)))
 
+    metric_note = "出单指标按账户全量生命周期刷新。" if lifecycle else "已计入周度 KPI。"
     notes = {
-        "老方向": f"{week_label} 老方向（常规上新）素材，已计入周度 KPI。",
-        "新方向": f"{week_label} 新方向（新形式/数字人等）测试素材，已计入周度 KPI。",
-        "图片": f"{week_label} 图片素材方向测试，已计入周度 KPI。",
+        "老方向": f"{week_label} 老方向（常规上新）素材，{metric_note}",
+        "新方向": f"{week_label} 新方向（新形式/数字人等）测试素材，{metric_note}",
+        "图片": f"{week_label} 图片素材方向测试，{metric_note}",
     }
 
     return {
@@ -70,11 +85,17 @@ def _build_block(records: list[dict[str, Any]], label: str, week_label: str) -> 
         },
         "materials": [_material_row(m, i + 1) for i, m in enumerate(ordered)],
         "note": notes.get(label, ""),
+        "metric_source": "account_lifecycle" if lifecycle else "weekly_files",
     }
 
 
-def get_weekly_test_blocks(week_label: str) -> list[dict[str, Any]]:
+def get_weekly_test_blocks(
+    week_label: str,
+    *,
+    lifecycle: bool = False,
+) -> list[dict[str, Any]]:
     blocks: list[dict[str, Any]] = []
+    account_by_id = _account_materials_index() if lifecycle else None
 
     weekly_recs = [
         r
@@ -82,7 +103,13 @@ def get_weekly_test_blocks(week_label: str) -> list[dict[str, Any]]:
         if r.get("data_scope") == "weekly" and r.get("week_label") == week_label
     ]
     if weekly_recs:
-        block = _build_block(weekly_recs, "老方向", week_label)
+        block = _build_block(
+            weekly_recs,
+            "老方向",
+            week_label,
+            lifecycle=lifecycle,
+            account_by_id=account_by_id,
+        )
         if block:
             blocks.append(block)
 
@@ -95,7 +122,13 @@ def get_weekly_test_blocks(week_label: str) -> list[dict[str, Any]]:
 
     for label in ("新方向", "图片"):
         if grouped.get(label):
-            block = _build_block(grouped[label], label, week_label)
+            block = _build_block(
+                grouped[label],
+                label,
+                week_label,
+                lifecycle=lifecycle,
+                account_by_id=account_by_id,
+            )
             if block:
                 blocks.append(block)
 

@@ -118,7 +118,10 @@ fi
 
 echo ""
 echo "本地预览: cd $ROOT && ./start.sh → http://localhost:8000/"
-echo "线上地址: https://sylvia-molan030.github.io/GrowMe-Database/"
+echo "线上（任选）："
+echo "  Cloudflare: https://growme-database.pages.dev （推荐，见 上线指南.md）"
+echo "  Netlify:    https://growme-database.netlify.app"
+echo "  GitHub:     https://sylvia-molan030.github.io/GrowMe-Database/"
 if [ "$PUSH" != true ]; then
   echo ""
   echo "同步线上请执行: ./scripts/update_weekly.sh --push"

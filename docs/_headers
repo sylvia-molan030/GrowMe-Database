@@ -1,0 +1,6 @@
+# Cloudflare Pages / Netlify 通用响应头
+/data/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=3600

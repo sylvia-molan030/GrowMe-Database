@@ -1,0 +1,17 @@
+# Netlify：连接 GitHub 仓库后自动读取本配置
+# Dashboard → Add new site → Import an existing project → GrowMe-Database
+
+[build]
+  publish = "docs"
+  # 数据已在本地 scripts/build_static.py 生成并提交，Netlify 无需再构建
+  command = "echo 'Serving pre-built docs/'"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

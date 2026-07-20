@@ -2,24 +2,24 @@
 
 GrowMe 买量素材复盘 BI · 数据看板
 
-**在线地址：** https://sylvia-molan030.github.io/GrowMe-Database/
+## 在线地址
 
-## 开启 GitHub Pages（只需一次）
+| 平台 | 地址 | 说明 |
+|------|------|------|
+| **Cloudflare Pages**（推荐） | `https://growme-database.pages.dev` | 连 GitHub 后自动部署，不依赖 GitHub Actions |
+| Netlify | `https://growme-database.netlify.app` | 备选 |
+| GitHub Pages | https://sylvia-molan030.github.io/GrowMe-Database/ | 备用（Actions 故障时可能卡住） |
 
-1. 打开 https://github.com/sylvia-molan030/GrowMe-Database/settings/pages
-2. **Source**：Deploy from a branch
-3. **Branch**：`main`
-4. **文件夹**：`/docs`（GitHub 只支持 root 或 docs）
-5. Save，等 1～2 分钟
+首次部署见 **[上线指南.md](./上线指南.md)**。
 
 ## 更新数据
 
 ```bash
-cd /Users/sylvia/Desktop/sylvia/growme
-python3 scripts/build_static.py
-git add data_inputs/ docs/data/snapshot.json
-git commit -m "更新数据"
-git push
+# 账户全量
+./scripts/update_account.sh --push ~/Downloads/全数据更新.csv
+
+# 周度上新
+./scripts/update_weekly.sh --push ~/Downloads/0713周老素材.csv ~/Downloads/0713周新创意素材.csv
 ```
 
 ## 本地开发
@@ -28,3 +28,8 @@ git push
 ./start.sh
 # http://localhost:8000
 ```
+
+## 仓库部署配置
+
+- `netlify.toml` — Netlify 发布目录 `docs/`
+- `wrangler.toml` — Cloudflare Pages 发布目录 `docs/`

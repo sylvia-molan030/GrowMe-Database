@@ -1,0 +1,6 @@
+# Cloudflare Pages：Dashboard 连接 GitHub 时可识别本配置
+# 或在本地用 wrangler pages deploy docs --project-name=growme-database
+
+name = "growme-database"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "docs"

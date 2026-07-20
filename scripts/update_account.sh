@@ -90,4 +90,7 @@ if [ "$PUSH" = true ]; then
 fi
 
 echo ""
-echo "本地预览: cd $ROOT && ./start.sh → http://localhost:8000/"
+echo "线上（任选）："
+echo "  Cloudflare: https://growme-database.pages.dev"
+echo "  Netlify:    https://growme-database.netlify.app"
+echo "  GitHub:     https://sylvia-molan030.github.io/GrowMe-Database/"

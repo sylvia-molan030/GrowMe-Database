@@ -48,6 +48,8 @@ def bump_frontend_cache() -> int:
     importmap_block = f"  <script type=\"importmap\">\n{importmap_json}\n  </script>\n"
 
     html = re.sub(r'data-build="\d+"', f'data-build="{version}"', html)
+    if 'data-static=' not in html:
+        html = html.replace("<html ", '<html data-static="true" ', 1)
     html = re.sub(
         r'href="\./assets/css/style\.css(?:\?v=\d+)?"',
         f'href="./assets/css/style.css?v={version}"',

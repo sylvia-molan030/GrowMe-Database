@@ -100,7 +100,7 @@ function renderMeta(meta, scannedAt) {
     账户素材 ${catalog.total_materials || '-'} 条 · 上新素材 ${catalog.weekly_materials || '-'} 条（近2周）<br/>
     全部周度：${(meta.weekly_labels || []).join('、') || '-'}<br/>
     上新范围：${(meta.recent_weekly_labels || []).join('、') || '-'}<br/>
-    数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">≠本地时请 push 后等 1 分钟</span>' : ''}
+    数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">push 后 Cloudflare/Netlify 约 1 分钟同步</span>' : ''}
   `;
 
   const freshEl = document.getElementById('data-freshness');

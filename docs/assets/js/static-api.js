@@ -1,7 +1,9 @@
-/** GitHub Pages 静态模式：从 snapshot.json 读取数据并在前端过滤。 */
+/** 静态托管模式：从 snapshot.json 读取数据并在前端过滤。 */
+
+const STATIC_HOST_RE = /(?:^|\.)((?:github|netlify|pages)\.io|pages\.dev|netlify\.app)$/i;
 
 export const IS_STATIC = document.documentElement.dataset.static === 'true'
-  || window.location.hostname.endsWith('github.io');
+  || STATIC_HOST_RE.test(window.location.hostname);
 
 function buildVer() {
   return document.documentElement.dataset.build || '';
@@ -290,7 +292,7 @@ export function createStaticApi() {
       };
     },
     rescan: async () => {
-      throw new Error('GitHub Pages 静态站点请推送 data_inputs 到 GitHub 触发自动部署');
+      throw new Error('静态站点请 push 到 GitHub，Cloudflare/Netlify 会自动同步 docs/');
     },
     summary: async (filters, mode) => {
       await loadSnapshot();

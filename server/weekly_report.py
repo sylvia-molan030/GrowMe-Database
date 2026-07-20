@@ -5,7 +5,13 @@ from collections import defaultdict
 import re
 from typing import Any
 
-from data_loader import store, week_sort_key, WEEKLY_DATA_SCOPES, WEEKLY_KPI_SCOPES
+from data_loader import (
+    store,
+    week_sort_key,
+    WEEKLY_DATA_SCOPES,
+    WEEKLY_KPI_SCOPES,
+    cohort_week_label_from_first_seen,
+)
 from cross_rubric import cross_rubric_heatmap_from_materials
 from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme, primary_theme
 
@@ -18,11 +24,29 @@ def _is_new_schema_week(week_label: str) -> bool:
 
 
 def sorted_week_labels() -> list[str]:
-    labels = {
+    """周度 Tab：以周度文件周次为主，并并入不早于最早文件周的账户自然周（便于全量刷新出单率）。"""
+    file_labels = {
         r.get("week_label", "")
         for r in store.records
-        if r.get("data_scope") == "weekly" and r.get("week_label")
+        if r.get("data_scope") in ("weekly", "new_direction") and r.get("week_label")
     }
+    file_labels.discard("")
+    labels = set(file_labels)
+    if file_labels:
+        min_key = min(week_sort_key(lab) for lab in file_labels)
+        for r in store.records:
+            if r.get("data_scope") != "account":
+                continue
+            lab = cohort_week_label_from_first_seen(r.get("first_seen"))
+            if lab and week_sort_key(lab) >= min_key:
+                labels.add(lab)
+    else:
+        for r in store.records:
+            if r.get("data_scope") != "account":
+                continue
+            lab = cohort_week_label_from_first_seen(r.get("first_seen"))
+            if lab:
+                labels.add(lab)
     return sorted(labels, key=week_sort_key)
 
 
@@ -49,6 +73,27 @@ def _week_records(
     if channel:
         rows = [r for r in rows if r.get("channel") == channel]
     return rows
+
+
+def _account_records_for_week(week_label: str) -> list[dict[str, Any]]:
+    """账户全量中，素材名前缀日期归入该自然周的记录。"""
+    rows: list[dict[str, Any]] = []
+    for r in store.records:
+        if r.get("data_scope") != "account":
+            continue
+        lab = cohort_week_label_from_first_seen(r.get("first_seen"))
+        if lab != week_label:
+            continue
+        rows.append({**r, "week_label": lab})
+    return rows
+
+
+def _week_kpi_materials(week_label: str) -> list[dict[str, Any]]:
+    """周度 KPI / 出单率：优先用账户全量按日期归属；无全量时回退周度文件。"""
+    account_rows = _account_records_for_week(week_label)
+    if account_rows:
+        return _aggregate_materials(account_rows)
+    return _aggregate_materials(_week_records(week_label, kpi=True))
 
 
 def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -410,13 +455,19 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    all_materials = _aggregate_materials(_week_records(week, kpi=True))
+    account_rows = _account_records_for_week(week)
+    all_materials = (
+        _aggregate_materials(account_rows)
+        if account_rows
+        else _aggregate_materials(_week_records(week, kpi=True))
+    )
     combined_kpi = _channel_kpi(all_materials)
+    kpi_source = "account_by_date" if account_rows else "weekly_files"
 
     prev_combined = None
     prev_metrics = None
     if prev:
-        prev_all = _aggregate_materials(_week_records(prev, kpi=True))
+        prev_all = _week_kpi_materials(prev)
         prev_combined = _channel_kpi(prev_all)
         prev_metrics = _core_metrics(prev_all)
 
@@ -454,6 +505,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "subscriptions": combined_kpi["subscriptions"],
             "avg_roas": combined_kpi["roas"],
             "wow": wow,
+            "kpi_source": kpi_source,
         },
         "core_comparison": _comparison_table(current_metrics, prev_metrics),
         "good_materials": good,

@@ -9,7 +9,6 @@ const pageModules = {
   'asset-library': () => import(`./pages/asset-library.js?v=${V}`),
   'weekly-update': () => import(`./pages/weekly-update.js?v=${V}`),
   rollback: () => import(`./pages/rollback.js?v=${V}`),
-  'review-board': () => import(`./pages/review-board.js?v=${V}`),
 };
 
 const PAGE_TITLES = {
@@ -19,7 +18,6 @@ const PAGE_TITLES = {
   'asset-library': '核心资产晋级库',
   'weekly-update': '周维度更新',
   rollback: '回滚素材',
-  'review-board': '每日决策面板',
 };
 
 const RENDERERS = {
@@ -29,7 +27,6 @@ const RENDERERS = {
   'asset-library': 'renderAssetLibrary',
   'weekly-update': 'renderWeeklyUpdate',
   rollback: 'renderRollback',
-  'review-board': 'renderReviewBoard',
 };
 
 const state = {

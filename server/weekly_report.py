@@ -10,7 +10,6 @@ from data_loader import (
     week_sort_key,
     WEEKLY_DATA_SCOPES,
     WEEKLY_KPI_SCOPES,
-    cohort_week_label_from_first_seen,
 )
 from cross_rubric import cross_rubric_heatmap_from_materials
 from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme, primary_theme
@@ -24,7 +23,7 @@ def _is_new_schema_week(week_label: str) -> bool:
 
 
 def sorted_week_labels() -> list[str]:
-    """周度 Tab 列表来自周度/新方向文件；KPI 出单率另按账户全量日期重算。"""
+    """周度 Tab 列表来自周度/新方向文件；KPI 统一用当周测试快照。"""
     labels = {
         r.get("week_label", "")
         for r in store.records
@@ -60,19 +59,6 @@ def _week_records(
     ]
     if channel:
         rows = [r for r in rows if r.get("channel") == channel]
-    return rows
-
-
-def _account_records_for_week(week_label: str) -> list[dict[str, Any]]:
-    """账户全量中，素材名前缀日期归入该自然周的记录。"""
-    rows: list[dict[str, Any]] = []
-    for r in store.records:
-        if r.get("data_scope") != "account":
-            continue
-        lab = cohort_week_label_from_first_seen(r.get("first_seen"))
-        if lab != week_label:
-            continue
-        rows.append({**r, "week_label": lab})
     return rows
 
 
@@ -134,40 +120,6 @@ def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         g["has_order"] = g["purchases"] >= 1
         result.append(g)
     return result
-
-
-def _four_order_metrics(
-    week_label: str,
-    labels: list[str],
-    file_kpi: dict[str, Any],
-) -> dict[str, Any]:
-    """仅刷新素材量 / 出单素材 / 出单率 / 出单量。
-
-    - 最新一周（如 0713）保持周度文件口径，不做全量覆盖
-    - 历史周：按账户全量·素材日期归属，素材名去重后重算这四项
-    """
-    base = {
-        "total_materials": file_kpi["total_materials"],
-        "ordered_materials": file_kpi["ordered_materials"],
-        "order_rate": file_kpi["order_rate"],
-        "conversions": file_kpi["conversions"],
-    }
-    if not labels or week_label == labels[-1]:
-        return base
-
-    account_mats = _aggregate_materials(_account_records_for_week(week_label))
-    if not account_mats:
-        return base
-
-    total = len(account_mats)
-    ordered = sum(1 for m in account_mats if m.get("purchases", 0) >= 1)
-    conversions = int(sum(m.get("purchases", 0) for m in account_mats))
-    return {
-        "total_materials": total,
-        "ordered_materials": ordered,
-        "conversions": conversions,
-        "order_rate": round(ordered / total * 100, 2) if total else 0,
-    }
 
 
 def _weighted_avg(values: list[float], weights: list[float]) -> float:
@@ -473,18 +425,15 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    # 报告主体（消耗/ROAS/方向表/好素材等）始终用周度文件
+    # 报告主体统一用当周测试快照（周度文件 + 回滚计入当周 KPI）
     all_materials = _aggregate_materials(_week_records(week, kpi=True))
-    file_kpi = _channel_kpi(all_materials)
-    order_four = _four_order_metrics(week, labels, file_kpi)
-    combined_kpi = {**file_kpi, **order_four}
+    combined_kpi = _channel_kpi(all_materials)
 
     prev_combined = None
     prev_metrics = None
     if prev:
         prev_materials = _aggregate_materials(_week_records(prev, kpi=True))
-        prev_file_kpi = _channel_kpi(prev_materials)
-        prev_combined = {**prev_file_kpi, **_four_order_metrics(prev, labels, prev_file_kpi)}
+        prev_combined = _channel_kpi(prev_materials)
         prev_metrics = _core_metrics(prev_materials)
 
     current_metrics = _core_metrics(all_materials)
@@ -513,15 +462,15 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         "kpi": {
             "total_materials": combined_kpi["total_materials"],
             "order_rate": combined_kpi["order_rate"],
-            "ge2_rate": file_kpi["ge2_rate"],
-            "ge5_rate": file_kpi["ge5_rate"],
-            "spend": file_kpi["spend"],
+            "ge2_rate": combined_kpi["ge2_rate"],
+            "ge5_rate": combined_kpi["ge5_rate"],
+            "spend": combined_kpi["spend"],
             "ordered_materials": combined_kpi["ordered_materials"],
             "conversions": combined_kpi["conversions"],
-            "subscriptions": file_kpi["subscriptions"],
-            "avg_roas": file_kpi["roas"],
+            "subscriptions": combined_kpi["subscriptions"],
+            "avg_roas": combined_kpi["roas"],
             "wow": wow,
-            "kpi_source": "weekly_files" if week == labels[-1] else "order_from_account",
+            "kpi_source": "weekly_files",
         },
         "core_comparison": _comparison_table(current_metrics, prev_metrics),
         "good_materials": good,

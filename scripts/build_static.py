@@ -26,15 +26,33 @@ INDEX_HTML = ROOT / "docs" / "index.html"
 IMPORT_RE = re.compile(r"""from\s+['"](\.\.?/[^'"?]+)(?:\?v=\d+)?['"]""")
 
 
+def _resolve_scope_target(scope: str, spec: str) -> str:
+    """把 scope 内的相对 import 解析成相对站点根的路径（供 importmap 地址用）。"""
+    base = scope[2:] if scope.startswith("./") else scope
+    joined = str(Path(base) / spec)
+    parts: list[str] = []
+    for part in Path(joined).parts:
+        if part == "..":
+            if parts:
+                parts.pop()
+        elif part not in (".", ""):
+            parts.append(part)
+    return "./" + "/".join(parts)
+
+
 def _collect_importmap_scopes(version: int) -> dict[str, dict[str, str]]:
-    """为 ES module 子依赖生成 importmap scopes，避免仅 app.js 带版本时子模块仍走浏览器旧缓存。"""
+    """为 ES module 子依赖生成 importmap scopes，避免仅 app.js 带版本时子模块仍走浏览器旧缓存。
+
+    地址必须相对文档根解析（如 ./assets/js/pages/foo.js?v=N），不能写成 ./pages/foo.js?v=N。
+    """
     scopes: dict[str, dict[str, str]] = {}
     for path in sorted(JS_DIR.rglob("*.js")):
         rel_dir = path.parent.relative_to(JS_DIR)
         scope = "./assets/js/" if rel_dir == Path(".") else f"./assets/js/{rel_dir.as_posix()}/"
         for match in IMPORT_RE.finditer(path.read_text(encoding="utf-8")):
             spec = match.group(1)
-            scopes.setdefault(scope, {})[spec] = f"{spec}?v={version}"
+            target = _resolve_scope_target(scope, spec)
+            scopes.setdefault(scope, {})[spec] = f"{target}?v={version}"
     return scopes
 
 

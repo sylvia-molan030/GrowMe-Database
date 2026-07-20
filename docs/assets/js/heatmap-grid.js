@@ -14,43 +14,63 @@ function rateBg(rate) {
   return `rgb(${r},${g},${b})`;
 }
 
+/**
+ * 交叉魔方：表格形式展示 FX × ZT 出单率，文字完整可读。
+ * options.clickable：单元格行带 data-fx/data-zt，便于下钻联动。
+ */
 export function renderCrossRubricHeatmap(heatmap, options = {}) {
   if (!heatmap?.cells?.length) {
     const hint = options.emptyHint || '当前筛选下暂无 0629 起新命名素材（FX 人群 × ZT 主题）';
     return options.hideIfEmpty ? '' : `<div class="card"><div class="empty">${escapeHtml(hint)}</div></div>`;
   }
 
-  const { y_values: yVals, x_values: xVals, cells } = heatmap;
-  const cellMap = new Map(cells.map((c) => [`${c.y}||${c.x}`, c]));
-  const cols = xVals.length + 1;
-  const gridStyle = `grid-template-columns:minmax(88px,1fr) repeat(${xVals.length},minmax(52px,1fr))`;
-
-  let grid = `<div class="heatmap-grid" style="${gridStyle}">`;
-  grid += `<div class="heatmap-corner">${escapeHtml(heatmap.y_label || 'FX')} \\ ${escapeHtml(heatmap.x_label || 'ZT')}</div>`;
-  xVals.forEach((x) => {
-    const short = x.length > 10 ? `${x.slice(0, 9)}…` : x;
-    grid += `<div class="heatmap-col-head" title="${escapeHtml(x)}">${escapeHtml(short)}</div>`;
+  const cells = [...heatmap.cells].sort((a, b) => {
+    if (b.rate !== a.rate) return b.rate - a.rate;
+    return b.total - a.total;
   });
-  yVals.forEach((y) => {
-    grid += `<div class="heatmap-row-head">${escapeHtml(y)}</div>`;
-    xVals.forEach((x) => {
-      const c = cellMap.get(`${y}||${x}`);
-      if (c) {
-        grid += `<div class="heatmap-cell" style="background:${rateBg(c.rate)}" title="${escapeHtml(y)} × ${escapeHtml(x)}: ${c.fraction}">${c.label}<span class="fraction">${c.fraction}</span></div>`;
-      } else {
-        grid += `<div class="heatmap-cell" style="background:#f3f4f6;color:#9ca3af">-</div>`;
-      }
-    });
-  });
-  grid += '</div>';
 
   const subtitle = options.subtitle
-    || '（纵轴 FX- 用户人群 · 横轴 ZT- 主题首词，颜色越深出单率越高 · 仅 0629 起新命名素材）';
+    || (options.clickable
+      ? '（方向 FX × 主题 ZT · 按出单率排序 · 仅 0629 起新命名素材 · 点击行可下钻）'
+      : '（方向 FX × 主题 ZT · 按出单率排序 · 仅 0629 起新命名素材）');
+
+  const clickable = options.clickable === true;
+  const rows = cells.map((c) => {
+    const attrs = clickable
+      ? ` class="cross-table-row" data-fx="${escapeHtml(c.y)}" data-zt="${escapeHtml(c.x)}" role="button" tabindex="0"`
+      : '';
+    return `
+      <tr${attrs}>
+        <td>${escapeHtml(c.y)}</td>
+        <td>${escapeHtml(c.x)}</td>
+        <td>
+          <span class="rate-pill" style="background:${rateBg(c.rate)}">${c.rate}%</span>
+        </td>
+        <td>${c.ordered}/${c.total}</td>
+        <td>${c.total}</td>
+        <td>${c.ordered}</td>
+      </tr>
+    `;
+  }).join('');
 
   return `
-    <div class="card">
-      <div class="section-title">交叉魔方 · 出单率热力图 <span class="muted">${subtitle}</span></div>
-      ${grid}
+    <div class="card" id="cross-rubric-card">
+      <div class="section-title">交叉魔方 · 出单率对照表 <span class="muted">${subtitle}</span></div>
+      <div class="table-wrap">
+        <table class="data-table cross-rate-table">
+          <thead>
+            <tr>
+              <th>${escapeHtml(heatmap.y_label || '方向 (FX-)')}</th>
+              <th>${escapeHtml(heatmap.x_label || '主题 (ZT-)')}</th>
+              <th>出单率</th>
+              <th>出单/总数</th>
+              <th>素材数</th>
+              <th>出单素材</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
     </div>
   `;
 }

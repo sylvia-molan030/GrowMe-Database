@@ -85,6 +85,7 @@ body {
 }
 .kpi-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .kpi-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.kpi-grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .week-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .muted { font-size: 12px; color: var(--muted); font-weight: 400; }
 .wow-badge {
@@ -134,6 +135,82 @@ body {
 }
 .heatmap-cell.selected { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
 .heatmap-cell .fraction { display: block; font-size: 10px; font-weight: 400; opacity: 0.85; }
+
+.cross-rate-table td:nth-child(1),
+.cross-rate-table td:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 220px;
+  line-height: 1.4;
+}
+.cross-table-row { cursor: pointer; }
+.cross-table-row:hover td { background: #f0f7ff; }
+.cross-table-row.selected td {
+  background: var(--primary-soft);
+}
+.rate-pill {
+  display: inline-block;
+  min-width: 64px;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #14532d;
+}
+
+.gene-probe-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 14px;
+}
+.gene-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.gene-field .select { min-width: 160px; }
+.gene-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+.gene-tabs { margin-bottom: 12px; }
+.gene-probe-table td:first-child {
+  white-space: normal;
+  word-break: break-all;
+  max-width: 520px;
+  line-height: 1.45;
+  font-size: 12px;
+}
+.mat-copy {
+  color: var(--primary);
+  cursor: pointer;
+}
+.mat-copy:hover { text-decoration: underline; }
+.mat-copy.copied { color: var(--green); }
+.num-strong { color: var(--red); font-weight: 700; }
+.sortable { cursor: pointer; user-select: none; }
+.gene-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.pager-actions { display: flex; gap: 8px; align-items: center; }
 
 .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
 .search-input { flex: 1; min-width: 240px; }
@@ -196,7 +273,7 @@ th.no-sort { cursor: default; }
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
 @media (max-width: 1100px) {
-  .kpi-grid, .kpi-grid-4, .kpi-grid-3, .summary-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-grid, .kpi-grid-4, .kpi-grid-3, .kpi-grid-6, .summary-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
   .app { flex-direction: column; }

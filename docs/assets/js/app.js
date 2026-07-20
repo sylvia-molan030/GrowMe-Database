@@ -1,12 +1,16 @@
 import { api, initApi, IS_STATIC } from './api.js';
 import { createDefaultFilters, renderFilters } from './filters.js';
-import { renderGoldenCross } from './pages/golden-cross.js';
-import { renderLeaderboard } from './pages/leaderboard.js';
-import { renderDesigner } from './pages/designer.js';
-import { renderAssetLibrary } from './pages/asset-library.js';
-import { renderWeeklyUpdate } from './pages/weekly-update.js';
-import { renderRollback } from './pages/rollback.js';
-import { renderReviewBoard } from './pages/review-board.js';
+
+const V = document.documentElement.dataset.build || '0';
+const pageModules = {
+  'golden-cross': () => import(`./pages/golden-cross.js?v=${V}`),
+  leaderboard: () => import(`./pages/leaderboard.js?v=${V}`),
+  designer: () => import(`./pages/designer.js?v=${V}`),
+  'asset-library': () => import(`./pages/asset-library.js?v=${V}`),
+  'weekly-update': () => import(`./pages/weekly-update.js?v=${V}`),
+  rollback: () => import(`./pages/rollback.js?v=${V}`),
+  'review-board': () => import(`./pages/review-board.js?v=${V}`),
+};
 
 const PAGE_TITLES = {
   'golden-cross': '素材黄金交叉复盘',
@@ -16,6 +20,16 @@ const PAGE_TITLES = {
   'weekly-update': '周维度更新',
   rollback: '回滚素材',
   'review-board': '每日决策面板',
+};
+
+const RENDERERS = {
+  'golden-cross': 'renderGoldenCross',
+  leaderboard: 'renderLeaderboard',
+  designer: 'renderDesigner',
+  'asset-library': 'renderAssetLibrary',
+  'weekly-update': 'renderWeeklyUpdate',
+  rollback: 'renderRollback',
+  'review-board': 'renderReviewBoard',
 };
 
 const state = {
@@ -56,14 +70,15 @@ function loadingSkeletonHtml() {
 async function refreshPage() {
   contentEl.innerHTML = loadingSkeletonHtml();
   try {
-    if (state.view === 'golden-cross') await renderGoldenCross(contentEl, state);
-    else if (state.view === 'leaderboard') await renderLeaderboard(contentEl, state);
-    else if (state.view === 'designer') await renderDesigner(contentEl, state);
-    else if (state.view === 'asset-library') await renderAssetLibrary(contentEl, state);
-    else if (state.view === 'weekly-update') await renderWeeklyUpdate(contentEl, state);
-    else if (state.view === 'rollback') await renderRollback(contentEl, state);
-    else if (state.view === 'review-board') await renderReviewBoard(contentEl, state);
-    else contentEl.innerHTML = '<div class="empty">页面不存在或脚本未更新，请强制刷新（Cmd+Shift+R）</div>';
+    const loader = pageModules[state.view];
+    if (!loader) {
+      contentEl.innerHTML = '<div class="empty">页面不存在或脚本未更新，请强制刷新（Cmd+Shift+R）</div>';
+      return;
+    }
+    const mod = await loader();
+    const fn = mod[RENDERERS[state.view]];
+    if (typeof fn !== 'function') throw new Error(`页面模块缺少 ${RENDERERS[state.view]}`);
+    await fn(contentEl, state);
     updateFilterBadge(state);
   } catch (err) {
     console.error(err);
@@ -79,10 +94,7 @@ function onFiltersChange(next) {
 
 function setView(view) {
   state.view = view;
-  state.tablePage = 1;
-  state.assetPage = 1;
-  titleEl.textContent = PAGE_TITLES[view] || 'GrowMe';
-  filtersEl.style.display = (view === 'weekly-update' || view === 'rollback' || view === 'review-board') ? 'none' : '';
+  titleEl.textContent = PAGE_TITLES[view] || view;
   document.querySelectorAll('.nav-item').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.page === view);
   });
@@ -90,90 +102,68 @@ function setView(view) {
 }
 
 function renderMeta(meta, scannedAt) {
+  if (!metaEl || !meta) return;
   const catalog = meta.catalog || {};
-  const modeLabel = IS_STATIC ? 'GitHub 静态站' : '本地服务';
-  const buildAt = meta.generated_at || meta.scanned_at || scannedAt || '-';
+  const weeks = (meta.weekly_labels || []).join(' · ') || '-';
+  const recent = (meta.recent_weekly_labels || []).join(' · ') || '-';
   metaEl.innerHTML = `
-    ${modeLabel}<br/>
-    已加载 ${meta.files_loaded.length} 个文件<br/>
-    共 ${meta.records} 条原始记录<br/>
-    账户素材 ${catalog.total_materials || '-'} 条 · 上新素材 ${catalog.weekly_materials || '-'} 条（近2周）<br/>
-    全部周度：${(meta.weekly_labels || []).join('、') || '-'}<br/>
-    上新范围：${(meta.recent_weekly_labels || []).join('、') || '-'}<br/>
-    数据快照：${buildAt}${meta.static ? '<br/><span style="color:#6b7280">push 后 Cloudflare/Netlify 约 1 分钟同步</span>' : ''}
+    <div>${IS_STATIC ? 'GitHub 静态站' : '本地 API'}</div>
+    <div>已加载 ${(meta.files_loaded || []).length} 个文件</div>
+    <div>共 ${meta.records || 0} 条原始记录</div>
+    <div>账户素材 ${catalog.total_materials ?? '-'} 条</div>
+    <div>上新素材 ${catalog.weekly_materials ?? '-'} 条（近2周）</div>
+    <div>周度：${weeks}</div>
+    <div>近2周：${recent}</div>
+    <div>数据快照：${scannedAt || meta.scanned_at || meta.generated_at || '-'}</div>
   `;
-
-  const freshEl = document.getElementById('data-freshness');
-  if (freshEl) {
-    const scanned = scannedAt || meta.scanned_at || meta.generated_at;
-    if (scanned) {
-      const d = new Date(String(scanned).replace(' ', 'T'));
-      if (!Number.isNaN(d.getTime())) {
-        const now = new Date();
-        const hoursAgo = Math.max(0, Math.round((now - d) / 3600000));
-        let color = '#16a34a';
-        let text = `数据更新于 ${hoursAgo}h 前`;
-        if (hoursAgo > 48) {
-          color = '#dc2626';
-          text = `⚠️ 数据 ${Math.round(hoursAgo / 24)} 天前`;
-        } else if (hoursAgo > 24) {
-          color = '#ef9f27';
-        }
-        freshEl.style.color = color;
-        freshEl.textContent = text;
-      }
-    }
+  const freshness = document.getElementById('data-freshness');
+  if (freshness) {
+    const t = scannedAt || meta.scanned_at || meta.generated_at;
+    freshness.textContent = t ? `数据更新于 ${t}` : '';
   }
 }
 
-let apiMode = 'live';
+function updateFilterBadge(state) {
+  const badge = document.getElementById('filter-badge');
+  if (!badge) return;
+  const f = state.filters || {};
+  const active = [];
+  if (f.channel && f.channel !== 'ALL' && f.channel !== '全部') active.push(f.channel);
+  if (f.direction && f.direction !== '全部') active.push(`FX:${f.direction}`);
+  if (f.theme && f.theme !== '全部') active.push(`ZT:${f.theme}`);
+  if (f.designer && f.designer !== '全部') active.push(`设计师:${f.designer}`);
+  if (f.mode === 'new') active.push('上新素材(全量·近2周)');
+  if (f.preset && f.preset !== 'all') active.push('日期范围');
+  if (active.length) {
+    badge.textContent = `筛选: ${active.join(', ')}`;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
+}
 
 async function bootstrap() {
-  apiMode = await initApi();
+  await initApi();
   state.meta = await api.meta();
   state.filters = createDefaultFilters(state.meta);
-  renderMeta(state.meta, state.meta.scanned_at);
-
-  const uploadBtn = document.getElementById('btn-upload');
-  const fileInput = document.getElementById('file-upload');
-
-  if (IS_STATIC || apiMode === 'static-fallback') {
-    uploadBtn.textContent = '↑ 上传数据';
-    uploadBtn.title = '线上静态站无法直接上传，请本地 ./start.sh 使用，或 push 到 GitHub';
-  } else {
-    uploadBtn.title = '上传 CSV/Excel：账户全量、周度 WW、回滚素材、数字人';
-  }
-
+  renderMeta(state.meta);
   renderFilters(filtersEl, state, onFiltersChange);
 
   document.querySelectorAll('.nav-item').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      setView(btn.dataset.page);
-      document.querySelector('.sidebar .nav')?.classList.remove('open');
-    });
+    btn.addEventListener('click', () => setView(btn.dataset.page));
   });
 
-  document.getElementById('menu-toggle')?.addEventListener('click', () => {
-    document.querySelector('.sidebar .nav')?.classList.toggle('open');
+  const menuToggle = document.getElementById('menu-toggle');
+  menuToggle?.addEventListener('click', () => {
+    document.querySelector('.sidebar')?.classList.toggle('open');
   });
 
-  uploadBtn.addEventListener('click', () => {
-    if (IS_STATIC || apiMode === 'static-fallback') {
-      alert(
-        'GitHub 线上站无法直接上传文件。\n\n'
-        + '【本地预览上传】\n'
-        + '终端执行 ./start.sh，打开 http://localhost:8000/ 后点「上传数据」\n\n'
-        + '【更新线上】\n'
-        + '本地执行 ./scripts/update_account.sh --push 或 ./scripts/update_weekly.sh --push'
-      );
-      return;
-    }
-    fileInput.click();
-  });
-
-  fileInput.addEventListener('change', async () => {
-    const files = fileInput.files;
-    if (!files?.length) return;
+  const fileInput = document.getElementById('file-upload');
+  const uploadBtn = document.getElementById('btn-upload');
+  uploadBtn?.addEventListener('click', () => fileInput?.click());
+  fileInput?.addEventListener('change', async () => {
+    const files = [...(fileInput.files || [])];
+    if (!files.length) return;
     uploadBtn.classList.add('is-loading');
     uploadBtn.textContent = '上传中…';
     try {
@@ -200,22 +190,3 @@ async function bootstrap() {
 bootstrap().catch((err) => {
   contentEl.innerHTML = `<div class="empty">初始化失败：${err.message}<br/>请确认后端已启动（./start.sh）。</div>`;
 });
-
-function updateFilterBadge(state) {
-  const badge = document.getElementById('filter-badge');
-  if (!badge) return;
-  const f = state.filters || {};
-  const active = [];
-  if (f.channel && f.channel !== 'ALL' && f.channel !== '全部') active.push(f.channel);
-  if (f.direction && f.direction !== '全部') active.push(`FX:${f.direction}`);
-  if (f.theme && f.theme !== '全部') active.push(`ZT:${f.theme}`);
-  if (f.designer && f.designer !== '全部') active.push(`设计师:${f.designer}`);
-  if (f.mode === 'new') active.push('上新素材(全量·近2周)');
-  if (f.preset && f.preset !== 'all') active.push('日期范围');
-  if (active.length) {
-    badge.textContent = `筛选: ${active.join(', ')}`;
-    badge.style.display = 'inline-block';
-  } else {
-    badge.style.display = 'none';
-  }
-}

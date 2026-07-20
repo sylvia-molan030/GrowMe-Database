@@ -1,11 +1,26 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
-import { renderCrossRubricHeatmap } from '../heatmap-grid.js';
+
+const V = document.documentElement.dataset.build || '0';
+
+function escapeHtml(text) {
+  return String(text ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function loadHeatmapGrid() {
+  return import(`../heatmap-grid.js?v=${V}`);
+}
 
 let survivalChart = null;
 let scatterChart = null;
 let decayChart = null;
 let roasHistChart = null;
+
+const NEW_SCHEMA_CUTOFF = '2026-06-29';
 
 function initChart(instance, el) {
   if (instance && instance.getDom && instance.getDom() !== el) {
@@ -25,32 +40,41 @@ function kpiCard(title, value, sub = '') {
   `;
 }
 
-function kpiCardWithClass(title, value, sub, cls) {
-  return `
-    <div class="${cls}">
-      <div class="kpi-title">${title}</div>
-      <div class="kpi-value">${value}</div>
-      ${sub ? `<div class="kpi-sub">${sub}</div>` : ''}
-    </div>
-  `;
-}
-
 function renderKpis(summary, mode) {
   const title = mode === 'new' ? '上新素材成效统计（全量 · 按素材日期近 2 周）' : '账户内成效统计';
   return `
     <div class="section-title">${title}</div>
-    <div class="kpi-grid">
+    <div class="kpi-grid kpi-grid-6">
       ${kpiCard('素材总数', summary.total_materials)}
       ${kpiCard('出单素材数', summary.ordered_materials)}
       ${kpiCard('总出单量', summary.total_orders)}
       ${kpiCard('素材出单率', `${summary.order_rate}%`)}
       ${kpiCard(`2单及以上素材率 (${summary.ge2_count}条)`, `${summary.ge2_rate}%`)}
-      ${kpiCard(`5单及以上素材率 (${summary.ge5_count}条)`, `${summary.ge5_rate}%`)}
-      ${kpiCardWithClass('总消耗', `$${summary.total_spend || 0}`, '', 'card kpi-card kpi-card-spend')}
-      ${kpiCardWithClass('平均CPA', `$${summary.avg_cpa || '-'}`, '', 'card kpi-card kpi-card-spend')}
-      ${kpiCardWithClass('平均ROAS', summary.avg_roas || '-', '', 'card kpi-card kpi-card-spend')}
+      ${kpiCard('平均ROAS', summary.avg_roas ?? '-')}
     </div>
   `;
+}
+
+function primaryTheme(theme) {
+  if (!theme || theme === '未知') return theme || '未知';
+  let t = String(theme).toLowerCase().replace(/_lvl\d+.*$/i, '');
+  const firstSeg = t.split('-')[0];
+  return firstSeg.split(' ')[0] || firstSeg;
+}
+
+function directionNorm(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function matchAudience(direction, fx) {
+  if (!fx) return true;
+  const d = directionNorm(direction);
+  const f = directionNorm(fx);
+  return d === f || d.startsWith(f) || f.startsWith(d);
+}
+
+function usesNewSchema(firstSeen) {
+  return Boolean(firstSeen && firstSeen >= NEW_SCHEMA_CUTOFF);
 }
 
 function renderSurvivalChart(el, trend) {
@@ -212,7 +236,222 @@ function renderROASHistogram(el, items) {
   }, true);
 }
 
+function genePoolMaterials(allRows, fx, zt) {
+  return (allRows || []).filter((m) => {
+    if (!usesNewSchema(m.first_seen)) return false;
+    if (fx && !matchAudience(m.direction, fx)) return false;
+    if (zt && primaryTheme(m.theme) !== String(zt).toLowerCase()) return false;
+    return true;
+  });
+}
+
+function defaultGenePair(heatmap) {
+  if (!heatmap?.cells?.length) return { fx: '', zt: '' };
+  const ordered = [...heatmap.cells].sort((a, b) => {
+    if (b.ordered !== a.ordered) return b.ordered - a.ordered;
+    return b.rate - a.rate;
+  });
+  const pick = ordered.find((c) => c.ordered > 0) || ordered[0];
+  return { fx: pick.y, zt: pick.x };
+}
+
+function renderGeneProbeShell(heatmap, probe) {
+  const dirs = heatmap?.y_values || [];
+  const themes = heatmap?.x_values || [];
+  if (!dirs.length || !themes.length) {
+    return `
+      <div class="card" id="gene-probe-card">
+        <div class="section-title">爆款基因素材探测箱（下钻联动）</div>
+        <div class="empty">当前筛选下暂无可用的方向 × 主题组合</div>
+      </div>
+    `;
+  }
+
+  const fx = probe.fx && dirs.includes(probe.fx) ? probe.fx : dirs[0];
+  const zt = probe.zt && themes.includes(probe.zt) ? probe.zt : themes[0];
+  probe.fx = fx;
+  probe.zt = zt;
+
+  return `
+    <div class="card" id="gene-probe-card">
+      <div class="section-title">爆款基因素材探测箱（下钻联动）</div>
+      <div class="gene-probe-filters">
+        <label class="gene-field">
+          <span>方向 (FX)</span>
+          <select id="gene-fx" class="select">
+            ${dirs.map((d) => `<option value="${escapeHtml(d)}" ${d === fx ? 'selected' : ''}>${escapeHtml(d)}</option>`).join('')}
+          </select>
+        </label>
+        <label class="gene-field">
+          <span>主题 (ZT)</span>
+          <select id="gene-zt" class="select">
+            ${themes.map((t) => `<option value="${escapeHtml(t)}" ${t === zt ? 'selected' : ''}>${escapeHtml(t)}</option>`).join('')}
+          </select>
+        </label>
+        <span class="gene-tag" id="gene-tag">${escapeHtml(fx)} × ${escapeHtml(zt)}</span>
+      </div>
+      <div id="gene-probe-body"></div>
+    </div>
+  `;
+}
+
+function renderGeneProbeBody(container, allRows, probe) {
+  const body = container.querySelector('#gene-probe-body');
+  if (!body) return;
+
+  const pool = genePoolMaterials(allRows, probe.fx, probe.zt);
+  const ordered = pool.filter((m) => (m.purchases || 0) >= 1);
+  const tab = probe.tab === 'all' ? 'all' : 'ordered';
+  const list = tab === 'all' ? pool : ordered;
+
+  const sortKey = probe.sortBy || 'purchases';
+  const sortDir = probe.sortDir || 'desc';
+  const dir = sortDir === 'asc' ? 1 : -1;
+  list.sort((a, b) => ((a[sortKey] || 0) - (b[sortKey] || 0)) * dir);
+
+  const pageSize = probe.pageSize || 10;
+  const pages = Math.max(1, Math.ceil(list.length / pageSize));
+  probe.page = Math.min(Math.max(1, probe.page || 1), pages);
+  const start = (probe.page - 1) * pageSize;
+  const pageRows = list.slice(start, start + pageSize);
+
+  const sortMark = (key) => {
+    if (probe.sortBy !== key) return '';
+    return probe.sortDir === 'asc' ? ' ↑' : ' ↓';
+  };
+
+  body.innerHTML = `
+    <div class="tabs gene-tabs">
+      <button class="tab ${tab === 'ordered' ? 'active' : ''}" data-gene-tab="ordered">出单素材 (${ordered.length})</button>
+      <button class="tab ${tab === 'all' ? 'active' : ''}" data-gene-tab="all">全部素材 (${pool.length})</button>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table gene-probe-table">
+        <thead>
+          <tr>
+            <th>标准素材ID（点击复制）</th>
+            <th>首次上线日</th>
+            <th class="sortable" data-sort="purchases">总出单量${sortMark('purchases')}</th>
+            <th class="sortable" data-sort="ctr">综合 CTR${sortMark('ctr')}</th>
+            <th class="sortable" data-sort="roas">综合 ROAS${sortMark('roas')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${pageRows.map((m) => `
+            <tr>
+              <td><span class="mat-copy" data-copy="${escapeHtml(m.material_id)}" title="点击复制">${escapeHtml(m.material_id)}</span></td>
+              <td>${escapeHtml(m.first_seen || '-')}</td>
+              <td class="num-strong">${Math.round(m.purchases || 0)}</td>
+              <td>${Number(m.ctr || 0).toFixed(2)}%</td>
+              <td>${Number(m.roas || 0).toFixed(2)}</td>
+            </tr>
+          `).join('') || `<tr><td colspan="5" class="empty">该组合下暂无素材</td></tr>`}
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination gene-pager">
+      <span>共 ${list.length} 条 · 第 ${probe.page} / ${pages} 页</span>
+      <div class="pager-actions">
+        <button class="btn" id="gene-prev" ${probe.page <= 1 ? 'disabled' : ''}>上一页</button>
+        <button class="btn" id="gene-next" ${probe.page >= pages ? 'disabled' : ''}>下一页</button>
+        <select class="select" id="gene-page-size">
+          ${[10, 20, 50].map((n) => `<option value="${n}" ${pageSize === n ? 'selected' : ''}>${n} 条/页</option>`).join('')}
+        </select>
+      </div>
+    </div>
+  `;
+
+  body.querySelectorAll('[data-gene-tab]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      probe.tab = btn.dataset.geneTab;
+      probe.page = 1;
+      renderGeneProbeBody(container, allRows, probe);
+    });
+  });
+  body.querySelectorAll('[data-sort]').forEach((th) => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      if (probe.sortBy === key) {
+        probe.sortDir = probe.sortDir === 'desc' ? 'asc' : 'desc';
+      } else {
+        probe.sortBy = key;
+        probe.sortDir = 'desc';
+      }
+      renderGeneProbeBody(container, allRows, probe);
+    });
+  });
+  body.querySelector('#gene-prev')?.addEventListener('click', () => {
+    probe.page = Math.max(1, probe.page - 1);
+    renderGeneProbeBody(container, allRows, probe);
+  });
+  body.querySelector('#gene-next')?.addEventListener('click', () => {
+    probe.page += 1;
+    renderGeneProbeBody(container, allRows, probe);
+  });
+  body.querySelector('#gene-page-size')?.addEventListener('change', (e) => {
+    probe.pageSize = Number(e.target.value);
+    probe.page = 1;
+    renderGeneProbeBody(container, allRows, probe);
+  });
+  body.querySelectorAll('[data-copy]').forEach((el) => {
+    el.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(el.dataset.copy);
+        el.classList.add('copied');
+        setTimeout(() => el.classList.remove('copied'), 800);
+      } catch {
+        /* ignore */
+      }
+    });
+  });
+}
+
+function bindGeneProbe(container, heatmap, allRows, probe) {
+  const sync = () => {
+    const tag = container.querySelector('#gene-tag');
+    if (tag) tag.textContent = `${probe.fx} × ${probe.zt}`;
+    const fxSel = container.querySelector('#gene-fx');
+    const ztSel = container.querySelector('#gene-zt');
+    if (fxSel) fxSel.value = probe.fx;
+    if (ztSel) ztSel.value = probe.zt;
+    container.querySelectorAll('.cross-table-row').forEach((tr) => {
+      tr.classList.toggle('selected', tr.dataset.fx === probe.fx && tr.dataset.zt === probe.zt);
+    });
+    renderGeneProbeBody(container, allRows, probe);
+  };
+
+  container.querySelector('#gene-fx')?.addEventListener('change', (e) => {
+    probe.fx = e.target.value;
+    probe.page = 1;
+    sync();
+  });
+  container.querySelector('#gene-zt')?.addEventListener('change', (e) => {
+    probe.zt = e.target.value;
+    probe.page = 1;
+    sync();
+  });
+  container.querySelectorAll('.cross-table-row').forEach((tr) => {
+    const go = () => {
+      probe.fx = tr.dataset.fx;
+      probe.zt = tr.dataset.zt;
+      probe.page = 1;
+      probe.tab = 'ordered';
+      sync();
+      container.querySelector('#gene-probe-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    tr.addEventListener('click', go);
+    tr.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        go();
+      }
+    });
+  });
+  sync();
+}
+
 export async function renderGoldenCross(container, state) {
+  const { renderCrossRubricHeatmap } = await loadHeatmapGrid();
   const q = queryFilters(state.filters);
   const [summary, trend, materialList, crossHeatmap] = await Promise.all([
     api.summary(q, state.filters.mode),
@@ -221,13 +460,36 @@ export async function renderGoldenCross(container, state) {
     api.crossRubricHeatmap(q, state.filters.mode),
   ]);
 
+  if (!state.geneProbe) {
+    const def = defaultGenePair(crossHeatmap);
+    state.geneProbe = {
+      fx: def.fx,
+      zt: def.zt,
+      tab: 'ordered',
+      page: 1,
+      pageSize: 10,
+      sortBy: 'purchases',
+      sortDir: 'desc',
+    };
+  } else if (crossHeatmap?.y_values?.length) {
+    if (!crossHeatmap.y_values.includes(state.geneProbe.fx)
+      || !crossHeatmap.x_values.includes(state.geneProbe.zt)) {
+      const def = defaultGenePair(crossHeatmap);
+      state.geneProbe.fx = def.fx;
+      state.geneProbe.zt = def.zt;
+    }
+  }
+
+  const allRows = materialList?.rows || [];
+
   container.innerHTML = `
     ${renderKpis(summary, state.filters.mode)}
     <div class="card">
       <div class="section-title">First-Seen 成活趋势图 <span style="font-size:12px;color:#6b7280;font-weight:400">（按素材名前缀日期，非报告日期）</span></div>
       <div id="survival-chart" class="chart"></div>
     </div>
-    ${renderCrossRubricHeatmap(crossHeatmap, { hideIfEmpty: true })}
+    ${renderCrossRubricHeatmap(crossHeatmap, { hideIfEmpty: true, clickable: true })}
+    ${renderGeneProbeShell(crossHeatmap, state.geneProbe)}
     <div class="card">
       <div class="section-title">素材效率四象限 <span style="font-size:12px;color:#6b7280;font-weight:400">（气泡 = 出单量，颜色 = ROAS）</span></div>
       <div id="scatter-chart" class="chart" style="height:420px"></div>
@@ -243,11 +505,15 @@ export async function renderGoldenCross(container, state) {
   `;
 
   renderSurvivalChart(container.querySelector('#survival-chart'), trend);
-  if (materialList?.rows) {
-    renderScatterChart(container.querySelector('#scatter-chart'), materialList.rows);
-    renderDecayChart(container.querySelector('#decay-chart'), materialList.rows);
-    renderROASHistogram(container.querySelector('#roas-hist-chart'), materialList.rows);
+  if (allRows.length) {
+    renderScatterChart(container.querySelector('#scatter-chart'), allRows);
+    renderDecayChart(container.querySelector('#decay-chart'), allRows);
+    renderROASHistogram(container.querySelector('#roas-hist-chart'), allRows);
   }
+  if (crossHeatmap?.cells?.length) {
+    bindGeneProbe(container, crossHeatmap, allRows, state.geneProbe);
+  }
+
   window.addEventListener('resize', () => {
     survivalChart && survivalChart.resize();
     scatterChart && scatterChart.resize();

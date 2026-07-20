@@ -1,5 +1,18 @@
 import { api } from '../api.js';
-import { renderCrossRubricHeatmap, escapeHtml } from '../heatmap-grid.js';
+
+const V = document.documentElement.dataset.build || '0';
+
+function escapeHtml(text) {
+  return String(text ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function loadHeatmapGrid() {
+  return import(`../heatmap-grid.js?v=${V}`);
+}
 
 let survivalChart = null;
 
@@ -395,6 +408,7 @@ function sortMaterialTestBlocks(report) {
 }
 
 export async function renderWeeklyUpdate(container, state) {
+  const { renderCrossRubricHeatmap } = await loadHeatmapGrid();
   const week = state.weeklyWeek || state.meta?.weekly_labels?.slice(-1)[0];
   let data;
   try {

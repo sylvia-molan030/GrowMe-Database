@@ -67,51 +67,13 @@ function renderKpiSection(kpi, prevWeek) {
   const hasWow = Boolean(prevWeek);
 
   return `
-    <div class="section-title">周度 KPI（WW 全球）${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
-    <div class="kpi-grid kpi-grid-4">
-      ${kpiCard('WW 消耗', `$${fmt(kpi.spend)}`, hasWow ? wow.spend : null)}
+    <div class="section-title">周度 KPI${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
+    <div class="kpi-grid">
       ${kpiCard('总素材量', `${kpi.total_materials} 条`, hasWow ? wow.total_materials : null)}
-      ${kpiCard('出单素材数', kpi.ordered_materials, hasWow ? wow.ordered_materials : null, '有购物即计入')}
+      ${kpiCard('出单素材数', kpi.ordered_materials, hasWow ? wow.ordered_materials : null)}
       ${kpiCard('总出单量', kpi.conversions, hasWow ? wow.conversions : null)}
-      ${kpiCard('WW 出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
-      ${kpiCard('≥2 单素材率', `${kpi.ge2_rate}%`, hasWow ? wow.ge2_rate : null)}
-      ${kpiCard('≥5 单素材率', `${kpi.ge5_rate}%`, hasWow ? wow.ge5_rate : null)}
+      ${kpiCard('出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
       ${kpiCard('平均 ROAS', kpi.avg_roas ?? '-', hasWow ? wow.avg_roas : null)}
-    </div>
-  `;
-}
-
-function renderComparisonTable(rows, prevWeek) {
-  if (!rows?.length) return '';
-  return `
-    <div class="card">
-      <div class="section-title">核心指标对照${prevWeek ? ` <span class="muted">（对比 ${formatWeekLabel(prevWeek)}）</span>` : ''}</div>
-      <div class="table-wrap">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th class="no-sort">指标</th><th class="no-sort">本周</th><th class="no-sort">上周</th><th class="no-sort">环比</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${rows.map((r) => {
-              const unit = r.unit || '';
-              const cur = r.current === null || r.current === undefined ? '-' : `${r.current}${unit}`;
-              const prev = r.previous === null || r.previous === undefined ? '-' : `${r.previous}${unit}`;
-              const wow = r.wow;
-              let wowText = '-';
-              if (wow) {
-                const arrow = wow.direction === 'up' ? '↑' : wow.direction === 'down' ? '↓' : '→';
-                const pct = wow.pct !== null && wow.pct !== undefined ? ` ${Math.abs(wow.pct)}%` : '';
-                wowText = `${arrow}${pct}`;
-              }
-              const invert = r.key === 'empty_spend' || r.key === 'cpi' || r.key === 'cpm';
-              const wowCls = wow ? (invert ? (wow.direction === 'down' ? 'text-green' : wow.direction === 'up' ? 'text-red' : '') : (wow.direction === 'up' ? 'text-green' : wow.direction === 'down' ? 'text-red' : '')) : '';
-              return `<tr><td>${r.label}</td><td>${cur}</td><td>${prev}</td><td class="${wowCls}">${wowText}</td></tr>`;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
     </div>
   `;
 }
@@ -435,7 +397,6 @@ export async function renderWeeklyUpdate(container, state) {
     </div>
     ${renderSummary(report.kpi, report.prev_week)}
     ${renderKpiSection(report.kpi, report.prev_week)}
-    ${renderComparisonTable(report.core_comparison, report.prev_week)}
     ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`))).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
     ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction'))}

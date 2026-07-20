@@ -24,29 +24,13 @@ def _is_new_schema_week(week_label: str) -> bool:
 
 
 def sorted_week_labels() -> list[str]:
-    """周度 Tab：以周度文件周次为主，并并入不早于最早文件周的账户自然周（便于全量刷新出单率）。"""
-    file_labels = {
+    """周度 Tab 列表来自周度/新方向文件；KPI 出单率另按账户全量日期重算。"""
+    labels = {
         r.get("week_label", "")
         for r in store.records
         if r.get("data_scope") in ("weekly", "new_direction") and r.get("week_label")
     }
-    file_labels.discard("")
-    labels = set(file_labels)
-    if file_labels:
-        min_key = min(week_sort_key(lab) for lab in file_labels)
-        for r in store.records:
-            if r.get("data_scope") != "account":
-                continue
-            lab = cohort_week_label_from_first_seen(r.get("first_seen"))
-            if lab and week_sort_key(lab) >= min_key:
-                labels.add(lab)
-    else:
-        for r in store.records:
-            if r.get("data_scope") != "account":
-                continue
-            lab = cohort_week_label_from_first_seen(r.get("first_seen"))
-            if lab:
-                labels.add(lab)
+    labels.discard("")
     return sorted(labels, key=week_sort_key)
 
 

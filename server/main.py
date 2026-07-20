@@ -140,7 +140,7 @@ def meta() -> dict[str, Any]:
             "Professionals", "Women", "Students", "Readers",
             "SelfGrowth", "EnglishLearners", "FinanceSeekers", "Overthinkers",
         ],
-        "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "其他"],
+        "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "cty", "其他"],
         "filter_options": analytics.get_filter_options("account"),
         "weekly_filter_options": analytics.get_filter_options("weekly"),
         "channel_labels": {"T1": "T1（美国等）", "WW": "WW（全球）"},

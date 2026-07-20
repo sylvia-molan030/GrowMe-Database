@@ -65,8 +65,8 @@ SIZE_RE = re.compile(r"^\d+x\d+$", re.IGNORECASE)
 LANG_RE = re.compile(r"^[A-Za-z]{2}$")
 RMG_RE = re.compile(r"RMG-([A-Z0-9]+)", re.IGNORECASE)
 
-# 设计师：gy / wxx / fj / jql / 095KB / pingme / jpl / czy（jql、czy 独立统计）
-DESIGNER_CANONICAL = ("gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy")
+# 设计师：gy / wxx / fj / jql / 095KB / pingme / jpl / czy / cty（jql、czy、cty 独立统计）
+DESIGNER_CANONICAL = ("gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "cty")
 
 # 0629周起：FX- 为用户人群方向
 NEW_SCHEMA_CUTOFF_WEEK = "0629周"
@@ -180,6 +180,9 @@ def normalize_designer(raw: str, material_id: str = "") -> str:
     # czy 优先：素材名含 gy_czy 或 _czy 则单独计入 czy，不算到 gy
     if low == "czy" or "_czy" in mid:
         return "czy"
+    # cty：如 _aitool_cty / _cty
+    if low == "cty" or re.search(r"(^|_)cty($|_)", mid):
+        return "cty"
 
     if low in ("gy", "gy.video", "gy.jpg"):
         return "gy"
@@ -246,6 +249,8 @@ def _parse_designer(tail: str) -> tuple[str, str, str]:
         return "jql", "", ""
     if any(p.lower() == "czy" for p in parts):
         return "czy", "", ""
+    if any(p.lower() == "cty" for p in parts):
+        return "cty", "", ""
 
     designer = parts[0]
     variant = "_".join(parts[1:]).strip() if len(parts) > 1 else ""

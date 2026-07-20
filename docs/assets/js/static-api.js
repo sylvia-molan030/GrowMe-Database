@@ -225,7 +225,7 @@ function designerStats(items) {
     if (!by[d]) by[d] = [];
     by[d].push(m);
   });
-  const order = ['gy', 'wxx', 'fj', 'jql', '095KB', 'pingme', 'jpl', 'czy', '其他'];
+  const order = ['gy', 'wxx', 'fj', 'jql', '095KB', 'pingme', 'jpl', 'czy', 'cty', '其他'];
   return Object.entries(by)
     .map(([designer, list]) => {
       const ordered = list.filter((m) => m.purchases >= 1);

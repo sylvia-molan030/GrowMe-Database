@@ -24,17 +24,17 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 56,
-        "order_rate": 5.36,
-        "ge2_rate": 5.36,
-        "ge5_rate": 1.79,
-        "spend": 1837.86,
-        "ordered_materials": 3,
-        "conversions": 74,
-        "subscriptions": 106,
-        "avg_roas": 0.88,
+        "total_materials": 85,
+        "order_rate": 23.53,
+        "ge2_rate": 20.0,
+        "ge5_rate": 10.59,
+        "spend": 93886.31,
+        "ordered_materials": 20,
+        "conversions": 2449,
+        "subscriptions": 4697,
+        "avg_roas": 0.72,
         "wow": {},
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 56,
           "new_creative": 0,
@@ -296,7 +296,7 @@
       },
       "insights": [
         "【老方向】测试 56 条，出单 74 单，出单率 5.36%。",
-        "【素材测出率】0525周 上新 56 条，出单率 5.36%，出单素材 3 条。",
+        "【素材测出率】0525周 上新 85 条，出单率 23.53%，出单素材 20 条。",
         "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0。",
         "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 68 · 订阅 97 · ROAS 1.08 · CTR 1.46% · 花费 $1254.0，具备放量验证价值。",
         "【钩子最优素材】20260526_growme_EN_9x16_FX-test_ZT-add_RS-P1X1R3C3_w…：3秒播放率 77.78%，购物 0 · CTR 1.46% · 花费 $3.0。",
@@ -377,63 +377,63 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 105,
-        "order_rate": 19.05,
-        "ge2_rate": 9.52,
-        "ge5_rate": 3.81,
-        "spend": 3483.75,
-        "ordered_materials": 20,
-        "conversions": 64,
-        "subscriptions": 135,
-        "avg_roas": 0.35,
+        "total_materials": 100,
+        "order_rate": 26.0,
+        "ge2_rate": 19.0,
+        "ge5_rate": 10.0,
+        "spend": 42089.17,
+        "ordered_materials": 26,
+        "conversions": 883,
+        "subscriptions": 1762,
+        "avg_roas": 0.52,
         "wow": {
           "total_materials": {
-            "delta": 49.0,
-            "pct": 87.5,
+            "delta": 15.0,
+            "pct": 17.6,
             "direction": "up"
           },
           "order_rate": {
-            "delta": 13.69,
-            "pct": 255.4,
+            "delta": 2.47,
+            "pct": 10.5,
             "direction": "up"
           },
           "ge2_rate": {
-            "delta": 4.16,
-            "pct": 77.6,
-            "direction": "up"
+            "delta": -1.0,
+            "pct": -5.0,
+            "direction": "down"
           },
           "ge5_rate": {
-            "delta": 2.02,
-            "pct": 112.8,
-            "direction": "up"
+            "delta": -0.59,
+            "pct": -5.6,
+            "direction": "down"
           },
           "spend": {
-            "delta": 1645.89,
-            "pct": 89.6,
-            "direction": "up"
+            "delta": -51797.14,
+            "pct": -55.2,
+            "direction": "down"
           },
           "ordered_materials": {
-            "delta": 17.0,
-            "pct": 566.7,
+            "delta": 6.0,
+            "pct": 30.0,
             "direction": "up"
           },
           "conversions": {
-            "delta": -10.0,
-            "pct": -13.5,
+            "delta": -1566.0,
+            "pct": -63.9,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": 29.0,
-            "pct": 27.4,
-            "direction": "up"
+            "delta": -2935.0,
+            "pct": -62.5,
+            "direction": "down"
           },
           "avg_roas": {
-            "delta": -0.53,
-            "pct": -60.2,
+            "delta": -0.2,
+            "pct": -27.8,
             "direction": "down"
           }
         },
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 105,
           "new_creative": 0,
@@ -941,7 +941,7 @@
       },
       "insights": [
         "【老方向】测试 105 条，出单 61 单，出单率 19.05%。",
-        "【素材测出率】0601周 上新 105 条，出单率 19.05%（较 0525周 ↑13.7pp），出单素材 20 条（较上周 ↑17）。上周出单率 5.36%，出单素材 3 条。",
+        "【素材测出率】0601周 上新 100 条，出单率 26.0%（较 0525周 ↑2.5pp），出单素材 26 条（较上周 ↑6）。上周出单率 23.53%，出单素材 20 条。",
         "【本周最强素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（learning / gy）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0。",
         "【高转化信号素材】20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X…（购物+订阅双达标）：购物 17 · 订阅 40 · ROAS 0.55 · CTR 2.13% · 花费 $583.0，具备放量验证价值。",
         "【钩子最优素材】20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-…：3秒播放率 42.03%，购物 0 · CTR 0.62% · 花费 $1.0。",
@@ -1260,63 +1260,63 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 111,
-        "order_rate": 15.32,
-        "ge2_rate": 11.71,
-        "ge5_rate": 7.21,
-        "spend": 10476.88,
-        "ordered_materials": 17,
-        "conversions": 192,
-        "subscriptions": 370,
-        "avg_roas": 0.38,
+        "total_materials": 118,
+        "order_rate": 16.1,
+        "ge2_rate": 11.86,
+        "ge5_rate": 6.78,
+        "spend": 15813.97,
+        "ordered_materials": 19,
+        "conversions": 306,
+        "subscriptions": 552,
+        "avg_roas": 0.63,
         "wow": {
           "total_materials": {
-            "delta": 6.0,
-            "pct": 5.7,
+            "delta": 18.0,
+            "pct": 18.0,
             "direction": "up"
           },
           "order_rate": {
-            "delta": -3.73,
-            "pct": -19.6,
+            "delta": -9.9,
+            "pct": -38.1,
             "direction": "down"
           },
           "ge2_rate": {
-            "delta": 2.19,
-            "pct": 23.0,
-            "direction": "up"
+            "delta": -7.14,
+            "pct": -37.6,
+            "direction": "down"
           },
           "ge5_rate": {
-            "delta": 3.4,
-            "pct": 89.2,
-            "direction": "up"
+            "delta": -3.22,
+            "pct": -32.2,
+            "direction": "down"
           },
           "spend": {
-            "delta": 6993.13,
-            "pct": 200.7,
-            "direction": "up"
+            "delta": -26275.2,
+            "pct": -62.4,
+            "direction": "down"
           },
           "ordered_materials": {
-            "delta": -3.0,
-            "pct": -15.0,
+            "delta": -7.0,
+            "pct": -26.9,
             "direction": "down"
           },
           "conversions": {
-            "delta": 128.0,
-            "pct": 200.0,
-            "direction": "up"
+            "delta": -577.0,
+            "pct": -65.3,
+            "direction": "down"
           },
           "subscriptions": {
-            "delta": 235.0,
-            "pct": 174.1,
-            "direction": "up"
+            "delta": -1210.0,
+            "pct": -68.7,
+            "direction": "down"
           },
           "avg_roas": {
-            "delta": 0.03,
-            "pct": 8.6,
+            "delta": 0.11,
+            "pct": 21.2,
             "direction": "up"
           }
         },
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 108,
           "new_creative": 3,
@@ -1826,7 +1826,7 @@
       "insights": [
         "【新方向】测试 3 条，出单 4 单，出单率 33.33%。",
         "【老方向】测试 108 条，出单 96 单，出单率 14.81%。",
-        "【素材测出率】0608周 上新 111 条，出单率 15.32%（较 0601周 ↓3.7pp），出单素材 17 条（较上周 ↓3）。上周出单率 19.05%，出单素材 20 条。",
+        "【素材测出率】0608周 上新 118 条，出单率 16.1%（较 0601周 ↓9.9pp），出单素材 19 条（较上周 ↓7）。上周出单率 26.0%，出单素材 26 条。",
         "【本周最强素材】20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS…（lifelessons / gy）：购物 59 · 订阅 97 · ROAS 0.34 · CTR 1.51% · 花费 $2671.0。",
         "【高转化信号素材】20260610_GrowMe_EN_9x16_FX-LifeLessons_ZT-compare_RS…（购物+订阅双达标）：购物 59 · 订阅 97 · ROAS 0.34 · CTR 1.51% · 花费 $2671.0，具备放量验证价值。",
         "【钩子最优素材】20260608_growme_EN_9x16_FX-lifelessons_ZT-beokay_RS-…：3秒播放率 37.1%，购物 0 · CTR 3.23% · 花费 $0.0。",
@@ -2118,63 +2118,63 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 104,
-        "order_rate": 16.35,
-        "ge2_rate": 14.42,
-        "ge5_rate": 5.77,
-        "spend": 6609.34,
-        "ordered_materials": 17,
-        "conversions": 102,
-        "subscriptions": 172,
-        "avg_roas": 0.52,
+        "total_materials": 130,
+        "order_rate": 27.69,
+        "ge2_rate": 20.0,
+        "ge5_rate": 10.77,
+        "spend": 28185.54,
+        "ordered_materials": 36,
+        "conversions": 557,
+        "subscriptions": 1037,
+        "avg_roas": 0.63,
         "wow": {
           "total_materials": {
-            "delta": -7.0,
-            "pct": -6.3,
-            "direction": "down"
+            "delta": 12.0,
+            "pct": 10.2,
+            "direction": "up"
           },
           "order_rate": {
-            "delta": 1.03,
-            "pct": 6.7,
+            "delta": 11.59,
+            "pct": 72.0,
             "direction": "up"
           },
           "ge2_rate": {
-            "delta": 2.71,
-            "pct": 23.1,
+            "delta": 8.14,
+            "pct": 68.6,
             "direction": "up"
           },
           "ge5_rate": {
-            "delta": -1.44,
-            "pct": -20.0,
-            "direction": "down"
+            "delta": 3.99,
+            "pct": 58.8,
+            "direction": "up"
           },
           "spend": {
-            "delta": -3867.54,
-            "pct": -36.9,
-            "direction": "down"
+            "delta": 12371.57,
+            "pct": 78.2,
+            "direction": "up"
           },
           "ordered_materials": {
+            "delta": 17.0,
+            "pct": 89.5,
+            "direction": "up"
+          },
+          "conversions": {
+            "delta": 251.0,
+            "pct": 82.0,
+            "direction": "up"
+          },
+          "subscriptions": {
+            "delta": 485.0,
+            "pct": 87.9,
+            "direction": "up"
+          },
+          "avg_roas": {
             "delta": 0.0,
             "pct": 0.0,
             "direction": "flat"
-          },
-          "conversions": {
-            "delta": -90.0,
-            "pct": -46.9,
-            "direction": "down"
-          },
-          "subscriptions": {
-            "delta": -198.0,
-            "pct": -53.5,
-            "direction": "down"
-          },
-          "avg_roas": {
-            "delta": 0.14,
-            "pct": 36.8,
-            "direction": "up"
           }
         },
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 104,
           "new_creative": 0,
@@ -2713,7 +2713,7 @@
       },
       "insights": [
         "【老方向】测试 104 条，出单 86 单，出单率 15.38%。",
-        "【素材测出率】0615周 上新 104 条，出单率 16.35%（较 0608周 ↑1.0pp），出单素材 17 条（较上周 持平）。上周出单率 15.32%，出单素材 17 条。",
+        "【素材测出率】0615周 上新 130 条，出单率 27.69%（较 0608周 ↑11.6pp），出单素材 36 条（较上周 ↑17）。上周出单率 16.1%，出单素材 19 条。",
         "【本周最强素材】20260615_growme_EN_9x16_FX-LifeLessons_ZT-positive_R…（lifelessons / wxx）：购物 26 · 订阅 37 · ROAS 0.61 · CTR 1.57% · 花费 $990.0。",
         "【高转化信号素材】20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R…（购物+订阅双达标）：购物 23 · 订阅 42 · ROAS 0.61 · CTR 1.05% · 花费 $1041.0，具备放量验证价值。",
         "【钩子最优素材】20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-explain_RS…：3秒播放率 36.54%，购物 0 · CTR 6.19% · 花费 $0.0。",
@@ -2976,63 +2976,63 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 118,
-        "order_rate": 16.1,
-        "ge2_rate": 10.17,
-        "ge5_rate": 5.08,
-        "spend": 6081.23,
-        "ordered_materials": 19,
-        "conversions": 97,
-        "subscriptions": 175,
-        "avg_roas": 0.45,
+        "total_materials": 122,
+        "order_rate": 19.67,
+        "ge2_rate": 13.11,
+        "ge5_rate": 6.56,
+        "spend": 11456.96,
+        "ordered_materials": 24,
+        "conversions": 198,
+        "subscriptions": 404,
+        "avg_roas": 0.88,
         "wow": {
           "total_materials": {
-            "delta": 14.0,
-            "pct": 13.5,
-            "direction": "up"
+            "delta": -8.0,
+            "pct": -6.2,
+            "direction": "down"
           },
           "order_rate": {
-            "delta": -0.25,
-            "pct": -1.5,
+            "delta": -8.02,
+            "pct": -29.0,
             "direction": "down"
           },
           "ge2_rate": {
-            "delta": -4.25,
-            "pct": -29.5,
+            "delta": -6.89,
+            "pct": -34.5,
             "direction": "down"
           },
           "ge5_rate": {
-            "delta": -0.69,
-            "pct": -12.0,
+            "delta": -4.21,
+            "pct": -39.1,
             "direction": "down"
           },
           "spend": {
-            "delta": -528.11,
-            "pct": -8.0,
+            "delta": -16728.58,
+            "pct": -59.4,
             "direction": "down"
           },
           "ordered_materials": {
-            "delta": 2.0,
-            "pct": 11.8,
-            "direction": "up"
+            "delta": -12.0,
+            "pct": -33.3,
+            "direction": "down"
           },
           "conversions": {
-            "delta": -5.0,
-            "pct": -4.9,
+            "delta": -359.0,
+            "pct": -64.5,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": 3.0,
-            "pct": 1.7,
-            "direction": "up"
+            "delta": -633.0,
+            "pct": -61.0,
+            "direction": "down"
           },
           "avg_roas": {
-            "delta": -0.07,
-            "pct": -13.5,
-            "direction": "down"
+            "delta": 0.25,
+            "pct": 39.7,
+            "direction": "up"
           }
         },
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 107,
           "new_creative": 0,
@@ -3542,7 +3542,7 @@
       "insights": [
         "【老方向】测试 107 条，出单 89 单，出单率 14.95%。",
         "【图片】测试 11 条，出单 5 单，出单率 18.18%。",
-        "【素材测出率】0622周 上新 118 条，出单率 16.1%（较 0615周 ↓0.2pp），出单素材 19 条（较上周 ↑2）。上周出单率 16.35%，出单素材 17 条。",
+        "【素材测出率】0622周 上新 122 条，出单率 19.67%（较 0615周 ↓8.0pp），出单素材 24 条（较上周 ↓12）。上周出单率 27.69%，出单素材 36 条。",
         "【本周最强素材】20260623_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R…（learning / gy）：购物 20 · 订阅 32 · ROAS 0.44 · CTR 1.06% · 花费 $872.0。",
         "【高转化信号素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（购物+订阅双达标）：购物 19 · 订阅 49 · ROAS 0.41 · CTR 1.26% · 花费 $1053.0，具备放量验证价值。",
         "【钩子最优素材】20260623_growme_EN_9x16_FX-LifeLessons_ZT-readvsnotr…：3秒播放率 47.48%，购物 0 · CTR 0.53% · 花费 $23.0。",
@@ -3848,63 +3848,63 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 115,
-        "order_rate": 12.17,
-        "ge2_rate": 7.83,
-        "ge5_rate": 3.48,
-        "spend": 3792.47,
-        "ordered_materials": 14,
-        "conversions": 42,
-        "subscriptions": 66,
-        "avg_roas": 0.46,
+        "total_materials": 122,
+        "order_rate": 13.11,
+        "ge2_rate": 7.38,
+        "ge5_rate": 4.1,
+        "spend": 5200.71,
+        "ordered_materials": 16,
+        "conversions": 58,
+        "subscriptions": 98,
+        "avg_roas": 0.6,
         "wow": {
           "total_materials": {
-            "delta": -3.0,
-            "pct": -2.5,
-            "direction": "down"
+            "delta": 0.0,
+            "pct": 0.0,
+            "direction": "flat"
           },
           "order_rate": {
-            "delta": -3.93,
-            "pct": -24.4,
+            "delta": -6.56,
+            "pct": -33.4,
             "direction": "down"
           },
           "ge2_rate": {
-            "delta": -2.34,
-            "pct": -23.0,
+            "delta": -5.73,
+            "pct": -43.7,
             "direction": "down"
           },
           "ge5_rate": {
-            "delta": -1.6,
-            "pct": -31.5,
+            "delta": -2.46,
+            "pct": -37.5,
             "direction": "down"
           },
           "spend": {
-            "delta": -2288.76,
-            "pct": -37.6,
+            "delta": -6256.25,
+            "pct": -54.6,
             "direction": "down"
           },
           "ordered_materials": {
-            "delta": -5.0,
-            "pct": -26.3,
+            "delta": -8.0,
+            "pct": -33.3,
             "direction": "down"
           },
           "conversions": {
-            "delta": -55.0,
-            "pct": -56.7,
+            "delta": -140.0,
+            "pct": -70.7,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -109.0,
-            "pct": -62.3,
+            "delta": -306.0,
+            "pct": -75.7,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": 0.01,
-            "pct": 2.2,
-            "direction": "up"
+            "delta": -0.28,
+            "pct": -31.8,
+            "direction": "down"
           }
         },
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 86,
           "new_creative": 6,
@@ -4370,7 +4370,7 @@
         "【新方向】测试 6 条，出单 0 单，出单率 0.0%。",
         "【老方向】测试 86 条，出单 31 单，出单率 12.79%。",
         "【图片】测试 23 条，出单 10 单，出单率 8.7%。",
-        "【素材测出率】0629周 上新 115 条，出单率 12.17%（较 0622周 ↓3.9pp），出单素材 14 条（较上周 ↓5）。上周出单率 16.1%，出单素材 19 条。",
+        "【素材测出率】0629周 上新 122 条，出单率 13.11%（较 0622周 ↓6.6pp），出单素材 16 条（较上周 ↓8）。上周出单率 19.67%，出单素材 24 条。",
         "【本周最强素材】20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-…（Women / fj）：购物 7 · 订阅 9 · ROAS 0.67 · CTR 0.8% · 花费 $242.0。",
         "【高转化信号素材】20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-…（购物+订阅双达标）：购物 7 · 订阅 9 · ROAS 0.67 · CTR 0.8% · 花费 $242.0，具备放量验证价值。",
         "【钩子最优素材】20260629_GrowMe_EN_0_9x16_FX-Women_ZT-Communication-…：3秒播放率 36.61%，购物 0 · CTR 1.88% · 花费 $19.0。",
@@ -5066,63 +5066,63 @@
         "0713周"
       ],
       "kpi": {
-        "total_materials": 171,
-        "order_rate": 10.53,
-        "ge2_rate": 5.26,
-        "ge5_rate": 1.75,
-        "spend": 3715.72,
-        "ordered_materials": 18,
-        "conversions": 39,
-        "subscriptions": 79,
-        "avg_roas": 0.49,
+        "total_materials": 198,
+        "order_rate": 17.17,
+        "ge2_rate": 10.61,
+        "ge5_rate": 3.54,
+        "spend": 11285.28,
+        "ordered_materials": 34,
+        "conversions": 168,
+        "subscriptions": 358,
+        "avg_roas": 0.52,
         "wow": {
           "total_materials": {
-            "delta": 56.0,
-            "pct": 48.7,
+            "delta": 76.0,
+            "pct": 62.3,
             "direction": "up"
           },
           "order_rate": {
-            "delta": -1.64,
-            "pct": -13.5,
-            "direction": "down"
+            "delta": 4.06,
+            "pct": 31.0,
+            "direction": "up"
           },
           "ge2_rate": {
-            "delta": -2.57,
-            "pct": -32.8,
-            "direction": "down"
+            "delta": 3.23,
+            "pct": 43.8,
+            "direction": "up"
           },
           "ge5_rate": {
-            "delta": -1.73,
-            "pct": -49.7,
+            "delta": -0.56,
+            "pct": -13.7,
             "direction": "down"
           },
           "spend": {
-            "delta": -76.75,
-            "pct": -2.0,
-            "direction": "down"
+            "delta": 6084.57,
+            "pct": 117.0,
+            "direction": "up"
           },
           "ordered_materials": {
-            "delta": 4.0,
-            "pct": 28.6,
+            "delta": 18.0,
+            "pct": 112.5,
             "direction": "up"
           },
           "conversions": {
-            "delta": -3.0,
-            "pct": -7.1,
-            "direction": "down"
+            "delta": 110.0,
+            "pct": 189.7,
+            "direction": "up"
           },
           "subscriptions": {
-            "delta": 13.0,
-            "pct": 19.7,
+            "delta": 260.0,
+            "pct": 265.3,
             "direction": "up"
           },
           "avg_roas": {
-            "delta": 0.03,
-            "pct": 6.5,
-            "direction": "up"
+            "delta": -0.08,
+            "pct": -13.3,
+            "direction": "down"
           }
         },
-        "kpi_source": "weekly_files",
+        "kpi_source": "account_lifecycle",
         "breakdown": {
           "weekly": 91,
           "new_creative": 50,
@@ -5543,7 +5543,7 @@
         "【新方向】测试 50 条，出单 14 单，出单率 16.0%。",
         "【老方向】测试 91 条，出单 20 单，出单率 8.79%。",
         "【图片】测试 30 条，出单 5 单，出单率 6.67%。",
-        "【素材测出率】0706周 上新 171 条，出单率 10.53%（较 0629周 ↓1.6pp），出单素材 18 条（较上周 ↑4）。上周出单率 12.17%，出单素材 14 条。",
+        "【素材测出率】0706周 上新 198 条，出单率 17.17%（较 0629周 ↑4.1pp），出单素材 34 条（较上周 ↑18）。上周出单率 13.11%，出单素材 16 条。",
         "【本周最强素材】20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning_RS-P…（Students / czy）：购物 6 · 订阅 10 · ROAS 0.54 · CTR 1.17% · 花费 $325.0。",
         "【高转化信号素材】20260710_growme_EN_9x16_FX-EnglishLearners_ZT-Learni…（购物+订阅双达标）：购物 5 · 订阅 11 · ROAS 0.69 · CTR 0.87% · 花费 $193.0，具备放量验证价值。",
         "【钩子最优素材】20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning…：3秒播放率 50.0%，购物 0 · CTR 1.23% · 花费 $6.0。",
@@ -6322,48 +6322,48 @@
         "avg_roas": 0.42,
         "wow": {
           "total_materials": {
-            "delta": -12.0,
-            "pct": -7.0,
+            "delta": -39.0,
+            "pct": -19.7,
             "direction": "down"
           },
           "order_rate": {
-            "delta": -2.35,
-            "pct": -22.3,
+            "delta": -8.99,
+            "pct": -52.4,
             "direction": "down"
           },
           "ge2_rate": {
-            "delta": -0.86,
-            "pct": -16.3,
+            "delta": -6.21,
+            "pct": -58.5,
             "direction": "down"
           },
           "ge5_rate": {
-            "delta": -1.75,
+            "delta": -3.54,
             "pct": -100.0,
             "direction": "down"
           },
           "spend": {
-            "delta": -726.65,
-            "pct": -19.6,
+            "delta": -8296.21,
+            "pct": -73.5,
             "direction": "down"
           },
           "ordered_materials": {
-            "delta": -5.0,
-            "pct": -27.8,
+            "delta": -21.0,
+            "pct": -61.8,
             "direction": "down"
           },
           "conversions": {
-            "delta": -16.0,
-            "pct": -41.0,
+            "delta": -145.0,
+            "pct": -86.3,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -8.0,
-            "pct": -10.1,
+            "delta": -287.0,
+            "pct": -80.2,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": -0.07,
-            "pct": -14.3,
+            "delta": -0.1,
+            "pct": -19.2,
             "direction": "down"
           }
         },
@@ -6772,7 +6772,7 @@
       "insights": [
         "【新方向】测试 41 条，出单 6 单，出单率 9.76%。",
         "【老方向】测试 118 条，出单 17 单，出单率 7.63%。",
-        "【素材测出率】0713周 上新 159 条，出单率 8.18%（较 0706周 ↓2.3pp），出单素材 13 条（较上周 ↓5）。上周出单率 10.53%，出单素材 18 条。",
+        "【素材测出率】0713周 上新 159 条，出单率 8.18%（较 0706周 ↓9.0pp），出单素材 13 条（较上周 ↓21）。上周出单率 17.17%，出单素材 34 条。",
         "【本周最强素材】20260713_GrowMe_EN_9x16_FX-Professionals_ZT-Habits_R…（Professionals / czy）：购物 4 · 订阅 12 · ROAS 0.45 · CTR 0.53% · 花费 $229.0。",
         "【高转化信号素材】20260713_GrowMe_EN_9x16_FX-Professionals_ZT-Habits_R…（购物+订阅双达标）：购物 4 · 订阅 12 · ROAS 0.45 · CTR 0.53% · 花费 $229.0，具备放量验证价值。",
         "【钩子最优素材】20260715_growme_EN_9x16_FX-EnglishLearners_ZT-challe…：3秒播放率 60.0%，购物 0 · 花费 $0.0。",

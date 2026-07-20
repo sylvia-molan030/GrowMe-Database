@@ -65,9 +65,14 @@ function renderSummary(kpi, prevWeek) {
 function renderKpiSection(kpi, prevWeek) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
+  const sourceHint = kpi.kpi_source === 'weekly_files'
+    ? '当周测试快照'
+    : kpi.kpi_source === 'account_lifecycle'
+      ? '全量生命周期'
+      : '';
 
   return `
-    <div class="section-title">周度 KPI${hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : ''}</div>
+    <div class="section-title">周度 KPI${sourceHint ? ` <span class="muted">（${sourceHint}${hasWow ? ' · 含 WoW 环比' : ''}）</span>` : (hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : '')}</div>
     <div class="kpi-grid">
       ${kpiCard('总素材量', `${kpi.total_materials} 条`, hasWow ? wow.total_materials : null)}
       ${kpiCard('出单素材数', kpi.ordered_materials, hasWow ? wow.ordered_materials : null)}

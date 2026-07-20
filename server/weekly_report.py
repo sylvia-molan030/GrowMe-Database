@@ -10,20 +10,27 @@ from data_loader import (
     week_sort_key,
     WEEKLY_DATA_SCOPES,
     WEEKLY_KPI_SCOPES,
+    cohort_week_label_from_first_seen,
 )
 from cross_rubric import cross_rubric_heatmap_from_materials
 from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction, canonical_theme, primary_theme
 
 
 _NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
+# 仅本周测试快照；其余历史周 KPI 按账户全量生命周期（素材日期归属周）
+_SNAPSHOT_WEEK = "0713周"
 
 
 def _is_new_schema_week(week_label: str) -> bool:
     return week_sort_key(week_label) >= _NEW_SCHEMA_WEEK_KEY
 
 
+def _uses_snapshot_kpi(week_label: str) -> bool:
+    return week_label == _SNAPSHOT_WEEK
+
+
 def sorted_week_labels() -> list[str]:
-    """周度 Tab 列表来自周度/新方向文件；KPI 统一用当周测试快照。"""
+    """周度 Tab 列表来自周度/新方向文件；KPI 除快照周外按全量生命周期。"""
     labels = {
         r.get("week_label", "")
         for r in store.records
@@ -60,6 +67,34 @@ def _week_records(
     if channel:
         rows = [r for r in rows if r.get("channel") == channel]
     return rows
+
+
+def _account_records_for_week(week_label: str) -> list[dict[str, Any]]:
+    """账户全量中，素材名前缀日期归入该自然周的记录（全量生命周期成效）。"""
+    rows: list[dict[str, Any]] = []
+    for r in store.records:
+        if r.get("data_scope") != "account":
+            continue
+        lab = cohort_week_label_from_first_seen(r.get("first_seen"))
+        if lab != week_label:
+            continue
+        rows.append({**r, "week_label": lab})
+    return rows
+
+
+def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
+    """返回 (kpi, source)。0713 用周度文件快照；其余周用账户全量生命周期。"""
+    if _uses_snapshot_kpi(week_label):
+        mats = _aggregate_materials(_week_records(week_label, kpi=True))
+        return _channel_kpi(mats), "weekly_files"
+
+    account_mats = _aggregate_materials(_account_records_for_week(week_label))
+    if account_mats:
+        return _channel_kpi(account_mats), "account_lifecycle"
+
+    # 全量无归属时回退周度文件，避免空 KPI
+    mats = _aggregate_materials(_week_records(week_label, kpi=True))
+    return _channel_kpi(mats), "weekly_files_fallback"
 
 
 def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -425,15 +460,15 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    # 报告主体统一用当周测试快照（周度文件 + 回滚计入当周 KPI）
+    # 方向表 / 好素材 / 热力图等仍用当周测试文件；KPI 按口径分流
     all_materials = _aggregate_materials(_week_records(week, kpi=True))
-    combined_kpi = _channel_kpi(all_materials)
+    combined_kpi, kpi_source = _kpi_for_week(week)
 
     prev_combined = None
     prev_metrics = None
     if prev:
+        prev_combined, _ = _kpi_for_week(prev)
         prev_materials = _aggregate_materials(_week_records(prev, kpi=True))
-        prev_combined = _channel_kpi(prev_materials)
         prev_metrics = _core_metrics(prev_materials)
 
     current_metrics = _core_metrics(all_materials)
@@ -470,7 +505,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "subscriptions": combined_kpi["subscriptions"],
             "avg_roas": combined_kpi["roas"],
             "wow": wow,
-            "kpi_source": "weekly_files",
+            "kpi_source": kpi_source,
         },
         "core_comparison": _comparison_table(current_metrics, prev_metrics),
         "good_materials": good,

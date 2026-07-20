@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15 12:03:21",
+  "generated_at": "2026-07-20 09:19:54",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -17,12 +17,14 @@
       "0706周新形式素材.csv",
       "0706周新形式素材2.csv",
       "0706周老形式素材.csv",
+      "0713周新创意素材.csv",
+      "0713周老素材.csv",
       "7月份回滚素材.csv",
       "account_all_WW.csv",
       "回滚素材0706更新.csv"
     ],
-    "records": 7836,
-    "scanned_at": "2026-07-15 12:03:21",
+    "records": 7995,
+    "scanned_at": "2026-07-20 09:19:54",
     "default_date_start": "2026-07-08",
     "default_date_end": "2026-07-14",
     "data_date_start": "2025-01-04",
@@ -38,7 +40,8 @@
       "0615周",
       "0622周",
       "0629周",
-      "0706周"
+      "0706周",
+      "0713周"
     ],
     "recent_weekly_labels": [
       "0706周",
@@ -69544,7 +69547,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 56,
@@ -69895,7 +69899,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 105,
@@ -70776,7 +70781,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 111,
@@ -71632,7 +71638,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 104,
@@ -72488,7 +72495,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 118,
@@ -73358,7 +73366,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 115,
@@ -74574,7 +74583,8 @@
         "0615周",
         "0622周",
         "0629周",
-        "0706周"
+        "0706周",
+        "0713周"
       ],
       "kpi": {
         "total_materials": 171,
@@ -75806,6 +75816,1474 @@
           "note": "0706周 图片素材方向测试，已计入周度 KPI。"
         }
       ]
+    },
+    "0713周": {
+      "week": "0713周",
+      "prev_week": "0706周",
+      "weeks": [
+        "0525周",
+        "0601周",
+        "0608周",
+        "0615周",
+        "0622周",
+        "0629周",
+        "0706周",
+        "0713周"
+      ],
+      "kpi": {
+        "total_materials": 159,
+        "order_rate": 8.18,
+        "ge2_rate": 4.4,
+        "ge5_rate": 0.0,
+        "spend": 2989.07,
+        "ordered_materials": 13,
+        "conversions": 23,
+        "subscriptions": 71,
+        "avg_roas": 0.42,
+        "wow": {
+          "total_materials": {
+            "delta": -12.0,
+            "pct": -7.0,
+            "direction": "down"
+          },
+          "order_rate": {
+            "delta": -2.35,
+            "pct": -22.3,
+            "direction": "down"
+          },
+          "ge2_rate": {
+            "delta": -0.86,
+            "pct": -16.3,
+            "direction": "down"
+          },
+          "ge5_rate": {
+            "delta": -1.75,
+            "pct": -100.0,
+            "direction": "down"
+          },
+          "spend": {
+            "delta": -726.65,
+            "pct": -19.6,
+            "direction": "down"
+          },
+          "ordered_materials": {
+            "delta": -5.0,
+            "pct": -27.8,
+            "direction": "down"
+          },
+          "conversions": {
+            "delta": -16.0,
+            "pct": -41.0,
+            "direction": "down"
+          },
+          "subscriptions": {
+            "delta": -8.0,
+            "pct": -10.1,
+            "direction": "down"
+          },
+          "avg_roas": {
+            "delta": -0.07,
+            "pct": -14.3,
+            "direction": "down"
+          }
+        },
+        "breakdown": {
+          "weekly": 118,
+          "new_creative": 41,
+          "image": 0
+        }
+      },
+      "core_comparison": [
+        {
+          "key": "spend",
+          "label": "总消耗",
+          "unit": "$",
+          "current": 2989.07,
+          "previous": 3715.72,
+          "wow": {
+            "delta": -726.65,
+            "pct": -19.6,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "empty_spend",
+          "label": "空消耗",
+          "unit": "$",
+          "current": 1531.48,
+          "previous": 1435.43,
+          "wow": {
+            "delta": 96.05,
+            "pct": 6.7,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "cpi",
+          "label": "CPI",
+          "unit": "$",
+          "current": 3.08,
+          "previous": 2.69,
+          "wow": {
+            "delta": 0.39,
+            "pct": 14.5,
+            "direction": "up"
+          }
+        },
+        {
+          "key": "cpm",
+          "label": "CPM",
+          "unit": "$",
+          "current": 1.64,
+          "previous": 2.87,
+          "wow": {
+            "delta": -1.23,
+            "pct": -42.9,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "subscriptions",
+          "label": "订阅数",
+          "unit": "",
+          "current": 71,
+          "previous": 79,
+          "wow": {
+            "delta": -8.0,
+            "pct": -10.1,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "purchases",
+          "label": "总出单量",
+          "unit": "",
+          "current": 23,
+          "previous": 39,
+          "wow": {
+            "delta": -16.0,
+            "pct": -41.0,
+            "direction": "down"
+          }
+        },
+        {
+          "key": "roas",
+          "label": "平均 ROAS",
+          "unit": "",
+          "current": 0.42,
+          "previous": 0.49,
+          "wow": {
+            "delta": -0.07,
+            "pct": -14.3,
+            "direction": "down"
+          }
+        }
+      ],
+      "good_materials": [
+        {
+          "material_id": "20260713_GrowMe_EN_9x16_FX-Professionals_ZT-Habits_RS-P1X1R3C3_czy",
+          "direction": "Professionals",
+          "theme": "habits",
+          "designer": "czy",
+          "purchases": 4,
+          "subscriptions": 12,
+          "roas": 0.45,
+          "ctr": 0.53,
+          "spend": 228.8
+        },
+        {
+          "material_id": "20260717_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_AI20_RS-P1X1R3C3_aitool_cty",
+          "direction": "Readers",
+          "theme": "selfimprovement_ai20",
+          "designer": "其他",
+          "purchases": 3,
+          "subscriptions": 12,
+          "roas": 0.76,
+          "ctr": 0.6,
+          "spend": 94.01
+        },
+        {
+          "material_id": "20260717_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Lifelessons-page1_RS-P3X1R1C3_gy",
+          "direction": "SelfGrowth",
+          "theme": "lifelessons",
+          "designer": "gy",
+          "purchases": 2,
+          "subscriptions": 3,
+          "roas": 0.64,
+          "ctr": 1.53,
+          "spend": 25.1
+        },
+        {
+          "material_id": "20260714_GrowMe_EN_9x16_FX-Women_ZT-Growth_RS-P1X1R3C3_aitool_cty",
+          "direction": "Women",
+          "theme": "growth",
+          "designer": "其他",
+          "purchases": 2,
+          "subscriptions": 4,
+          "roas": 0.45,
+          "ctr": 0.9,
+          "spend": 93.78
+        },
+        {
+          "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-learning-talk_RS-P1X1R3C3_gy",
+          "direction": "EnglishLearners",
+          "theme": "learning",
+          "designer": "gy",
+          "purchases": 2,
+          "subscriptions": 4,
+          "roas": 0.41,
+          "ctr": 0.89,
+          "spend": 97.33
+        },
+        {
+          "material_id": "20260713_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Communication_RS-P1X1R3C3_czy",
+          "direction": "SelfGrowth",
+          "theme": "communication",
+          "designer": "czy",
+          "purchases": 2,
+          "subscriptions": 7,
+          "roas": 0.32,
+          "ctr": 0.64,
+          "spend": 170.02
+        },
+        {
+          "material_id": "20260714_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_RS-P1X1R3C3_aitool_cty",
+          "direction": "Readers",
+          "theme": "selfimprovement",
+          "designer": "其他",
+          "purchases": 2,
+          "subscriptions": 3,
+          "roas": 0.22,
+          "ctr": 1.24,
+          "spend": 73.3
+        },
+        {
+          "material_id": "20260716_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_RS-P1X1R3C3_aitool_cty",
+          "direction": "Readers",
+          "theme": "selfimprovement",
+          "designer": "其他",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 1.2,
+          "ctr": 1.33,
+          "spend": 26.15
+        },
+        {
+          "material_id": "20260714_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Habits_RS-P1X1R3C3_aitool_cty",
+          "direction": "EnglishLearners",
+          "theme": "habits",
+          "designer": "其他",
+          "purchases": 1,
+          "subscriptions": 2,
+          "roas": 0.42,
+          "ctr": 0.78,
+          "spend": 108.67
+        },
+        {
+          "material_id": "20260713_GrowMe_EN_9x16_FX-Students_ZT-Habits_RS-P1X1R3C3_aitool_czy",
+          "direction": "Students",
+          "theme": "habits",
+          "designer": "czy",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.38,
+          "ctr": 1.2,
+          "spend": 73.77
+        },
+        {
+          "material_id": "20260714_growme_EN_9x16_FX-Readers_ZT-BookReading-habits_RS-P1X1R3C3_gy",
+          "direction": "Readers",
+          "theme": "bookreading",
+          "designer": "gy",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.33,
+          "ctr": 1.39,
+          "spend": 38.38
+        },
+        {
+          "material_id": "20260714_GrowMe_EN_9x16_FX-Students_ZT-Habits_RS-P1X1R3C3_aitool_cty",
+          "direction": "Students",
+          "theme": "habits",
+          "designer": "其他",
+          "purchases": 1,
+          "subscriptions": 1,
+          "roas": 0.29,
+          "ctr": 1.33,
+          "spend": 83.1
+        }
+      ],
+      "direction_table": [
+        {
+          "direction": "Readers",
+          "total_materials": 35,
+          "ordered_materials": 4,
+          "ordered_ratio": "4/35",
+          "ctr": 1.09,
+          "cpi": 2.47,
+          "roas": 0.57,
+          "subscriptions": 23,
+          "purchases": 7,
+          "hook_rate": 15.67,
+          "retention_rate": 4.11,
+          "spend": 584.56,
+          "cpm": 1.28
+        },
+        {
+          "direction": "SelfGrowth",
+          "total_materials": 23,
+          "ordered_materials": 2,
+          "ordered_ratio": "2/23",
+          "ctr": 1.4,
+          "cpi": 3.52,
+          "roas": 0.36,
+          "subscriptions": 12,
+          "purchases": 4,
+          "hook_rate": 17.46,
+          "retention_rate": 3.89,
+          "spend": 429.52,
+          "cpm": 1.65
+        },
+        {
+          "direction": "EnglishLearners",
+          "total_materials": 35,
+          "ordered_materials": 3,
+          "ordered_ratio": "3/35",
+          "ctr": 1.06,
+          "cpi": 3.12,
+          "roas": 0.36,
+          "subscriptions": 15,
+          "purchases": 4,
+          "hook_rate": 16.21,
+          "retention_rate": 3.68,
+          "spend": 874.21,
+          "cpm": 2.31
+        },
+        {
+          "direction": "Professionals",
+          "total_materials": 14,
+          "ordered_materials": 1,
+          "ordered_ratio": "1/14",
+          "ctr": 1.16,
+          "cpi": 3.0,
+          "roas": 0.45,
+          "subscriptions": 12,
+          "purchases": 4,
+          "hook_rate": 14.5,
+          "retention_rate": 2.8,
+          "spend": 446.32,
+          "cpm": 1.67
+        },
+        {
+          "direction": "Women",
+          "total_materials": 12,
+          "ordered_materials": 1,
+          "ordered_ratio": "1/12",
+          "ctr": 1.37,
+          "cpi": 3.63,
+          "roas": 0.45,
+          "subscriptions": 4,
+          "purchases": 2,
+          "hook_rate": 16.95,
+          "retention_rate": 3.66,
+          "spend": 145.18,
+          "cpm": 1.28
+        },
+        {
+          "direction": "Students",
+          "total_materials": 12,
+          "ordered_materials": 2,
+          "ordered_ratio": "2/12",
+          "ctr": 1.21,
+          "cpi": 3.96,
+          "roas": 0.34,
+          "subscriptions": 2,
+          "purchases": 2,
+          "hook_rate": 16.55,
+          "retention_rate": 3.06,
+          "spend": 281.11,
+          "cpm": 1.55
+        },
+        {
+          "direction": "englishreaders",
+          "total_materials": 3,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/3",
+          "ctr": 1.88,
+          "cpi": 1.25,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 20.82,
+          "retention_rate": 10.9,
+          "spend": 1.25,
+          "cpm": 2.66
+        },
+        {
+          "direction": "FinanceSeekers",
+          "total_materials": 10,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/10",
+          "ctr": 1.76,
+          "cpi": 4.0,
+          "roas": 0,
+          "subscriptions": 2,
+          "purchases": 0,
+          "hook_rate": 19.04,
+          "retention_rate": 2.53,
+          "spend": 56.0,
+          "cpm": 1.37
+        },
+        {
+          "direction": "men",
+          "total_materials": 1,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/1",
+          "ctr": 1.25,
+          "cpi": null,
+          "roas": 0,
+          "subscriptions": 0,
+          "purchases": 0,
+          "hook_rate": 23.75,
+          "retention_rate": 5.26,
+          "spend": 0.25,
+          "cpm": 3.12
+        },
+        {
+          "direction": "Overthinkers",
+          "total_materials": 14,
+          "ordered_materials": 0,
+          "ordered_ratio": "0/14",
+          "ctr": 1.4,
+          "cpi": 2.94,
+          "roas": 0,
+          "subscriptions": 1,
+          "purchases": 0,
+          "hook_rate": 17.96,
+          "retention_rate": 3.45,
+          "spend": 170.67,
+          "cpm": 1.34
+        }
+      ],
+      "survival_trend": {
+        "dates": [
+          "2026-07-13",
+          "2026-07-14",
+          "2026-07-15",
+          "2026-07-16",
+          "2026-07-17"
+        ],
+        "counts": [
+          54,
+          31,
+          21,
+          31,
+          22
+        ],
+        "survived_counts": [
+          3,
+          6,
+          0,
+          2,
+          2
+        ]
+      },
+      "insights": [
+        "【新方向】测试 41 条，出单 6 单，出单率 9.76%。",
+        "【老方向】测试 118 条，出单 17 单，出单率 7.63%。",
+        "【素材测出率】0713周 上新 159 条，出单率 8.18%（较 0706周 ↓2.3pp），出单素材 13 条（较上周 ↓5）。上周出单率 10.53%，出单素材 18 条。",
+        "【本周最强素材】20260713_GrowMe_EN_9x16_FX-Professionals_ZT-Habits_R…（Professionals / czy）：购物 4 · 订阅 12 · ROAS 0.45 · CTR 0.53% · 花费 $229.0。",
+        "【高转化信号素材】20260713_GrowMe_EN_9x16_FX-Professionals_ZT-Habits_R…（购物+订阅双达标）：购物 4 · 订阅 12 · ROAS 0.45 · CTR 0.53% · 花费 $229.0，具备放量验证价值。",
+        "【钩子最优素材】20260715_growme_EN_9x16_FX-EnglishLearners_ZT-challe…：3秒播放率 60.0%，购物 0 · 花费 $0.0。",
+        "【留存率最高素材】20260716_GrowMe_EN_9x16_FX-FinanceSeekers_ZT-Mindset…：完播留存率 50.0%，购物 0 · 花费 $0.0。",
+        "【方向表现】「Readers」购物 7 单领先，出单素材 4/35，ROAS 0.57；共 35 条素材参与本周 WW 测试。"
+      ],
+      "cross_rubric_heatmap": {
+        "y_axis": "direction",
+        "x_axis": "theme",
+        "y_label": "方向 (FX-)",
+        "x_label": "主题 (ZT-)",
+        "y_values": [
+          "Professionals",
+          "Women",
+          "Students",
+          "Readers",
+          "SelfGrowth",
+          "EnglishLearners",
+          "FinanceSeekers",
+          "Overthinkers"
+        ],
+        "x_values": [
+          "ai",
+          "bookreading",
+          "challenge",
+          "communication",
+          "discipline",
+          "emotionalhealth",
+          "finance",
+          "focus",
+          "growth",
+          "habits",
+          "healing",
+          "learning",
+          "lifelessons",
+          "mindset",
+          "reading",
+          "selfgrowth",
+          "selfimprovement",
+          "selfimprovement_ai1",
+          "selfimprovement_ai10",
+          "selfimprovement_ai11",
+          "selfimprovement_ai12",
+          "selfimprovement_ai13",
+          "selfimprovement_ai14",
+          "selfimprovement_ai15",
+          "selfimprovement_ai16",
+          "selfimprovement_ai17",
+          "selfimprovement_ai18",
+          "selfimprovement_ai19",
+          "selfimprovement_ai2",
+          "selfimprovement_ai20",
+          "selfimprovement_ai3",
+          "selfimprovement_ai4",
+          "selfimprovement_ai5",
+          "selfimprovement_ai6",
+          "selfimprovement_ai7",
+          "selfimprovement_ai8",
+          "selfimprovement_ai9",
+          "successful",
+          "tedtalk",
+          "vp",
+          "womenempowerment"
+        ],
+        "cells": [
+          {
+            "y": "Professionals",
+            "x": "communication",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 5,
+            "label": "0.0%",
+            "fraction": "0/5"
+          },
+          {
+            "y": "Professionals",
+            "x": "discipline",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "finance",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "focus",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "growth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Professionals",
+            "x": "habits",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "learning",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Professionals",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Women",
+            "x": "emotionalhealth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Women",
+            "x": "growth",
+            "rate": 33.33,
+            "ordered": 1,
+            "total": 3,
+            "label": "33.33%",
+            "fraction": "1/3"
+          },
+          {
+            "y": "Women",
+            "x": "habits",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "healing",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Women",
+            "x": "selfgrowth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Women",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Women",
+            "x": "womenempowerment",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Students",
+            "x": "discipline",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Students",
+            "x": "focus",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Students",
+            "x": "growth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Students",
+            "x": "habits",
+            "rate": 100.0,
+            "ordered": 2,
+            "total": 2,
+            "label": "100.0%",
+            "fraction": "2/2"
+          },
+          {
+            "y": "Students",
+            "x": "learning",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 4,
+            "label": "0.0%",
+            "fraction": "0/4"
+          },
+          {
+            "y": "Students",
+            "x": "lifelessons",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Students",
+            "x": "mindset",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "bookreading",
+            "rate": 12.5,
+            "ordered": 1,
+            "total": 8,
+            "label": "12.5%",
+            "fraction": "1/8"
+          },
+          {
+            "y": "Readers",
+            "x": "focus",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "habits",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "learning",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement",
+            "rate": 66.67,
+            "ordered": 2,
+            "total": 3,
+            "label": "66.67%",
+            "fraction": "2/3"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai1",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai10",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai11",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai12",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai13",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai14",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai15",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai16",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai17",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai18",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai19",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai2",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai20",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai3",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai4",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai5",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai6",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai7",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai8",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Readers",
+            "x": "selfimprovement_ai9",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "bookreading",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 3,
+            "label": "0.0%",
+            "fraction": "0/3"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "communication",
+            "rate": 100.0,
+            "ordered": 1,
+            "total": 1,
+            "label": "100.0%",
+            "fraction": "1/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "discipline",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 3,
+            "label": "0.0%",
+            "fraction": "0/3"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "growth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 3,
+            "label": "0.0%",
+            "fraction": "0/3"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "habits",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 3,
+            "label": "0.0%",
+            "fraction": "0/3"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "learning",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "lifelessons",
+            "rate": 33.33,
+            "ordered": 1,
+            "total": 3,
+            "label": "33.33%",
+            "fraction": "1/3"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "mindset",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "reading",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "SelfGrowth",
+            "x": "tedtalk",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "ai",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "bookreading",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "challenge",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "emotionalhealth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "focus",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "habits",
+            "rate": 50.0,
+            "ordered": 1,
+            "total": 2,
+            "label": "50.0%",
+            "fraction": "1/2"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "learning",
+            "rate": 10.53,
+            "ordered": 2,
+            "total": 19,
+            "label": "10.53%",
+            "fraction": "2/19"
+          },
+          {
+            "y": "EnglishLearners",
+            "x": "vp",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 8,
+            "label": "0.0%",
+            "fraction": "0/8"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "bookreading",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "finance",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "growth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "lifelessons",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "mindset",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "selfimprovement",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "FinanceSeekers",
+            "x": "successful",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "bookreading",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "communication",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "emotionalhealth",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 4,
+            "label": "0.0%",
+            "fraction": "0/4"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "focus",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 1,
+            "label": "0.0%",
+            "fraction": "0/1"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "lifelessons",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 2,
+            "label": "0.0%",
+            "fraction": "0/2"
+          },
+          {
+            "y": "Overthinkers",
+            "x": "mindset",
+            "rate": 0.0,
+            "ordered": 0,
+            "total": 5,
+            "label": "0.0%",
+            "fraction": "0/5"
+          }
+        ]
+      },
+      "material_test_blocks": [
+        {
+          "label": "新方向",
+          "week_label": "0713周",
+          "summary": {
+            "total_materials": 41,
+            "ordered_materials": 4,
+            "conversions": 6,
+            "order_rate": 9.76,
+            "spend": 878.63,
+            "subscriptions": 16
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260717_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Lifelessons-page1_RS-P3X1R1C3_gy",
+              "direction": "SelfGrowth",
+              "theme": "lifelessons",
+              "designer": "gy",
+              "spend": 25.1,
+              "purchases": 2,
+              "subscriptions": 3,
+              "roas": 0.64,
+              "ctr": 1.53,
+              "hook_rate": 12.25,
+              "retention_rate": 3.98
+            },
+            {
+              "rank": 2,
+              "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-learning-talk_RS-P1X1R3C3_gy",
+              "direction": "EnglishLearners",
+              "theme": "learning",
+              "designer": "gy",
+              "spend": 97.33,
+              "purchases": 2,
+              "subscriptions": 4,
+              "roas": 0.41,
+              "ctr": 0.89,
+              "hook_rate": 22.43,
+              "retention_rate": 2.86
+            },
+            {
+              "rank": 3,
+              "material_id": "20260714_growme_EN_9x16_FX-Readers_ZT-BookReading-habits_RS-P1X1R3C3_gy",
+              "direction": "Readers",
+              "theme": "bookreading",
+              "designer": "gy",
+              "spend": 38.38,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.33,
+              "ctr": 1.39,
+              "hook_rate": 15.54,
+              "retention_rate": 4.65
+            },
+            {
+              "rank": 4,
+              "material_id": "20260716_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-xinwen_RS-P1X1R3C1_gy",
+              "direction": "EnglishLearners",
+              "theme": "learning",
+              "designer": "gy",
+              "spend": 95.8,
+              "purchases": 1,
+              "subscriptions": 5,
+              "roas": 0.25,
+              "ctr": 1.34,
+              "hook_rate": 9.9,
+              "retention_rate": 3.0
+            }
+          ],
+          "note": "0713周 新方向（新形式/数字人等）测试素材，已计入周度 KPI。"
+        },
+        {
+          "label": "老方向",
+          "week_label": "0713周",
+          "summary": {
+            "total_materials": 118,
+            "ordered_materials": 9,
+            "conversions": 17,
+            "order_rate": 7.63,
+            "spend": 2110.44,
+            "subscriptions": 55
+          },
+          "materials": [
+            {
+              "rank": 1,
+              "material_id": "20260713_GrowMe_EN_9x16_FX-Professionals_ZT-Habits_RS-P1X1R3C3_czy",
+              "direction": "Professionals",
+              "theme": "habits",
+              "designer": "czy",
+              "spend": 228.8,
+              "purchases": 4,
+              "subscriptions": 12,
+              "roas": 0.45,
+              "ctr": 0.53,
+              "hook_rate": 13.92,
+              "retention_rate": 2.99
+            },
+            {
+              "rank": 2,
+              "material_id": "20260717_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_AI20_RS-P1X1R3C3_aitool_cty",
+              "direction": "Readers",
+              "theme": "selfimprovement_ai20",
+              "designer": "其他",
+              "spend": 94.01,
+              "purchases": 3,
+              "subscriptions": 12,
+              "roas": 0.76,
+              "ctr": 0.6,
+              "hook_rate": 12.32,
+              "retention_rate": 4.85
+            },
+            {
+              "rank": 3,
+              "material_id": "20260714_GrowMe_EN_9x16_FX-Women_ZT-Growth_RS-P1X1R3C3_aitool_cty",
+              "direction": "Women",
+              "theme": "growth",
+              "designer": "其他",
+              "spend": 93.78,
+              "purchases": 2,
+              "subscriptions": 4,
+              "roas": 0.45,
+              "ctr": 0.9,
+              "hook_rate": 16.29,
+              "retention_rate": 1.34
+            },
+            {
+              "rank": 4,
+              "material_id": "20260713_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Communication_RS-P1X1R3C3_czy",
+              "direction": "SelfGrowth",
+              "theme": "communication",
+              "designer": "czy",
+              "spend": 170.02,
+              "purchases": 2,
+              "subscriptions": 7,
+              "roas": 0.32,
+              "ctr": 0.64,
+              "hook_rate": 17.33,
+              "retention_rate": 3.24
+            },
+            {
+              "rank": 5,
+              "material_id": "20260714_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_RS-P1X1R3C3_aitool_cty",
+              "direction": "Readers",
+              "theme": "selfimprovement",
+              "designer": "其他",
+              "spend": 73.3,
+              "purchases": 2,
+              "subscriptions": 3,
+              "roas": 0.22,
+              "ctr": 1.24,
+              "hook_rate": 17.38,
+              "retention_rate": 1.9
+            },
+            {
+              "rank": 6,
+              "material_id": "20260716_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_RS-P1X1R3C3_aitool_cty",
+              "direction": "Readers",
+              "theme": "selfimprovement",
+              "designer": "其他",
+              "spend": 26.15,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 1.2,
+              "ctr": 1.33,
+              "hook_rate": 19.69,
+              "retention_rate": 3.08
+            },
+            {
+              "rank": 7,
+              "material_id": "20260714_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Habits_RS-P1X1R3C3_aitool_cty",
+              "direction": "EnglishLearners",
+              "theme": "habits",
+              "designer": "其他",
+              "spend": 108.67,
+              "purchases": 1,
+              "subscriptions": 2,
+              "roas": 0.42,
+              "ctr": 0.78,
+              "hook_rate": 14.39,
+              "retention_rate": 0.99
+            },
+            {
+              "rank": 8,
+              "material_id": "20260713_GrowMe_EN_9x16_FX-Students_ZT-Habits_RS-P1X1R3C3_aitool_czy",
+              "direction": "Students",
+              "theme": "habits",
+              "designer": "czy",
+              "spend": 73.77,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.38,
+              "ctr": 1.2,
+              "hook_rate": 14.88,
+              "retention_rate": 3.34
+            },
+            {
+              "rank": 9,
+              "material_id": "20260714_GrowMe_EN_9x16_FX-Students_ZT-Habits_RS-P1X1R3C3_aitool_cty",
+              "direction": "Students",
+              "theme": "habits",
+              "designer": "其他",
+              "spend": 83.1,
+              "purchases": 1,
+              "subscriptions": 1,
+              "roas": 0.29,
+              "ctr": 1.33,
+              "hook_rate": 18.16,
+              "retention_rate": 1.77
+            }
+          ],
+          "note": "0713周 老方向（常规上新）素材，已计入周度 KPI。"
+        }
+      ]
     }
   },
   "audience_tests": {
@@ -76320,101 +77798,133 @@
         "tag": "已回滚"
       }
     ],
-    "recommend_week": "0706周",
+    "recommend_week": "0713周",
     "recommended": [
       {
         "rank": 1,
-        "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-1_RS-P1X1R3C3_czy",
-        "direction": "Students",
-        "theme": "learning",
-        "designer": "czy",
-        "first_seen": "2026-07-06",
-        "week_label": "0706周",
+        "material_id": "20260717_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_AI20_RS-P1X1R3C3_aitool_cty",
+        "direction": "Readers",
+        "theme": "selfimprovement_ai20",
+        "designer": "其他",
+        "first_seen": "2026-07-17",
+        "week_label": "0713周",
         "purchases": 3,
-        "subscriptions": 4,
-        "spend": 54.84,
-        "roas": 1.0,
-        "ctr": 1.31,
+        "subscriptions": 12,
+        "spend": 94.01,
+        "roas": 0.76,
+        "ctr": 0.6,
         "scaling_status": "衰退期",
         "tag": "可回滚"
       },
       {
         "rank": 2,
-        "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Action_RS-P1X1R3C3_czy",
-        "direction": "SelfGrowth",
-        "theme": "action",
-        "designer": "czy",
-        "first_seen": "2026-07-06",
-        "week_label": "0706周",
+        "material_id": "20260714_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_RS-P1X1R3C3_aitool_cty",
+        "direction": "Readers",
+        "theme": "selfimprovement",
+        "designer": "其他",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
         "purchases": 2,
-        "subscriptions": 1,
-        "spend": 54.39,
-        "roas": 0.67,
-        "ctr": 1.93,
+        "subscriptions": 3,
+        "spend": 73.3,
+        "roas": 0.22,
+        "ctr": 1.24,
         "scaling_status": "衰退期",
         "tag": "可回滚"
       },
       {
         "rank": 3,
-        "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-EmotionalHealth_RS-P1X1R3C3_czy",
-        "direction": "SelfGrowth",
-        "theme": "emotionalhealth",
-        "designer": "czy",
-        "first_seen": "2026-07-06",
-        "week_label": "0706周",
-        "purchases": 1,
-        "subscriptions": 1,
-        "spend": 4.43,
-        "roas": 2.06,
-        "ctr": 1.5,
+        "material_id": "20260714_GrowMe_EN_9x16_FX-Women_ZT-Growth_RS-P1X1R3C3_aitool_cty",
+        "direction": "Women",
+        "theme": "growth",
+        "designer": "其他",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "purchases": 2,
+        "subscriptions": 4,
+        "spend": 93.78,
+        "roas": 0.45,
+        "ctr": 0.9,
         "scaling_status": "衰退期",
         "tag": "可回滚"
       },
       {
         "rank": 4,
-        "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Finance_RS-P1X1R3C3_czy",
-        "direction": "Professionals",
-        "theme": "finance",
+        "material_id": "20260713_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Communication_RS-P1X1R3C3_czy",
+        "direction": "SelfGrowth",
+        "theme": "communication",
         "designer": "czy",
-        "first_seen": "2026-07-06",
-        "week_label": "0706周",
-        "purchases": 1,
-        "subscriptions": 1,
-        "spend": 7.18,
-        "roas": 4.83,
-        "ctr": 1.42,
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "purchases": 2,
+        "subscriptions": 7,
+        "spend": 170.02,
+        "roas": 0.32,
+        "ctr": 0.64,
         "scaling_status": "衰退期",
         "tag": "可回滚"
       },
       {
         "rank": 5,
-        "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
-        "direction": "Students",
-        "theme": "learning",
-        "designer": "czy",
-        "first_seen": "2026-07-06",
-        "week_label": "0706周",
+        "material_id": "20260716_GrowMe_EN_9x16_FX-Readers_ZT-SelfImprovement_RS-P1X1R3C3_aitool_cty",
+        "direction": "Readers",
+        "theme": "selfimprovement",
+        "designer": "其他",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
         "purchases": 1,
         "subscriptions": 1,
-        "spend": 9.79,
-        "roas": 0.93,
-        "ctr": 1.11,
+        "spend": 26.15,
+        "roas": 1.2,
+        "ctr": 1.33,
         "scaling_status": "衰退期",
         "tag": "可回滚"
       },
       {
         "rank": 6,
-        "material_id": "20260708_GrowMe_EN_9x16_FX-Readers_ZT-BookReading-3_RS-P1X1R3C3_aitool_czy",
-        "direction": "Readers",
-        "theme": "bookreading",
+        "material_id": "20260713_GrowMe_EN_9x16_FX-Students_ZT-Habits_RS-P1X1R3C3_aitool_czy",
+        "direction": "Students",
+        "theme": "habits",
         "designer": "czy",
-        "first_seen": "2026-07-08",
-        "week_label": "0706周",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
         "purchases": 1,
         "subscriptions": 1,
-        "spend": 57.76,
-        "roas": 0.2,
-        "ctr": 0.66,
+        "spend": 73.77,
+        "roas": 0.38,
+        "ctr": 1.2,
+        "scaling_status": "衰退期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 7,
+        "material_id": "20260714_GrowMe_EN_9x16_FX-Students_ZT-Habits_RS-P1X1R3C3_aitool_cty",
+        "direction": "Students",
+        "theme": "habits",
+        "designer": "其他",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "purchases": 1,
+        "subscriptions": 1,
+        "spend": 83.1,
+        "roas": 0.29,
+        "ctr": 1.33,
+        "scaling_status": "衰退期",
+        "tag": "可回滚"
+      },
+      {
+        "rank": 8,
+        "material_id": "20260714_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Habits_RS-P1X1R3C3_aitool_cty",
+        "direction": "EnglishLearners",
+        "theme": "habits",
+        "designer": "其他",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "purchases": 1,
+        "subscriptions": 2,
+        "spend": 108.67,
+        "roas": 0.42,
+        "ctr": 0.78,
         "scaling_status": "衰退期",
         "tag": "可回滚"
       }
@@ -76425,22 +77935,23 @@
     }
   },
   "new_direction": {
-    "label": "图片",
-    "week_label": "0706周",
+    "label": "数字人",
+    "week_label": "0713周",
     "weeks": [
       "0608周",
       "0622周",
       "0629周",
-      "0706周"
+      "0706周",
+      "0713周"
     ],
-    "direction": "pic",
+    "direction": "EnglishLearners",
     "summary": {
-      "total_materials": 123,
-      "spend": 3241.32,
-      "purchases": 38,
-      "subscriptions": 72,
-      "ordered_materials": 15,
-      "order_rate": 12.2
+      "total_materials": 164,
+      "spend": 4119.95,
+      "purchases": 44,
+      "subscriptions": 88,
+      "ordered_materials": 19,
+      "order_rate": 11.59
     },
     "materials": [
       {
@@ -76565,6 +78076,21 @@
       },
       {
         "rank": 9,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-learning-talk_RS-P1X1R3C3_gy",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "gy",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 97.33,
+        "purchases": 2,
+        "subscriptions": 4,
+        "roas": 0.41,
+        "ctr": 0.89,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 10,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-2_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -76579,7 +78105,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 10,
+        "rank": 11,
         "material_id": "20260708_GrowMe_EN_9x16_FX-SelfGrowth _ZT- Learning-pic7_RS-P3X1R1C3_fj",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -76594,7 +78120,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 11,
+        "rank": 12,
+        "material_id": "20260717_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Lifelessons-page1_RS-P3X1R1C3_gy",
+        "direction": "SelfGrowth",
+        "theme": "lifelessons",
+        "designer": "gy",
+        "first_seen": "2026-07-17",
+        "week_label": "0713周",
+        "spend": 25.1,
+        "purchases": 2,
+        "subscriptions": 3,
+        "roas": 0.64,
+        "ctr": 1.53,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 13,
         "material_id": "20260706_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-water_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76609,7 +78150,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 12,
+        "rank": 14,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-1_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -76624,7 +78165,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 13,
+        "rank": 15,
         "material_id": "20260707_growme_EN_9x16_FX-EnglishReaders_ZT-learning-woman_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -76639,7 +78180,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 14,
+        "rank": 16,
+        "material_id": "20260716_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-xinwen_RS-P1X1R3C1_gy",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "gy",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 95.8,
+        "purchases": 1,
+        "subscriptions": 5,
+        "roas": 0.25,
+        "ctr": 1.34,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 17,
         "material_id": "20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-that girl_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76654,7 +78210,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 15,
+        "rank": 18,
+        "material_id": "20260714_growme_EN_9x16_FX-Readers_ZT-BookReading-habits_RS-P1X1R3C3_gy",
+        "direction": "Readers",
+        "theme": "bookreading",
+        "designer": "gy",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 38.38,
+        "purchases": 1,
+        "subscriptions": 1,
+        "roas": 0.33,
+        "ctr": 1.39,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 19,
         "material_id": "20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76669,7 +78240,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 16,
+        "rank": 20,
         "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-income_RS-P1X1R3C3_wxx",
         "direction": "aitalk",
         "theme": "income",
@@ -76684,7 +78255,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 17,
+        "rank": 21,
         "material_id": "20260709_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-train_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76699,7 +78270,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 18,
+        "rank": 22,
         "material_id": "20260709_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-Learning-history_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -76714,7 +78285,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 19,
+        "rank": 23,
         "material_id": "20260710_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-train_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76729,7 +78300,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 20,
+        "rank": 24,
         "material_id": "20260706_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-BackonTrack_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76744,7 +78315,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 21,
+        "rank": 25,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-6-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-6-",
@@ -76759,7 +78330,22 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 22,
+        "rank": 26,
+        "material_id": "20260713_growme_EN_9x16_FX-SelfGrowth_ZT-Learning_RS-P1X1R1C1_CN_095KB_RMG-6284A",
+        "direction": "SelfGrowth",
+        "theme": "learning",
+        "designer": "其他",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "spend": 43.97,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.18,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 27,
         "material_id": "20260710_GrowMe_EN_4x5_FX-Professionals _ZT- SelfImprovement-pic8_RS-P3X1R1C3_fj",
         "direction": "Professionals",
         "theme": "selfimprovement",
@@ -76774,7 +78360,37 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 23,
+        "rank": 28,
+        "material_id": "20260716_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-A2_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "wxx",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 41.46,
+        "purchases": 0,
+        "subscriptions": 2,
+        "roas": 0,
+        "ctr": 1.73,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 29,
+        "material_id": "20260716_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-xinwen2_RS-P1X1R3C1_gy",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "gy",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 41.3,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.01,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 30,
         "material_id": "20260708_GrowMe_EN_4x5_FX-SelfGrowth _ZT-Communication-pic1_RS-P3X1R1C3_fj",
         "direction": "SelfGrowth",
         "theme": "communication",
@@ -76789,7 +78405,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 24,
+        "rank": 31,
         "material_id": "20260710_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-Learning-history_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -76804,7 +78420,22 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 25,
+        "rank": 32,
+        "material_id": "20260716_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-slow_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "wxx",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 40.05,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.85,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 33,
         "material_id": "20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-15mins_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76819,7 +78450,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 26,
+        "rank": 34,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-Learning_RS-P1X1R1C1_ZH_095KB_RMG-6283D",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76834,7 +78465,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 27,
+        "rank": 35,
         "material_id": "20260630_GrowMe_EN_9x16_FX-Overthinkers_ZT-aitalk-thinking_RS-P1X1R3C3_wxx",
         "direction": "Overthinkers",
         "theme": "aitalk",
@@ -76849,7 +78480,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 28,
+        "rank": 36,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic11_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -76864,7 +78495,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 29,
+        "rank": 37,
         "material_id": "20260707_GrowMe_EN_4x5_FX-Women_ZT-WomenEmpowerment_RS-P3X1R1C3_fj",
         "direction": "Women",
         "theme": "womenempowerment",
@@ -76879,7 +78510,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 30,
+        "rank": 38,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-list_RS-P1X1R3C1_gy",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76894,7 +78525,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 31,
+        "rank": 39,
         "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-miscrolearn_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "aitalk",
@@ -76909,7 +78540,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 32,
+        "rank": 40,
         "material_id": "20260702_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-365_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "aitalk",
@@ -76924,7 +78555,67 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 33,
+        "rank": 41,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-1_RS-P1X1R3C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "fj",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 33.85,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.85,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 42,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-VP-goodscore_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "wxx",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 32.97,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.13,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 43,
+        "material_id": "20260714_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-Reading-girl_RS-P1X1R3C3_wxx",
+        "direction": "SelfGrowth",
+        "theme": "reading",
+        "designer": "wxx",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 32.86,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.68,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 44,
+        "material_id": "20260716_GrowMe_EN_9x16_FX-SelfGrowth_ZT-BookReading-read_RS-P3X1R1C3_gy",
+        "direction": "SelfGrowth",
+        "theme": "bookreading",
+        "designer": "gy",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 32.67,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.21,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 45,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-Learning_RS-P1X1R1C1_ZH_095KB_RMG-6283C",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76939,7 +78630,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 34,
+        "rank": 46,
         "material_id": "20260702_GrowMe_EN_4x5_FX-Women_ZT-WomenEmpowerment-pic4_RS-P3X1R1C3_fj",
         "direction": "Women",
         "theme": "womenempowerment",
@@ -76954,7 +78645,37 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 35,
+        "rank": 47,
+        "material_id": "20260713_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-track_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "spend": 32.35,
+        "purchases": 0,
+        "subscriptions": 1,
+        "roas": 0,
+        "ctr": 0.77,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 48,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-AI-english-1_RS-P1X1R3C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "ai",
+        "designer": "fj",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 31.93,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.14,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 49,
         "material_id": "20260706_GrowMe_EN_9x16_FX-Women_ZT-healing-ToxicParents_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "healing",
@@ -76969,7 +78690,7 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 36,
+        "rank": 50,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-Learning_RS-P1X1R1C1_ZH_095KB_RMG-6283E",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76984,7 +78705,22 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 37,
+        "rank": 51,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-VP-talk_RS-P1X1R3C3_FL_fj",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "其他",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 30.68,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.48,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 52,
         "material_id": "20260710_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-love yourself_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -76999,7 +78735,22 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 38,
+        "rank": 53,
+        "material_id": "20260713_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-friendf_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "spend": 30.32,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.0,
+        "scaling_status": "炮灰"
+      },
+      {
+        "rank": 54,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-1-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-1-",
@@ -77014,7 +78765,37 @@
         "scaling_status": "炮灰"
       },
       {
-        "rank": 39,
+        "rank": 55,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-VP-badscore_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "wxx",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 29.49,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.27,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 56,
+        "material_id": "20260713_growme_EN_9x16_FX-EnglishLearners_ZT-VP-readingchallenge_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "wxx",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "spend": 27.84,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.63,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 57,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-8-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-8-",
@@ -77029,7 +78810,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 40,
+        "rank": 58,
+        "material_id": "20260713_GrowMe_EN_9x16_FX-Women_ZT-SelfGrowth-Learning_RS-P1X1R3C3_wxx",
+        "direction": "Women",
+        "theme": "selfgrowth",
+        "designer": "wxx",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "spend": 27.35,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.55,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 59,
         "material_id": "20260708_growme_EN_9x16_FX-SelfGrowth_ZT-LifeLessons_RS-P1X1R1C1_CN_095KB_RMG-6284",
         "direction": "SelfGrowth",
         "theme": "lifelessons",
@@ -77044,7 +78840,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 41,
+        "rank": 60,
         "material_id": "20260703_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic8_RS-P1X1R3C3_wxx.jpg",
         "direction": "SelfGrowth",
         "theme": "selfimprovement",
@@ -77059,7 +78855,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 42,
+        "rank": 61,
         "material_id": "20260630_GrowMe_EN_9x16_FX-EnglishLearners_ZT-aitalk-english_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "aitalk",
@@ -77074,7 +78870,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 43,
+        "rank": 62,
+        "material_id": "20260716_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-slow_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 25.12,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.19,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 63,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-9-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-9-",
@@ -77089,7 +78900,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 44,
+        "rank": 64,
+        "material_id": "20260715_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-language_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 24.49,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.54,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 65,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-10-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-10-",
@@ -77104,7 +78930,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 45,
+        "rank": 66,
         "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-IQ_RS-P1X1R3C3_wxx",
         "direction": "aitalk",
         "theme": "iq",
@@ -77119,7 +78945,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 46,
+        "rank": 67,
         "material_id": "20260701_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-book_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "aitalk",
@@ -77134,7 +78960,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 47,
+        "rank": 68,
         "material_id": "20260706_GrowMe_EN_9x16_FX-SelfGrowth_ZT-aitalk-365_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "aitalk",
@@ -77149,7 +78975,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 48,
+        "rank": 69,
         "material_id": "20260701_GrowMe_EN_9x16_FX-Professionals_ZT-aitalk-ceo_RS-P1X1R3C3_wxx",
         "direction": "Professionals",
         "theme": "aitalk",
@@ -77164,7 +78990,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 49,
+        "rank": 70,
         "material_id": "20260701_GrowMe_EN_9x16_FX-EnglishLearners_ZT-aitalk-english_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "aitalk",
@@ -77179,7 +79005,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 50,
+        "rank": 71,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-2-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-2-",
@@ -77194,7 +79020,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 51,
+        "rank": 72,
         "material_id": "20260703_growme_EN_9x16_FX-Women_ZT-SelfImprovement-pic6_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "selfimprovement",
@@ -77209,7 +79035,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 52,
+        "rank": 73,
+        "material_id": "20260716_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-4_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 20.44,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 2.34,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 74,
         "material_id": "20260708_GrowMe_EN_4x5_FX-SelfGrowth _ZT- Learning-pic5_RS-P3X1R1C3_fj",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -77224,7 +79065,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 53,
+        "rank": 75,
         "material_id": "20260702_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic5_RS-P1X1R3C3_gy",
         "direction": "SelfGrowth",
         "theme": "selfimprovement",
@@ -77239,7 +79080,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 54,
+        "rank": 76,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic10_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77254,7 +79095,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 55,
+        "rank": 77,
+        "material_id": "20260713_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-that girl_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-13",
+        "week_label": "0713周",
+        "spend": 17.81,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.44,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 78,
         "material_id": "20260709_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-Learning-pic2_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -77269,7 +79125,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 56,
+        "rank": 79,
         "material_id": "20260702_growme_EN_9x16_FX-Women_ZT-learning-pic5_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "learning",
@@ -77284,7 +79140,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 57,
+        "rank": 80,
         "material_id": "20260708_GrowMe_EN_4x5_FX-Women_ZT-WomenEmpowerment-pic4_RS-P3X1R1C3_fj",
         "direction": "Women",
         "theme": "womenempowerment",
@@ -77299,7 +79155,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 58,
+        "rank": 81,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-4-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-4-",
@@ -77314,7 +79170,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 59,
+        "rank": 82,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic2_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77329,7 +79185,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 60,
+        "rank": 83,
         "material_id": "20260702_GrowMe_EN_1x1_FX-Women_ZT-Mindset-pic2_RS-P3X1R1C3_gy",
         "direction": "Women",
         "theme": "mindset",
@@ -77344,7 +79200,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 61,
+        "rank": 84,
         "material_id": "20260707_GrowMe_EN_9x16_FX-Women_ZT-Women-Learning_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "women",
@@ -77359,7 +79215,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 62,
+        "rank": 85,
         "material_id": "20260702_GrowMe_EN_4x5_FX-Overthinkers_ZT-EmotionalHealth-pic1_RS-P3X1R1C3_fj",
         "direction": "Overthinkers",
         "theme": "emotionalhealth",
@@ -77374,7 +79230,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 63,
+        "rank": 86,
         "material_id": "20260702_growme_EN_9x16_FX-Readers_ZT-learning-pic4_RS-P1X1R3C3_gy",
         "direction": "Readers",
         "theme": "learning",
@@ -77389,7 +79245,37 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 64,
+        "rank": 87,
+        "material_id": "20260714_growme_EN_9x16_FX-Readers_ZT-BookReading-talent_RS-P1X1R3C3_gy",
+        "direction": "Readers",
+        "theme": "bookreading",
+        "designer": "gy",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 8.0,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.68,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 88,
+        "material_id": "20260716_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-people_RS-P3X1R1C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "fj",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 7.97,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.92,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 89,
         "material_id": "20260702_growme_EN_9x16_FX-Overthinkers _ZT-Mindset-pic2_RS-P1X1R3C3_wxx",
         "direction": "Overthinkers",
         "theme": "mindset",
@@ -77404,7 +79290,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 65,
+        "rank": 90,
         "material_id": "20260702_GrowMe_EN_4x5_FX-Women_ZT-Mindset-pic1_RS-P3X1R1C3_gy",
         "direction": "Women",
         "theme": "mindset",
@@ -77419,7 +79305,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 66,
+        "rank": 91,
         "material_id": "20260702_GrowMe_EN_4x5_FX-Women_ZT-Mindset-pic2_RS-P3X1R1C3_fj",
         "direction": "Women",
         "theme": "mindset",
@@ -77434,7 +79320,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 67,
+        "rank": 92,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic3_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77449,7 +79335,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 68,
+        "rank": 93,
         "material_id": "20260708_GrowMe_EN_4x5_FX-Women_ZT-WomenEmpowerment-pic2_RS-P3X4R1C3_fj",
         "direction": "Women",
         "theme": "womenempowerment",
@@ -77464,7 +79350,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 69,
+        "rank": 94,
         "material_id": "20260710_GrowMe_EN_4x5_FX-Women_ZT- SelfImprovement-pic9_RS-P3X1R1C3_fj",
         "direction": "Women",
         "theme": "selfimprovement",
@@ -77479,7 +79365,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 70,
+        "rank": 95,
         "material_id": "20260708_GrowMe_EN_4x5_FX-Overthinkers _ZT-Mindset-pic8_RS-P3X1R1C3_fj",
         "direction": "Overthinkers",
         "theme": "mindset",
@@ -77494,7 +79380,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 71,
+        "rank": 96,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic4_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77509,7 +79395,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 72,
+        "rank": 97,
         "material_id": "20260707_GrowMe_EN_9x16_FX-SelfGrowth_ZT-SelfAwareness-test_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "selfawareness",
@@ -77524,7 +79410,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 73,
+        "rank": 98,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-speaker_RS-P1X1R3C1_gy",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -77539,7 +79425,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 74,
+        "rank": 99,
         "material_id": "20260709_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-Learning-pic1_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -77554,7 +79440,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 75,
+        "rank": 100,
         "material_id": "20260706_growme_EN_9x16_FX-EnglishReaders_ZT-learning-speak_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77569,7 +79455,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 76,
+        "rank": 101,
         "material_id": "20260702_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic8_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77584,7 +79470,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 77,
+        "rank": 102,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishLearners_ZT-challenge-aikid_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "challenge",
+        "designer": "wxx",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 3.1,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 2.04,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 103,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-4_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -77599,7 +79500,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 78,
+        "rank": 104,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-4_RS-P1X1R3C3_gy",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -77614,7 +79515,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 79,
+        "rank": 105,
         "material_id": "20260708_GrowMe_EN_4x5_FX-Women_ZT-WomenEmpowerment-pic3_RS-P3X4R1C3_fj",
         "direction": "Women",
         "theme": "womenempowerment",
@@ -77629,7 +79530,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 80,
+        "rank": 106,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-11-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-11-",
@@ -77644,7 +79545,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 81,
+        "rank": 107,
         "material_id": "20260702_growme_EN_9x16_FX-Professionals_ZT-SelfImprovement-pic6_RS-P1X1R3C3_gy",
         "direction": "Professionals",
         "theme": "selfimprovement",
@@ -77659,7 +79560,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 82,
+        "rank": 108,
         "material_id": "20260709_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-growth-pic1_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "growth",
@@ -77674,7 +79575,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 83,
+        "rank": 109,
         "material_id": "20260702_GrowMe_EN_4x5_FX-Professionals _ZT-SelfImprovement-pic5_RS-P3X1R1C3_fj",
         "direction": "Professionals",
         "theme": "selfimprovement",
@@ -77689,7 +79590,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 84,
+        "rank": 110,
         "material_id": "20260702_growme_EN_4x5_FX-SelfGrowth_ZT-lifelessons-pic3_RS-P1X1R3C3_gy",
         "direction": "SelfGrowth",
         "theme": "lifelessons",
@@ -77704,7 +79605,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 85,
+        "rank": 111,
         "material_id": "20260702_growme_EN_9x16_FX-SelfGrowth_ZT-learning-pic3_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -77719,7 +79620,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 86,
+        "rank": 112,
         "material_id": "20260706_growme_EN_9x16_FX-EnglishReaders_ZT-learning-read_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77734,7 +79635,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 87,
+        "rank": 113,
         "material_id": "20260703_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic7_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "selfimprovement",
@@ -77749,7 +79650,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 88,
+        "rank": 114,
         "material_id": "20260709_GrowMe_EN_9x16_FX-Introverts_ZT-Mindset-pic1_RS-P1X1R3C3_wxx",
         "direction": "introverts",
         "theme": "mindset",
@@ -77764,7 +79665,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 89,
+        "rank": 115,
+        "material_id": "20260716_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-TEDtalk-20book_RS-P1X1R3C3_wxx",
+        "direction": "SelfGrowth",
+        "theme": "tedtalk",
+        "designer": "wxx",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 1.72,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.56,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 116,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic8_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77779,7 +79695,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 90,
+        "rank": 117,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic9_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77794,7 +79710,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 91,
+        "rank": 118,
         "material_id": "20260710_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-that girl_RS-P3X1R1C3_LV1-background_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -77809,7 +79725,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 92,
+        "rank": 119,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic5_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77824,7 +79740,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 93,
+        "rank": 120,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-1_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -77839,7 +79755,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 94,
+        "rank": 121,
+        "material_id": "20260714_growme_EN_9x16_FX-EnglishLearners_ZT-learning-talk2_RS-P1X1R3C3_gy",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "gy",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 1.32,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.95,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 122,
         "material_id": "20260702_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pic10_RS-P1X1R3C3_gy.jpg",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77854,7 +79785,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 95,
+        "rank": 123,
+        "material_id": "20260714_GrowMe_EN_9x16_FX-Women_ZT-SelfGrowth-47_RS-P1X1R3C3_wxx",
+        "direction": "Women",
+        "theme": "selfgrowth",
+        "designer": "wxx",
+        "first_seen": "2026-07-14",
+        "week_label": "0713周",
+        "spend": 1.05,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.29,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 124,
         "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-SelfImprovement-responsibility_RS-P3X1R1C3_fj",
         "direction": "Professionals",
         "theme": "selfimprovement",
@@ -77869,7 +79815,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 96,
+        "rank": 125,
         "material_id": "20260708_GrowMe_EN_4x5_FX-SelfGrowth _ZT- Learning-pic6_RS-P3X1R1C3_fj",
         "direction": "SelfGrowth",
         "theme": "learning",
@@ -77884,7 +79830,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 97,
+        "rank": 126,
         "material_id": "20260709_GrowMe_EN_9x16_FX-Women_ZT-selfimprovement-pic_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "selfimprovement",
@@ -77899,7 +79845,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 98,
+        "rank": 127,
         "material_id": "20260624_GrowMe_EN_9x16_FX-pic_ZT-test-3-_RS-P3X1R1C3_gy",
         "direction": "pic",
         "theme": "test-3-",
@@ -77914,7 +79860,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 99,
+        "rank": 128,
         "material_id": "20260709_GrowMe_EN_9x16_FX-Introverts_ZT-Mindset-pic2_RS-P1X1R3C3_wxx.jpg",
         "direction": "introverts",
         "theme": "mindset",
@@ -77929,7 +79875,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 100,
+        "rank": 129,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-2_RS-P1X1R3C3_fj",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -77944,7 +79890,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 101,
+        "rank": 130,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic6_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -77959,7 +79905,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 102,
+        "rank": 131,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-read-1_RS-P1X1R3C3_fj",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -77974,7 +79920,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 103,
+        "rank": 132,
         "material_id": "20260710_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-thatgirl_RS-P3X1R1C3_fj",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -77989,7 +79935,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 104,
+        "rank": 133,
         "material_id": "20260702_growme_EN_9x16_FX-Overthinkers _ZT-Mindset-pic1_RS-P1X1R3C3_wxx",
         "direction": "Overthinkers",
         "theme": "mindset",
@@ -78004,7 +79950,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 105,
+        "rank": 134,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-hua_RS-P1X1R3C1_gy",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -78019,7 +79965,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 106,
+        "rank": 135,
         "material_id": "20260708_growme_EN_4x5_FX-EnglishReaders_ZT-learning-pic1_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -78034,7 +79980,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 107,
+        "rank": 136,
+        "material_id": "20260715_growme_EN_9x16_FX-Professionals_ZT-SelfImprovement-ceo_RS-P1X1R3C3_gy",
+        "direction": "Professionals",
+        "theme": "selfimprovement",
+        "designer": "gy",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.54,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.79,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 137,
         "material_id": "20260710_GrowMe_EN_9x16_FX-Women_ZT-Women-pic1_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "women",
@@ -78049,7 +80010,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 108,
+        "rank": 138,
+        "material_id": "20260716_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-xinwen_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "wxx",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 0.5,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.39,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 139,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-3_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78064,7 +80040,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 109,
+        "rank": 140,
         "material_id": "20260710_GrowMe_EN_4x5_FX-SelfGrowth _ZT- SelfImprovement-pic10_RS-P3X1R1C3_fj",
         "direction": "SelfGrowth",
         "theme": "selfimprovement",
@@ -78079,7 +80055,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 110,
+        "rank": 141,
         "material_id": "20260702_GrowMe_EN_4x5_FX-Overthinkers_ZT-Mindset-pic3_RS-P3X1R1C3_fj",
         "direction": "Overthinkers",
         "theme": "mindset",
@@ -78094,7 +80070,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 111,
+        "rank": 142,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-1_RS-P1X1R3C3_fj",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78109,7 +80085,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 112,
+        "rank": 143,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-read-2_RS-P1X1R3C3_fj",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78124,7 +80100,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 113,
+        "rank": 144,
         "material_id": "20260702_growme_EN_9x16_FX-SelfGrowth_ZT-SelfImprovement-pic4_RS-P1X1R3C3_wxx",
         "direction": "SelfGrowth",
         "theme": "selfimprovement",
@@ -78139,7 +80115,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 114,
+        "rank": 145,
         "material_id": "20260706_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pink_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -78154,7 +80130,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 115,
+        "rank": 146,
         "material_id": "20260710_GrowMe_EN_9x16_FX-Women_ZT-SelfGrowth-Learning_RS-P1X1R3C3_wxx",
         "direction": "Women",
         "theme": "selfgrowth",
@@ -78169,7 +80145,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 116,
+        "rank": 147,
         "material_id": "20260708_growme_EN_4x5_FX-Professionals_ZT-SelfImprovement-pic8_RS-P1X1R3C3_gy",
         "direction": "Professionals",
         "theme": "selfimprovement",
@@ -78184,7 +80160,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 117,
+        "rank": 148,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-3_RS-P1X1R3C3_gy",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78199,7 +80175,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 118,
+        "rank": 149,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-1_RS-P1X1R3C3_gy",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78214,7 +80190,52 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 119,
+        "rank": 150,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishLearners_ZT-learning-poor_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "learning",
+        "designer": "wxx",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.21,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0.46,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 151,
+        "material_id": "20260717_growme_EN_9x16_FX-SelfGrowth_ZT-Lifelessons-ceo__RS-P1X1R3C1_gy",
+        "direction": "SelfGrowth",
+        "theme": "lifelessons",
+        "designer": "gy",
+        "first_seen": "2026-07-17",
+        "week_label": "0713周",
+        "spend": 0.17,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.85,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 152,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-subway_RS-P1X1R3C3_gy",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "gy",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.17,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 1.37,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 153,
         "material_id": "20260707_GrowMe_EN_9x16_FX-Women_ZT-Learning-_RS-P3X1R1C3_fj",
         "direction": "Women",
         "theme": "learning",
@@ -78229,7 +80250,22 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 120,
+        "rank": 154,
+        "material_id": "20260715_growme_EN_9x16_FX-Readers_ZT-BookReading-paint_RS-P1X1R3C3_gy",
+        "direction": "Readers",
+        "theme": "bookreading",
+        "designer": "gy",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.13,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 155,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-train_RS-P1X1R3C1_gy",
         "direction": "EnglishLearners",
         "theme": "learning",
@@ -78244,7 +80280,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 121,
+        "rank": 156,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishReaders_ZT-learning-pink_RS-P1X1R3C3_gy",
         "direction": "englishreaders",
         "theme": "learning",
@@ -78259,7 +80295,7 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 122,
+        "rank": 157,
         "material_id": "20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-5_RS-P1X1R3C3_gy",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78274,7 +80310,52 @@
         "scaling_status": "衰退期"
       },
       {
-        "rank": 123,
+        "rank": 158,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishLearners_ZT-VP- challenge_RS-P1X1R3C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "fj",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.06,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 159,
+        "material_id": "20260716_GrowMe_EN_9x16_FX-Women_ZT-healing-cycle_RS-P1X1R3C3_wxx",
+        "direction": "Women",
+        "theme": "healing",
+        "designer": "wxx",
+        "first_seen": "2026-07-16",
+        "week_label": "0713周",
+        "spend": 0.06,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 160,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishReaders_ZT-learning-robot_RS-P1X1R3C3_gy",
+        "direction": "englishreaders",
+        "theme": "learning",
+        "designer": "gy",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.05,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 161,
         "material_id": "20260710_growme_EN_9x16_FX-EnglishLearners_ZT-VP-english-4_RS-P1X1R3C3_wxx",
         "direction": "EnglishLearners",
         "theme": "vp",
@@ -78287,8 +80368,53 @@
         "roas": 0,
         "ctr": 0,
         "scaling_status": "衰退期"
+      },
+      {
+        "rank": 162,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishLearners_ZT-challenge-aiwomen_RS-P1X1R3C3_wxx",
+        "direction": "EnglishLearners",
+        "theme": "challenge",
+        "designer": "wxx",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.01,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 163,
+        "material_id": "20260715_GrowMe_EN_9x16_01_FX-SelfGrowth_ZT-TEDtalk-room_RS-P1X1R3C3_wxx",
+        "direction": "SelfGrowth",
+        "theme": "tedtalk",
+        "designer": "wxx",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.01,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
+      },
+      {
+        "rank": 164,
+        "material_id": "20260715_growme_EN_9x16_FX-EnglishLearners_ZT-VP-3people_RS-P1X1R3C3_fj",
+        "direction": "EnglishLearners",
+        "theme": "vp",
+        "designer": "fj",
+        "first_seen": "2026-07-15",
+        "week_label": "0713周",
+        "spend": 0.0,
+        "purchases": 0,
+        "subscriptions": 0,
+        "roas": 0,
+        "ctr": 0,
+        "scaling_status": "衰退期"
       }
     ],
-    "note": "0706周 起测试 图片 方向（FX-pic），已计入对应周度 KPI。"
+    "note": "0713周 起测试 数字人 方向（FX-EnglishLearners），已计入对应周度 KPI。"
   }
 }

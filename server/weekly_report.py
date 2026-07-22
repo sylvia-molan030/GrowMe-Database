@@ -17,7 +17,7 @@ from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction,
 
 
 _NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
-# 仅本周测试快照；其余历史周 KPI 按账户全量生命周期（素材日期归属周）
+# 当前测试周：名单来自周度文件，成效用账户全量覆盖刷新；其余历史周按账户生命周期归属
 _SNAPSHOT_WEEK = "0713周"
 
 
@@ -120,19 +120,21 @@ def _overlay_lifecycle_metrics(
 
 
 def _report_materials_for_week(week_label: str) -> tuple[list[dict[str, Any]], str]:
-    """报告用素材列表：0713 周度快照；其余周账户全量生命周期。"""
+    """报告用素材列表：当前测试周用周度名单+账户覆盖；其余周账户全量生命周期。"""
     if _uses_snapshot_kpi(week_label):
-        return _aggregate_materials(_week_records(week_label, kpi=True)), "weekly_files"
+        mats = _aggregate_materials(_week_records(week_label, kpi=True))
+        return _overlay_lifecycle_metrics(mats), "weekly_files_lifecycle"
 
     account_mats = _aggregate_materials(_account_records_for_week(week_label))
     if account_mats:
         return account_mats, "account_lifecycle"
 
-    return _aggregate_materials(_week_records(week_label, kpi=True)), "weekly_files_fallback"
+    mats = _aggregate_materials(_week_records(week_label, kpi=True))
+    return _overlay_lifecycle_metrics(mats), "weekly_files_fallback"
 
 
 def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
-    """返回 (kpi, source)。0713 用周度文件快照；其余周用账户全量生命周期。"""
+    """返回 (kpi, source)。当前测试周名单来自周度文件、成效按账户刷新；其余周用账户生命周期。"""
     mats, source = _report_materials_for_week(week_label)
     return _channel_kpi(mats), source
 
@@ -500,7 +502,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    # 0713：周度测试快照；其余周：账户全量生命周期（方向表/好素材/热力图同步）
+    # 当前测试周：周度名单 + 账户覆盖；其余周：账户全量生命周期（方向表/好素材/热力图同步）
     all_materials, materials_source = _report_materials_for_week(week)
     combined_kpi, kpi_source = _kpi_for_week(week)
 
@@ -563,10 +565,8 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
     test_blocks: list[dict[str, Any]] = []
     try:
         from weekly_test_blocks import get_weekly_test_blocks
-        test_blocks = get_weekly_test_blocks(
-            week,
-            lifecycle=not _uses_snapshot_kpi(week),
-        )
+        # 测试板块名单仍来自周度文件，出单/消耗等一律按账户全量刷新
+        test_blocks = get_weekly_test_blocks(week, lifecycle=True)
     except ImportError:
         pass
     if test_blocks:

@@ -17,20 +17,14 @@ from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction,
 
 
 _NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
-# 当前测试周：名单来自周度文件，成效用账户全量覆盖刷新；其余历史周按账户生命周期归属
-_SNAPSHOT_WEEK = "0713周"
 
 
 def _is_new_schema_week(week_label: str) -> bool:
     return week_sort_key(week_label) >= _NEW_SCHEMA_WEEK_KEY
 
 
-def _uses_snapshot_kpi(week_label: str) -> bool:
-    return week_label == _SNAPSHOT_WEEK
-
-
 def sorted_week_labels() -> list[str]:
-    """周度 Tab 列表来自周度/新方向文件；KPI 除快照周外按全量生命周期。"""
+    """周度 Tab 仍按已有周度/新方向文件列出；KPI 一律按账户全量生命周期。"""
     labels = {
         r.get("week_label", "")
         for r in store.records
@@ -120,21 +114,17 @@ def _overlay_lifecycle_metrics(
 
 
 def _report_materials_for_week(week_label: str) -> tuple[list[dict[str, Any]], str]:
-    """报告用素材列表：当前测试周用周度名单+账户覆盖；其余周账户全量生命周期。"""
-    if _uses_snapshot_kpi(week_label):
-        mats = _aggregate_materials(_week_records(week_label, kpi=True))
-        return _overlay_lifecycle_metrics(mats), "weekly_files_lifecycle"
-
+    """报告用素材列表：一律按账户全量、素材日期归属自然周。"""
     account_mats = _aggregate_materials(_account_records_for_week(week_label))
     if account_mats:
         return account_mats, "account_lifecycle"
-
+    # 极早周若账户无素材，才回退周度文件并覆盖成效
     mats = _aggregate_materials(_week_records(week_label, kpi=True))
     return _overlay_lifecycle_metrics(mats), "weekly_files_fallback"
 
 
 def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
-    """返回 (kpi, source)。当前测试周名单来自周度文件、成效按账户刷新；其余周用账户生命周期。"""
+    """返回 (kpi, source)。周度 KPI 只看账户全量生命周期。"""
     mats, source = _report_materials_for_week(week_label)
     return _channel_kpi(mats), source
 
@@ -502,7 +492,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
 
     prev = _prev_week_label(week)
 
-    # 当前测试周：周度名单 + 账户覆盖；其余周：账户全量生命周期（方向表/好素材/热力图同步）
+    # 一律账户全量生命周期（方向表/好素材/热力图同步）
     all_materials, materials_source = _report_materials_for_week(week)
     combined_kpi, kpi_source = _kpi_for_week(week)
 
@@ -562,25 +552,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         heatmap = cross_rubric_heatmap_from_materials(all_materials)
         if heatmap:
             report["cross_rubric_heatmap"] = heatmap
-    test_blocks: list[dict[str, Any]] = []
-    try:
-        from weekly_test_blocks import get_weekly_test_blocks
-        # 测试板块名单仍来自周度文件，出单/消耗等一律按账户全量刷新
-        test_blocks = get_weekly_test_blocks(week, lifecycle=True)
-    except ImportError:
-        pass
-    if test_blocks:
-        report["material_test_blocks"] = test_blocks
-        breakdown = _material_breakdown(week, test_blocks)
-        if breakdown:
-            report["kpi"]["breakdown"] = breakdown
-        for block in reversed(test_blocks):
-            s = block["summary"]
-            report["insights"].insert(
-                0,
-                f"【{block['label']}】测试 {s['total_materials']} 条，"
-                f"出单 {s['conversions']} 单，出单率 {s['order_rate']}%。",
-            )
+    # 周维度只看全数据，不再挂载周度文件拆分的老/新/图片测试板块
     try:
         from audience_test_report import get_audience_test_for_week
         audience_test = get_audience_test_for_week(week)

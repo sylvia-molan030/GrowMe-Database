@@ -28,11 +28,11 @@
         "order_rate": 23.53,
         "ge2_rate": 20.0,
         "ge5_rate": 10.59,
-        "spend": 93886.31,
+        "spend": 94752.41,
         "ordered_materials": 20,
-        "conversions": 2449,
-        "subscriptions": 4697,
-        "avg_roas": 0.72,
+        "conversions": 2469,
+        "subscriptions": 4732,
+        "avg_roas": 0.68,
         "wow": {},
         "kpi_source": "account_lifecycle",
         "materials_source": "account_lifecycle",
@@ -47,7 +47,7 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 93886.31,
+          "current": 94752.41,
           "previous": null,
           "wow": null
         },
@@ -79,7 +79,7 @@
           "key": "subscriptions",
           "label": "订阅数",
           "unit": "",
-          "current": 4697,
+          "current": 4732,
           "previous": null,
           "wow": null
         },
@@ -87,7 +87,7 @@
           "key": "purchases",
           "label": "总出单量",
           "unit": "",
-          "current": 2449,
+          "current": 2469,
           "previous": null,
           "wow": null
         },
@@ -95,7 +95,7 @@
           "key": "roas",
           "label": "平均 ROAS",
           "unit": "",
-          "current": 0.72,
+          "current": 0.68,
           "previous": null,
           "wow": null
         }
@@ -106,22 +106,22 @@
           "direction": "test",
           "theme": "niupizhi",
           "designer": "gy",
-          "purchases": 1997,
-          "subscriptions": 3799,
-          "roas": 0.64,
+          "purchases": 2001,
+          "subscriptions": 3809,
+          "roas": 0.62,
           "ctr": 0.99,
-          "spend": 72565.74
+          "spend": 72837.43
         },
         {
           "material_id": "20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R3C1_gy - Copy",
           "direction": "test",
           "theme": "niupizhi",
           "designer": "其他",
-          "purchases": 119,
-          "subscriptions": 262,
-          "roas": 0.97,
+          "purchases": 129,
+          "subscriptions": 277,
+          "roas": 0.94,
           "ctr": 1.01,
-          "spend": 4105.85
+          "spend": 4379.81
         },
         {
           "material_id": "20260528_GrowMe_EN_9x16_FX-Formats_ZT-xinwen_RS-P3X1R1C3_gy",
@@ -129,10 +129,21 @@
           "theme": "xinwen",
           "designer": "gy",
           "purchases": 100,
-          "subscriptions": 187,
+          "subscriptions": 188,
           "roas": 0.72,
-          "ctr": 1.9,
-          "spend": 4997.89
+          "ctr": 1.91,
+          "spend": 5024.09
+        },
+        {
+          "material_id": "20260528_GrowMe_EN_9x16_FX-Formats_ZT-xinwen_RS-P3X1R1C3_gy - Copy",
+          "direction": "formats",
+          "theme": "xinwen",
+          "designer": "其他",
+          "purchases": 66,
+          "subscriptions": 103,
+          "roas": 1.12,
+          "ctr": 1.91,
+          "spend": 1843.5
         },
         {
           "material_id": "20260527_growme_EN_9x16_FX-Creatives_ZT-fluency_RS-P1X1R3C3_wxx",
@@ -141,20 +152,9 @@
           "designer": "wxx",
           "purchases": 62,
           "subscriptions": 122,
-          "roas": 2.06,
-          "ctr": 1.86,
-          "spend": 2885.34
-        },
-        {
-          "material_id": "20260528_GrowMe_EN_9x16_FX-Formats_ZT-xinwen_RS-P3X1R1C3_gy - Copy",
-          "direction": "formats",
-          "theme": "xinwen",
-          "designer": "其他",
-          "purchases": 60,
-          "subscriptions": 94,
-          "roas": 0.92,
-          "ctr": 1.94,
-          "spend": 1598.5
+          "roas": 0.87,
+          "ctr": 1.77,
+          "spend": 2911.74
         },
         {
           "material_id": "20260529_GrowMe_EN_9x16_FX-Creative_ZT-journey_RS-P3X1R1C3_gy",
@@ -165,7 +165,7 @@
           "subscriptions": 91,
           "roas": 0.43,
           "ctr": 2.08,
-          "spend": 1811.24
+          "spend": 1811.26
         },
         {
           "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-11things_RS-P3X1R1C3_fj",
@@ -175,8 +175,8 @@
           "purchases": 29,
           "subscriptions": 55,
           "roas": 1.15,
-          "ctr": 3.14,
-          "spend": 1870.37
+          "ctr": 3.04,
+          "spend": 1893.13
         },
         {
           "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-2years_RS-P3X1R1C3_fj",
@@ -197,8 +197,8 @@
           "purchases": 7,
           "subscriptions": 15,
           "roas": 0.44,
-          "ctr": 1.13,
-          "spend": 369.14
+          "ctr": 4.71,
+          "spend": 369.21
         },
         {
           "material_id": "20260526_GrowMe_EN_9x16_FX-Creative_ZT-plan_RS-P3X1R1C3_gy",
@@ -242,12 +242,12 @@
           "ordered_ratio": "5/17",
           "ctr": 3.5,
           "cpi": 1.14,
-          "roas": 0.66,
-          "subscriptions": 4075,
-          "purchases": 2121,
-          "hook_rate": 13.93,
-          "retention_rate": 6.72,
-          "spend": 77087.49,
+          "roas": 0.65,
+          "subscriptions": 4100,
+          "purchases": 2135,
+          "hook_rate": 13.92,
+          "retention_rate": 6.7,
+          "spend": 77633.14,
           "cpm": 1.91
         },
         {
@@ -255,15 +255,15 @@
           "total_materials": 7,
           "ordered_materials": 4,
           "ordered_ratio": "4/7",
-          "ctr": 1.42,
-          "cpi": 1.39,
-          "roas": 0.79,
-          "subscriptions": 299,
-          "purchases": 170,
-          "hook_rate": 15.69,
-          "retention_rate": 4.15,
-          "spend": 7053.41,
-          "cpm": 3.27
+          "ctr": 1.93,
+          "cpi": 1.41,
+          "roas": 0.85,
+          "subscriptions": 309,
+          "purchases": 176,
+          "hook_rate": 15.72,
+          "retention_rate": 4.21,
+          "spend": 7324.68,
+          "cpm": 3.29
         },
         {
           "direction": "creative",
@@ -271,29 +271,29 @@
           "ordered_materials": 8,
           "ordered_ratio": "8/45",
           "ctr": 3.44,
-          "cpi": 2.8,
+          "cpi": 2.81,
           "roas": 0.72,
           "subscriptions": 191,
           "purchases": 93,
           "hook_rate": 21.89,
           "retention_rate": 7.33,
-          "spend": 6145.8,
-          "cpm": 2.92
+          "spend": 6168.58,
+          "cpm": 2.93
         },
         {
           "direction": "creatives",
           "total_materials": 6,
           "ordered_materials": 3,
           "ordered_ratio": "3/6",
-          "ctr": 1.57,
-          "cpi": 2.39,
-          "roas": 1.96,
+          "ctr": 1.56,
+          "cpi": 2.4,
+          "roas": 0.85,
           "subscriptions": 131,
           "purchases": 65,
-          "hook_rate": 25.96,
+          "hook_rate": 25.98,
           "retention_rate": 4.09,
-          "spend": 3176.19,
-          "cpm": 4.89
+          "spend": 3202.59,
+          "cpm": 4.9
         },
         {
           "direction": "form",
@@ -410,13 +410,13 @@
         ]
       },
       "insights": [
-        "【老方向】测试 56 条，出单 2210 单，出单率 19.64%。",
+        "【老方向】测试 56 条，出单 2214 单，出单率 19.64%。",
         "【素材测出率】0525周 上新 85 条，出单率 23.53%，出单素材 20 条。",
-        "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 1997 · 订阅 3799 · ROAS 0.64 · CTR 0.99% · 花费 $72566.0。",
-        "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 1997 · 订阅 3799 · ROAS 0.64 · CTR 0.99% · 花费 $72566.0，具备放量验证价值。",
+        "【本周最强素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（test / gy）：购物 2001 · 订阅 3809 · ROAS 0.62 · CTR 0.99% · 花费 $72837.0。",
+        "【高转化信号素材】20260525_growme_EN_9x16_FX-test_ZT-niupizhi_RS-P1X1R…（购物+订阅双达标）：购物 2001 · 订阅 3809 · ROAS 0.62 · CTR 0.99% · 花费 $72837.0，具备放量验证价值。",
         "【钩子最优素材】20260527_growme_EN_9x16_FX-Creatives_ZT-listen_RS-P1…：3秒播放率 38.93%，购物 2 · 订阅 4 · ROAS 0.33 · CTR 1.39% · 花费 $121.0。",
         "【留存率最高素材】20260528_GrowMe_EN_9x16_FX-convercation_ZT-warn_RS-P…：完播留存率 24.49%，购物 0 · CTR 1.93% · 花费 $43.0。",
-        "【方向表现】「test」购物 2121 单领先，出单素材 5/17，ROAS 0.66；共 17 条素材参与本周 WW 测试。"
+        "【方向表现】「test」购物 2135 单领先，出单素材 5/17，ROAS 0.65；共 17 条素材参与本周 WW 测试。"
       ],
       "material_test_blocks": [
         {
@@ -425,10 +425,10 @@
           "summary": {
             "total_materials": 56,
             "ordered_materials": 11,
-            "conversions": 2210,
+            "conversions": 2214,
             "order_rate": 19.64,
-            "spend": 85166.9,
-            "subscriptions": 4199
+            "spend": 85513.95,
+            "subscriptions": 4210
           },
           "materials": [
             {
@@ -437,10 +437,10 @@
               "direction": "test",
               "theme": "niupizhi",
               "designer": "gy",
-              "spend": 72565.74,
-              "purchases": 1997,
-              "subscriptions": 3799,
-              "roas": 0.64,
+              "spend": 72837.43,
+              "purchases": 2001,
+              "subscriptions": 3809,
+              "roas": 0.62,
               "ctr": 0.99,
               "hook_rate": 13.74,
               "retention_rate": 6.67
@@ -451,12 +451,12 @@
               "direction": "formats",
               "theme": "xinwen",
               "designer": "gy",
-              "spend": 4997.89,
+              "spend": 5024.09,
               "purchases": 100,
-              "subscriptions": 187,
+              "subscriptions": 188,
               "roas": 0.72,
-              "ctr": 1.9,
-              "hook_rate": 14.87,
+              "ctr": 1.91,
+              "hook_rate": 14.89,
               "retention_rate": 3.95
             },
             {
@@ -465,13 +465,13 @@
               "direction": "creatives",
               "theme": "fluency",
               "designer": "wxx",
-              "spend": 2885.34,
+              "spend": 2911.74,
               "purchases": 62,
               "subscriptions": 122,
-              "roas": 2.06,
-              "ctr": 1.86,
-              "hook_rate": 25.92,
-              "retention_rate": 3.78
+              "roas": 0.87,
+              "ctr": 1.77,
+              "hook_rate": 25.94,
+              "retention_rate": 3.79
             },
             {
               "rank": 4,
@@ -479,12 +479,12 @@
               "direction": "creative",
               "theme": "11things",
               "designer": "fj",
-              "spend": 1870.37,
+              "spend": 1893.13,
               "purchases": 29,
               "subscriptions": 55,
               "roas": 1.15,
-              "ctr": 3.14,
-              "hook_rate": 28.6,
+              "ctr": 3.04,
+              "hook_rate": 28.58,
               "retention_rate": 6.8
             },
             {
@@ -609,11 +609,11 @@
         "order_rate": 26.0,
         "ge2_rate": 19.0,
         "ge5_rate": 10.0,
-        "spend": 42089.17,
+        "spend": 42983.8,
         "ordered_materials": 26,
-        "conversions": 883,
-        "subscriptions": 1762,
-        "avg_roas": 0.52,
+        "conversions": 902,
+        "subscriptions": 1787,
+        "avg_roas": 0.45,
         "wow": {
           "total_materials": {
             "delta": 15.0,
@@ -636,8 +636,8 @@
             "direction": "down"
           },
           "spend": {
-            "delta": -51797.14,
-            "pct": -55.2,
+            "delta": -51768.61,
+            "pct": -54.6,
             "direction": "down"
           },
           "ordered_materials": {
@@ -646,18 +646,18 @@
             "direction": "up"
           },
           "conversions": {
-            "delta": -1566.0,
-            "pct": -63.9,
+            "delta": -1567.0,
+            "pct": -63.5,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -2935.0,
-            "pct": -62.5,
+            "delta": -2945.0,
+            "pct": -62.2,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": -0.2,
-            "pct": -27.8,
+            "delta": -0.23,
+            "pct": -33.8,
             "direction": "down"
           }
         },
@@ -674,11 +674,11 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 42089.17,
-          "previous": 93886.31,
+          "current": 42983.8,
+          "previous": 94752.41,
           "wow": {
-            "delta": -51797.14,
-            "pct": -55.2,
+            "delta": -51768.61,
+            "pct": -54.6,
             "direction": "down"
           }
         },
@@ -698,11 +698,11 @@
           "key": "cpi",
           "label": "CPI",
           "unit": "$",
-          "current": 1.44,
+          "current": 1.43,
           "previous": 1.23,
           "wow": {
-            "delta": 0.21,
-            "pct": 17.1,
+            "delta": 0.2,
+            "pct": 16.3,
             "direction": "up"
           }
         },
@@ -710,23 +710,23 @@
           "key": "cpm",
           "label": "CPM",
           "unit": "$",
-          "current": 2.09,
+          "current": 2.07,
           "previous": 2.07,
           "wow": {
-            "delta": 0.02,
-            "pct": 1.0,
-            "direction": "up"
+            "delta": 0.0,
+            "pct": 0.0,
+            "direction": "flat"
           }
         },
         {
           "key": "subscriptions",
           "label": "订阅数",
           "unit": "",
-          "current": 1762,
-          "previous": 4697,
+          "current": 1787,
+          "previous": 4732,
           "wow": {
-            "delta": -2935.0,
-            "pct": -62.5,
+            "delta": -2945.0,
+            "pct": -62.2,
             "direction": "down"
           }
         },
@@ -734,11 +734,11 @@
           "key": "purchases",
           "label": "总出单量",
           "unit": "",
-          "current": 883,
-          "previous": 2449,
+          "current": 902,
+          "previous": 2469,
           "wow": {
-            "delta": -1566.0,
-            "pct": -63.9,
+            "delta": -1567.0,
+            "pct": -63.5,
             "direction": "down"
           }
         },
@@ -746,11 +746,11 @@
           "key": "roas",
           "label": "平均 ROAS",
           "unit": "",
-          "current": 0.52,
-          "previous": 0.72,
+          "current": 0.45,
+          "previous": 0.68,
           "wow": {
-            "delta": -0.2,
-            "pct": -27.8,
+            "delta": -0.23,
+            "pct": -33.8,
             "direction": "down"
           }
         }
@@ -763,20 +763,20 @@
           "designer": "gy",
           "purchases": 526,
           "subscriptions": 1029,
-          "roas": 0.51,
-          "ctr": 1.14,
-          "spend": 22339.37
+          "roas": 0.37,
+          "ctr": 1.11,
+          "spend": 22458.63
         },
         {
           "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X1R1C3_gy",
           "direction": "learning",
           "theme": "habbit",
           "designer": "gy",
-          "purchases": 133,
-          "subscriptions": 268,
+          "purchases": 134,
+          "subscriptions": 269,
           "roas": 0.34,
-          "ctr": 1.77,
-          "spend": 7158.7
+          "ctr": 1.74,
+          "spend": 7199.87
         },
         {
           "material_id": "20260602_GrowMe_0_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy",
@@ -797,19 +797,30 @@
           "purchases": 44,
           "subscriptions": 63,
           "roas": 1.93,
-          "ctr": 1.19,
-          "spend": 1286.85
+          "ctr": 1.15,
+          "spend": 1307.37
         },
         {
           "material_id": "20260602_GrowMe_0_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy - Copy",
           "direction": "learning",
           "theme": "read",
           "designer": "其他",
-          "purchases": 25,
+          "purchases": 38,
+          "subscriptions": 58,
+          "roas": 0.64,
+          "ctr": 1.01,
+          "spend": 1071.06
+        },
+        {
+          "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X1R1C3_gy - Copy",
+          "direction": "learning",
+          "theme": "habbit",
+          "designer": "其他",
+          "purchases": 26,
           "subscriptions": 43,
-          "roas": 0.69,
-          "ctr": 1.07,
-          "spend": 741.56
+          "roas": 0.48,
+          "ctr": 1.8,
+          "spend": 1442.91
         },
         {
           "material_id": "20260603_GrowMe_EN_9x16_FX-Growth_ZT-change_RS-P3X1R1C3_gy",
@@ -821,17 +832,6 @@
           "roas": 1.48,
           "ctr": 1.44,
           "spend": 1100.79
-        },
-        {
-          "material_id": "20260604_GrowMe_EN_9x16_FX-Learning_ZT-habbit_RS-P3X1R1C3_gy - Copy",
-          "direction": "learning",
-          "theme": "habbit",
-          "designer": "其他",
-          "purchases": 21,
-          "subscriptions": 34,
-          "roas": 0.62,
-          "ctr": 1.78,
-          "spend": 1058.73
         },
         {
           "material_id": "20260601_GrowMe_EN_9x16_FX-Learning_ZT-life_RS-P3X1R1C3_gy",
@@ -896,14 +896,14 @@
           "ordered_materials": 12,
           "ordered_ratio": "12/24",
           "ctr": 1.65,
-          "cpi": 1.37,
-          "roas": 0.51,
-          "subscriptions": 1634,
-          "purchases": 831,
-          "hook_rate": 15.53,
-          "retention_rate": 7.58,
-          "spend": 37592.4,
-          "cpm": 2.03
+          "cpi": 1.36,
+          "roas": 0.43,
+          "subscriptions": 1659,
+          "purchases": 850,
+          "hook_rate": 15.46,
+          "retention_rate": 7.57,
+          "spend": 38487.03,
+          "cpm": 2.02
         },
         {
           "direction": "growth",
@@ -1155,13 +1155,13 @@
         ]
       },
       "insights": [
-        "【老方向】测试 105 条，出单 789 单，出单率 20.95%。",
+        "【老方向】测试 105 条，出单 790 单，出单率 20.95%。",
         "【素材测出率】0601周 上新 100 条，出单率 26.0%（较 0525周 ↑2.5pp），出单素材 26 条（较上周 ↑6）。上周出单率 23.53%，出单素材 20 条。",
-        "【本周最强素材】20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3…（learning / gy）：购物 526 · 订阅 1029 · ROAS 0.51 · CTR 1.14% · 花费 $22339.0。",
-        "【高转化信号素材】20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3…（购物+订阅双达标）：购物 526 · 订阅 1029 · ROAS 0.51 · CTR 1.14% · 花费 $22339.0，具备放量验证价值。",
+        "【本周最强素材】20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3…（learning / gy）：购物 526 · 订阅 1029 · ROAS 0.37 · CTR 1.11% · 花费 $22459.0。",
+        "【高转化信号素材】20260603_GrowMe_0_EN_9x16_FX-Learning_ZT-speak_RS-P3…（购物+订阅双达标）：购物 526 · 订阅 1029 · ROAS 0.37 · CTR 1.11% · 花费 $22459.0，具备放量验证价值。",
         "【钩子最优素材】20260605_GrowMe_EN_9x16_FX-Learning_ZT-privilege_RS-…：3秒播放率 42.34%，购物 0 · CTR 0.62% · 花费 $2.0。",
         "【留存率最高素材】20260604_GrowMe_EN_9x16_FX-LifeLessons_ZTdontworry_R…：完播留存率 50.0%，购物 0 · 花费 $0.0。",
-        "【方向表现】「learning」购物 831 单领先，出单素材 12/24，ROAS 0.51；共 24 条素材参与本周 WW 测试。"
+        "【方向表现】「learning」购物 850 单领先，出单素材 12/24，ROAS 0.43；共 24 条素材参与本周 WW 测试。"
       ],
       "material_test_blocks": [
         {
@@ -1170,10 +1170,10 @@
           "summary": {
             "total_materials": 105,
             "ordered_materials": 22,
-            "conversions": 789,
+            "conversions": 790,
             "order_rate": 20.95,
-            "spend": 38993.61,
-            "subscriptions": 1611
+            "spend": 39154.04,
+            "subscriptions": 1612
           },
           "materials": [
             {
@@ -1182,13 +1182,13 @@
               "direction": "learning",
               "theme": "speak",
               "designer": "gy",
-              "spend": 22339.37,
+              "spend": 22458.63,
               "purchases": 526,
               "subscriptions": 1029,
-              "roas": 0.51,
-              "ctr": 1.14,
-              "hook_rate": 16.04,
-              "retention_rate": 7.66
+              "roas": 0.37,
+              "ctr": 1.11,
+              "hook_rate": 16.02,
+              "retention_rate": 7.65
             },
             {
               "rank": 2,
@@ -1196,11 +1196,11 @@
               "direction": "learning",
               "theme": "habbit",
               "designer": "gy",
-              "spend": 7158.7,
-              "purchases": 133,
-              "subscriptions": 268,
+              "spend": 7199.87,
+              "purchases": 134,
+              "subscriptions": 269,
               "roas": 0.34,
-              "ctr": 1.77,
+              "ctr": 1.74,
               "hook_rate": 13.1,
               "retention_rate": 8.03
             },
@@ -1508,11 +1508,11 @@
         "order_rate": 16.1,
         "ge2_rate": 11.86,
         "ge5_rate": 6.78,
-        "spend": 15813.97,
+        "spend": 15843.04,
         "ordered_materials": 19,
         "conversions": 306,
         "subscriptions": 552,
-        "avg_roas": 0.63,
+        "avg_roas": 0.62,
         "wow": {
           "total_materials": {
             "delta": 18.0,
@@ -1535,8 +1535,8 @@
             "direction": "down"
           },
           "spend": {
-            "delta": -26275.2,
-            "pct": -62.4,
+            "delta": -27140.76,
+            "pct": -63.1,
             "direction": "down"
           },
           "ordered_materials": {
@@ -1545,18 +1545,18 @@
             "direction": "down"
           },
           "conversions": {
-            "delta": -577.0,
-            "pct": -65.3,
+            "delta": -596.0,
+            "pct": -66.1,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -1210.0,
-            "pct": -68.7,
+            "delta": -1235.0,
+            "pct": -69.1,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": 0.11,
-            "pct": 21.2,
+            "delta": 0.17,
+            "pct": 37.8,
             "direction": "up"
           }
         },
@@ -1573,11 +1573,11 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 15813.97,
-          "previous": 42089.17,
+          "current": 15843.04,
+          "previous": 42983.8,
           "wow": {
-            "delta": -26275.2,
-            "pct": -62.4,
+            "delta": -27140.76,
+            "pct": -63.1,
             "direction": "down"
           }
         },
@@ -1597,11 +1597,11 @@
           "key": "cpi",
           "label": "CPI",
           "unit": "$",
-          "current": 2.01,
-          "previous": 1.44,
+          "current": 2.0,
+          "previous": 1.43,
           "wow": {
             "delta": 0.57,
-            "pct": 39.6,
+            "pct": 39.9,
             "direction": "up"
           }
         },
@@ -1610,10 +1610,10 @@
           "label": "CPM",
           "unit": "$",
           "current": 2.48,
-          "previous": 2.09,
+          "previous": 2.07,
           "wow": {
-            "delta": 0.39,
-            "pct": 18.7,
+            "delta": 0.41,
+            "pct": 19.8,
             "direction": "up"
           }
         },
@@ -1622,10 +1622,10 @@
           "label": "订阅数",
           "unit": "",
           "current": 552,
-          "previous": 1762,
+          "previous": 1787,
           "wow": {
-            "delta": -1210.0,
-            "pct": -68.7,
+            "delta": -1235.0,
+            "pct": -69.1,
             "direction": "down"
           }
         },
@@ -1634,10 +1634,10 @@
           "label": "总出单量",
           "unit": "",
           "current": 306,
-          "previous": 883,
+          "previous": 902,
           "wow": {
-            "delta": -577.0,
-            "pct": -65.3,
+            "delta": -596.0,
+            "pct": -66.1,
             "direction": "down"
           }
         },
@@ -1645,11 +1645,11 @@
           "key": "roas",
           "label": "平均 ROAS",
           "unit": "",
-          "current": 0.63,
-          "previous": 0.52,
+          "current": 0.62,
+          "previous": 0.45,
           "wow": {
-            "delta": 0.11,
-            "pct": 21.2,
+            "delta": 0.17,
+            "pct": 37.8,
             "direction": "up"
           }
         }
@@ -1750,9 +1750,9 @@
           "designer": "jql",
           "purchases": 4,
           "subscriptions": 7,
-          "roas": 1.85,
-          "ctr": 1.2,
-          "spend": 143.66
+          "roas": 0.68,
+          "ctr": 1.11,
+          "spend": 172.73
         },
         {
           "material_id": "20260610_growme_EN_9x16_FX-aitalk_ZT-365book_RS-P1X1R3C3_wxx",
@@ -1824,15 +1824,15 @@
           "total_materials": 27,
           "ordered_materials": 4,
           "ordered_ratio": "4/27",
-          "ctr": 1.51,
-          "cpi": 1.87,
-          "roas": 0.51,
+          "ctr": 1.5,
+          "cpi": 1.83,
+          "roas": 0.43,
           "subscriptions": 88,
           "purchases": 45,
-          "hook_rate": 17.53,
-          "retention_rate": 5.65,
-          "spend": 2268.44,
-          "cpm": 1.74
+          "hook_rate": 17.51,
+          "retention_rate": 5.66,
+          "spend": 2297.51,
+          "cpm": 1.73
         },
         {
           "direction": "aitalk",
@@ -2383,11 +2383,11 @@
         "order_rate": 27.69,
         "ge2_rate": 20.0,
         "ge5_rate": 10.77,
-        "spend": 28185.54,
+        "spend": 28858.86,
         "ordered_materials": 36,
-        "conversions": 557,
-        "subscriptions": 1037,
-        "avg_roas": 0.63,
+        "conversions": 573,
+        "subscriptions": 1074,
+        "avg_roas": 0.62,
         "wow": {
           "total_materials": {
             "delta": 12.0,
@@ -2410,8 +2410,8 @@
             "direction": "up"
           },
           "spend": {
-            "delta": 12371.57,
-            "pct": 78.2,
+            "delta": 13015.82,
+            "pct": 82.2,
             "direction": "up"
           },
           "ordered_materials": {
@@ -2420,13 +2420,13 @@
             "direction": "up"
           },
           "conversions": {
-            "delta": 251.0,
-            "pct": 82.0,
+            "delta": 267.0,
+            "pct": 87.3,
             "direction": "up"
           },
           "subscriptions": {
-            "delta": 485.0,
-            "pct": 87.9,
+            "delta": 522.0,
+            "pct": 94.6,
             "direction": "up"
           },
           "avg_roas": {
@@ -2448,11 +2448,11 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 28185.54,
-          "previous": 15813.97,
+          "current": 28858.86,
+          "previous": 15843.04,
           "wow": {
-            "delta": 12371.57,
-            "pct": 78.2,
+            "delta": 13015.82,
+            "pct": 82.2,
             "direction": "up"
           }
         },
@@ -2472,11 +2472,11 @@
           "key": "cpi",
           "label": "CPI",
           "unit": "$",
-          "current": 1.61,
-          "previous": 2.01,
+          "current": 1.59,
+          "previous": 2.0,
           "wow": {
-            "delta": -0.4,
-            "pct": -19.9,
+            "delta": -0.41,
+            "pct": -20.5,
             "direction": "down"
           }
         },
@@ -2484,11 +2484,11 @@
           "key": "cpm",
           "label": "CPM",
           "unit": "$",
-          "current": 2.44,
+          "current": 2.41,
           "previous": 2.48,
           "wow": {
-            "delta": -0.04,
-            "pct": -1.6,
+            "delta": -0.07,
+            "pct": -2.8,
             "direction": "down"
           }
         },
@@ -2496,11 +2496,11 @@
           "key": "subscriptions",
           "label": "订阅数",
           "unit": "",
-          "current": 1037,
+          "current": 1074,
           "previous": 552,
           "wow": {
-            "delta": 485.0,
-            "pct": 87.9,
+            "delta": 522.0,
+            "pct": 94.6,
             "direction": "up"
           }
         },
@@ -2508,11 +2508,11 @@
           "key": "purchases",
           "label": "总出单量",
           "unit": "",
-          "current": 557,
+          "current": 573,
           "previous": 306,
           "wow": {
-            "delta": 251.0,
-            "pct": 82.0,
+            "delta": 267.0,
+            "pct": 87.3,
             "direction": "up"
           }
         },
@@ -2520,8 +2520,8 @@
           "key": "roas",
           "label": "平均 ROAS",
           "unit": "",
-          "current": 0.63,
-          "previous": 0.63,
+          "current": 0.62,
+          "previous": 0.62,
           "wow": {
             "delta": 0.0,
             "pct": 0.0,
@@ -2538,30 +2538,30 @@
           "purchases": 181,
           "subscriptions": 314,
           "roas": 0.31,
-          "ctr": 1.82,
-          "spend": 7089.95
+          "ctr": 1.63,
+          "spend": 7120.33
         },
         {
           "material_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj",
           "direction": "test",
           "theme": "niupizhi_lv1-rain",
           "designer": "fj",
-          "purchases": 76,
-          "subscriptions": 153,
-          "roas": 0.93,
+          "purchases": 79,
+          "subscriptions": 162,
+          "roas": 0.92,
           "ctr": 0.67,
-          "spend": 2991.45
+          "spend": 3198.73
         },
         {
           "material_id": "20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P3X1R1C3_gy_jql - Copy",
           "direction": "lifelessons",
           "theme": "water",
           "designer": "jql",
-          "purchases": 61,
-          "subscriptions": 104,
-          "roas": 0.73,
-          "ctr": 1.71,
-          "spend": 1824.17
+          "purchases": 69,
+          "subscriptions": 114,
+          "roas": 0.68,
+          "ctr": 1.68,
+          "spend": 2105.4
         },
         {
           "material_id": "20260618_GrowMe_EN_9x16_FX-Learning_ZT-pace_RS-P3X1R1C3_gy_jql",
@@ -2583,18 +2583,18 @@
           "subscriptions": 71,
           "roas": 2.18,
           "ctr": 3.35,
-          "spend": 2137.94
+          "spend": 2137.95
         },
         {
           "material_id": "20260615_growme_EN_9x16_FX-test_ZT-niupizhi_LV1-rain_RS-P1X1R3C1_fj - Copy",
           "direction": "test",
           "theme": "niupizhi_lv1-rain",
           "designer": "其他",
-          "purchases": 33,
-          "subscriptions": 62,
-          "roas": 0.95,
-          "ctr": 0.84,
-          "spend": 1247.01
+          "purchases": 38,
+          "subscriptions": 80,
+          "roas": 0.71,
+          "ctr": 0.83,
+          "spend": 1374.71
         },
         {
           "material_id": "20260617_GrowMe_EN_9x16_FX-Lifelessons_ZT-present_RS-P3X1R1C3_gy_jql",
@@ -2627,7 +2627,7 @@
           "subscriptions": 12,
           "roas": 1.49,
           "ctr": 2.33,
-          "spend": 164.36
+          "spend": 164.4
         },
         {
           "material_id": "20260616_growme_EN_9x16_FX-Learning_ZT-readextensive_RS-P1X1R3C3_wxx",
@@ -2670,29 +2670,14 @@
           "ordered_materials": 12,
           "ordered_ratio": "12/39",
           "ctr": 1.69,
-          "cpi": 1.24,
-          "roas": 0.69,
-          "subscriptions": 545,
-          "purchases": 313,
-          "hook_rate": 16.45,
-          "retention_rate": 5.28,
-          "spend": 13390.07,
+          "cpi": 1.23,
+          "roas": 0.68,
+          "subscriptions": 555,
+          "purchases": 321,
+          "hook_rate": 16.39,
+          "retention_rate": 5.32,
+          "spend": 13701.69,
           "cpm": 2.04
-        },
-        {
-          "direction": "learning",
-          "total_materials": 37,
-          "ordered_materials": 14,
-          "ordered_ratio": "14/37",
-          "ctr": 1.73,
-          "cpi": 2.45,
-          "roas": 0.37,
-          "subscriptions": 226,
-          "purchases": 110,
-          "hook_rate": 18.06,
-          "retention_rate": 4.26,
-          "spend": 7666.29,
-          "cpm": 3.46
         },
         {
           "direction": "test",
@@ -2700,14 +2685,29 @@
           "ordered_materials": 2,
           "ordered_ratio": "2/11",
           "ctr": 1.2,
-          "cpi": 1.72,
-          "roas": 0.94,
-          "subscriptions": 220,
-          "purchases": 109,
-          "hook_rate": 13.99,
-          "retention_rate": 3.22,
-          "spend": 4870.99,
-          "cpm": 2.25
+          "cpi": 1.71,
+          "roas": 0.86,
+          "subscriptions": 247,
+          "purchases": 117,
+          "hook_rate": 13.95,
+          "retention_rate": 3.18,
+          "spend": 5205.97,
+          "cpm": 2.19
+        },
+        {
+          "direction": "learning",
+          "total_materials": 37,
+          "ordered_materials": 14,
+          "ordered_ratio": "14/37",
+          "ctr": 1.73,
+          "cpi": 2.44,
+          "roas": 0.36,
+          "subscriptions": 226,
+          "purchases": 110,
+          "hook_rate": 18.08,
+          "retention_rate": 4.26,
+          "spend": 7692.97,
+          "cpm": 3.44
         },
         {
           "direction": "challenge",
@@ -2721,7 +2721,7 @@
           "purchases": 8,
           "hook_rate": 16.43,
           "retention_rate": 2.56,
-          "spend": 164.73,
+          "spend": 164.77,
           "cpm": 3.14
         },
         {
@@ -2956,13 +2956,13 @@
         ]
       },
       "insights": [
-        "【老方向】测试 104 条，出单 436 单，出单率 24.04%。",
+        "【老方向】测试 104 条，出单 439 单，出单率 24.04%。",
         "【素材测出率】0615周 上新 130 条，出单率 27.69%（较 0608周 ↑11.6pp），出单素材 36 条（较上周 ↑17）。上周出单率 16.1%，出单素材 19 条。",
-        "【本周最强素材】20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P…（lifelessons / jql）：购物 181 · 订阅 314 · ROAS 0.31 · CTR 1.82% · 花费 $7090.0。",
-        "【高转化信号素材】20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P…（购物+订阅双达标）：购物 181 · 订阅 314 · ROAS 0.31 · CTR 1.82% · 花费 $7090.0，具备放量验证价值。",
+        "【本周最强素材】20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P…（lifelessons / jql）：购物 181 · 订阅 314 · ROAS 0.31 · CTR 1.63% · 花费 $7120.0。",
+        "【高转化信号素材】20260616_GrowMe_EN_9x16_FX-LifeLessons_ZT-water_RS-P…（购物+订阅双达标）：购物 181 · 订阅 314 · ROAS 0.31 · CTR 1.63% · 花费 $7120.0，具备放量验证价值。",
         "【钩子最优素材】20260618_Growme_EN_9x16_FX-Creative_JB-061801-ZR_ZT-…：3秒播放率 34.23%，购物 0 · CTR 2.7% · 花费 $1.0。",
         "【留存率最高素材】20260615_GrowMe_EN_9x16_FX-LifeLessons_ZT-dream_RS-P…：完播留存率 12.1%，购物 0 · CTR 1.98% · 花费 $81.0。",
-        "【方向表现】「lifelessons」购物 313 单领先，出单素材 12/39，ROAS 0.69；共 39 条素材参与本周 WW 测试。"
+        "【方向表现】「lifelessons」购物 321 单领先，出单素材 12/39，ROAS 0.68；共 39 条素材参与本周 WW 测试。"
       ],
       "material_test_blocks": [
         {
@@ -2971,10 +2971,10 @@
           "summary": {
             "total_materials": 104,
             "ordered_materials": 25,
-            "conversions": 436,
+            "conversions": 439,
             "order_rate": 24.04,
-            "spend": 21275.4,
-            "subscriptions": 774
+            "spend": 21513.11,
+            "subscriptions": 783
           },
           "materials": [
             {
@@ -2983,13 +2983,13 @@
               "direction": "lifelessons",
               "theme": "water",
               "designer": "jql",
-              "spend": 7089.95,
+              "spend": 7120.33,
               "purchases": 181,
               "subscriptions": 314,
               "roas": 0.31,
-              "ctr": 1.82,
-              "hook_rate": 15.66,
-              "retention_rate": 5.93
+              "ctr": 1.63,
+              "hook_rate": 15.65,
+              "retention_rate": 5.92
             },
             {
               "rank": 2,
@@ -2997,13 +2997,13 @@
               "direction": "test",
               "theme": "niupizhi_lv1-rain",
               "designer": "fj",
-              "spend": 2991.45,
-              "purchases": 76,
-              "subscriptions": 153,
-              "roas": 0.93,
+              "spend": 3198.73,
+              "purchases": 79,
+              "subscriptions": 162,
+              "roas": 0.92,
               "ctr": 0.67,
-              "hook_rate": 13.81,
-              "retention_rate": 3.02
+              "hook_rate": 13.83,
+              "retention_rate": 3.0
             },
             {
               "rank": 3,
@@ -3025,7 +3025,7 @@
               "direction": "lifelessons",
               "theme": "positive",
               "designer": "wxx",
-              "spend": 2137.94,
+              "spend": 2137.95,
               "purchases": 45,
               "subscriptions": 71,
               "roas": 2.18,
@@ -3053,7 +3053,7 @@
               "direction": "challenge",
               "theme": "follow along",
               "designer": "fj",
-              "spend": 164.36,
+              "spend": 164.4,
               "purchases": 8,
               "subscriptions": 12,
               "roas": 1.49,
@@ -3351,11 +3351,11 @@
         "order_rate": 19.67,
         "ge2_rate": 13.11,
         "ge5_rate": 6.56,
-        "spend": 11456.96,
+        "spend": 11692.88,
         "ordered_materials": 24,
-        "conversions": 198,
-        "subscriptions": 404,
-        "avg_roas": 0.88,
+        "conversions": 206,
+        "subscriptions": 420,
+        "avg_roas": 0.82,
         "wow": {
           "total_materials": {
             "delta": -8.0,
@@ -3378,8 +3378,8 @@
             "direction": "down"
           },
           "spend": {
-            "delta": -16728.58,
-            "pct": -59.4,
+            "delta": -17165.98,
+            "pct": -59.5,
             "direction": "down"
           },
           "ordered_materials": {
@@ -3388,18 +3388,18 @@
             "direction": "down"
           },
           "conversions": {
-            "delta": -359.0,
-            "pct": -64.5,
+            "delta": -367.0,
+            "pct": -64.0,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -633.0,
-            "pct": -61.0,
+            "delta": -654.0,
+            "pct": -60.9,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": 0.25,
-            "pct": 39.7,
+            "delta": 0.2,
+            "pct": 32.3,
             "direction": "up"
           }
         },
@@ -3416,11 +3416,11 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 11456.96,
-          "previous": 28185.54,
+          "current": 11692.88,
+          "previous": 28858.86,
           "wow": {
-            "delta": -16728.58,
-            "pct": -59.4,
+            "delta": -17165.98,
+            "pct": -59.5,
             "direction": "down"
           }
         },
@@ -3440,11 +3440,11 @@
           "key": "cpi",
           "label": "CPI",
           "unit": "$",
-          "current": 2.01,
-          "previous": 1.61,
+          "current": 2.02,
+          "previous": 1.59,
           "wow": {
-            "delta": 0.4,
-            "pct": 24.8,
+            "delta": 0.43,
+            "pct": 27.0,
             "direction": "up"
           }
         },
@@ -3452,11 +3452,11 @@
           "key": "cpm",
           "label": "CPM",
           "unit": "$",
-          "current": 2.37,
-          "previous": 2.44,
+          "current": 2.33,
+          "previous": 2.41,
           "wow": {
-            "delta": -0.07,
-            "pct": -2.9,
+            "delta": -0.08,
+            "pct": -3.3,
             "direction": "down"
           }
         },
@@ -3464,11 +3464,11 @@
           "key": "subscriptions",
           "label": "订阅数",
           "unit": "",
-          "current": 404,
-          "previous": 1037,
+          "current": 420,
+          "previous": 1074,
           "wow": {
-            "delta": -633.0,
-            "pct": -61.0,
+            "delta": -654.0,
+            "pct": -60.9,
             "direction": "down"
           }
         },
@@ -3476,11 +3476,11 @@
           "key": "purchases",
           "label": "总出单量",
           "unit": "",
-          "current": 198,
-          "previous": 557,
+          "current": 206,
+          "previous": 573,
           "wow": {
-            "delta": -359.0,
-            "pct": -64.5,
+            "delta": -367.0,
+            "pct": -64.0,
             "direction": "down"
           }
         },
@@ -3488,11 +3488,11 @@
           "key": "roas",
           "label": "平均 ROAS",
           "unit": "",
-          "current": 0.88,
-          "previous": 0.63,
+          "current": 0.82,
+          "previous": 0.62,
           "wow": {
-            "delta": 0.25,
-            "pct": 39.7,
+            "delta": 0.2,
+            "pct": 32.3,
             "direction": "up"
           }
         }
@@ -3503,11 +3503,22 @@
           "direction": "lifelessons",
           "theme": "art",
           "designer": "jql",
-          "purchases": 58,
-          "subscriptions": 133,
-          "roas": 1.19,
-          "ctr": 0.93,
-          "spend": 2752.57
+          "purchases": 59,
+          "subscriptions": 135,
+          "roas": 1.03,
+          "ctr": 0.99,
+          "spend": 2808.93
+        },
+        {
+          "material_id": "20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X1R1C3_gy_jql - Copy",
+          "direction": "lifelessons",
+          "theme": "art",
+          "designer": "jql",
+          "purchases": 39,
+          "subscriptions": 83,
+          "roas": 1.01,
+          "ctr": 1.45,
+          "spend": 875.72
         },
         {
           "material_id": "20260623_GrowMe_EN_9x16_FX-Learning_ZT-read_RS-P3X1R1C3_gy",
@@ -3517,19 +3528,8 @@
           "purchases": 38,
           "subscriptions": 59,
           "roas": 1.13,
-          "ctr": 1.42,
-          "spend": 2241.0
-        },
-        {
-          "material_id": "20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X1R1C3_gy_jql - Copy",
-          "direction": "lifelessons",
-          "theme": "art",
-          "designer": "jql",
-          "purchases": 32,
-          "subscriptions": 69,
-          "roas": 1.24,
-          "ctr": 1.42,
-          "spend": 712.67
+          "ctr": 1.37,
+          "spend": 2257.07
         },
         {
           "material_id": "20260622_GrowMe_EN_9x16_FX-LifeLessons_ZT-responsibility_RS-P3X1R1C3_fj",
@@ -3594,8 +3594,8 @@
           "purchases": 4,
           "subscriptions": 7,
           "roas": 0.53,
-          "ctr": 2.49,
-          "spend": 308.48
+          "ctr": 3.12,
+          "spend": 308.92
         },
         {
           "material_id": "20260625_GrowMe_EN_9x16_FX-Mindset_ZT-quiet_RS-P3X1R1C3_gy",
@@ -3638,28 +3638,28 @@
           "ordered_materials": 5,
           "ordered_ratio": "5/30",
           "ctr": 2.5,
-          "cpi": 2.13,
-          "roas": 1.01,
-          "subscriptions": 248,
-          "purchases": 112,
-          "hook_rate": 18.09,
-          "retention_rate": 5.93,
-          "spend": 4979.6,
-          "cpm": 2.13
+          "cpi": 2.16,
+          "roas": 0.88,
+          "subscriptions": 264,
+          "purchases": 120,
+          "hook_rate": 18.14,
+          "retention_rate": 5.82,
+          "spend": 5199.01,
+          "cpm": 2.07
         },
         {
           "direction": "learning",
           "total_materials": 30,
           "ordered_materials": 10,
           "ordered_ratio": "10/30",
-          "ctr": 1.46,
+          "ctr": 1.48,
           "cpi": 1.7,
           "roas": 0.84,
           "subscriptions": 114,
           "purchases": 62,
           "hook_rate": 14.94,
-          "retention_rate": 5.28,
-          "spend": 4431.2,
+          "retention_rate": 5.27,
+          "spend": 4447.71,
           "cpm": 2.57
         },
         {
@@ -3912,14 +3912,14 @@
         ]
       },
       "insights": [
-        "【老方向】测试 107 条，出单 156 单，出单率 18.69%。",
+        "【老方向】测试 107 条，出单 157 单，出单率 18.69%。",
         "【图片】测试 11 条，出单 8 单，出单率 18.18%。",
         "【素材测出率】0622周 上新 122 条，出单率 19.67%（较 0615周 ↓8.0pp），出单素材 24 条（较上周 ↓12）。上周出单率 27.69%，出单素材 36 条。",
-        "【本周最强素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（lifelessons / jql）：购物 58 · 订阅 133 · ROAS 1.19 · CTR 0.93% · 花费 $2753.0。",
-        "【高转化信号素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（购物+订阅双达标）：购物 58 · 订阅 133 · ROAS 1.19 · CTR 0.93% · 花费 $2753.0，具备放量验证价值。",
+        "【本周最强素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（lifelessons / jql）：购物 59 · 订阅 135 · ROAS 1.03 · CTR 0.99% · 花费 $2809.0。",
+        "【高转化信号素材】20260625_GrowMe_EN_9x16_FX-LifeLessons_ZT-art_RS-P3X…（购物+订阅双达标）：购物 59 · 订阅 135 · ROAS 1.03 · CTR 0.99% · 花费 $2809.0，具备放量验证价值。",
         "【钩子最优素材】20260623_growme_EN_9x16_FX-LifeLessons_ZT-readvsnotr…：3秒播放率 47.49%，购物 0 · CTR 0.58% · 花费 $23.0。",
         "【留存率最高素材】20260623_growme_EN_9x16_FX-LifeLessons_ZT-readvsnotr…：完播留存率 21.94%，购物 0 · CTR 0.58% · 花费 $23.0。",
-        "【方向表现】「lifelessons」购物 112 单领先，出单素材 5/30，ROAS 1.01；共 30 条素材参与本周 WW 测试。"
+        "【方向表现】「lifelessons」购物 120 单领先，出单素材 5/30，ROAS 0.88；共 30 条素材参与本周 WW 测试。"
       ],
       "material_test_blocks": [
         {
@@ -3928,10 +3928,10 @@
           "summary": {
             "total_materials": 107,
             "ordered_materials": 20,
-            "conversions": 156,
+            "conversions": 157,
             "order_rate": 18.69,
-            "spend": 9770.02,
-            "subscriptions": 301
+            "spend": 9842.89,
+            "subscriptions": 303
           },
           "materials": [
             {
@@ -3940,13 +3940,13 @@
               "direction": "lifelessons",
               "theme": "art",
               "designer": "jql",
-              "spend": 2752.57,
-              "purchases": 58,
-              "subscriptions": 133,
-              "roas": 1.19,
-              "ctr": 0.93,
-              "hook_rate": 18.35,
-              "retention_rate": 5.5
+              "spend": 2808.93,
+              "purchases": 59,
+              "subscriptions": 135,
+              "roas": 1.03,
+              "ctr": 0.99,
+              "hook_rate": 18.37,
+              "retention_rate": 5.51
             },
             {
               "rank": 2,
@@ -3954,12 +3954,12 @@
               "direction": "learning",
               "theme": "read",
               "designer": "gy",
-              "spend": 2241.0,
+              "spend": 2257.07,
               "purchases": 38,
               "subscriptions": 59,
               "roas": 1.13,
-              "ctr": 1.42,
-              "hook_rate": 13.23,
+              "ctr": 1.37,
+              "hook_rate": 13.24,
               "retention_rate": 4.39
             },
             {
@@ -4024,13 +4024,13 @@
               "direction": "learning",
               "theme": "english-2",
               "designer": "fj",
-              "spend": 308.48,
+              "spend": 308.92,
               "purchases": 4,
               "subscriptions": 7,
               "roas": 0.53,
-              "ctr": 2.49,
-              "hook_rate": 14.35,
-              "retention_rate": 5.28
+              "ctr": 3.12,
+              "hook_rate": 14.36,
+              "retention_rate": 5.27
             },
             {
               "rank": 8,
@@ -4282,7 +4282,7 @@
         "order_rate": 13.11,
         "ge2_rate": 7.38,
         "ge5_rate": 4.1,
-        "spend": 5200.71,
+        "spend": 5201.8,
         "ordered_materials": 16,
         "conversions": 58,
         "subscriptions": 98,
@@ -4309,8 +4309,8 @@
             "direction": "down"
           },
           "spend": {
-            "delta": -6256.25,
-            "pct": -54.6,
+            "delta": -6491.08,
+            "pct": -55.5,
             "direction": "down"
           },
           "ordered_materials": {
@@ -4319,18 +4319,18 @@
             "direction": "down"
           },
           "conversions": {
-            "delta": -140.0,
-            "pct": -70.7,
+            "delta": -148.0,
+            "pct": -71.8,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -306.0,
-            "pct": -75.7,
+            "delta": -322.0,
+            "pct": -76.7,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": -0.28,
-            "pct": -31.8,
+            "delta": -0.22,
+            "pct": -26.8,
             "direction": "down"
           }
         },
@@ -4347,11 +4347,11 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 5200.71,
-          "previous": 11456.96,
+          "current": 5201.8,
+          "previous": 11692.88,
           "wow": {
-            "delta": -6256.25,
-            "pct": -54.6,
+            "delta": -6491.08,
+            "pct": -55.5,
             "direction": "down"
           }
         },
@@ -4372,10 +4372,10 @@
           "label": "CPI",
           "unit": "$",
           "current": 2.75,
-          "previous": 2.01,
+          "previous": 2.02,
           "wow": {
-            "delta": 0.74,
-            "pct": 36.8,
+            "delta": 0.73,
+            "pct": 36.1,
             "direction": "up"
           }
         },
@@ -4384,10 +4384,10 @@
           "label": "CPM",
           "unit": "$",
           "current": 3.14,
-          "previous": 2.37,
+          "previous": 2.33,
           "wow": {
-            "delta": 0.77,
-            "pct": 32.5,
+            "delta": 0.81,
+            "pct": 34.8,
             "direction": "up"
           }
         },
@@ -4396,10 +4396,10 @@
           "label": "订阅数",
           "unit": "",
           "current": 98,
-          "previous": 404,
+          "previous": 420,
           "wow": {
-            "delta": -306.0,
-            "pct": -75.7,
+            "delta": -322.0,
+            "pct": -76.7,
             "direction": "down"
           }
         },
@@ -4408,10 +4408,10 @@
           "label": "总出单量",
           "unit": "",
           "current": 58,
-          "previous": 198,
+          "previous": 206,
           "wow": {
-            "delta": -140.0,
-            "pct": -70.7,
+            "delta": -148.0,
+            "pct": -71.8,
             "direction": "down"
           }
         },
@@ -4420,10 +4420,10 @@
           "label": "平均 ROAS",
           "unit": "",
           "current": 0.6,
-          "previous": 0.88,
+          "previous": 0.82,
           "wow": {
-            "delta": -0.28,
-            "pct": -31.8,
+            "delta": -0.22,
+            "pct": -26.8,
             "direction": "down"
           }
         }
@@ -4449,7 +4449,7 @@
           "subscriptions": 12,
           "roas": 1.67,
           "ctr": 2.24,
-          "spend": 388.9
+          "spend": 388.94
         },
         {
           "material_id": "20260629_growme_EN_9x16_FX-Women_ZT-SelfImprovement-women_RS-P1X1R3C3_fj",
@@ -4460,7 +4460,7 @@
           "subscriptions": 11,
           "roas": 0.55,
           "ctr": 1.57,
-          "spend": 438.83
+          "spend": 438.84
         },
         {
           "material_id": "20260703_GrowMe_EN_9x16_FX-SelfGrowth_ZT-learning-book_RS-P1X1R3C3_wxx",
@@ -4470,8 +4470,8 @@
           "purchases": 5,
           "subscriptions": 7,
           "roas": 0.62,
-          "ctr": 2.38,
-          "spend": 298.91
+          "ctr": 2.19,
+          "spend": 299.83
         },
         {
           "material_id": "20260630_GrowMe_EN_9x16_FX-SelfGrowth_ZT-Challenge-habit_RS-P1X1R3C3_wxx",
@@ -4525,8 +4525,8 @@
           "purchases": 2,
           "subscriptions": 1,
           "roas": 0.23,
-          "ctr": 1.07,
-          "spend": 65.82
+          "ctr": 0.94,
+          "spend": 65.94
         },
         {
           "material_id": "20260701_GrowMe_EN_9x16_FX-Overthinkers_ZT-Mindset-enough_RS-P1X1R3C3_wxx",
@@ -4568,14 +4568,14 @@
           "total_materials": 30,
           "ordered_materials": 6,
           "ordered_ratio": "6/30",
-          "ctr": 1.75,
-          "cpi": 3.67,
+          "ctr": 1.74,
+          "cpi": 3.66,
           "roas": 0.73,
           "subscriptions": 36,
           "purchases": 25,
           "hook_rate": 16.96,
           "retention_rate": 4.21,
-          "spend": 2031.59,
+          "spend": 2032.55,
           "cpm": 3.95
         },
         {
@@ -4605,7 +4605,7 @@
           "purchases": 8,
           "hook_rate": 15.05,
           "retention_rate": 6.57,
-          "spend": 625.26,
+          "spend": 625.27,
           "cpm": 2.38
         },
         {
@@ -4628,14 +4628,14 @@
           "total_materials": 3,
           "ordered_materials": 2,
           "ordered_ratio": "2/3",
-          "ctr": 1.57,
+          "ctr": 1.52,
           "cpi": 4.2,
           "roas": 0.23,
           "subscriptions": 2,
           "purchases": 3,
-          "hook_rate": 12.95,
-          "retention_rate": 3.62,
-          "spend": 121.77,
+          "hook_rate": 12.98,
+          "retention_rate": 3.59,
+          "spend": 121.89,
           "cpm": 2.96
         },
         {
@@ -5229,7 +5229,7 @@
             "ordered_materials": 14,
             "conversions": 41,
             "order_rate": 16.28,
-            "spend": 4091.81,
+            "spend": 4092.9,
             "subscriptions": 66
           },
           "materials": [
@@ -5239,12 +5239,12 @@
               "direction": "SelfGrowth",
               "theme": "lifelessons",
               "designer": "wxx",
-              "spend": 388.9,
+              "spend": 388.94,
               "purchases": 8,
               "subscriptions": 12,
               "roas": 1.67,
               "ctr": 2.24,
-              "hook_rate": 14.59,
+              "hook_rate": 14.6,
               "retention_rate": 3.82
             },
             {
@@ -5253,7 +5253,7 @@
               "direction": "Women",
               "theme": "selfimprovement",
               "designer": "fj",
-              "spend": 438.83,
+              "spend": 438.84,
               "purchases": 8,
               "subscriptions": 11,
               "roas": 0.55,
@@ -5267,13 +5267,13 @@
               "direction": "SelfGrowth",
               "theme": "learning",
               "designer": "wxx",
-              "spend": 298.91,
+              "spend": 299.83,
               "purchases": 5,
               "subscriptions": 7,
               "roas": 0.62,
-              "ctr": 2.38,
-              "hook_rate": 15.71,
-              "retention_rate": 2.38
+              "ctr": 2.19,
+              "hook_rate": 15.72,
+              "retention_rate": 2.4
             },
             {
               "rank": 4,
@@ -5323,13 +5323,13 @@
               "direction": "Students",
               "theme": "selfimprovement",
               "designer": "fj",
-              "spend": 65.82,
+              "spend": 65.94,
               "purchases": 2,
               "subscriptions": 1,
               "roas": 0.23,
-              "ctr": 1.07,
-              "hook_rate": 12.41,
-              "retention_rate": 3.77
+              "ctr": 0.94,
+              "hook_rate": 12.47,
+              "retention_rate": 3.73
             },
             {
               "rank": 8,
@@ -5546,11 +5546,11 @@
         "order_rate": 17.17,
         "ge2_rate": 10.61,
         "ge5_rate": 3.54,
-        "spend": 11285.28,
+        "spend": 12771.97,
         "ordered_materials": 34,
-        "conversions": 168,
-        "subscriptions": 358,
-        "avg_roas": 0.52,
+        "conversions": 190,
+        "subscriptions": 394,
+        "avg_roas": 0.53,
         "wow": {
           "total_materials": {
             "delta": 76.0,
@@ -5573,8 +5573,8 @@
             "direction": "down"
           },
           "spend": {
-            "delta": 6084.57,
-            "pct": 117.0,
+            "delta": 7570.17,
+            "pct": 145.5,
             "direction": "up"
           },
           "ordered_materials": {
@@ -5583,18 +5583,18 @@
             "direction": "up"
           },
           "conversions": {
-            "delta": 110.0,
-            "pct": 189.7,
+            "delta": 132.0,
+            "pct": 227.6,
             "direction": "up"
           },
           "subscriptions": {
-            "delta": 260.0,
-            "pct": 265.3,
+            "delta": 296.0,
+            "pct": 302.0,
             "direction": "up"
           },
           "avg_roas": {
-            "delta": -0.08,
-            "pct": -13.3,
+            "delta": -0.07,
+            "pct": -11.7,
             "direction": "down"
           }
         },
@@ -5611,11 +5611,11 @@
           "key": "spend",
           "label": "总消耗",
           "unit": "$",
-          "current": 11285.28,
-          "previous": 5200.71,
+          "current": 12771.97,
+          "previous": 5201.8,
           "wow": {
-            "delta": 6084.57,
-            "pct": 117.0,
+            "delta": 7570.17,
+            "pct": 145.5,
             "direction": "up"
           }
         },
@@ -5623,11 +5623,11 @@
           "key": "empty_spend",
           "label": "空消耗",
           "unit": "$",
-          "current": 2421.44,
+          "current": 2457.24,
           "previous": 1814.4,
           "wow": {
-            "delta": 607.04,
-            "pct": 33.5,
+            "delta": 642.84,
+            "pct": 35.4,
             "direction": "up"
           }
         },
@@ -5635,11 +5635,11 @@
           "key": "cpi",
           "label": "CPI",
           "unit": "$",
-          "current": 1.65,
+          "current": 1.68,
           "previous": 2.75,
           "wow": {
-            "delta": -1.1,
-            "pct": -40.0,
+            "delta": -1.07,
+            "pct": -38.9,
             "direction": "down"
           }
         },
@@ -5647,11 +5647,11 @@
           "key": "cpm",
           "label": "CPM",
           "unit": "$",
-          "current": 2.1,
+          "current": 2.09,
           "previous": 3.14,
           "wow": {
-            "delta": -1.04,
-            "pct": -33.1,
+            "delta": -1.05,
+            "pct": -33.4,
             "direction": "down"
           }
         },
@@ -5659,11 +5659,11 @@
           "key": "subscriptions",
           "label": "订阅数",
           "unit": "",
-          "current": 358,
+          "current": 394,
           "previous": 98,
           "wow": {
-            "delta": 260.0,
-            "pct": 265.3,
+            "delta": 296.0,
+            "pct": 302.0,
             "direction": "up"
           }
         },
@@ -5671,11 +5671,11 @@
           "key": "purchases",
           "label": "总出单量",
           "unit": "",
-          "current": 168,
+          "current": 190,
           "previous": 58,
           "wow": {
-            "delta": 110.0,
-            "pct": 189.7,
+            "delta": 132.0,
+            "pct": 227.6,
             "direction": "up"
           }
         },
@@ -5683,11 +5683,11 @@
           "key": "roas",
           "label": "平均 ROAS",
           "unit": "",
-          "current": 0.52,
+          "current": 0.53,
           "previous": 0.6,
           "wow": {
-            "delta": -0.08,
-            "pct": -13.3,
+            "delta": -0.07,
+            "pct": -11.7,
             "direction": "down"
           }
         }
@@ -5698,11 +5698,11 @@
           "direction": "Professionals",
           "theme": "growth",
           "designer": "czy",
-          "purchases": 52,
-          "subscriptions": 95,
-          "roas": 0.74,
-          "ctr": 0.93,
-          "spend": 1496.48
+          "purchases": 74,
+          "subscriptions": 126,
+          "roas": 0.54,
+          "ctr": 0.91,
+          "spend": 2544.45
         },
         {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Introverts_ZT-Mindset_RS-P1X1R3C3_czy",
@@ -5712,8 +5712,8 @@
           "purchases": 27,
           "subscriptions": 39,
           "roas": 0.48,
-          "ctr": 2.5,
-          "spend": 1000.24
+          "ctr": 2.9,
+          "spend": 1000.95
         },
         {
           "material_id": "20260706_0_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-niupizhi_LV1-hook3_RS-P1X1R3C1_gy",
@@ -5723,8 +5723,8 @@
           "purchases": 17,
           "subscriptions": 30,
           "roas": 0.34,
-          "ctr": 1.02,
-          "spend": 757.52
+          "ctr": 0.93,
+          "spend": 769.32
         },
         {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning_RS-P1X1R3C3_czy",
@@ -5734,8 +5734,8 @@
           "purchases": 7,
           "subscriptions": 21,
           "roas": 0.34,
-          "ctr": 1.42,
-          "spend": 571.36
+          "ctr": 1.38,
+          "spend": 588.93
         },
         {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Men_ZT-SelfImprovement_RS-P1X1R3C3_czy",
@@ -5745,8 +5745,8 @@
           "purchases": 6,
           "subscriptions": 10,
           "roas": 0.5,
-          "ctr": 3.35,
-          "spend": 272.21
+          "ctr": 2.02,
+          "spend": 344.3
         },
         {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Growth-1_RS-P1X1R3C3_czy - Copy",
@@ -5756,8 +5756,8 @@
           "purchases": 6,
           "subscriptions": 18,
           "roas": 0.47,
-          "ctr": 1.04,
-          "spend": 349.42
+          "ctr": 1.03,
+          "spend": 369.9
         },
         {
           "material_id": "20260710_growme_EN_9x16_FX-EnglishLearners_ZT-Learning-page_RS-P1X1R3C1_gy",
@@ -5767,8 +5767,8 @@
           "purchases": 5,
           "subscriptions": 12,
           "roas": 0.63,
-          "ctr": 1.27,
-          "spend": 272.22
+          "ctr": 1.19,
+          "spend": 280.57
         },
         {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-2_RS-P1X1R3C3_czy",
@@ -5776,10 +5776,10 @@
           "theme": "learning",
           "designer": "czy",
           "purchases": 4,
-          "subscriptions": 5,
+          "subscriptions": 7,
           "roas": 0.55,
-          "ctr": 2.87,
-          "spend": 89.45
+          "ctr": 1.98,
+          "spend": 167.3
         },
         {
           "material_id": "20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learning-that girl_RS-P3X1R1C3_fj",
@@ -5789,8 +5789,8 @@
           "purchases": 4,
           "subscriptions": 3,
           "roas": 0.4,
-          "ctr": 0.66,
-          "spend": 242.11
+          "ctr": 0.65,
+          "spend": 246.35
         },
         {
           "material_id": "20260706_GrowMe_EN_9x16_FX-Students_ZT-Learning-1_RS-P1X1R3C3_czy",
@@ -5800,8 +5800,8 @@
           "purchases": 3,
           "subscriptions": 5,
           "roas": 0.61,
-          "ctr": 18.13,
-          "spend": 110.71
+          "ctr": 15.78,
+          "spend": 113.04
         },
         {
           "material_id": "20260709_GrowMe_EN_9x16_FX-Women_ZT-healing-pic_RS-P1X1R3C3_wxx",
@@ -5822,8 +5822,8 @@
           "purchases": 3,
           "subscriptions": 4,
           "roas": 0.31,
-          "ctr": 1.21,
-          "spend": 198.11
+          "ctr": 1.42,
+          "spend": 207.81
         }
       ],
       "direction_table": [
@@ -5832,29 +5832,29 @@
           "total_materials": 19,
           "ordered_materials": 3,
           "ordered_ratio": "3/19",
-          "ctr": 2.13,
-          "cpi": 0.91,
-          "roas": 0.74,
-          "subscriptions": 125,
-          "purchases": 59,
-          "hook_rate": 17.64,
-          "retention_rate": 2.22,
-          "spend": 2181.87,
-          "cpm": 1.71
+          "ctr": 2.4,
+          "cpi": 1.11,
+          "roas": 0.6,
+          "subscriptions": 156,
+          "purchases": 81,
+          "hook_rate": 17.24,
+          "retention_rate": 2.14,
+          "spend": 3270.03,
+          "cpm": 1.85
         },
         {
           "direction": "EnglishLearners",
           "total_materials": 67,
           "ordered_materials": 13,
           "ordered_ratio": "13/67",
-          "ctr": 1.39,
-          "cpi": 1.81,
-          "roas": 0.46,
-          "subscriptions": 88,
+          "ctr": 1.4,
+          "cpi": 1.79,
+          "roas": 0.55,
+          "subscriptions": 89,
           "purchases": 41,
-          "hook_rate": 15.07,
-          "retention_rate": 7.06,
-          "spend": 3914.66,
+          "hook_rate": 15.08,
+          "retention_rate": 7.04,
+          "spend": 4033.23,
           "cpm": 2.26
         },
         {
@@ -5862,14 +5862,14 @@
           "total_materials": 4,
           "ordered_materials": 1,
           "ordered_ratio": "1/4",
-          "ctr": 2.45,
-          "cpi": 1.83,
+          "ctr": 2.55,
+          "cpi": 1.84,
           "roas": 0.48,
           "subscriptions": 41,
           "purchases": 27,
           "hook_rate": 16.61,
           "retention_rate": 2.65,
-          "spend": 1085.86,
+          "spend": 1086.6,
           "cpm": 1.83
         },
         {
@@ -5877,75 +5877,75 @@
           "total_materials": 12,
           "ordered_materials": 4,
           "ordered_ratio": "4/12",
-          "ctr": 2.91,
-          "cpi": 1.89,
-          "roas": 0.41,
-          "subscriptions": 39,
+          "ctr": 2.61,
+          "cpi": 1.86,
+          "roas": 0.42,
+          "subscriptions": 41,
           "purchases": 15,
-          "hook_rate": 16.28,
-          "retention_rate": 2.71,
-          "spend": 967.82,
-          "cpm": 1.84
+          "hook_rate": 16.34,
+          "retention_rate": 2.74,
+          "spend": 1068.77,
+          "cpm": 1.87
         },
         {
           "direction": "SelfGrowth",
           "total_materials": 35,
           "ordered_materials": 6,
           "ordered_ratio": "6/35",
-          "ctr": 2.58,
-          "cpi": 2.03,
-          "roas": 0.44,
-          "subscriptions": 30,
+          "ctr": 2.6,
+          "cpi": 1.99,
+          "roas": 0.57,
+          "subscriptions": 31,
           "purchases": 10,
-          "hook_rate": 17.04,
-          "retention_rate": 4.38,
-          "spend": 1206.24,
-          "cpm": 2.51
+          "hook_rate": 16.73,
+          "retention_rate": 4.23,
+          "spend": 1270.14,
+          "cpm": 2.44
         },
         {
           "direction": "men",
           "total_materials": 2,
           "ordered_materials": 1,
           "ordered_ratio": "1/2",
-          "ctr": 3.35,
-          "cpi": 2.35,
+          "ctr": 2.02,
+          "cpi": 2.61,
           "roas": 0.5,
           "subscriptions": 10,
           "purchases": 6,
-          "hook_rate": 15.52,
-          "retention_rate": 2.88,
-          "spend": 272.21,
-          "cpm": 1.58
+          "hook_rate": 13.58,
+          "retention_rate": 2.86,
+          "spend": 344.57,
+          "cpm": 1.37
         },
         {
           "direction": "Readers",
           "total_materials": 12,
           "ordered_materials": 2,
           "ordered_ratio": "2/12",
-          "ctr": 1.34,
-          "cpi": 3.0,
+          "ctr": 1.37,
+          "cpi": 3.03,
           "roas": 0.27,
           "subscriptions": 7,
           "purchases": 3,
-          "hook_rate": 18.39,
-          "retention_rate": 2.16,
-          "spend": 431.76,
-          "cpm": 2.16
+          "hook_rate": 18.46,
+          "retention_rate": 2.19,
+          "spend": 446.09,
+          "cpm": 2.2
         },
         {
           "direction": "Women",
           "total_materials": 18,
           "ordered_materials": 1,
           "ordered_ratio": "1/18",
-          "ctr": 2.34,
-          "cpi": 6.7,
+          "ctr": 2.36,
+          "cpi": 6.51,
           "roas": 0.6,
           "subscriptions": 6,
           "purchases": 3,
-          "hook_rate": 15.86,
+          "hook_rate": 15.76,
           "retention_rate": 5.64,
-          "spend": 408.7,
-          "cpm": 4.32
+          "spend": 410.11,
+          "cpm": 4.29
         },
         {
           "direction": "englishreaders",
@@ -5967,15 +5967,15 @@
           "total_materials": 5,
           "ordered_materials": 1,
           "ordered_ratio": "1/5",
-          "ctr": 1.23,
-          "cpi": 2.89,
+          "ctr": 5.64,
+          "cpi": 3.08,
           "roas": 0.38,
-          "subscriptions": 3,
+          "subscriptions": 4,
           "purchases": 2,
-          "hook_rate": 15.11,
-          "retention_rate": 3.57,
-          "spend": 217.0,
-          "cpm": 1.58
+          "hook_rate": 14.98,
+          "retention_rate": 3.62,
+          "spend": 243.27,
+          "cpm": 1.62
         },
         {
           "direction": "Overthinkers",
@@ -6018,14 +6018,14 @@
       },
       "insights": [
         "【新方向】测试 50 条，出单 22 单，出单率 22.0%。",
-        "【老方向】测试 91 条，出单 127 单，出单率 16.48%。",
+        "【老方向】测试 91 条，出单 149 单，出单率 16.48%。",
         "【图片】测试 30 条，出单 6 单，出单率 10.0%。",
         "【素材测出率】0706周 上新 198 条，出单率 17.17%（较 0629周 ↑4.1pp），出单素材 34 条（较上周 ↑18）。上周出单率 13.11%，出单素材 16 条。",
-        "【本周最强素材】20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Growth-1…（Professionals / czy）：购物 52 · 订阅 95 · ROAS 0.74 · CTR 0.93% · 花费 $1496.0。",
-        "【高转化信号素材】20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Growth-1…（购物+订阅双达标）：购物 52 · 订阅 95 · ROAS 0.74 · CTR 0.93% · 花费 $1496.0，具备放量验证价值。",
+        "【本周最强素材】20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Growth-1…（Professionals / czy）：购物 74 · 订阅 126 · ROAS 0.54 · CTR 0.91% · 花费 $2544.0。",
+        "【高转化信号素材】20260706_GrowMe_EN_9x16_FX-Professionals_ZT-Growth-1…（购物+订阅双达标）：购物 74 · 订阅 126 · ROAS 0.54 · CTR 0.91% · 花费 $2544.0，具备放量验证价值。",
         "【钩子最优素材】20260709_growme_EN_9x16_FX-EnglishLearners_ZT-VP-rea…：3秒播放率 35.71%，购物 0 · CTR 0.69% · 花费 $1.0。",
         "【留存率最高素材】20260707_GrowMe_EN_9x16_FX-EnglishLearners_ZT-Learni…：完播留存率 100.0%，购物 0 · 花费 $0.0。",
-        "【方向表现】「Professionals」购物 59 单领先，出单素材 3/19，ROAS 0.74；共 19 条素材参与本周 WW 测试。"
+        "【方向表现】「Professionals」购物 81 单领先，出单素材 3/19，ROAS 0.6；共 19 条素材参与本周 WW 测试。"
       ],
       "cross_rubric_heatmap": {
         "y_axis": "direction",
@@ -6483,7 +6483,7 @@
             "ordered_materials": 11,
             "conversions": 22,
             "order_rate": 22.0,
-            "spend": 2847.3,
+            "spend": 2882.72,
             "subscriptions": 61
           },
           "materials": [
@@ -6493,13 +6493,13 @@
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "gy",
-              "spend": 272.22,
+              "spend": 280.57,
               "purchases": 5,
               "subscriptions": 12,
               "roas": 0.63,
-              "ctr": 1.27,
-              "hook_rate": 11.3,
-              "retention_rate": 5.35
+              "ctr": 1.19,
+              "hook_rate": 11.37,
+              "retention_rate": 5.43
             },
             {
               "rank": 2,
@@ -6507,13 +6507,13 @@
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "fj",
-              "spend": 242.11,
+              "spend": 246.35,
               "purchases": 4,
               "subscriptions": 3,
               "roas": 0.4,
-              "ctr": 0.66,
-              "hook_rate": 29.45,
-              "retention_rate": 26.28
+              "ctr": 0.65,
+              "hook_rate": 29.41,
+              "retention_rate": 26.27
             },
             {
               "rank": 3,
@@ -6535,13 +6535,13 @@
               "direction": "Readers",
               "theme": "atomic",
               "designer": "gy",
-              "spend": 169.63,
+              "spend": 183.74,
               "purchases": 2,
               "subscriptions": 3,
               "roas": 0.29,
-              "ctr": 1.13,
-              "hook_rate": 23.49,
-              "retention_rate": 1.62
+              "ctr": 1.16,
+              "hook_rate": 23.46,
+              "retention_rate": 1.79
             },
             {
               "rank": 5,
@@ -6549,13 +6549,13 @@
               "direction": "EnglishLearners",
               "theme": "vp",
               "designer": "wxx",
-              "spend": 169.89,
+              "spend": 177.01,
               "purchases": 2,
               "subscriptions": 4,
               "roas": 0.27,
-              "ctr": 3.71,
-              "hook_rate": 20.77,
-              "retention_rate": 1.43
+              "ctr": 3.16,
+              "hook_rate": 20.94,
+              "retention_rate": 1.45
             },
             {
               "rank": 6,
@@ -6605,13 +6605,13 @@
               "direction": "EnglishLearners",
               "theme": "vp",
               "designer": "wxx",
-              "spend": 152.64,
+              "spend": 153.92,
               "purchases": 1,
               "subscriptions": 2,
               "roas": 0.31,
-              "ctr": 0.92,
-              "hook_rate": 20.08,
-              "retention_rate": 3.66
+              "ctr": 0.93,
+              "hook_rate": 20.11,
+              "retention_rate": 3.7
             },
             {
               "rank": 10,
@@ -6619,13 +6619,13 @@
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "fj",
-              "spend": 63.21,
+              "spend": 63.53,
               "purchases": 1,
               "subscriptions": 3,
               "roas": 0.26,
-              "ctr": 0.81,
-              "hook_rate": 16.56,
-              "retention_rate": 37.22
+              "ctr": 0.76,
+              "hook_rate": 16.61,
+              "retention_rate": 37.1
             },
             {
               "rank": 11,
@@ -6651,10 +6651,10 @@
           "summary": {
             "total_materials": 91,
             "ordered_materials": 15,
-            "conversions": 127,
+            "conversions": 149,
             "order_rate": 16.48,
-            "spend": 6687.67,
-            "subscriptions": 248
+            "spend": 8048.48,
+            "subscriptions": 283
           },
           "materials": [
             {
@@ -6663,13 +6663,13 @@
               "direction": "Professionals",
               "theme": "growth",
               "designer": "czy",
-              "spend": 1496.48,
-              "purchases": 52,
-              "subscriptions": 95,
-              "roas": 0.74,
-              "ctr": 0.93,
-              "hook_rate": 18.13,
-              "retention_rate": 2.12
+              "spend": 2544.45,
+              "purchases": 74,
+              "subscriptions": 126,
+              "roas": 0.54,
+              "ctr": 0.91,
+              "hook_rate": 17.63,
+              "retention_rate": 2.06
             },
             {
               "rank": 2,
@@ -6677,12 +6677,12 @@
               "direction": "introverts",
               "theme": "mindset",
               "designer": "czy",
-              "spend": 1000.24,
+              "spend": 1000.95,
               "purchases": 27,
               "subscriptions": 39,
               "roas": 0.48,
-              "ctr": 2.5,
-              "hook_rate": 16.49,
+              "ctr": 2.9,
+              "hook_rate": 16.5,
               "retention_rate": 2.64
             },
             {
@@ -6691,12 +6691,12 @@
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "gy",
-              "spend": 757.52,
+              "spend": 769.32,
               "purchases": 17,
               "subscriptions": 30,
               "roas": 0.34,
-              "ctr": 1.02,
-              "hook_rate": 13.56,
+              "ctr": 0.93,
+              "hook_rate": 13.53,
               "retention_rate": 6.5
             },
             {
@@ -6705,13 +6705,13 @@
               "direction": "Students",
               "theme": "learning",
               "designer": "czy",
-              "spend": 571.36,
+              "spend": 588.93,
               "purchases": 7,
               "subscriptions": 21,
               "roas": 0.34,
-              "ctr": 1.42,
-              "hook_rate": 14.94,
-              "retention_rate": 3.11
+              "ctr": 1.38,
+              "hook_rate": 15.02,
+              "retention_rate": 3.1
             },
             {
               "rank": 5,
@@ -6719,13 +6719,13 @@
               "direction": "men",
               "theme": "selfimprovement",
               "designer": "czy",
-              "spend": 272.21,
+              "spend": 344.3,
               "purchases": 6,
               "subscriptions": 10,
               "roas": 0.5,
-              "ctr": 3.35,
-              "hook_rate": 15.52,
-              "retention_rate": 2.88
+              "ctr": 2.02,
+              "hook_rate": 13.58,
+              "retention_rate": 2.86
             },
             {
               "rank": 6,
@@ -6733,13 +6733,13 @@
               "direction": "Students",
               "theme": "learning",
               "designer": "czy",
-              "spend": 89.45,
+              "spend": 167.3,
               "purchases": 4,
-              "subscriptions": 5,
+              "subscriptions": 7,
               "roas": 0.55,
-              "ctr": 2.87,
-              "hook_rate": 17.42,
-              "retention_rate": 2.12
+              "ctr": 1.98,
+              "hook_rate": 17.23,
+              "retention_rate": 2.38
             },
             {
               "rank": 7,
@@ -6747,13 +6747,13 @@
               "direction": "Students",
               "theme": "learning",
               "designer": "czy",
-              "spend": 110.71,
+              "spend": 113.04,
               "purchases": 3,
               "subscriptions": 5,
               "roas": 0.61,
-              "ctr": 18.13,
-              "hook_rate": 15.71,
-              "retention_rate": 2.34
+              "ctr": 15.78,
+              "hook_rate": 15.79,
+              "retention_rate": 2.42
             },
             {
               "rank": 8,
@@ -6775,13 +6775,13 @@
               "direction": "FinanceSeekers",
               "theme": "finance",
               "designer": "czy",
-              "spend": 144.52,
+              "spend": 170.78,
               "purchases": 2,
-              "subscriptions": 3,
+              "subscriptions": 4,
               "roas": 0.38,
-              "ctr": 1.33,
-              "hook_rate": 15.59,
-              "retention_rate": 3.66
+              "ctr": 1.55,
+              "hook_rate": 15.37,
+              "retention_rate": 3.71
             },
             {
               "rank": 10,
@@ -6789,13 +6789,13 @@
               "direction": "SelfGrowth",
               "theme": "action",
               "designer": "czy",
-              "spend": 120.61,
+              "spend": 120.94,
               "purchases": 2,
               "subscriptions": 2,
               "roas": 0.36,
-              "ctr": 2.84,
-              "hook_rate": 18.11,
-              "retention_rate": 1.1
+              "ctr": 2.85,
+              "hook_rate": 18.12,
+              "retention_rate": 1.13
             },
             {
               "rank": 11,
@@ -6803,13 +6803,13 @@
               "direction": "EnglishLearners",
               "theme": "learning",
               "designer": "gy",
-              "spend": 52.98,
+              "spend": 94.69,
               "purchases": 1,
-              "subscriptions": 1,
+              "subscriptions": 2,
               "roas": 6.0,
-              "ctr": 1.81,
-              "hook_rate": 18.15,
-              "retention_rate": 7.32
+              "ctr": 1.74,
+              "hook_rate": 16.7,
+              "retention_rate": 6.81
             },
             {
               "rank": 12,
@@ -6817,13 +6817,13 @@
               "direction": "Professionals",
               "theme": "finance",
               "designer": "czy",
-              "spend": 25.0,
+              "spend": 44.71,
               "purchases": 1,
               "subscriptions": 1,
               "roas": 4.83,
-              "ctr": 2.39,
-              "hook_rate": 17.58,
-              "retention_rate": 3.07
+              "ctr": 2.36,
+              "hook_rate": 11.57,
+              "retention_rate": 2.73
             },
             {
               "rank": 13,
@@ -6831,13 +6831,13 @@
               "direction": "SelfGrowth",
               "theme": "emotionalhealth",
               "designer": "czy",
-              "spend": 16.91,
+              "spend": 59.39,
               "purchases": 1,
               "subscriptions": 1,
               "roas": 2.03,
-              "ctr": 1.61,
-              "hook_rate": 19.5,
-              "retention_rate": 2.3
+              "ctr": 1.67,
+              "hook_rate": 11.52,
+              "retention_rate": 1.96
             },
             {
               "rank": 14,
@@ -6976,8 +6976,8 @@
             "direction": "down"
           },
           "spend": {
-            "delta": -8296.21,
-            "pct": -73.5,
+            "delta": -9782.9,
+            "pct": -76.6,
             "direction": "down"
           },
           "ordered_materials": {
@@ -6986,18 +6986,18 @@
             "direction": "down"
           },
           "conversions": {
-            "delta": -145.0,
-            "pct": -86.3,
+            "delta": -167.0,
+            "pct": -87.9,
             "direction": "down"
           },
           "subscriptions": {
-            "delta": -287.0,
-            "pct": -80.2,
+            "delta": -323.0,
+            "pct": -82.0,
             "direction": "down"
           },
           "avg_roas": {
-            "delta": -0.1,
-            "pct": -19.2,
+            "delta": -0.11,
+            "pct": -20.8,
             "direction": "down"
           }
         },
@@ -7015,10 +7015,10 @@
           "label": "总消耗",
           "unit": "$",
           "current": 2989.07,
-          "previous": 11285.28,
+          "previous": 12771.97,
           "wow": {
-            "delta": -8296.21,
-            "pct": -73.5,
+            "delta": -9782.9,
+            "pct": -76.6,
             "direction": "down"
           }
         },
@@ -7027,10 +7027,10 @@
           "label": "空消耗",
           "unit": "$",
           "current": 1531.48,
-          "previous": 2421.44,
+          "previous": 2457.24,
           "wow": {
-            "delta": -889.96,
-            "pct": -36.8,
+            "delta": -925.76,
+            "pct": -37.7,
             "direction": "down"
           }
         },
@@ -7039,10 +7039,10 @@
           "label": "CPI",
           "unit": "$",
           "current": 3.08,
-          "previous": 1.65,
+          "previous": 1.68,
           "wow": {
-            "delta": 1.43,
-            "pct": 86.7,
+            "delta": 1.4,
+            "pct": 83.3,
             "direction": "up"
           }
         },
@@ -7051,10 +7051,10 @@
           "label": "CPM",
           "unit": "$",
           "current": 1.64,
-          "previous": 2.1,
+          "previous": 2.09,
           "wow": {
-            "delta": -0.46,
-            "pct": -21.9,
+            "delta": -0.45,
+            "pct": -21.5,
             "direction": "down"
           }
         },
@@ -7063,10 +7063,10 @@
           "label": "订阅数",
           "unit": "",
           "current": 71,
-          "previous": 358,
+          "previous": 394,
           "wow": {
-            "delta": -287.0,
-            "pct": -80.2,
+            "delta": -323.0,
+            "pct": -82.0,
             "direction": "down"
           }
         },
@@ -7075,10 +7075,10 @@
           "label": "总出单量",
           "unit": "",
           "current": 23,
-          "previous": 168,
+          "previous": 190,
           "wow": {
-            "delta": -145.0,
-            "pct": -86.3,
+            "delta": -167.0,
+            "pct": -87.9,
             "direction": "down"
           }
         },
@@ -7087,10 +7087,10 @@
           "label": "平均 ROAS",
           "unit": "",
           "current": 0.42,
-          "previous": 0.52,
+          "previous": 0.53,
           "wow": {
-            "delta": -0.1,
-            "pct": -19.2,
+            "delta": -0.11,
+            "pct": -20.8,
             "direction": "down"
           }
         }

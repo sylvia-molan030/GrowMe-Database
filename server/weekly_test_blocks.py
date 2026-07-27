@@ -1,7 +1,6 @@
-"""按周拆分三类测试素材板块：新方向、老方向、图片。"""
+"""按周拆分三类测试素材板块：新素材、老素材、图片。"""
 from __future__ import annotations
 
-import re
 from typing import Any
 
 from data_loader import store
@@ -13,20 +12,18 @@ from weekly_report import (
 )
 
 
-# 展示顺序：新方向 → 老方向 → 图片（仅有数据的板块会输出）
-BLOCK_LABELS = ("新方向", "老方向", "图片")
+# 展示顺序：新素材 → 老素材 → 图片
+BLOCK_LABELS = ("新素材", "老素材", "图片")
 BLOCK_ORDER = {label: i for i, label in enumerate(BLOCK_LABELS)}
 
 
-def _classify_new_direction_source(source_file: str) -> str:
-    name = source_file or ""
-    if "数字人" in name or "新创意" in name or "新形式" in name:
-        return "新方向"
-    if "图片" in name or re.search(r"pic", name, re.I):
+def _classify_material(m: dict[str, Any]) -> str:
+    mid = (m.get("material_id") or "").lower()
+    if "pic" in mid:
         return "图片"
-    if "新方向" in name:
-        return "图片"
-    return "新方向"
+    if (m.get("designer") or "").strip().lower() == "cty":
+        return "老素材"
+    return "新素材"
 
 
 def _material_row(m: dict[str, Any], rank: int) -> dict[str, Any]:
@@ -49,27 +46,20 @@ def _material_row(m: dict[str, Any], rank: int) -> dict[str, Any]:
 
 
 def _build_block(
-    records: list[dict[str, Any]],
+    materials: list[dict[str, Any]],
     label: str,
     week_label: str,
-    *,
-    lifecycle: bool = False,
-    account_by_id: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
-    materials = _aggregate_materials(records)
-    if lifecycle:
-        materials = _overlay_lifecycle_metrics(materials, account_by_id)
     if not materials:
         return None
     kpi = _channel_kpi(materials)
     ordered = [m for m in materials if m.get("purchases", 0) >= 1]
     ordered.sort(key=lambda m: (-m.get("purchases", 0), -m.get("roas", 0), -m.get("spend", 0)))
 
-    metric_note = "出单指标按账户全量生命周期刷新。" if lifecycle else "已计入周度 KPI。"
     notes = {
-        "老方向": f"{week_label} 老方向（常规上新）素材，{metric_note}",
-        "新方向": f"{week_label} 新方向（新形式/数字人等）测试素材，{metric_note}",
-        "图片": f"{week_label} 图片素材方向测试，{metric_note}",
+        "老素材": f"{week_label} 老素材（设计师 cty），出单指标来自账户全量。",
+        "新素材": f"{week_label} 新素材（非 cty），出单指标来自账户全量。",
+        "图片": f"{week_label} 图片素材（素材名含 pic），出单指标来自账户全量。",
     }
 
     return {
@@ -85,51 +75,35 @@ def _build_block(
         },
         "materials": [_material_row(m, i + 1) for i, m in enumerate(ordered)],
         "note": notes.get(label, ""),
-        "metric_source": "account_lifecycle" if lifecycle else "weekly_files",
+        "metric_source": "account_lifecycle",
     }
 
 
 def get_weekly_test_blocks(
     week_label: str,
     *,
-    lifecycle: bool = False,
+    lifecycle: bool = True,
 ) -> list[dict[str, Any]]:
-    blocks: list[dict[str, Any]] = []
-    account_by_id = _account_materials_index() if lifecycle else None
-
-    weekly_recs = [
+    """从周度文件取本周素材，按 cty / pic 规则拆分三块并覆盖账户成效。"""
+    records = [
         r
         for r in store.records
-        if r.get("data_scope") == "weekly" and r.get("week_label") == week_label
+        if r.get("data_scope") in ("weekly", "new_direction") and r.get("week_label") == week_label
     ]
-    if weekly_recs:
-        block = _build_block(
-            weekly_recs,
-            "老方向",
-            week_label,
-            lifecycle=lifecycle,
-            account_by_id=account_by_id,
-        )
+    if not records:
+        return []
+
+    materials = _aggregate_materials(records)
+    if lifecycle:
+        materials = _overlay_lifecycle_metrics(materials, _account_materials_index())
+
+    grouped: dict[str, list[dict[str, Any]]] = {label: [] for label in BLOCK_LABELS}
+    for m in materials:
+        grouped[_classify_material(m)].append(m)
+
+    blocks: list[dict[str, Any]] = []
+    for label in BLOCK_LABELS:
+        block = _build_block(grouped[label], label, week_label)
         if block:
             blocks.append(block)
-
-    grouped: dict[str, list[dict[str, Any]]] = {}
-    for r in store.records:
-        if r.get("data_scope") != "new_direction" or r.get("week_label") != week_label:
-            continue
-        key = _classify_new_direction_source(r.get("source_file", ""))
-        grouped.setdefault(key, []).append(r)
-
-    for label in ("新方向", "图片"):
-        if grouped.get(label):
-            block = _build_block(
-                grouped[label],
-                label,
-                week_label,
-                lifecycle=lifecycle,
-                account_by_id=account_by_id,
-            )
-            if block:
-                blocks.append(block)
-
-    return sorted(blocks, key=lambda b: BLOCK_ORDER.get(b["label"], 9))
+    return blocks

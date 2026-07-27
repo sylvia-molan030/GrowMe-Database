@@ -184,7 +184,12 @@ def week_sort_key(label: str) -> int:
 
 
 def get_weekly_labels() -> list[str]:
-    labels = {r.get("week_label", "") for r in store.records if r.get("data_scope") == "weekly" and r.get("week_label")}
+    labels = {
+        r.get("week_label", "")
+        for r in store.records
+        if r.get("data_scope") in ("weekly", "new_direction") and r.get("week_label")
+    }
+    labels.discard("")
     return sorted(labels, key=week_sort_key)
 
 

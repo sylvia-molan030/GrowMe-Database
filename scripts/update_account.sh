@@ -41,6 +41,9 @@ if [ -n "$SRC" ]; then
   echo "→ 复制账户全量 → data_inputs/account_all_WW.csv"
   cp "$SRC" "$TARGET"
   echo "  ✓ $(basename "$SRC")"
+  echo ""
+  echo "→ 按全量重生周度文件（cty→老素材 · pic→图片 · 其余→新素材）…"
+  python3 "$ROOT/scripts/regenerate_weekly_from_account.py" "$TARGET"
 fi
 
 if [ ! -f "$TARGET" ]; then
@@ -79,7 +82,7 @@ if [ "$PUSH" = true ]; then
   echo ""
   echo "→ 推送到 GitHub Pages …"
   cd "$ROOT"
-  git add data_inputs/account_all_WW.csv docs/data/ data_outputs/ 2>/dev/null || true
+  git add data_inputs/account_all_WW.csv data_inputs/ docs/data/ data_outputs/ 2>/dev/null || true
   if git diff --cached --quiet; then
     echo "没有可提交的变更。"
   else

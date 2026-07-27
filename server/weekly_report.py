@@ -17,16 +17,10 @@ from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction,
 
 
 _NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
-# 当前测试周：名单来自周度文件，成效用账户全量覆盖刷新；其余历史周按账户生命周期归属
-_SNAPSHOT_WEEK = "0713周"
 
 
 def _is_new_schema_week(week_label: str) -> bool:
     return week_sort_key(week_label) >= _NEW_SCHEMA_WEEK_KEY
-
-
-def _uses_snapshot_kpi(week_label: str) -> bool:
-    return week_label == _SNAPSHOT_WEEK
 
 
 def sorted_week_labels() -> list[str]:
@@ -120,21 +114,21 @@ def _overlay_lifecycle_metrics(
 
 
 def _report_materials_for_week(week_label: str) -> tuple[list[dict[str, Any]], str]:
-    """报告用素材列表：当前测试周用周度名单+账户覆盖；其余周账户全量生命周期。"""
-    if _uses_snapshot_kpi(week_label):
-        mats = _aggregate_materials(_week_records(week_label, kpi=True))
+    """报告用素材列表：有周度文件则用名单+账户覆盖；否则回退账户生命周期。"""
+    weekly_rows = _week_records(week_label, kpi=True)
+    if weekly_rows:
+        mats = _aggregate_materials(weekly_rows)
         return _overlay_lifecycle_metrics(mats), "weekly_files_lifecycle"
 
     account_mats = _aggregate_materials(_account_records_for_week(week_label))
     if account_mats:
         return account_mats, "account_lifecycle"
 
-    mats = _aggregate_materials(_week_records(week_label, kpi=True))
-    return _overlay_lifecycle_metrics(mats), "weekly_files_fallback"
+    return [], "empty"
 
 
 def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
-    """返回 (kpi, source)。当前测试周名单来自周度文件、成效按账户刷新；其余周用账户生命周期。"""
+    """返回 (kpi, source)。周度名单来自周度文件、成效按账户全量刷新。"""
     mats, source = _report_materials_for_week(week_label)
     return _channel_kpi(mats), source
 
@@ -480,9 +474,9 @@ def _material_breakdown(week: str, test_blocks: list[dict[str, Any]]) -> dict[st
     for block in test_blocks:
         n = block["summary"]["total_materials"]
         label = block.get("label") or ""
-        if label in ("老方向", "老形式"):
+        if label in ("老方向", "老形式", "老素材"):
             breakdown["weekly"] = n
-        elif label in ("新方向", "新创意"):
+        elif label in ("新方向", "新创意", "新素材"):
             breakdown["new_creative"] = n
         elif label == "图片":
             breakdown["image"] = n

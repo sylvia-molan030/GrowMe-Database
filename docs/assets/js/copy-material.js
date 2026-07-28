@@ -27,19 +27,37 @@ function copySync(text) {
 function readCopyText(el) {
   if (el.dataset.copy) return el.dataset.copy;
   const clone = el.cloneNode(true);
-  clone.querySelectorAll('.copy-hint').forEach((n) => n.remove());
+  clone.querySelectorAll('.copy-hint, .copy-float-toast').forEach((n) => n.remove());
   return clone.textContent.trim();
 }
 
-function showCopyHint(anchor, message = '已复制到剪贴板') {
-  const host = anchor.closest('td') || anchor.closest('.detail-item') || anchor;
-  host.querySelectorAll('.copy-hint').forEach((n) => n.remove());
-  const hint = document.createElement('div');
-  hint.className = 'copy-hint';
-  hint.textContent = message;
-  host.appendChild(hint);
-  clearTimeout(host._copyHintTimer);
-  host._copyHintTimer = setTimeout(() => hint.remove(), 1600);
+function showCopyToast(anchor, message = '已复制到剪贴板') {
+  document.querySelectorAll('.copy-float-toast').forEach((n) => n.remove());
+
+  const tip = document.createElement('div');
+  tip.className = 'copy-float-toast';
+  tip.setAttribute('role', 'status');
+  tip.textContent = message;
+  tip.style.visibility = 'hidden';
+  document.body.appendChild(tip);
+
+  const rect = anchor.getBoundingClientRect();
+  const tipRect = tip.getBoundingClientRect();
+  const margin = 8;
+  let left = rect.left + rect.width / 2 - tipRect.width / 2;
+  let top = rect.bottom + 6;
+  left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+  if (top + tipRect.height > window.innerHeight - margin) {
+    top = rect.top - tipRect.height - 6;
+  }
+
+  tip.style.left = `${left}px`;
+  tip.style.top = `${top}px`;
+  tip.style.visibility = 'visible';
+  requestAnimationFrame(() => tip.classList.add('show'));
+
+  clearTimeout(showCopyToast._timer);
+  showCopyToast._timer = setTimeout(() => tip.remove(), 1800);
 }
 
 export async function copyMaterialName(text, options = {}) {
@@ -56,8 +74,11 @@ export async function copyMaterialName(text, options = {}) {
     }
   }
 
-  if (ok && options.toast !== false && options.anchor) {
-    showCopyHint(options.anchor, options.toastMessage || '已复制到剪贴板');
+  if (options.anchor) {
+    showCopyToast(
+      options.anchor,
+      ok ? (options.toastMessage || '已复制到剪贴板') : '复制失败，请手动选择复制',
+    );
   }
   return ok;
 }
@@ -73,24 +94,24 @@ export function bindCopyMaterials(container) {
       e.stopPropagation();
       e.preventDefault();
       const text = readCopyText(el);
-      const ok = copySync(text);
+      let ok = copySync(text);
       if (ok) {
-        showCopyHint(el, '已复制到剪贴板');
+        showCopyToast(el, '已复制到剪贴板');
         el.classList.add('copied');
         setTimeout(() => el.classList.remove('copied'), 800);
         return;
       }
       if (navigator.clipboard?.writeText) {
         navigator.clipboard.writeText(text).then(() => {
-          showCopyHint(el, '已复制到剪贴板');
+          showCopyToast(el, '已复制到剪贴板');
           el.classList.add('copied');
           setTimeout(() => el.classList.remove('copied'), 800);
         }).catch(() => {
-          showCopyHint(el, '复制失败，请手动选择复制');
+          showCopyToast(el, '复制失败，请手动选择复制');
         });
         return;
       }
-      showCopyHint(el, '复制失败，请手动选择复制');
+      showCopyToast(el, '复制失败，请手动选择复制');
     });
   });
 }

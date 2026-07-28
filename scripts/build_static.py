@@ -24,6 +24,7 @@ OUTPUT_DIR = ROOT / "docs" / "data"
 JS_DIR = ROOT / "docs" / "assets" / "js"
 INDEX_HTML = ROOT / "docs" / "index.html"
 IMPORT_RE = re.compile(r"""from\s+['"](\.\.?/[^'"?]+)(?:\?v=\d+)?['"]""")
+DYNAMIC_IMPORT_RE = re.compile(r"""import\s*\(\s*['"](\.\.?/[^'"?]+)(?:\?v=\d+)?['"]\s*\)""")
 
 
 def _resolve_scope_target(scope: str, spec: str) -> str:
@@ -40,6 +41,11 @@ def _resolve_scope_target(scope: str, spec: str) -> str:
     return "./" + "/".join(parts)
 
 
+def _register_scope_spec(scopes: dict[str, dict[str, str]], scope: str, spec: str, version: int) -> None:
+    target = _resolve_scope_target(scope, spec)
+    scopes.setdefault(scope, {})[spec] = f"{target}?v={version}"
+
+
 def _collect_importmap_scopes(version: int) -> dict[str, dict[str, str]]:
     """为 ES module 子依赖生成 importmap scopes，避免仅 app.js 带版本时子模块仍走浏览器旧缓存。
 
@@ -49,10 +55,11 @@ def _collect_importmap_scopes(version: int) -> dict[str, dict[str, str]]:
     for path in sorted(JS_DIR.rglob("*.js")):
         rel_dir = path.parent.relative_to(JS_DIR)
         scope = "./assets/js/" if rel_dir == Path(".") else f"./assets/js/{rel_dir.as_posix()}/"
-        for match in IMPORT_RE.finditer(path.read_text(encoding="utf-8")):
-            spec = match.group(1)
-            target = _resolve_scope_target(scope, spec)
-            scopes.setdefault(scope, {})[spec] = f"{target}?v={version}"
+        text = path.read_text(encoding="utf-8")
+        for match in IMPORT_RE.finditer(text):
+            _register_scope_spec(scopes, scope, match.group(1), version)
+        for match in DYNAMIC_IMPORT_RE.finditer(text):
+            _register_scope_spec(scopes, scope, match.group(1), version)
     return scopes
 
 

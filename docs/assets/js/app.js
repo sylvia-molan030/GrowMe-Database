@@ -1,13 +1,12 @@
 import { api, initApi, IS_STATIC } from './api.js';
 import { createDefaultFilters, renderFilters } from './filters.js';
 
-const V = document.documentElement.dataset.build || '0';
 const pageModules = {
-  'golden-cross': () => import(`./pages/golden-cross.js?v=${V}`),
-  leaderboard: () => import(`./pages/leaderboard.js?v=${V}`),
-  designer: () => import(`./pages/designer.js?v=${V}`),
-  'asset-library': () => import(`./pages/asset-library.js?v=${V}`),
-  'weekly-update': () => import(`./pages/weekly-update.js?v=${V}`),
+  'golden-cross': () => import('./pages/golden-cross.js'),
+  leaderboard: () => import('./pages/leaderboard.js'),
+  designer: () => import('./pages/designer.js'),
+  'asset-library': () => import('./pages/asset-library.js'),
+  'weekly-update': () => import('./pages/weekly-update.js'),
 };
 
 const PAGE_TITLES = {

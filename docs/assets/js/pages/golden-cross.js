@@ -2,8 +2,6 @@ import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 import { bindCopyMaterials } from '../copy-material.js';
 
-const V = document.documentElement.dataset.build || '0';
-
 function escapeHtml(text) {
   return String(text ?? '')
     .replace(/&/g, '&amp;')
@@ -13,7 +11,7 @@ function escapeHtml(text) {
 }
 
 async function loadHeatmapGrid() {
-  return import(`../heatmap-grid.js?v=${V}`);
+  return import('../heatmap-grid.js');
 }
 
 let survivalChart = null;

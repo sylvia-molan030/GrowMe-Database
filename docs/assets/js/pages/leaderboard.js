@@ -59,6 +59,26 @@ function roasClass(roas) {
   return Number(roas) > 0 && Number(roas) < 0.4 ? 'roas-low' : '';
 }
 
+async function fetchMaterialTrends() {
+  const ver = document.documentElement.dataset.build || '';
+  const url = new URL('data/material-daily-trends.json', window.location.href);
+  if (ver) url.searchParams.set('v', ver);
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (res.ok) return res.json();
+  } catch {
+    /* ignore */
+  }
+  if (typeof api?.materialDailyTrends === 'function') {
+    try {
+      return await api.materialDailyTrends();
+    } catch {
+      /* ignore */
+    }
+  }
+  return { snapshot_date: null, trends: {} };
+}
+
 function renderSummaryBar(allRows) {
   const sumOrders = allRows.reduce((s, m) => s + m.purchases, 0);
   const sumSpend = Math.round(allRows.reduce((s, m) => s + m.spend, 0));
@@ -228,7 +248,7 @@ export async function renderLeaderboard(container, state) {
   const [data, allData, trendsPayload] = await Promise.all([
     api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page, page_size: 20, mode: state.filters.mode }),
     api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page: 1, page_size: 9999, mode: state.filters.mode }),
-    api.materialDailyTrends(),
+    fetchMaterialTrends(),
   ]);
   const trends = trendsPayload?.trends || {};
   const allRows = allData.rows || [];

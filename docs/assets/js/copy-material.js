@@ -1,74 +1,63 @@
-let toastTimer = null;
-
-function clampToastPosition(toast, anchorRect) {
-  const margin = 8;
-  const gap = 6;
-  let left = anchorRect.left + anchorRect.width / 2;
-  let top = anchorRect.bottom + gap;
-
-  toast.style.left = `${left}px`;
-  toast.style.top = `${top}px`;
-  toast.style.bottom = 'auto';
-
-  const toastRect = toast.getBoundingClientRect();
-  if (toastRect.right > window.innerWidth - margin) {
-    left -= toastRect.right - (window.innerWidth - margin);
+function copySync(text) {
+  const value = String(text || '').trim();
+  if (!value) return false;
+  const ta = document.createElement('textarea');
+  ta.value = value;
+  ta.setAttribute('readonly', '');
+  ta.style.position = 'fixed';
+  ta.style.top = '0';
+  ta.style.left = '0';
+  ta.style.width = '1px';
+  ta.style.height = '1px';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  ta.setSelectionRange(0, value.length);
+  let ok = false;
+  try {
+    ok = document.execCommand('copy');
+  } catch {
+    ok = false;
   }
-  if (toastRect.left < margin) {
-    left += margin - toastRect.left;
-  }
-  if (toastRect.bottom > window.innerHeight - margin) {
-    top = anchorRect.top - toastRect.height - gap;
-  }
-  toast.style.left = `${left}px`;
-  toast.style.top = `${top}px`;
+  ta.remove();
+  return ok;
 }
 
-function showCopyToast(message = '已复制到剪贴板', anchor = null) {
-  let toast = document.getElementById('copy-toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'copy-toast';
-    toast.className = 'copy-toast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.classList.remove('show');
+function readCopyText(el) {
+  if (el.dataset.copy) return el.dataset.copy;
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll('.copy-hint').forEach((n) => n.remove());
+  return clone.textContent.trim();
+}
 
-  if (anchor?.getBoundingClientRect) {
-    clampToastPosition(toast, anchor.getBoundingClientRect());
-  } else {
-    toast.style.left = '50%';
-    toast.style.top = 'auto';
-    toast.style.bottom = '28px';
-  }
-
-  requestAnimationFrame(() => toast.classList.add('show'));
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+function showCopyHint(anchor, message = '已复制到剪贴板') {
+  const host = anchor.closest('td') || anchor.closest('.detail-item') || anchor;
+  host.querySelectorAll('.copy-hint').forEach((n) => n.remove());
+  const hint = document.createElement('div');
+  hint.className = 'copy-hint';
+  hint.textContent = message;
+  host.appendChild(hint);
+  clearTimeout(host._copyHintTimer);
+  host._copyHintTimer = setTimeout(() => hint.remove(), 1600);
 }
 
 export async function copyMaterialName(text, options = {}) {
   const value = String(text || '').trim();
   if (!value) return false;
-  let ok = false;
-  try {
-    await navigator.clipboard.writeText(value);
-    ok = true;
-  } catch {
-    const ta = document.createElement('textarea');
-    ta.value = value;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    ok = document.execCommand('copy');
-    ta.remove();
+
+  let ok = copySync(value);
+  if (!ok && navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(value);
+      ok = true;
+    } catch {
+      ok = false;
+    }
   }
-  if (ok && options.toast !== false) {
-    showCopyToast(options.toastMessage || '已复制到剪贴板', options.anchor);
+
+  if (ok && options.toast !== false && options.anchor) {
+    showCopyHint(options.anchor, options.toastMessage || '已复制到剪贴板');
   }
   return ok;
 }
@@ -80,14 +69,28 @@ export function bindCopyMaterials(container) {
     el.dataset.copyBound = '1';
     if (!el.classList.contains('mat-copy')) el.classList.add('mat-copy');
     if (!el.title) el.title = '点击复制素材名';
-    el.addEventListener('click', async (e) => {
+    el.addEventListener('click', (e) => {
       e.stopPropagation();
-      const text = el.dataset.copy || el.textContent.trim();
-      const ok = await copyMaterialName(text, { anchor: el });
+      e.preventDefault();
+      const text = readCopyText(el);
+      const ok = copySync(text);
       if (ok) {
+        showCopyHint(el, '已复制到剪贴板');
         el.classList.add('copied');
         setTimeout(() => el.classList.remove('copied'), 800);
+        return;
       }
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showCopyHint(el, '已复制到剪贴板');
+          el.classList.add('copied');
+          setTimeout(() => el.classList.remove('copied'), 800);
+        }).catch(() => {
+          showCopyHint(el, '复制失败，请手动选择复制');
+        });
+        return;
+      }
+      showCopyHint(el, '复制失败，请手动选择复制');
     });
   });
 }

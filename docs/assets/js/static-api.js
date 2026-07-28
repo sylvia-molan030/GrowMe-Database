@@ -22,6 +22,9 @@ let snapshotLoadedVer = null;
 let weeklyReportsCache = null;
 let weeklyReportsPromise = null;
 let weeklyReportsLoadedVer = null;
+let materialTrendsCache = null;
+let materialTrendsPromise = null;
+let materialTrendsLoadedVer = null;
 
 async function fetchJSON(url, label) {
   const res = await fetch(url, { cache: 'no-store' });
@@ -38,6 +41,17 @@ export async function loadSnapshot() {
     return data;
   });
   return snapshotPromise;
+}
+
+async function loadMaterialTrends() {
+  const ver = buildVer();
+  if (materialTrendsCache && materialTrendsLoadedVer === ver) return materialTrendsCache;
+  materialTrendsPromise = fetchJSON(withCacheBust('./data/material-daily-trends.json'), '素材日趋势').then((data) => {
+    materialTrendsCache = data;
+    materialTrendsLoadedVer = ver;
+    return data;
+  }).catch(() => ({ snapshot_date: null, trends: {} }));
+  return materialTrendsPromise;
 }
 
 async function loadWeeklyReports() {
@@ -330,9 +344,6 @@ export function createStaticApi() {
       }
       return { weeks, report };
     },
-    rollback: async () => {
-      await loadSnapshot();
-      return snapshot.rollback || { period_label: '-', historical: [], recommended: [], recommend_week: null, criteria: {} };
-    },
+    materialDailyTrends: () => loadMaterialTrends(),
   };
 }

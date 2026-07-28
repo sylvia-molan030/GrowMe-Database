@@ -13,7 +13,8 @@ import analytics
 from data_loader import store
 from materials_catalog import build_catalog, export_catalog, get_catalog_summary
 from new_direction_report import get_new_direction_report
-from rollback_report import get_rollback_report
+from material_history import get_material_trend
+
 from upload_data import save_upload
 from weekly_report import get_weekly_report
 
@@ -105,9 +106,7 @@ def _upload_message(saved: list[dict[str, Any]], kinds: list[str]) -> str:
     if "account" in kinds:
         parts.append("账户内栏目已更新")
     if "weekly" in kinds or "new_direction" in kinds:
-        parts.append("周维度、上新成效与可回滚推荐已更新")
-    if "rollback" in kinds:
-        parts.append("历史回滚已更新")
+        parts.append("周维度与上新成效已更新")
     return "；".join(parts)
 
 
@@ -277,9 +276,15 @@ def new_direction() -> dict[str, Any]:
     return get_new_direction_report()
 
 
-@app.get("/api/rollback")
-def rollback() -> dict[str, Any]:
-    return get_rollback_report()
+@app.get("/api/material-daily-trends")
+def material_daily_trends() -> dict[str, Any]:
+    from pathlib import Path
+    import json
+
+    path = APP_DIR.parent / "docs" / "data" / "material-daily-trends.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return {"snapshot_date": None, "trends": {}}
 
 
 @app.get("/api/weekly-report")

@@ -8,7 +8,6 @@ const pageModules = {
   designer: () => import(`./pages/designer.js?v=${V}`),
   'asset-library': () => import(`./pages/asset-library.js?v=${V}`),
   'weekly-update': () => import(`./pages/weekly-update.js?v=${V}`),
-  rollback: () => import(`./pages/rollback.js?v=${V}`),
 };
 
 const PAGE_TITLES = {
@@ -17,7 +16,6 @@ const PAGE_TITLES = {
   designer: '设计师绩效看板',
   'asset-library': '核心资产晋级库',
   'weekly-update': '周维度更新',
-  rollback: '回滚素材',
 };
 
 const RENDERERS = {
@@ -26,7 +24,6 @@ const RENDERERS = {
   designer: 'renderDesigner',
   'asset-library': 'renderAssetLibrary',
   'weekly-update': 'renderWeeklyUpdate',
-  rollback: 'renderRollback',
 };
 
 const state = {

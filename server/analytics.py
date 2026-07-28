@@ -382,7 +382,7 @@ def get_materials(
 
     def _sort_key(m: dict[str, Any]) -> Any:
         val = m.get(sort_by)
-        if sort_by in {"purchases", "spend", "roas", "ctr", "impressions"}:
+        if sort_by in {"purchases", "spend", "roas", "ctr", "impressions", "hook_rate", "retention_rate"}:
             return float(val or 0)
         if sort_by == "first_seen":
             return val or ""

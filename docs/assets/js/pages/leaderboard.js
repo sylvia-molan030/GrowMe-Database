@@ -1,8 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
-import { bindMaterialDetailLinks } from '../material-detail.js';
-
-let dirChart = null;
+import { bindCopyMaterials } from '../copy-material.js';
 
 const DESIGNER_STYLES = {
   gy: { bg: '#dbeafe', color: '#1d4ed8' },
@@ -15,6 +13,7 @@ const DESIGNER_STYLES = {
   czy: { bg: '#e0f2fe', color: '#0369a1' },
   joy: { bg: '#ccfbf1', color: '#0f766e' },
   thagirl: { bg: '#ffe4e6', color: '#be123c' },
+  cty: { bg: '#fef3c7', color: '#b45309' },
 };
 
 const FALLBACK_PALETTE = [
@@ -25,24 +24,15 @@ const FALLBACK_PALETTE = [
   { bg: '#fecdd3', color: '#9f1239' },
 ];
 
-const BAR_COLORS = ['#378add', '#534ab7', '#1d9e75', '#ef9f27', '#d85a30', '#d4537e', '#639922', '#888780'];
+const trendCharts = new Map();
 
 function escapeHtml(text) {
   return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function ensureChartJS(cb) {
-  if (window.Chart) return cb();
-  const s = document.createElement('script');
-  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js';
-  s.onload = cb;
-  document.head.appendChild(s);
-}
-
-function extractFxDirection(materialId) {
-  if (!materialId) return '未知';
-  const match = String(materialId).match(/FX-([^_]+)/i);
-  return match ? match[1] : '未知';
+function formatRate(value) {
+  if (value === null || value === undefined || value === '' || Number(value) <= 0) return '-';
+  return `${Number(value).toFixed(2)}%`;
 }
 
 function designerStyle(designer) {
@@ -57,19 +47,24 @@ function designerPill(designer) {
   const name = designer || '?';
   const { bg, color } = designerStyle(name);
   const label = name.length > 6 ? name.slice(0, 6) : name;
-  return `<span class="pill pill-designer" style="background:${bg};color:${color};min-width:28px;width:auto;padding:0 8px" title="${name}">${label}</span>`;
+  return `<span class="pill pill-designer" style="background:${bg};color:${color};min-width:28px;width:auto;padding:0 8px" title="${escapeHtml(name)}">${escapeHtml(label)}</span>`;
+}
+
+function statusTag(status) {
+  const cls = status === '增长期' ? 'green' : status === '炮灰' ? 'red' : status === '衰退期' ? 'orange' : 'gray';
+  return `<span class="tag ${cls}">${escapeHtml(status || '-')}</span>`;
+}
+
+function roasClass(roas) {
+  return Number(roas) > 0 && Number(roas) < 0.4 ? 'roas-low' : '';
 }
 
 function renderSummaryBar(allRows) {
   const sumOrders = allRows.reduce((s, m) => s + m.purchases, 0);
   const sumSpend = Math.round(allRows.reduce((s, m) => s + m.spend, 0));
   const roasItems = allRows.filter((m) => m.roas > 0);
-  const ctrItems = allRows.filter((m) => m.ctr > 0);
   const avgROAS = roasItems.length
     ? Math.round(roasItems.reduce((s, m) => s + m.roas, 0) / roasItems.length * 100) / 100
-    : 0;
-  const avgCTR = ctrItems.length
-    ? Math.round(ctrItems.reduce((s, m) => s + m.ctr, 0) / ctrItems.length * 100) / 100
     : 0;
   const orderRate = allRows.length
     ? Math.round(allRows.filter((m) => m.purchases >= 1).length / allRows.length * 1000) / 10
@@ -81,97 +76,98 @@ function renderSummaryBar(allRows) {
         <div class="summary-item"><span class="label">素材数</span><span class="value">${allRows.length}</span></div>
         <div class="summary-item"><span class="label">总出单</span><span class="value red">${sumOrders}</span></div>
         <div class="summary-item"><span class="label">总消耗</span><span class="value">$${sumSpend}</span></div>
-        <div class="summary-item"><span class="label">平均ROAS</span><span class="value ${avgROAS >= 1.5 ? 'green' : 'red'}">${avgROAS}</span></div>
-        <div class="summary-item"><span class="label">平均CTR</span><span class="value">${avgCTR}%</span></div>
+        <div class="summary-item"><span class="label">平均ROAS</span><span class="value ${avgROAS >= 0.4 ? 'green' : 'red'}">${avgROAS}</span></div>
         <div class="summary-item"><span class="label">出单率</span><span class="value">${orderRate}%</span></div>
       </div>
     </div>
   `;
 }
 
-function renderDirectionBar(rows) {
-  const byDir = {};
-  (rows || []).forEach((m) => {
-    const dir = m.direction || extractFxDirection(m.material_id);
-    if (!byDir[dir]) byDir[dir] = { total: 0, ordered: 0 };
-    byDir[dir].total++;
-    if (m.purchases >= 1) byDir[dir].ordered++;
-  });
-
-  const dirs = Object.entries(byDir)
-    .filter(([, v]) => v.total >= 5)
-    .map(([label, v]) => ({
-      label: label.length > 8 ? `${label.slice(0, 8)}…` : label,
-      rate: v.total ? Math.round((v.ordered / v.total) * 1000) / 10 : 0,
-      total: v.total,
-    }))
-    .sort((a, b) => b.rate - a.rate || b.total - a.total)
-    .slice(0, 8);
-
-  return {
-    html: `
-      <div class="card">
-        <div class="section-title">各方向出单率对比 (Top 8) <span class="muted" style="font-size:12px;font-weight:400">（FX- 用户人群，素材 ≥5 条才计入）</span></div>
-        <div style="height:260px">
-          ${dirs.length
-            ? '<canvas id="dir-chart" role="img" aria-label="方向出单率柱状图"></canvas>'
-            : '<div class="empty" style="padding:40px 0">当前筛选下无满足 ≥5 条素材的方向</div>'}
-        </div>
-      </div>
-    `,
-    dirs,
-  };
+function trendTableHtml(trend) {
+  if (!trend?.dates?.length) return '';
+  return `
+    <table class="trend-mini-table">
+      <thead><tr><th>日期</th><th>日消耗</th><th>ROAS</th></tr></thead>
+      <tbody>
+        ${trend.dates.map((d, i) => `
+          <tr>
+            <td>${escapeHtml(d.slice(5))}</td>
+            <td>$${trend.spend_daily[i]}</td>
+            <td class="${roasClass(trend.roas[i])}">${trend.roas[i]}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
 }
 
-function paintDirectionChart(container, dirs) {
-  setTimeout(() => {
-    const canvas = container.querySelector('#dir-chart');
-    if (!canvas || !dirs.length) return;
-    ensureChartJS(() => {
-      if (dirChart) dirChart.destroy();
-      dirChart = new Chart(canvas, {
+function renderTrendChart(el, trend) {
+  if (!window.echarts || !trend?.dates?.length) return;
+  const chart = window.echarts.init(el);
+  chart.setOption({
+    tooltip: { trigger: 'axis' },
+    legend: { data: ['日消耗', 'ROAS'], top: 0 },
+    grid: { left: 48, right: 48, top: 36, bottom: 28 },
+    xAxis: { type: 'category', data: trend.dates.map((d) => d.slice(5)), axisLabel: { fontSize: 10 } },
+    yAxis: [
+      { type: 'value', name: '消耗 $', splitLine: { lineStyle: { type: 'dashed' } } },
+      { type: 'value', name: 'ROAS', splitLine: { show: false } },
+    ],
+    series: [
+      {
+        name: '日消耗',
         type: 'bar',
-        data: {
-          labels: dirs.map((d) => d.label),
-          datasets: [{
-            label: '出单率 %',
-            data: dirs.map((d) => d.rate),
-            backgroundColor: dirs.map((_, i) => BAR_COLORS[i] || '#888780'),
-            borderRadius: 4,
-          }],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          indexAxis: 'x',
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { beginAtZero: true, title: { display: true, text: '出单率 %' } },
-            x: { ticks: { maxRotation: 30, font: { size: 11 } } },
-          },
-        },
-      });
-    });
-  }, 50);
+        data: trend.spend_daily,
+        itemStyle: { color: '#1677ff', borderRadius: [3, 3, 0, 0] },
+      },
+      {
+        name: 'ROAS',
+        type: 'line',
+        yAxisIndex: 1,
+        data: trend.roas,
+        smooth: true,
+        itemStyle: { color: '#ef9f27' },
+        lineStyle: { width: 2 },
+      },
+    ],
+  }, true);
+  return chart;
 }
 
-function renderTable(rows, sortBy, sortDir) {
+function renderTable(rows, sortBy, sortDir, trends, openTrendId) {
   const arrow = (col) => (sortBy === col ? (sortDir === 'desc' ? ' ↓' : ' ↑') : '');
-  const body = rows.map((r) => `
-    <tr>
-      <td>${r.rank}</td>
-      <td class="cell-material-name mat-detail-link" title="${escapeHtml(r.material_id)}">${escapeHtml(r.material_id)}</td>
-      <td>${designerPill(r.designer)}</td>
-      <td>${r.serial_code || '-'}</td>
-      <td>$${r.spend}</td>
-      <td>${r.purchases}</td>
-      <td>${r.roas}</td>
-      <td>${r.ctr}%</td>
-    </tr>
-  `).join('');
+  const body = rows.map((r) => {
+    const midKey = String(r.material_id || '').trim().toLowerCase();
+    const trend = trends[midKey];
+    const isOpen = openTrendId === midKey;
+    return `
+      <tr class="leaderboard-row" data-mid="${escapeHtml(midKey)}">
+        <td>${r.rank}</td>
+        <td class="cell-material-name" data-copy="${escapeHtml(r.material_id)}" title="点击复制">${escapeHtml(r.material_id)}</td>
+        <td>${designerPill(r.designer)}</td>
+        <td>${escapeHtml(r.serial_code || '-')}</td>
+        <td>$${r.spend}</td>
+        <td>${r.purchases}</td>
+        <td class="${roasClass(r.roas)}">${r.roas}</td>
+        <td>${formatRate(r.hook_rate)}</td>
+        <td>${formatRate(r.retention_rate)}</td>
+        <td>${statusTag(r.scaling_status)}</td>
+        <td><button type="button" class="btn btn-sm trend-toggle ${isOpen ? 'active' : ''}" data-trend-toggle="${escapeHtml(midKey)}">${isOpen ? '收起' : '趋势'}</button></td>
+      </tr>
+      <tr class="trend-row ${isOpen ? '' : 'hidden'}" data-trend-row="${escapeHtml(midKey)}">
+        <td colspan="11">
+          <div class="trend-panel">
+            ${trend?.dates?.length
+              ? `<div class="trend-chart" id="trend-chart-${r.rank}" style="height:220px"></div>${trendTableHtml(trend)}`
+              : '<div class="empty trend-empty">暂无历史快照。连续多日更新全量数据后，将在此展示日消耗（柱）与 ROAS（线）。</div>'}
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
 
   return `
-    <div class="table-wrap">
+    <div class="table-wrap leaderboard-table-wrap">
       <table id="leaderboard-table">
         <thead>
           <tr>
@@ -182,10 +178,13 @@ function renderTable(rows, sortBy, sortDir) {
             <th data-sort="spend" class="${sortBy === 'spend' ? 'sorted' : ''}">累计消耗${arrow('spend')}</th>
             <th data-sort="purchases" class="${sortBy === 'purchases' ? 'sorted' : ''}">期间总出单量${arrow('purchases')}</th>
             <th data-sort="roas" class="${sortBy === 'roas' ? 'sorted' : ''}">综合 ROAS${arrow('roas')}</th>
-            <th data-sort="ctr" class="${sortBy === 'ctr' ? 'sorted' : ''}">综合 CTR${arrow('ctr')}</th>
+            <th data-sort="hook_rate" class="${sortBy === 'hook_rate' ? 'sorted' : ''}">吸睛率${arrow('hook_rate')}</th>
+            <th data-sort="retention_rate" class="${sortBy === 'retention_rate' ? 'sorted' : ''}">持续播放率${arrow('retention_rate')}</th>
+            <th>放量状态</th>
+            <th>每日趋势</th>
           </tr>
         </thead>
-        <tbody>${body || '<tr><td colspan="8" class="empty">暂无数据</td></tr>'}</tbody>
+        <tbody>${body || '<tr><td colspan="11" class="empty">暂无数据</td></tr>'}</tbody>
       </table>
     </div>
   `;
@@ -198,27 +197,45 @@ function runSearch(state, container) {
   renderLeaderboard(container, state);
 }
 
+function destroyTrendCharts() {
+  trendCharts.forEach((c) => c.dispose?.());
+  trendCharts.clear();
+}
+
+function paintOpenTrend(container, trends, openTrendId, rows) {
+  if (!openTrendId) return;
+  const row = rows.find((r) => String(r.material_id || '').trim().toLowerCase() === openTrendId);
+  if (!row) return;
+  const trend = trends[openTrendId];
+  const el = container.querySelector(`#trend-chart-${row.rank}`);
+  if (!el || !trend?.dates?.length) return;
+  if (trendCharts.has(openTrendId)) {
+    trendCharts.get(openTrendId).dispose();
+  }
+  const chart = renderTrendChart(el, trend);
+  if (chart) trendCharts.set(openTrendId, chart);
+}
+
 export async function renderLeaderboard(container, state) {
+  destroyTrendCharts();
   const q = queryFilters(state.filters);
   const keyword = state.keyword || '';
   const sortBy = state.sortBy || 'purchases';
   const sortDir = state.sortDir || 'desc';
   const page = state.tablePage || 1;
+  const openTrendId = state.openTrendId || null;
 
-  const data = await api.materials(q, {
-    keyword, sort_by: sortBy, sort_dir: sortDir, page, page_size: 20, mode: state.filters.mode,
-  });
-
-  const allData = await api.materials(q, {
-    keyword, sort_by: sortBy, sort_dir: sortDir, page: 1, page_size: 9999, mode: state.filters.mode,
-  });
+  const [data, allData, trendsPayload] = await Promise.all([
+    api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page, page_size: 20, mode: state.filters.mode }),
+    api.materials(q, { keyword, sort_by: sortBy, sort_dir: sortDir, page: 1, page_size: 9999, mode: state.filters.mode }),
+    api.materialDailyTrends(),
+  ]);
+  const trends = trendsPayload?.trends || {};
   const allRows = allData.rows || [];
-  const { html: directionBarHtml, dirs } = renderDirectionBar(allRows);
   const summaryBar = renderSummaryBar(allRows);
 
   container.innerHTML = `
     ${summaryBar}
-    ${directionBarHtml}
     <div class="card">
       <div class="section-title">
         <span>模块 A · 爆款素材战神榜</span>
@@ -227,21 +244,21 @@ export async function renderLeaderboard(container, state) {
       <div class="toolbar">
         <input class="input search-input" id="keyword-input"
           placeholder="搜索素材名关键词，如 0605、Learning、Mindset、fj"
-          value="${keyword}" />
+          value="${escapeHtml(keyword)}" />
         <button class="btn btn-primary" id="search-btn">搜索</button>
         ${keyword ? '<button class="btn" id="clear-search">清除</button>' : ''}
       </div>
-      ${renderTable(data.rows, sortBy, sortDir)}
+      ${renderTable(data.rows, sortBy, sortDir, trends, openTrendId)}
       <div class="pagination">
-        共 ${data.total} 条${keyword ? `（关键词: ${keyword}）` : ''} · 第 ${page} 页
+        共 ${data.total} 条${keyword ? `（关键词: ${escapeHtml(keyword)}）` : ''} · 第 ${page} 页
         <button class="btn" id="prev-page" ${page <= 1 ? 'disabled' : ''}>上一页</button>
         <button class="btn" id="next-page" ${page * 20 >= data.total ? 'disabled' : ''}>下一页</button>
       </div>
     </div>
   `;
 
-  paintDirectionChart(container, dirs);
-  bindMaterialDetailLinks(container, data.rows);
+  bindCopyMaterials(container);
+  paintOpenTrend(container, trends, openTrendId, data.rows);
 
   container.querySelector('#search-btn').addEventListener('click', () => runSearch(state, container));
   container.querySelector('#keyword-input').addEventListener('keydown', (e) => {
@@ -267,6 +284,14 @@ export async function renderLeaderboard(container, state) {
     });
   });
 
+  container.querySelectorAll('[data-trend-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mid = btn.dataset.trendToggle;
+      state.openTrendId = state.openTrendId === mid ? null : mid;
+      renderLeaderboard(container, state);
+    });
+  });
+
   container.querySelector('#prev-page')?.addEventListener('click', () => {
     state.tablePage = Math.max(1, (state.tablePage || 1) - 1);
     renderLeaderboard(container, state);
@@ -280,9 +305,12 @@ export async function renderLeaderboard(container, state) {
     const all = await api.materials(q, {
       keyword, sort_by: sortBy, sort_dir: sortDir, page: 1, page_size: 5000, mode: state.filters.mode,
     });
-    const header = ['排名', '素材ID', '设计师', '编号', '消耗', '出单量', 'ROAS', 'CTR'];
+    const header = ['排名', '素材ID', '设计师', '编号', '消耗', '出单量', 'ROAS', '吸睛率', '持续播放率', '放量状态'];
     const lines = [header.join(',')].concat(
-      all.rows.map((r) => [r.rank, `"${r.material_id}"`, r.designer, r.serial_code, r.spend, r.purchases, r.roas, r.ctr].join(','))
+      all.rows.map((r) => [
+        r.rank, `"${r.material_id}"`, r.designer, r.serial_code, r.spend, r.purchases, r.roas,
+        r.hook_rate || '', r.retention_rate || '', r.scaling_status || '',
+      ].join(','))
     );
     const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
     const a = document.createElement('a');

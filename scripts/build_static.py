@@ -16,8 +16,8 @@ import analytics  # noqa: E402
 from data_loader import get_recent_weekly_labels, get_recent_new_material_window, get_weekly_labels, store, week_sort_key  # noqa: E402
 from audience_test_report import AUDIENCE_TESTS, get_audience_test_for_week  # noqa: E402
 from new_direction_report import get_new_direction_report  # noqa: E402
+from material_history import update_and_export  # noqa: E402
 from parser import AUDIENCE_DIRECTIONS, NEW_SCHEMA_CUTOFF_WEEK, canonical_direction, canonical_theme, primary_theme  # noqa: E402
-from rollback_report import get_rollback_report  # noqa: E402
 from weekly_report import build_all_reports  # noqa: E402
 
 OUTPUT_DIR = ROOT / "docs" / "data"
@@ -143,6 +143,9 @@ def build() -> dict:
 
     account_materials = _export_materials("account")
     weekly_materials = _export_materials("new")
+    account_records = analytics.filter_records(ALL_FILTERS, mode="account")
+    account_mats_raw = analytics._aggregate_by_material(account_records)
+    update_and_export(account_mats_raw)
     weekly_reports = _export_weekly_reports()
     audience_tests = {
         week: block
@@ -189,7 +192,6 @@ def build() -> dict:
         "materials_weekly": weekly_materials,
         "weekly_reports": weekly_reports["reports"],
         "audience_tests": audience_tests,
-        "rollback": get_rollback_report(),
         "new_direction": get_new_direction_report(),
     }
     return snapshot, weekly_reports
@@ -203,7 +205,10 @@ def main() -> None:
     weekly_out = OUTPUT_DIR / "weekly-reports.json"
     out.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
     weekly_out.write_text(json.dumps(weekly_reports, ensure_ascii=False, indent=2), encoding="utf-8")
+    trends_out = OUTPUT_DIR / "material-daily-trends.json"
     print(f"✓ 静态数据已导出: {out}")
+    if trends_out.exists():
+        print(f"✓ 素材日趋势已导出: {trends_out}")
     print(f"✓ 周度报告已导出: {weekly_out}")
     print(f"  账户素材: {len(snapshot['materials_account'])} 条")
     print(f"  上新素材成效: {len(snapshot['materials_weekly'])} 条（全量·按素材日期近 {snapshot['meta']['recent_weekly_window']} 周：{' · '.join(snapshot['meta']['recent_weekly_labels'])}）")

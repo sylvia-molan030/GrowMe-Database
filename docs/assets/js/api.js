@@ -26,7 +26,7 @@ const liveApi = {
   materials: (filters, extra) => fetchJSON(`/api/materials?${buildQuery(filters, extra)}`),
   designers: (filters, mode) => fetchJSON(`/api/designers?${buildQuery(filters, { mode })}`),
   weeklyReport: (week) => fetchJSON(`/api/weekly-report${week ? `?week=${encodeURIComponent(week)}` : ''}`),
-  rollback: () => fetchJSON('/api/rollback'),
+  materialDailyTrends: () => fetchJSON('/api/material-daily-trends'),
   upload: async (fileList) => {
     const fd = new FormData();
     [...fileList].forEach((f) => fd.append('files', f));
@@ -69,7 +69,7 @@ export const api = {
   materials: (...args) => apiImpl.materials(...args),
   designers: (...args) => apiImpl.designers(...args),
   weeklyReport: (...args) => apiImpl.weeklyReport(...args),
-  rollback: (...args) => apiImpl.rollback(...args),
+  materialDailyTrends: (...args) => apiImpl.materialDailyTrends(...args),
   upload: (...args) => liveApi.upload(...args),
 };
 

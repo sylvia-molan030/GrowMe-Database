@@ -1,3 +1,5 @@
+import { bindCopyMaterials } from './copy-material.js';
+
 function escapeHtml(text) {
   return String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -27,7 +29,7 @@ export function showMaterialDetail(mat) {
       </div>
       <div class="modal-body">
         <div class="detail-grid">
-          <div class="detail-item"><span class="label">素材 ID</span><span class="value">${escapeHtml(mat.material_id)}</span></div>
+          <div class="detail-item"><span class="label">素材 ID</span><span class="value mat-copy" data-copy="${escapeHtml(mat.material_id)}">${escapeHtml(mat.material_id)}</span></div>
           <div class="detail-item"><span class="label">首次上线</span><span class="value">${escapeHtml(mat.first_seen || '-')}</span></div>
           <div class="detail-item"><span class="label">设计师</span><span class="value">${escapeHtml(mat.designer || '-')}</span></div>
           <div class="detail-item"><span class="label">方向（用户人群）</span><span class="value"><span class="tag">${escapeHtml(mat.direction || '-')}</span></span></div>
@@ -39,14 +41,14 @@ export function showMaterialDetail(mat) {
           <div class="detail-item"><span class="label">持续播放率</span><span class="value" style="font-weight:600">${formatRate(mat.retention_rate)}</span></div>
           <div class="detail-item"><span class="label">消耗</span><span class="value" style="color:var(--red)">$${mat.spend || 0}</span></div>
           <div class="detail-item"><span class="label">出单</span><span class="value" style="font-weight:700;color:#dc2626">${mat.purchases || 0}</span></div>
-          <div class="detail-item"><span class="label">ROAS</span><span class="value" style="color:${roas >= 1.5 ? '#16a34a' : '#dc2626'}">${mat.roas ?? '-'}</span></div>
-          <div class="detail-item"><span class="label">CTR</span><span class="value">${mat.ctr ?? '-'}%</span></div>
+          <div class="detail-item"><span class="label">ROAS</span><span class="value ${Number(roas) > 0 && Number(roas) < 0.4 ? 'roas-low' : ''}">${mat.roas ?? '-'}</span></div>
         </div>
       </div>
     </div>
   `;
 
   document.body.appendChild(overlay);
+  bindCopyMaterials(overlay);
 
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) overlay.remove();
@@ -61,9 +63,7 @@ export function showMaterialDetail(mat) {
   document.addEventListener('keydown', escClose);
 }
 
+/** @deprecated 详情弹窗保留；列表页请用 bindCopyMaterials */
 export function bindMaterialDetailLinks(container, rows) {
-  const links = container.querySelectorAll('.mat-detail-link');
-  links.forEach((el, i) => {
-    el.addEventListener('click', () => showMaterialDetail(rows[i]));
-  });
+  bindCopyMaterials(container);
 }

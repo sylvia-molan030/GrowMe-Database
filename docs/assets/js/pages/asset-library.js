@@ -1,6 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
-import { bindMaterialDetailLinks } from '../material-detail.js';
+import { bindCopyMaterials } from '../copy-material.js';
 
 const TIERS = [
   { key: 0, label: '全部素材' },
@@ -133,7 +133,7 @@ export async function renderAssetLibrary(container, state) {
     </div>
   `;
 
-  bindMaterialDetailLinks(container, data.rows);
+  bindCopyMaterials(container);
 
   container.querySelectorAll('[data-scope-mode]').forEach((btn) => {
     btn.addEventListener('click', () => {

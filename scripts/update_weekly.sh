@@ -75,7 +75,6 @@ import sys
 sys.path.insert(0, "server")
 from data_loader import store, get_weekly_labels
 from weekly_report import get_weekly_report
-from rollback_report import get_rollback_report
 import analytics
 
 store.scan()
@@ -86,7 +85,6 @@ f = {
     "stylization": "全部", "pain_point": "全部", "exercise_type": "全部", "channel": "全部",
 }
 weekly_mats = analytics._aggregate_by_material(analytics.filter_records(f, mode="new"))
-rollback = get_rollback_report()
 print("── 更新结果 ──")
 print(f"  周度 Tab：{' · '.join(labels)}")
 print(f"  上新素材成效（各栏目 mode=上新）：{len(weekly_mats)} 条素材（最近 2 周）")
@@ -95,10 +93,8 @@ if labels:
     r = get_weekly_report(latest)["report"]
     if r:
         print(f"  最新周 {latest}：{r['kpi']['total_materials']} 条 · 出单率 {r['kpi']['order_rate']}%")
-rw = rollback.get("recommend_week") or "—"
-print(f"  回滚素材：历史 {len(rollback.get('historical', []))} 条 · {rw} 可回滚推荐 {len(rollback.get('recommended', []))} 条")
 print("")
-print("  已更新：周维度更新 / 回滚素材 / 黄金交叉·上新 / 排行榜·上新 / 设计师·上新 / 资产库·上新")
+print("  已更新：周维度更新 / 黄金交叉·上新 / 排行榜·上新 / 设计师·上新 / 资产库·上新")
 print("  未更新：账户内栏目（请用 ./scripts/update_account.sh）")
 PY
 

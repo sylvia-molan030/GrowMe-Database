@@ -1,4 +1,5 @@
 import { api } from '../api.js';
+import { bindCopyMaterials } from '../copy-material.js';
 
 const V = document.documentElement.dataset.build || '0';
 
@@ -55,9 +56,9 @@ function renderSummary(kpi, prevWeek) {
   if (kpi.avg_roas) summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
 
   return `
-    <div class="card" style="background:#f0f7ff;border-left:4px solid #378add;padding:12px 16px;border-radius:8px;margin-bottom:14px">
-      <div style="font-size:13px;font-weight:600;color:#0c447c;margin-bottom:4px">本周一句话总结</div>
-      <div style="font-size:13px;color:#185fa5;line-height:1.6">${summaryLine}</div>
+    <div class="card" style="background:linear-gradient(135deg,#d8eee6 0%,#fbfcf9 60%);border-left:4px solid #1b6b5a;padding:12px 16px;border-radius:10px;margin-bottom:14px">
+      <div style="font-size:13px;font-weight:600;color:#0d3f35;margin-bottom:4px">本周一句话总结</div>
+      <div style="font-size:13px;color:#1a2b24;line-height:1.6">${summaryLine}</div>
     </div>
   `;
 }
@@ -347,7 +348,7 @@ function renderSurvivalChart(el, trend) {
     xAxis: { type: 'category', data: trend.dates },
     yAxis: { type: 'value', name: '数量', minInterval: 1 },
     series: [
-      { name: '每日素材数', type: 'bar', data: trend.counts, itemStyle: { color: '#1677ff' } },
+      { name: '每日素材数', type: 'bar', data: trend.counts, itemStyle: { color: '#1b6b5a' } },
       {
         name: '成活数（有购物）',
         type: 'line',
@@ -376,7 +377,7 @@ function sortMaterialTestBlocks(report) {
   const blocks = (report.material_test_blocks || []).filter(
     (b) => (b?.summary?.total_materials ?? 0) > 0
   );
-  const order = { 新方向: 0, 老方向: 1, 老形式: 1, 新创意: 0, 图片: 2 };
+  const order = { 新素材: 0, 新方向: 0, 新创意: 0, 老素材: 1, 老方向: 1, 老形式: 1, 图片: 2 };
   return [...blocks].sort((a, b) => (order[a.label] ?? 9) - (order[b.label] ?? 9));
 }
 
@@ -435,5 +436,6 @@ export async function renderWeeklyUpdate(container, state) {
   if (chartEl && report.survival_trend) {
     renderSurvivalChart(chartEl, report.survival_trend);
   }
+  bindCopyMaterials(container);
   window.addEventListener('resize', () => survivalChart && survivalChart.resize());
 }

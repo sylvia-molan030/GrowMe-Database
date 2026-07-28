@@ -382,7 +382,7 @@ function sortMaterialTestBlocks(report) {
 }
 
 export async function renderWeeklyUpdate(container, state) {
-  const { renderCrossRubricHeatmap } = await loadHeatmapGrid();
+  const { renderCrossRubricHeatmap, renderAudienceDirectionTable } = await loadHeatmapGrid();
   const week = state.weeklyWeek || state.meta?.weekly_labels?.slice(-1)[0];
   let data;
   try {
@@ -411,6 +411,7 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderKpiSection(report.kpi, report.prev_week)}
     ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`))).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
+    ${renderAudienceDirectionTable(report.cross_rubric_heatmap, { hideIfEmpty: true })}
     ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction'), report.kpi?.kpi_source)}
     ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good'), report.kpi?.kpi_source)}
     ${renderAudienceTest(report.audience_test, getTableSort(state, 'audience'))}

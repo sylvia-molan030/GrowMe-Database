@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
+import { bindCopyMaterials } from '../copy-material.js';
 
 const V = document.documentElement.dataset.build || '0';
 
@@ -393,17 +394,7 @@ function renderGeneProbeBody(container, allRows, probe) {
     probe.page = 1;
     renderGeneProbeBody(container, allRows, probe);
   });
-  body.querySelectorAll('[data-copy]').forEach((el) => {
-    el.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(el.dataset.copy);
-        el.classList.add('copied');
-        setTimeout(() => el.classList.remove('copied'), 800);
-      } catch {
-        /* ignore */
-      }
-    });
-  });
+  bindCopyMaterials(body);
 }
 
 function bindGeneProbe(container, heatmap, allRows, probe) {
@@ -414,8 +405,11 @@ function bindGeneProbe(container, heatmap, allRows, probe) {
     const ztSel = container.querySelector('#gene-zt');
     if (fxSel) fxSel.value = probe.fx;
     if (ztSel) ztSel.value = probe.zt;
-    container.querySelectorAll('.cross-table-row').forEach((tr) => {
+    container.querySelectorAll('.cross-cube-cell, .cross-table-row').forEach((tr) => {
       tr.classList.toggle('selected', tr.dataset.fx === probe.fx && tr.dataset.zt === probe.zt);
+    });
+    container.querySelectorAll('.direction-row').forEach((tr) => {
+      tr.classList.toggle('selected', tr.dataset.fx === probe.fx);
     });
     renderGeneProbeBody(container, allRows, probe);
   };
@@ -430,10 +424,26 @@ function bindGeneProbe(container, heatmap, allRows, probe) {
     probe.page = 1;
     sync();
   });
-  container.querySelectorAll('.cross-table-row').forEach((tr) => {
+  container.querySelectorAll('.cross-cube-cell, .cross-table-row').forEach((tr) => {
     const go = () => {
       probe.fx = tr.dataset.fx;
       probe.zt = tr.dataset.zt;
+      probe.page = 1;
+      probe.tab = 'ordered';
+      sync();
+      container.querySelector('#gene-probe-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    tr.addEventListener('click', go);
+    tr.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        go();
+      }
+    });
+  });
+  container.querySelectorAll('.direction-row').forEach((tr) => {
+    const go = () => {
+      probe.fx = tr.dataset.fx;
       probe.page = 1;
       probe.tab = 'ordered';
       sync();
@@ -451,7 +461,7 @@ function bindGeneProbe(container, heatmap, allRows, probe) {
 }
 
 export async function renderGoldenCross(container, state) {
-  const { renderCrossRubricHeatmap } = await loadHeatmapGrid();
+  const { renderCrossRubricHeatmap, renderAudienceDirectionTable } = await loadHeatmapGrid();
   const q = queryFilters(state.filters);
   const [summary, trend, materialList, crossHeatmap] = await Promise.all([
     api.summary(q, state.filters.mode),
@@ -489,6 +499,7 @@ export async function renderGoldenCross(container, state) {
       <div id="survival-chart" class="chart"></div>
     </div>
     ${renderCrossRubricHeatmap(crossHeatmap, { hideIfEmpty: true, clickable: true })}
+    ${renderAudienceDirectionTable(crossHeatmap, { hideIfEmpty: true, clickable: true })}
     ${renderGeneProbeShell(crossHeatmap, state.geneProbe)}
     <div class="card">
       <div class="section-title">素材效率四象限 <span style="font-size:12px;color:#6b7280;font-weight:400">（气泡 = 出单量，颜色 = ROAS）</span></div>

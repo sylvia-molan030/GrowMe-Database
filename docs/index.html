@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-static="true" data-build="95">
+<html lang="zh-CN" data-static="true" data-build="96">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GrowMe · 买量素材复盘 BI</title>
-  <link rel="stylesheet" href="./assets/css/style.css?v=95" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=96" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
@@ -44,29 +44,99 @@
     </main>
   </div>
 
+  <script id="growme-copy-delegate">
+(function () {
+  if (window.__growmeCopyInit) return;
+  window.__growmeCopyInit = true;
+
+  function copySync(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    ta.remove();
+    return ok;
+  }
+
+  function showToast(anchor, message) {
+    document.querySelectorAll('.copy-float-toast').forEach(function (n) { n.remove(); });
+    var tip = document.createElement('div');
+    tip.className = 'copy-float-toast show';
+    tip.setAttribute('role', 'status');
+    tip.textContent = message;
+    document.body.appendChild(tip);
+    var rect = anchor.getBoundingClientRect();
+    var tipRect = tip.getBoundingClientRect();
+    var margin = 8;
+    var left = rect.left + rect.width / 2 - tipRect.width / 2;
+    var top = rect.bottom + 6;
+    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+    if (top + tipRect.height > window.innerHeight - margin) {
+      top = Math.max(margin, rect.top - tipRect.height - 6);
+    }
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(function () { tip.remove(); }, 1800);
+  }
+
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-copy], .mat-copy, .cell-material-name');
+    if (!el) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var text = (el.getAttribute('data-copy') || el.textContent || '').trim();
+    if (!text) return;
+    if (copySync(text)) {
+      showToast(el, '已复制到剪贴板');
+      el.classList.add('copied');
+      setTimeout(function () { el.classList.remove('copied'); }, 800);
+      return;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast(el, '已复制到剪贴板');
+        el.classList.add('copied');
+        setTimeout(function () { el.classList.remove('copied'); }, 800);
+      }).catch(function () {
+        showToast(el, '复制失败，请手动选择复制');
+      });
+      return;
+    }
+    showToast(el, '复制失败，请手动选择复制');
+  }, true);
+})();
+  </script>
+
   <script type="importmap">
 {
   "scopes": {
     "./assets/js/": {
-      "./static-api.js": "./assets/js/static-api.js?v=95",
-      "./api.js": "./assets/js/api.js?v=95",
-      "./filters.js": "./assets/js/filters.js?v=95",
-      "./pages/golden-cross.js": "./assets/js/pages/golden-cross.js?v=95",
-      "./pages/leaderboard.js": "./assets/js/pages/leaderboard.js?v=95",
-      "./pages/designer.js": "./assets/js/pages/designer.js?v=95",
-      "./pages/asset-library.js": "./assets/js/pages/asset-library.js?v=95",
-      "./pages/weekly-update.js": "./assets/js/pages/weekly-update.js?v=95",
-      "./copy-material.js": "./assets/js/copy-material.js?v=95"
+      "./static-api.js": "./assets/js/static-api.js?v=96",
+      "./api.js": "./assets/js/api.js?v=96",
+      "./filters.js": "./assets/js/filters.js?v=96",
+      "./pages/golden-cross.js": "./assets/js/pages/golden-cross.js?v=96",
+      "./pages/leaderboard.js": "./assets/js/pages/leaderboard.js?v=96",
+      "./pages/designer.js": "./assets/js/pages/designer.js?v=96",
+      "./pages/asset-library.js": "./assets/js/pages/asset-library.js?v=96",
+      "./pages/weekly-update.js": "./assets/js/pages/weekly-update.js?v=96",
+      "./copy-material.js": "./assets/js/copy-material.js?v=96"
     },
     "./assets/js/pages/": {
-      "../api.js": "./assets/js/api.js?v=95",
-      "../filters.js": "./assets/js/filters.js?v=95",
-      "../copy-material.js": "./assets/js/copy-material.js?v=95",
-      "../heatmap-grid.js": "./assets/js/heatmap-grid.js?v=95"
+      "../api.js": "./assets/js/api.js?v=96",
+      "../filters.js": "./assets/js/filters.js?v=96",
+      "../copy-material.js": "./assets/js/copy-material.js?v=96",
+      "../heatmap-grid.js": "./assets/js/heatmap-grid.js?v=96"
     }
   }
 }
   </script>
-  <script type="module" src="./assets/js/app.js?v=95"></script>
+  <script type="module" src="./assets/js/app.js?v=96"></script>
 </body>
 </html>

@@ -43,6 +43,31 @@ const liveApi = {
 
 let apiImpl = liveApi;
 
+async function loadTrendsFallback() {
+  try {
+    if (IS_STATIC) {
+      await loadSnapshot();
+      const ver = document.documentElement.dataset.build || '';
+      const url = new URL('./data/material-daily-trends.json', window.location.href);
+      if (ver) url.searchParams.set('v', ver);
+      const res = await fetch(url, { cache: 'no-store' });
+      if (res.ok) return res.json();
+    } else {
+      return await fetchJSON('/api/material-daily-trends');
+    }
+  } catch {
+    /* ignore */
+  }
+  return { snapshot_date: null, trends: {} };
+}
+
+function callMaterialDailyTrends(...args) {
+  if (typeof apiImpl.materialDailyTrends === 'function') {
+    return apiImpl.materialDailyTrends(...args);
+  }
+  return loadTrendsFallback();
+}
+
 export async function initApi() {
   if (IS_STATIC) {
     await loadSnapshot();
@@ -69,7 +94,7 @@ export const api = {
   materials: (...args) => apiImpl.materials(...args),
   designers: (...args) => apiImpl.designers(...args),
   weeklyReport: (...args) => apiImpl.weeklyReport(...args),
-  materialDailyTrends: (...args) => apiImpl.materialDailyTrends(...args),
+  materialDailyTrends: (...args) => callMaterialDailyTrends(...args),
   upload: (...args) => liveApi.upload(...args),
 };
 

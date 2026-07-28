@@ -1,6 +1,6 @@
 /** 静态托管模式：从 snapshot.json 读取数据并在前端过滤。 */
 
-const STATIC_HOST_RE = /(?:^|\.)((?:github|netlify|pages)\.io|pages\.dev|netlify\.app)$/i;
+const STATIC_HOST_RE = /(?:^|\.)((?:github|netlify|pages)\.io|pages\.dev|netlify\.app|vercel\.app)$/i;
 
 export const IS_STATIC = document.documentElement.dataset.static === 'true'
   || STATIC_HOST_RE.test(window.location.hostname);

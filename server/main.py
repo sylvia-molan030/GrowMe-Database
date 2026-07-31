@@ -13,7 +13,7 @@ import analytics
 from data_loader import store
 from materials_catalog import build_catalog, export_catalog, get_catalog_summary
 from new_direction_report import get_new_direction_report
-from material_history import get_material_trend
+from parser import designer_labels
 
 from upload_data import save_upload
 from weekly_report import get_weekly_report
@@ -139,7 +139,7 @@ def meta() -> dict[str, Any]:
             "Professionals", "Women", "Students", "Readers",
             "SelfGrowth", "EnglishLearners", "FinanceSeekers", "Overthinkers",
         ],
-        "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "cty", "其他"],
+        "designer_labels": designer_labels(),
         "filter_options": analytics.get_filter_options("account"),
         "weekly_filter_options": analytics.get_filter_options("weekly"),
         "channel_labels": {"T1": "T1（美国等）", "WW": "WW（全球）"},

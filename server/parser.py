@@ -65,8 +65,42 @@ SIZE_RE = re.compile(r"^\d+x\d+$", re.IGNORECASE)
 LANG_RE = re.compile(r"^[A-Za-z]{2}$")
 RMG_RE = re.compile(r"RMG-([A-Z0-9]+)", re.IGNORECASE)
 
-# 设计师：gy / wxx / fj / jql / 095KB / pingme / jpl / czy / cty（jql、czy、cty 独立统计）
-DESIGNER_CANONICAL = ("gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "cty")
+# 设计师：gy / fj / jql / 095KB / jpl / czy / cty + pingme 细分（wxx 归入「其他」）
+DESIGNER_CANONICAL = (
+    "gy",
+    "fj",
+    "jql",
+    "095KB",
+    "jpl",
+    "czy",
+    "cty",
+    "pingme_YZY",
+    "pingme_WPL",
+    "pingme_ZYL",
+    "pingme_BJY",
+    "pingme_SZH",
+    "pingme_ZL",
+    "pingme_Sherry",
+    "pingme_LJQ",
+    "pingme_GL",
+)
+
+# pingme 后缀（小写）→ 展示名
+PINGME_VARIANTS: dict[str, str] = {
+    "yzy": "pingme_YZY",
+    "wpl": "pingme_WPL",
+    "zyl": "pingme_ZYL",
+    "bjy": "pingme_BJY",
+    "szh": "pingme_SZH",
+    "zl": "pingme_ZL",
+    "sherry": "pingme_Sherry",
+    "ljq": "pingme_LJQ",
+    "gl": "pingme_GL",
+}
+
+
+def designer_labels() -> list[str]:
+    return [*DESIGNER_CANONICAL, "其他"]
 
 # 0629周起：FX- 为用户人群方向
 NEW_SCHEMA_CUTOFF_WEEK = "0629周"
@@ -188,12 +222,17 @@ def normalize_designer(raw: str, material_id: str = "") -> str:
         return "gy"
     if low in ("fj",) or key == "FJ":
         return "fj"
-    if low == "wxx":
-        return "wxx"
+    if low == "wxx" or re.search(r"(^|_)wxx($|_)", mid):
+        return "其他"
     if low == "jpl":
         return "jpl"
-    if low == "pingme" or "pingme" in mid:
-        return "pingme"
+    pingme_m = re.search(r"pingme_([a-z0-9]+)", mid)
+    if low == "pingme" or pingme_m or "pingme" in mid:
+        if pingme_m:
+            canonical = PINGME_VARIANTS.get(pingme_m.group(1).lower())
+            if canonical:
+                return canonical
+        return "其他"
     if low == "zh" or key == "ZH" or low.startswith("095kb") or "095kb" in low:
         return "095KB"
     if RMG_RE.search(key):

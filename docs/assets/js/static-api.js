@@ -232,14 +232,14 @@ function survivalTrend(items) {
   };
 }
 
-function designerStats(items) {
+function designerStats(items, order) {
   const by = {};
   items.forEach((m) => {
     const d = m.designer || '其他';
     if (!by[d]) by[d] = [];
     by[d].push(m);
   });
-  const order = ['gy', 'wxx', 'fj', 'jql', '095KB', 'pingme', 'jpl', 'czy', 'cty', '其他'];
+  const designerOrder = order || ['gy', 'fj', 'jql', '095KB', 'jpl', 'czy', 'cty', '其他'];
   return Object.entries(by)
     .map(([designer, list]) => {
       const ordered = list.filter((m) => m.purchases >= 1);
@@ -257,8 +257,8 @@ function designerStats(items) {
       };
     })
     .sort((a, b) => {
-      const ai = order.indexOf(a.designer);
-      const bi = order.indexOf(b.designer);
+      const ai = designerOrder.indexOf(a.designer);
+      const bi = designerOrder.indexOf(b.designer);
       return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi) || b.total_orders - a.total_orders;
     });
 }
@@ -330,7 +330,7 @@ export function createStaticApi() {
     designers: async (filters, mode) => {
       await loadSnapshot();
       const items = pickMaterials(mode).filter((m) => matchFilters(m, filters));
-      return { rows: designerStats(items) };
+      return { rows: designerStats(items, snapshot?.meta?.designer_labels) };
     },
     weeklyReport: async (week) => {
       const [{ weeks, reports }, snap] = await Promise.all([loadWeeklyReports(), loadSnapshot()]);

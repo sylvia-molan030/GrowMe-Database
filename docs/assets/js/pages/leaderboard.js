@@ -4,7 +4,6 @@ import { bindCopyMaterials } from '../copy-material.js';
 
 const DESIGNER_STYLES = {
   gy: { bg: '#dbeafe', color: '#1d4ed8' },
-  wxx: { bg: '#fce7f3', color: '#be185d' },
   fj: { bg: '#d1fae5', color: '#047857' },
   jql: { bg: '#fef3c7', color: '#b45309' },
   '095kb': { bg: '#e0e7ff', color: '#4338ca' },
@@ -37,6 +36,7 @@ function formatRate(value) {
 
 function designerStyle(designer) {
   const key = String(designer || '?').toLowerCase();
+  if (key.startsWith('pingme_')) return DESIGNER_STYLES.pingme;
   if (DESIGNER_STYLES[key]) return DESIGNER_STYLES[key];
   let hash = 0;
   for (let i = 0; i < key.length; i++) hash = (hash + key.charCodeAt(i) * (i + 1)) % FALLBACK_PALETTE.length;

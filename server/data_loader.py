@@ -339,6 +339,9 @@ class DataStore:
             if retention_rate is None and CUSTOM_RETENTION_COL in df.columns:
                 retention_rate = _parse_rate(row.get(CUSTOM_RETENTION_COL))
 
+            report_start = _parse_report_date(row.get("report_start"))
+            report_end = _parse_report_date(row.get("report_end"))
+
             self.records.append(
                 {
                     "material_id": parsed.material_id,
@@ -374,10 +377,21 @@ class DataStore:
                     "data_scope": data_scope,
                     "week_label": week_label,
                     "source_file": filename,
+                    "report_start": report_start,
+                    "report_end": report_end,
                     "has_order": purchases >= 1,
                     "scaling_status": _scaling_status(spend, purchases),
                 }
             )
+
+
+def _parse_report_date(value: Any) -> str | None:
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return None
+    text = str(value).strip()
+    if not text or text.lower() == "nan":
+        return None
+    return text[:10]
 
 
 def _parse_rate(value: Any) -> float | None:

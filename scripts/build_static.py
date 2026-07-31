@@ -17,7 +17,7 @@ from data_loader import get_recent_weekly_labels, get_recent_new_material_window
 from audience_test_report import AUDIENCE_TESTS, get_audience_test_for_week  # noqa: E402
 from new_direction_report import get_new_direction_report  # noqa: E402
 from material_history import update_and_export  # noqa: E402
-from parser import AUDIENCE_DIRECTIONS, NEW_SCHEMA_CUTOFF_WEEK, canonical_direction, canonical_theme, primary_theme  # noqa: E402
+from parser import AUDIENCE_DIRECTIONS, NEW_SCHEMA_CUTOFF_WEEK, canonical_direction, canonical_theme, designer_labels, primary_theme  # noqa: E402
 from weekly_report import build_all_reports  # noqa: E402
 
 OUTPUT_DIR = ROOT / "docs" / "data"
@@ -185,7 +185,7 @@ def build() -> dict:
             "recent_weekly_window": 2,
             "schema_cutoff_week": NEW_SCHEMA_CUTOFF_WEEK,
             "audience_directions": list(AUDIENCE_DIRECTIONS),
-            "designer_labels": ["gy", "wxx", "fj", "jql", "095KB", "pingme", "jpl", "czy", "cty", "其他"],
+            "designer_labels": designer_labels(),
             "filter_options": analytics.get_filter_options("account"),
             "weekly_filter_options": analytics.get_filter_options("weekly"),
             "channel_labels": {"T1": "T1（美国等）", "WW": "WW（全球）"},

@@ -15,9 +15,16 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "server"))
 
-from data_loader import DATA_DIR, _detect_channel, _normalize_columns, week_sort_key  # noqa: E402
+from data_loader import (  # noqa: E402
+    DATA_DIR,
+    RECENT_WEEKLY_WINDOW,
+    _detect_channel,
+    _normalize_columns,
+    cohort_week_label_from_first_seen,
+    week_sort_key,
+)
+
 from parser import is_pic_material, parse_material  # noqa: E402
-from data_loader import cohort_week_label_from_first_seen  # noqa: E402
 
 WEEK_FILE_RE = re.compile(r"(\d{4})(?:周|week)", re.IGNORECASE)
 NEW_DIRECTION_FILE_RE = re.compile(
@@ -40,7 +47,35 @@ def _classify(ad_name: str, designer: str, week_label: str) -> str:
     return "new"
 
 
-def _weeks_to_regenerate() -> list[str]:
+def _recent_cohort_weeks(account_csv: Path, n: int = RECENT_WEEKLY_WINDOW) -> list[str]:
+    """与上新素材成效一致：账户最新素材日期所在周起回溯 n 个自然周。"""
+    from datetime import datetime, timedelta
+
+    df = pd.read_csv(account_csv)
+    df = _normalize_columns(df)
+    dates: list[str] = []
+    for _, row in df.iterrows():
+        ad_name = str(row.get("ad_name", "")).strip()
+        if not ad_name or ad_name == "nan":
+            continue
+        if _detect_channel(account_csv.name, str(row.get("account", "") or "")) != "WW":
+            continue
+        first_seen = parse_material(ad_name).first_seen
+        if first_seen:
+            dates.append(str(first_seen)[:10])
+    if not dates:
+        return []
+
+    max_d = datetime.strptime(max(dates), "%Y-%m-%d")
+    latest_monday = max_d - timedelta(days=max_d.weekday())
+    labels: list[str] = []
+    for i in range(max(n - 1, 0), -1, -1):
+        mon = latest_monday - timedelta(days=7 * i)
+        labels.append(f"{mon.month:02d}{mon.day:02d}周")
+    return labels
+
+
+def _weeks_to_regenerate(account_csv: Path | None = None) -> list[str]:
     labels: set[str] = set()
     for path in DATA_DIR.iterdir():
         if path.suffix.lower() not in {".csv", ".xlsx", ".xls"}:
@@ -50,6 +85,8 @@ def _weeks_to_regenerate() -> list[str]:
         m = WEEK_FILE_RE.search(path.name)
         if m:
             labels.add(m.group(1) + "周")
+    if account_csv and account_csv.exists():
+        labels.update(_recent_cohort_weeks(account_csv))
     return sorted(labels, key=week_sort_key)
 
 
@@ -78,7 +115,7 @@ def regenerate(account_csv: Path | None = None, weeks: list[str] | None = None) 
     if not src.exists():
         raise SystemExit(f"缺少账户全量: {src}")
 
-    target_weeks = weeks or _weeks_to_regenerate()
+    target_weeks = weeks or _weeks_to_regenerate(src)
     if not target_weeks:
         print("没有需要重生的周度 Tab。")
         return

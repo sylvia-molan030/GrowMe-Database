@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from data_loader import store
+from parser import is_pic_material
 from weekly_report import (
     _aggregate_materials,
     _channel_kpi,
@@ -17,9 +18,8 @@ BLOCK_LABELS = ("新素材", "老素材", "图片")
 BLOCK_ORDER = {label: i for i, label in enumerate(BLOCK_LABELS)}
 
 
-def _classify_material(m: dict[str, Any]) -> str:
-    mid = (m.get("material_id") or "").lower()
-    if "pic" in mid:
+def _classify_material(m: dict[str, Any], week_label: str) -> str:
+    if is_pic_material(m.get("material_id") or "", week_label):
         return "图片"
     if (m.get("designer") or "").strip().lower() == "cty":
         return "老素材"
@@ -59,7 +59,7 @@ def _build_block(
     notes = {
         "老素材": f"{week_label} 老素材（设计师 cty），出单指标来自账户全量。",
         "新素材": f"{week_label} 新素材（非 cty），出单指标来自账户全量。",
-        "图片": f"{week_label} 图片素材（素材名含 pic），出单指标来自账户全量。",
+        "图片": f"{week_label} 图片素材（FX-pic；0720周前含 ZT-pic），出单指标来自账户全量。",
     }
 
     return {
@@ -99,7 +99,7 @@ def get_weekly_test_blocks(
 
     grouped: dict[str, list[dict[str, Any]]] = {label: [] for label in BLOCK_LABELS}
     for m in materials:
-        grouped[_classify_material(m)].append(m)
+        grouped[_classify_material(m, week_label)].append(m)
 
     blocks: list[dict[str, Any]] = []
     for label in BLOCK_LABELS:

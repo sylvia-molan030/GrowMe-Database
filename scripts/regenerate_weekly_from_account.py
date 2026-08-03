@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """从账户全量 CSV 按规则重生周度文件。
 
-分类：素材名含 pic → 图片；设计师 cty → 老素材；其余 → 新素材。
+分类：FX-pic → 图片；0720周前 ZT 含 pic 也算；0720周起仅 FX-pic；设计师 cty → 老素材；其余 → 新素材。
 输出：{MMDD}周老素材.csv / {MMDD}周新创意素材.csv / {MMDD}周图片素材.csv
 """
 from __future__ import annotations
@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "server"))
 
 from data_loader import DATA_DIR, _detect_channel, _normalize_columns, week_sort_key  # noqa: E402
-from parser import parse_material  # noqa: E402
+from parser import is_pic_material, parse_material  # noqa: E402
 from data_loader import cohort_week_label_from_first_seen  # noqa: E402
 
 WEEK_FILE_RE = re.compile(r"(\d{4})(?:周|week)", re.IGNORECASE)
@@ -32,9 +32,8 @@ STANDARD_SUFFIX = {
 }
 
 
-def _classify(ad_name: str, designer: str) -> str:
-    mid = (ad_name or "").lower()
-    if "pic" in mid:
+def _classify(ad_name: str, designer: str, week_label: str) -> str:
+    if is_pic_material(ad_name, week_label):
         return "pic"
     if (designer or "").lower() == "cty":
         return "old"
@@ -104,7 +103,7 @@ def regenerate(account_csv: Path | None = None, weeks: list[str] | None = None) 
         week = cohort_week_label_from_first_seen(parsed.first_seen)
         if not week or week not in buckets:
             continue
-        key = _classify(parsed.material_id, parsed.designer)
+        key = _classify(parsed.material_id, parsed.designer, week)
         buckets[week][key].append(row)
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -125,7 +124,7 @@ def regenerate(account_csv: Path | None = None, weeks: list[str] | None = None) 
             old.unlink()
             print(f"  − 移除旧文件 {old.name}")
 
-    print(f"已重生 {len(target_weeks)} 个周度 Tab（cty→老素材 · pic→图片 · 其余→新素材）")
+    print(f"已重生 {len(target_weeks)} 个周度 Tab（cty→老素材 · FX-pic→图片 · 0720+ 不含 ZT-pic · 其余→新素材）")
 
 
 if __name__ == "__main__":

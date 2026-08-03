@@ -64,6 +64,10 @@ LEGACY_RE = re.compile(
 SIZE_RE = re.compile(r"^\d+x\d+$", re.IGNORECASE)
 LANG_RE = re.compile(r"^[A-Za-z]{2}$")
 RMG_RE = re.compile(r"RMG-([A-Z0-9]+)", re.IGNORECASE)
+FX_PIC_RE = re.compile(r"_fx[-_]pic[-_]", re.IGNORECASE)
+
+# 0720 周起：ZT 主题里的 -pic 仅为创意编号，不再归入「图片」板块
+PIC_ZT_SUFFIX_CUTOFF_WEEK = "0720周"
 
 # 设计师：gy / fj / jql / 095KB / jpl / czy / cty + pingme 细分（wxx 归入「其他」）
 DESIGNER_CANONICAL = (
@@ -129,6 +133,24 @@ def _week_sort_key(label: str) -> int:
     mmdd = int(m.group(1))
     month, day = divmod(mmdd, 100)
     return month * 100 + day
+
+
+_PIC_ZT_CUTOFF_KEY = _week_sort_key(PIC_ZT_SUFFIX_CUTOFF_WEEK)
+
+
+def is_pic_material(material_id: str, week_label: str | None = None) -> bool:
+    """是否为「图片」测试素材。
+
+    - ``FX-pic`` 方向始终算图片；
+    - 0720 周之前：素材名任意位置含 pic 也算（兼容 ZT-learning-pic 等旧口径）；
+    - 0720 周及之后：仅 ``FX-pic`` 算图片，ZT 里的 -pic 编号归入新素材。
+    """
+    mid = material_id or ""
+    if FX_PIC_RE.search(mid):
+        return True
+    if week_label and _week_sort_key(week_label) >= _PIC_ZT_CUTOFF_KEY:
+        return False
+    return "pic" in mid.lower()
 
 
 _NEW_SCHEMA_WEEK_KEY = _week_sort_key(NEW_SCHEMA_CUTOFF_WEEK)

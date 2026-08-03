@@ -81,6 +81,9 @@ def _detect_channel(filename: str, account: str = "") -> str:
         return "WW"
     if "_T1_" in account_upper or "GROWME_T1" in account_upper:
         return "T1"
+    # 标准周度 Tab（含 regenerate 产物）均为 WW 口径
+    if re.match(r"^\d{4}周", filename) and not ROLLBACK_FILE_RE.search(filename):
+        return "WW"
     name = filename.upper()
     if "WW" in name or "WW的数据" in filename or name.startswith("ACCOUNT_"):
         return "WW"

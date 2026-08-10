@@ -379,7 +379,8 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
     orderedMaterials: '订阅素材量',
     conversions: '总订阅量',
     rate: '订阅率',
-    emptyRanked: labels.emptyRanked,
+    cost: '订阅成本',
+    emptyRanked: '本板块暂无测试素材',
   } : {
     orderedMaterials: '出单素材量',
     conversions: '总出单量',
@@ -404,12 +405,12 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
     <div class="card weekly-callout">
       <div class="section-title">本周测试 · ${escapeHtml(block.label)} <span class="muted">（点击表头排序）</span></div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
-      <div class="kpi-grid weekly-callout-kpi">
+      <div class="kpi-grid kpi-grid-5 weekly-callout-kpi">
         ${kpiCard('测试素材量', `${s.total_materials ?? 0} 条`)}
         ${kpiCard(blockLabels.orderedMaterials, `${s.ordered_materials ?? 0} 条`)}
         ${kpiCard(blockLabels.conversions, s.conversions ?? 0)}
         ${kpiCard(blockLabels.rate, `${s.order_rate ?? 0}%`)}
-        ${subMode ? kpiCard('订阅成本', s.subscription_cost != null ? `$${s.subscription_cost}` : '-', null, '花费 ÷ 总订阅量') : ''}
+        ${subMode ? kpiCard(blockLabels.cost, s.subscription_cost != null ? `$${s.subscription_cost}` : '-', null, '花费 ÷ 总订阅量') : ''}
       </div>
       <div class="table-wrap">
         <table data-sort-key="${escapeHtml(sortKey)}">

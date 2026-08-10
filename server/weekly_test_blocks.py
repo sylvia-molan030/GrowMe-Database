@@ -65,9 +65,9 @@ def _build_block(
     kpi = _channel_kpi(materials, subscription_mode=subscription_mode)
 
     if subscription_mode:
-        ranked = [m for m in materials if m.get("subscriptions", 0) >= 1]
-        ranked.sort(
-            key=lambda m: (-m.get("subscriptions", 0), -m.get("roas", 0), -m.get("spend", 0))
+        ranked = sorted(
+            materials,
+            key=lambda m: (-m.get("subscriptions", 0), -m.get("spend", 0)),
         )
         notes = {
             "高价值用户": f"{week_label} 高价值用户板块，订阅指标来自账户全量。",

@@ -221,12 +221,56 @@ function formatWeekLabel(label) {
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
+function renderCoreComparison(rows, labels, subMode) {
+  if (!rows?.length) return '';
+  const visible = subMode
+    ? rows.filter((r) => !['roas'].includes(r.key))
+    : rows;
+  return `
+    <div class="card">
+      <div class="section-title">核心指标对比 <span class="muted">（本周 vs 上周）</span></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>指标</th>
+              <th>本周</th>
+              <th>上周</th>
+              <th>环比</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${visible.map((r) => {
+              const unit = r.unit || '';
+              const fmtVal = (v) => {
+                if (v === null || v === undefined) return '-';
+                if (unit === '$') return `$${v}`;
+                if (unit === '%') return `${v}%`;
+                return `${v}${unit}`;
+              };
+              return `
+                <tr${r.key === 'order_rate' && subMode ? ' style="background:#f0f9f6"' : ''}>
+                  <td><strong>${escapeHtml(r.label)}</strong></td>
+                  <td>${fmtVal(r.current)}</td>
+                  <td>${fmtVal(r.previous)}</td>
+                  <td>${wowBadge(r.wow)}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
 function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
   const sorted = sortRows(rows, sort, { by: labels.sortDefault, dir: 'desc' });
   const hint = kpiSource === 'account_lifecycle'
     ? '全量生命周期 · 点击表头排序'
     : '点击表头排序';
   const orderedLabel = subMode ? '订阅素材' : '出单素材';
+  const rateCol = subMode ? `${sortTh('订阅率', 'order_rate', sort, 'num')}` : '';
   const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
   return `
     <div class="card">
@@ -237,12 +281,13 @@ function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
             <tr>
               ${sortTh('方向', 'direction', sort)}
               ${sortTh('素材量', 'total_materials', sort)}
+              ${rateCol}
               ${sortTh(orderedLabel, 'ordered_materials', sort)}
               ${sortTh('消耗', 'spend', sort)}
               ${sortTh('CTR', 'ctr', sort)}
               ${sortTh('CPI', 'cpi', sort)}
               ${subMode ? '' : sortTh('ROAS', 'roas', sort)}
-              ${sortTh('订阅', 'subscriptions', sort)}
+              ${sortTh('订阅量', 'subscriptions', sort)}
               ${purchaseCol}
               ${sortTh('钩子率', 'hook_rate', sort)}
               ${sortTh('留存率', 'retention_rate', sort)}
@@ -253,6 +298,7 @@ function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
               <tr>
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
                 <td>${r.total_materials ?? '-'}</td>
+                ${subMode ? `<td><strong style="color:#0d3f35">${r.order_rate ?? 0}%</strong></td>` : ''}
                 <td><strong>${r.ordered_ratio || `${r.ordered_materials}/${r.total_materials || '-'}`}</strong></td>
                 <td>$${r.spend ?? '-'}</td>
                 <td>${r.ctr}%</td>
@@ -475,6 +521,7 @@ export async function renderWeeklyUpdate(container, state) {
     </div>
     ${renderSummary(report.kpi, report.prev_week, labels)}
     ${renderKpiSection(report.kpi, report.prev_week, labels)}
+    ${subMode ? renderCoreComparison(report.core_comparison, labels, subMode) : ''}
     ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`, { by: labels.sortDefault, dir: 'desc' }), labels, subMode)).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap, { hideIfEmpty: true, metricMode: subMode ? 'subscription' : 'purchase' })}
     ${renderAudienceDirectionTable(report.cross_rubric_heatmap, { hideIfEmpty: true, metricMode: subMode ? 'subscription' : 'purchase' })}

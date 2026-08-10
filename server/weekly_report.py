@@ -286,6 +286,7 @@ def _core_metrics(materials: list[dict[str, Any]], *, subscription_mode: bool = 
         "cpm": kpi["cpm"],
         "subscriptions": kpi["subscriptions"],
         "purchases": kpi["conversions"] if subscription_mode else kpi["purchases"],
+        "order_rate": kpi["order_rate"],
         "roas": kpi["roas"],
     }
 
@@ -297,11 +298,13 @@ def _comparison_table(
     subscription_mode: bool = False,
 ) -> list[dict[str, Any]]:
     conv_label = "总订阅量" if subscription_mode else "总出单量"
+    rate_label = "订阅率" if subscription_mode else "出单率"
     labels = {
         "spend": ("总消耗", "$"),
         "empty_spend": ("空消耗", "$"),
         "cpi": ("CPI", "$"),
         "cpm": ("CPM", "$"),
+        "order_rate": (rate_label, "%"),
         "subscriptions": ("订阅数", ""),
         "purchases": (conv_label, ""),
         "roas": ("平均 ROAS", ""),
@@ -361,6 +364,7 @@ def _direction_table(
                 "total_materials": total,
                 "ordered_materials": ordered,
                 "ordered_ratio": f"{ordered}/{total}",
+                "order_rate": round(ordered / total * 100, 2) if total else 0,
                 "ctr": round(sum(ctr_vals) / len(ctr_vals), 2) if ctr_vals else 0,
                 "cpi": round(spend / installs, 2) if installs > 0 else None,
                 "roas": round(sum(r * s for r, s in roas_vals) / sum(s for _, s in roas_vals), 2) if roas_vals else 0,

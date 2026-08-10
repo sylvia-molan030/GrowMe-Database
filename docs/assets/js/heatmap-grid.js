@@ -14,7 +14,37 @@ function rateBg(rate) {
   return `rgb(${r},${g},${b})`;
 }
 
-/** 按方向 (FX) 汇总出单率 */
+function heatmapMetricLabels(heatmap, options = {}) {
+  const mode = options.metricMode || heatmap?.metric_mode || 'purchase';
+  if (mode === 'subscription') {
+    return {
+      mode,
+      rateName: '订阅率',
+      fractionName: '订阅/总数',
+      orderedName: '订阅素材',
+      heatmapTitle: '交叉魔方 · 订阅率对照表',
+      audienceTitle: '人群方向表 · 订阅率',
+      emptyHint: '当前筛选下暂无方向订阅率数据',
+      heatmapSubtitle: '（纵轴 FX 人群 · 横轴 ZT 主题首词 · 颜色越深订阅率越高 · 仅 0629 起新命名素材',
+      audienceSubtitle: '（仅 FX 人群方向 · 汇总该方向下全部主题',
+      rateDesc: '订阅率越高',
+    };
+  }
+  return {
+    mode: 'purchase',
+    rateName: '出单率',
+    fractionName: '出单/总数',
+    orderedName: '出单素材',
+    heatmapTitle: '交叉魔方 · 出单率对照表',
+    audienceTitle: '人群方向表 · 出单率',
+    emptyHint: '当前筛选下暂无方向出单率数据',
+    heatmapSubtitle: '（纵轴 FX 人群 · 横轴 ZT 主题首词 · 颜色越深出单率越高 · 仅 0629 起新命名素材',
+    audienceSubtitle: '（仅 FX 人群方向 · 汇总该方向下全部主题',
+    rateDesc: '出单率越高',
+  };
+}
+
+/** 按方向 (FX) 汇总出单率 / 订阅率 */
 export function buildDirectionSummary(heatmap) {
   if (!heatmap?.cells?.length) return [];
   const byDir = new Map();
@@ -43,17 +73,18 @@ export function buildDirectionSummary(heatmap) {
  * 人群方向表：仅方向标签维度的出单率。
  */
 export function renderAudienceDirectionTable(heatmap, options = {}) {
+  const labels = heatmapMetricLabels(heatmap, options);
   const rows = buildDirectionSummary(heatmap);
   if (!rows.length) {
-    const hint = options.emptyHint || '当前筛选下暂无方向出单率数据';
+    const hint = options.emptyHint || labels.emptyHint;
     return options.hideIfEmpty ? '' : `<div class="card"><div class="empty">${escapeHtml(hint)}</div></div>`;
   }
 
   const clickable = options.clickable === true;
   const subtitle = options.subtitle
     || (clickable
-      ? '（仅 FX 人群方向 · 汇总该方向下全部主题 · 点击行可切换探测箱方向）'
-      : '（仅 FX 人群方向 · 汇总该方向下全部主题）');
+      ? `${labels.audienceSubtitle} · 点击行可切换探测箱方向）`
+      : `${labels.audienceSubtitle}）`);
 
   const body = rows.map((r) => {
     const attrs = clickable
@@ -74,16 +105,16 @@ export function renderAudienceDirectionTable(heatmap, options = {}) {
 
   return `
     <div class="card" id="audience-direction-card">
-      <div class="section-title">人群方向表 · 出单率 <span class="muted">${subtitle}</span></div>
+      <div class="section-title">${labels.audienceTitle} <span class="muted">${subtitle}</span></div>
       <div class="table-wrap direction-table-wrap">
         <table class="data-table direction-rate-table">
           <thead>
             <tr>
               <th>方向 (FX-)</th>
-              <th>出单率</th>
-              <th>出单/总数</th>
+              <th>${labels.rateName}</th>
+              <th>${labels.fractionName}</th>
               <th>素材数</th>
-              <th>出单素材</th>
+              <th>${labels.orderedName}</th>
             </tr>
           </thead>
           <tbody>${body}</tbody>
@@ -98,6 +129,7 @@ export function renderAudienceDirectionTable(heatmap, options = {}) {
  * options.clickable：单元格带 data-fx/data-zt，便于下钻联动。
  */
 export function renderCrossRubricHeatmap(heatmap, options = {}) {
+  const labels = heatmapMetricLabels(heatmap, options);
   if (!heatmap?.cells?.length) {
     const hint = options.emptyHint || '当前筛选下暂无 0629 起新命名素材（FX 人群 × ZT 主题）';
     return options.hideIfEmpty ? '' : `<div class="card"><div class="empty">${escapeHtml(hint)}</div></div>`;
@@ -133,12 +165,12 @@ export function renderCrossRubricHeatmap(heatmap, options = {}) {
 
   const subtitle = options.subtitle
     || (clickable
-      ? '（纵轴 FX 人群 · 横轴 ZT 主题首词 · 颜色越深出单率越高 · 仅 0629 起新命名素材 · 点击格子下钻）'
-      : '（纵轴 FX 人群 · 横轴 ZT 主题首词 · 颜色越深出单率越高 · 仅 0629 起新命名素材）');
+      ? `${labels.heatmapSubtitle} · 点击格子下钻）`
+      : `${labels.heatmapSubtitle}）`);
 
   return `
     <div class="card" id="cross-rubric-card">
-      <div class="section-title">交叉魔方 · 出单率对照表 <span class="muted">${subtitle}</span></div>
+      <div class="section-title">${labels.heatmapTitle} <span class="muted">${subtitle}</span></div>
       <div class="cross-cube-scroll">${grid}</div>
     </div>
   `;

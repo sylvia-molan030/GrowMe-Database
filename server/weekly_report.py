@@ -669,7 +669,9 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         ),
     }
     if _is_new_schema_week(week):
-        heatmap = cross_rubric_heatmap_from_materials(all_materials)
+        heatmap = cross_rubric_heatmap_from_materials(
+            all_materials, subscription_mode=sub_mode
+        )
         if heatmap:
             report["cross_rubric_heatmap"] = heatmap
     test_blocks: list[dict[str, Any]] = []

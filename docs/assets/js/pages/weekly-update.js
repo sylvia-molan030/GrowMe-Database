@@ -476,8 +476,8 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderSummary(report.kpi, report.prev_week, labels)}
     ${renderKpiSection(report.kpi, report.prev_week, labels)}
     ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`, { by: labels.sortDefault, dir: 'desc' }), labels, subMode)).join('')}
-    ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
-    ${renderAudienceDirectionTable(report.cross_rubric_heatmap, { hideIfEmpty: true })}
+    ${renderCrossRubricHeatmap(report.cross_rubric_heatmap, { hideIfEmpty: true, metricMode: subMode ? 'subscription' : 'purchase' })}
+    ${renderAudienceDirectionTable(report.cross_rubric_heatmap, { hideIfEmpty: true, metricMode: subMode ? 'subscription' : 'purchase' })}
     ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction', { by: labels.sortDefault, dir: 'desc' }), report.kpi?.kpi_source, labels, subMode)}
     ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good', { by: labels.sortDefault, dir: 'desc' }), report.kpi?.kpi_source, labels, subMode)}
     ${renderAudienceTest(report.audience_test, getTableSort(state, 'audience'))}

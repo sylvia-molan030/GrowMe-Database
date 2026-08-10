@@ -14,7 +14,11 @@ def _direction_label(direction: str) -> str | None:
     return mapped if mapped in AUDIENCE_DIRECTIONS else None
 
 
-def cross_rubric_heatmap_from_materials(materials: list[dict[str, Any]]) -> dict[str, Any] | None:
+def cross_rubric_heatmap_from_materials(
+    materials: list[dict[str, Any]],
+    *,
+    subscription_mode: bool = False,
+) -> dict[str, Any] | None:
     """仅统计 0629 新命名规则素材（first_seen ≥ 2026-06-29）。"""
     items = []
     for m in materials:
@@ -37,7 +41,10 @@ def cross_rubric_heatmap_from_materials(materials: list[dict[str, Any]]) -> dict
             subset = [m for m in items if m["_fx"] == y and m["_zt"] == x]
             if not subset:
                 continue
-            ordered = sum(1 for m in subset if m.get("purchases", 0) >= 1)
+            if subscription_mode:
+                ordered = sum(1 for m in subset if m.get("subscriptions", 0) >= 1)
+            else:
+                ordered = sum(1 for m in subset if m.get("purchases", 0) >= 1)
             rate = round(ordered / len(subset) * 100, 2)
             cells.append(
                 {
@@ -62,4 +69,5 @@ def cross_rubric_heatmap_from_materials(materials: list[dict[str, Any]]) -> dict
         "y_values": y_vals,
         "x_values": x_vals,
         "cells": cells,
+        "metric_mode": "subscription" if subscription_mode else "purchase",
     }

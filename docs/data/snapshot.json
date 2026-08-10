@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10 10:02:29",
+  "generated_at": "2026-08-10 10:05:31",
   "site_url": "https://sylvia-molan030.github.io/GrowMe-Database/",
   "meta": {
     "files_loaded": [
@@ -28,7 +28,7 @@
       "回滚素材0706更新.csv"
     ],
     "records": 13684,
-    "scanned_at": "2026-08-10 10:02:27",
+    "scanned_at": "2026-08-10 10:05:29",
     "default_date_start": "2026-07-25",
     "default_date_end": "2026-07-31",
     "data_date_start": "2025-01-04",
@@ -88322,7 +88322,8 @@
             "label": "0.0%",
             "fraction": "0/1"
           }
-        ]
+        ],
+        "metric_mode": "purchase"
       },
       "material_test_blocks": [
         {
@@ -89617,7 +89618,8 @@
             "label": "0.0%",
             "fraction": "0/5"
           }
-        ]
+        ],
+        "metric_mode": "purchase"
       },
       "material_test_blocks": [
         {
@@ -91508,7 +91510,8 @@
             "label": "0.0%",
             "fraction": "0/5"
           }
-        ]
+        ],
+        "metric_mode": "purchase"
       },
       "material_test_blocks": [
         {
@@ -92945,7 +92948,8 @@
             "label": "0.0%",
             "fraction": "0/5"
           }
-        ]
+        ],
+        "metric_mode": "purchase"
       },
       "material_test_blocks": [
         {
@@ -94172,7 +94176,8 @@
             "label": "0.0%",
             "fraction": "0/1"
           }
-        ]
+        ],
+        "metric_mode": "purchase"
       },
       "material_test_blocks": [
         {
@@ -94838,11 +94843,11 @@
           {
             "y": "Readers",
             "x": "bookreading",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 33.33,
+            "ordered": 2,
             "total": 6,
-            "label": "0.0%",
-            "fraction": "0/6"
+            "label": "33.33%",
+            "fraction": "2/6"
           },
           {
             "y": "Readers",
@@ -94856,11 +94861,11 @@
           {
             "y": "Readers",
             "x": "communication",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 100.0,
+            "ordered": 1,
             "total": 1,
-            "label": "0.0%",
-            "fraction": "0/1"
+            "label": "100.0%",
+            "fraction": "1/1"
           },
           {
             "y": "Readers",
@@ -94892,11 +94897,11 @@
           {
             "y": "Readers",
             "x": "microlearning",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 33.33,
+            "ordered": 1,
             "total": 3,
-            "label": "0.0%",
-            "fraction": "0/3"
+            "label": "33.33%",
+            "fraction": "1/3"
           },
           {
             "y": "Readers",
@@ -94919,47 +94924,47 @@
           {
             "y": "SelfGrowth",
             "x": "growth",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 18.18,
+            "ordered": 2,
             "total": 11,
-            "label": "0.0%",
-            "fraction": "0/11"
+            "label": "18.18%",
+            "fraction": "2/11"
           },
           {
             "y": "SelfGrowth",
             "x": "habits",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 100.0,
+            "ordered": 1,
             "total": 1,
-            "label": "0.0%",
-            "fraction": "0/1"
+            "label": "100.0%",
+            "fraction": "1/1"
           },
           {
             "y": "SelfGrowth",
             "x": "learning",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 7.69,
+            "ordered": 1,
             "total": 13,
-            "label": "0.0%",
-            "fraction": "0/13"
+            "label": "7.69%",
+            "fraction": "1/13"
           },
           {
             "y": "SelfGrowth",
             "x": "microlearning",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 100.0,
+            "ordered": 1,
             "total": 1,
-            "label": "0.0%",
-            "fraction": "0/1"
+            "label": "100.0%",
+            "fraction": "1/1"
           },
           {
             "y": "SelfGrowth",
             "x": "selfimprovement",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 16.67,
+            "ordered": 1,
             "total": 6,
-            "label": "0.0%",
-            "fraction": "0/6"
+            "label": "16.67%",
+            "fraction": "1/6"
           },
           {
             "y": "EnglishLearners",
@@ -94973,11 +94978,11 @@
           {
             "y": "EnglishLearners",
             "x": "learning",
-            "rate": 0.0,
-            "ordered": 0,
+            "rate": 28.57,
+            "ordered": 2,
             "total": 7,
-            "label": "0.0%",
-            "fraction": "0/7"
+            "label": "28.57%",
+            "fraction": "2/7"
           },
           {
             "y": "EnglishLearners",
@@ -94988,7 +94993,8 @@
             "label": "0.0%",
             "fraction": "0/1"
           }
-        ]
+        ],
+        "metric_mode": "subscription"
       },
       "material_test_blocks": [
         {

@@ -15,9 +15,33 @@ async function loadHeatmapGrid() {
 
 let survivalChart = null;
 
-function fmt(v, suffix = '') {
-  if (v === null || v === undefined || v === '') return '-';
-  return `${v}${suffix}`;
+function isSubscriptionMode(report) {
+  return report?.kpi?.metric_mode === 'subscription';
+}
+
+function metricLabels(report) {
+  if (isSubscriptionMode(report)) {
+    return {
+      orderedMaterials: '订阅素材数',
+      conversions: '总订阅量',
+      rate: '订阅率',
+      orderedShort: '订阅素材',
+      conversionShort: '订阅量',
+      sortDefault: 'subscriptions',
+      goodHint: '订阅达标 · 点击表头排序',
+      emptyRanked: '本板块暂无订阅素材',
+    };
+  }
+  return {
+    orderedMaterials: '出单素材数',
+    conversions: '总出单量',
+    rate: '出单率',
+    orderedShort: '出单素材',
+    conversionShort: '出单量',
+    sortDefault: 'purchases',
+    goodHint: '购物 + 订阅双达标 · 点击表头排序',
+    emptyRanked: '本板块暂无出单素材',
+  };
 }
 
 function wowBadge(wow, invert = false) {
@@ -39,7 +63,12 @@ function kpiCard(title, value, wow = null, sub = '') {
   `;
 }
 
-function renderSummary(kpi, prevWeek) {
+function fmt(v, suffix = '') {
+  if (v === null || v === undefined || v === '') return '-';
+  return `${v}${suffix}`;
+}
+
+function renderSummary(kpi, prevWeek, labels) {
   const wow = kpi.wow || {};
   const orderRateDelta = wow.order_rate && wow.order_rate.pct !== null
     ? `(${wow.order_rate.direction === 'up' ? '+' : ''}${wow.order_rate.pct}%)`
@@ -49,9 +78,9 @@ function renderSummary(kpi, prevWeek) {
     : '';
 
   let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${kpi.total_materials || 0} 条素材`;
-  if (kpi.ordered_materials != null) summaryLine += `，出单素材 ${kpi.ordered_materials} 条`;
-  summaryLine += `，出单率 ${kpi.order_rate || 0}%${orderRateDelta}`;
-  if (kpi.avg_roas) summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
+  if (kpi.ordered_materials != null) summaryLine += `，${labels.orderedShort} ${kpi.ordered_materials} 条`;
+  summaryLine += `，${labels.rate} ${kpi.order_rate || 0}%${orderRateDelta}`;
+  if (kpi.avg_roas && labels.rate === '出单率') summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
 
   return `
     <div class="card" style="background:linear-gradient(135deg,#d8eee6 0%,#fbfcf9 60%);border-left:4px solid #1b6b5a;padding:12px 16px;border-radius:10px;margin-bottom:14px">
@@ -61,7 +90,7 @@ function renderSummary(kpi, prevWeek) {
   `;
 }
 
-function renderKpiSection(kpi, prevWeek) {
+function renderKpiSection(kpi, prevWeek, labels) {
   const wow = kpi.wow || {};
   const hasWow = Boolean(prevWeek);
   const sourceHint = kpi.kpi_source === 'weekly_files'
@@ -74,10 +103,10 @@ function renderKpiSection(kpi, prevWeek) {
     <div class="section-title">周度 KPI${sourceHint ? ` <span class="muted">（${sourceHint}${hasWow ? ' · 含 WoW 环比' : ''}）</span>` : (hasWow ? ' <span class="muted">（含 WoW 环比）</span>' : '')}</div>
     <div class="kpi-grid">
       ${kpiCard('总素材量', `${kpi.total_materials} 条`, hasWow ? wow.total_materials : null)}
-      ${kpiCard('出单素材数', kpi.ordered_materials, hasWow ? wow.ordered_materials : null)}
-      ${kpiCard('总出单量', kpi.conversions, hasWow ? wow.conversions : null)}
-      ${kpiCard('出单率', `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
-      ${kpiCard('平均 ROAS', kpi.avg_roas ?? '-', hasWow ? wow.avg_roas : null)}
+      ${kpiCard(labels.orderedMaterials, kpi.ordered_materials, hasWow ? wow.ordered_materials : null)}
+      ${kpiCard(labels.conversions, kpi.conversions, hasWow ? wow.conversions : null)}
+      ${kpiCard(labels.rate, `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
+      ${labels.rate === '出单率' ? kpiCard('平均 ROAS', kpi.avg_roas ?? '-', hasWow ? wow.avg_roas : null) : ''}
     </div>
   `;
 }
@@ -143,11 +172,12 @@ function bindTableSort(container, state, report) {
   });
 }
 
-function renderGoodMaterials(items, sort, kpiSource) {
-  const rows = sortRows(items, sort);
+function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
+  const rows = sortRows(items, sort, { by: labels.sortDefault, dir: 'desc' });
   const hint = kpiSource === 'account_lifecycle'
-    ? '全量生命周期 · 购物 + 订阅双达标 · 点击表头排序'
-    : '购物 + 订阅双达标 · 点击表头排序';
+    ? `全量生命周期 · ${labels.goodHint}`
+    : labels.goodHint;
+  const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
   return `
     <div class="card">
       <div class="section-title">本周好素材 <span class="muted">（${hint}）</span></div>
@@ -159,9 +189,9 @@ function renderGoodMaterials(items, sort, kpiSource) {
               ${sortTh('方向', 'direction', sort)}
               ${sortTh('设计师', 'designer', sort)}
               ${sortTh('花费', 'spend', sort)}
-              ${sortTh('购物', 'purchases', sort)}
+              ${purchaseCol}
               ${sortTh('订阅', 'subscriptions', sort)}
-              ${sortTh('ROAS', 'roas', sort)}
+              ${subMode ? '' : sortTh('ROAS', 'roas', sort)}
               ${sortTh('CTR', 'ctr', sort)}
             </tr>
           </thead>
@@ -172,12 +202,12 @@ function renderGoodMaterials(items, sort, kpiSource) {
                 <td><span class="tag">${escapeHtml(m.direction)}</span></td>
                 <td>${escapeHtml(m.designer)}</td>
                 <td>$${m.spend}</td>
-                <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
-                <td>${m.subscriptions}</td>
-                <td>${m.roas}</td>
+                ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${m.purchases}</td>`}
+                <td style="${subMode ? 'color:#dc2626;font-weight:700' : ''}">${m.subscriptions}</td>
+                ${subMode ? '' : `<td>${m.roas}</td>`}
                 <td>${m.ctr}%</td>
               </tr>
-            `).join('') : '<tr><td colspan="8" class="empty">本周暂无双转化好素材</td></tr>'}
+            `).join('') : `<tr><td colspan="${subMode ? 6 : 8}" class="empty">本周暂无${subMode ? '订阅' : '双转化'}好素材</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -190,11 +220,13 @@ function formatWeekLabel(label) {
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
 
-function renderDirectionTable(rows, sort, kpiSource) {
-  const sorted = sortRows(rows, sort, { by: 'purchases', dir: 'desc' });
+function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
+  const sorted = sortRows(rows, sort, { by: labels.sortDefault, dir: 'desc' });
   const hint = kpiSource === 'account_lifecycle'
     ? '全量生命周期 · 点击表头排序'
     : '点击表头排序';
+  const orderedLabel = subMode ? '订阅素材' : '出单素材';
+  const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
   return `
     <div class="card">
       <div class="section-title">各方向标签表现对比 <span class="muted">（${hint}）</span></div>
@@ -204,13 +236,13 @@ function renderDirectionTable(rows, sort, kpiSource) {
             <tr>
               ${sortTh('方向', 'direction', sort)}
               ${sortTh('素材量', 'total_materials', sort)}
-              ${sortTh('出单素材', 'ordered_materials', sort)}
+              ${sortTh(orderedLabel, 'ordered_materials', sort)}
               ${sortTh('消耗', 'spend', sort)}
               ${sortTh('CTR', 'ctr', sort)}
               ${sortTh('CPI', 'cpi', sort)}
-              ${sortTh('ROAS', 'roas', sort)}
+              ${subMode ? '' : sortTh('ROAS', 'roas', sort)}
               ${sortTh('订阅', 'subscriptions', sort)}
-              ${sortTh('购物', 'purchases', sort)}
+              ${purchaseCol}
               ${sortTh('钩子率', 'hook_rate', sort)}
               ${sortTh('留存率', 'retention_rate', sort)}
             </tr>
@@ -224,13 +256,13 @@ function renderDirectionTable(rows, sort, kpiSource) {
                 <td>$${r.spend ?? '-'}</td>
                 <td>${r.ctr}%</td>
                 <td>${r.cpi !== null && r.cpi !== undefined ? `$${r.cpi}` : '-'}</td>
-                <td>${r.roas}</td>
-                <td>${r.subscriptions}</td>
-                <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
+                ${subMode ? '' : `<td>${r.roas}</td>`}
+                <td style="${subMode ? 'color:#dc2626;font-weight:700' : ''}">${r.subscriptions}</td>
+                ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${r.purchases}</td>`}
                 <td>${r.hook_rate ? `${r.hook_rate}%` : '-'}</td>
                 <td>${r.retention_rate ? `${r.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') || '<tr><td colspan="11" class="empty">暂无方向数据</td></tr>'}
+            `).join('') || `<tr><td colspan="${subMode ? 10 : 11}" class="empty">暂无方向数据</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -284,20 +316,34 @@ function renderAudienceTest(block, sort) {
   `;
 }
 
-function renderMaterialTestBlock(block, sort) {
+function renderMaterialTestBlock(block, sort, labels, subMode) {
   if (!block) return '';
   const s = block.summary || {};
+  const blockLabels = subMode ? {
+    orderedMaterials: '订阅素材量',
+    conversions: '总订阅量',
+    rate: '订阅率',
+    emptyRanked: labels.emptyRanked,
+  } : {
+    orderedMaterials: '出单素材量',
+    conversions: '总出单量',
+    rate: '出单率',
+    emptyRanked: labels.emptyRanked,
+  };
   const sortKey = `test_${block.label}`;
-  const rows = sortRows(block.materials || [], sort);
+  const rows = sortRows(block.materials || [], sort, { by: labels.sortDefault, dir: 'desc' });
+  const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
+  const roasCol = subMode ? '' : `${sortTh('ROAS', 'roas', sort)}`;
+  const subCol = subMode ? `${sortTh('订阅', 'subscriptions', sort)}` : '';
   return `
     <div class="card weekly-callout">
       <div class="section-title">本周测试 · ${escapeHtml(block.label)} <span class="muted">（点击表头排序）</span></div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
       <div class="kpi-grid kpi-grid-4 weekly-callout-kpi">
         ${kpiCard('测试素材量', `${s.total_materials ?? 0} 条`)}
-        ${kpiCard('出单素材量', `${s.ordered_materials ?? 0} 条`)}
-        ${kpiCard('总出单量', s.conversions ?? 0)}
-        ${kpiCard('出单率', `${s.order_rate ?? 0}%`)}
+        ${kpiCard(blockLabels.orderedMaterials, `${s.ordered_materials ?? 0} 条`)}
+        ${kpiCard(blockLabels.conversions, s.conversions ?? 0)}
+        ${kpiCard(blockLabels.rate, `${s.order_rate ?? 0}%`)}
       </div>
       <div class="table-wrap">
         <table data-sort-key="${escapeHtml(sortKey)}">
@@ -308,8 +354,9 @@ function renderMaterialTestBlock(block, sort) {
               ${sortTh('主题', 'theme', sort)}
               ${sortTh('设计师', 'designer', sort)}
               ${sortTh('花费', 'spend', sort)}
-              ${sortTh('购物', 'purchases', sort)}
-              ${sortTh('ROAS', 'roas', sort)}
+              ${subCol}
+              ${purchaseCol}
+              ${roasCol}
               ${sortTh('CTR', 'ctr', sort)}
               ${sortTh('3秒播放率', 'hook_rate', sort)}
               ${sortTh('留存率', 'retention_rate', sort)}
@@ -323,13 +370,14 @@ function renderMaterialTestBlock(block, sort) {
                 <td>${escapeHtml(m.theme || '-')}</td>
                 <td>${escapeHtml(m.designer || '-')}</td>
                 <td>$${m.spend}</td>
-                <td style="color:#dc2626;font-weight:700">${m.purchases}</td>
-                <td>${m.roas}</td>
+                ${subMode ? `<td style="color:#dc2626;font-weight:700">${m.subscriptions}</td>` : ''}
+                ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${m.purchases}</td>`}
+                ${subMode ? '' : `<td>${m.roas}</td>`}
                 <td>${m.ctr}%</td>
                 <td>${m.hook_rate != null ? `${m.hook_rate}%` : '-'}</td>
                 <td>${m.retention_rate != null ? `${m.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') : '<tr><td colspan="10" class="empty">本板块暂无出单素材</td></tr>'}
+            `).join('') : `<tr><td colspan="${subMode ? 10 : 10}" class="empty">${blockLabels.emptyRanked}</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -339,16 +387,17 @@ function renderMaterialTestBlock(block, sort) {
 
 function renderSurvivalChart(el, trend) {
   if (!survivalChart) survivalChart = echarts.init(el);
+  const survivedName = trend.survived_label || '成活数（有购物）';
   survivalChart.setOption({
     tooltip: { trigger: 'axis' },
-    legend: { data: ['每日素材数', '成活数（有购物）'] },
+    legend: { data: ['每日素材数', survivedName] },
     grid: { left: 48, right: 24, top: 40, bottom: 40 },
     xAxis: { type: 'category', data: trend.dates },
     yAxis: { type: 'value', name: '数量', minInterval: 1 },
     series: [
       { name: '每日素材数', type: 'bar', data: trend.counts, itemStyle: { color: '#1b6b5a' } },
       {
-        name: '成活数（有购物）',
+        name: survivedName,
         type: 'line',
         data: trend.survived_counts,
         itemStyle: { color: '#16a34a' },
@@ -375,6 +424,10 @@ function sortMaterialTestBlocks(report) {
   const blocks = (report.material_test_blocks || []).filter(
     (b) => (b?.summary?.total_materials ?? 0) > 0
   );
+  if (isSubscriptionMode(report)) {
+    const order = { 高价值用户: 0, 英语: 1 };
+    return [...blocks].sort((a, b) => (order[a.label] ?? 9) - (order[b.label] ?? 9));
+  }
   const order = { 新素材: 0, 新方向: 0, 新创意: 0, 老素材: 1, 老方向: 1, 老形式: 1, 图片: 2 };
   return [...blocks].sort((a, b) => (order[a.label] ?? 9) - (order[b.label] ?? 9));
 }
@@ -398,6 +451,8 @@ export async function renderWeeklyUpdate(container, state) {
   const weeks = report.weeks || data.weeks || [];
   state.weeklyWeek = report.week;
   const testBlocks = sortMaterialTestBlocks(report);
+  const labels = metricLabels(report);
+  const subMode = isSubscriptionMode(report);
 
   container.innerHTML = `
     <div class="week-tabs">
@@ -405,13 +460,13 @@ export async function renderWeeklyUpdate(container, state) {
         <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
       `).join('')}
     </div>
-    ${renderSummary(report.kpi, report.prev_week)}
-    ${renderKpiSection(report.kpi, report.prev_week)}
-    ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`))).join('')}
+    ${renderSummary(report.kpi, report.prev_week, labels)}
+    ${renderKpiSection(report.kpi, report.prev_week, labels)}
+    ${testBlocks.map((block) => renderMaterialTestBlock(block, getTableSort(state, `test_${block.label}`, { by: labels.sortDefault, dir: 'desc' }), labels, subMode)).join('')}
     ${renderCrossRubricHeatmap(report.cross_rubric_heatmap)}
     ${renderAudienceDirectionTable(report.cross_rubric_heatmap, { hideIfEmpty: true })}
-    ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction'), report.kpi?.kpi_source)}
-    ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good'), report.kpi?.kpi_source)}
+    ${renderDirectionTable(report.direction_table, getTableSort(state, 'direction', { by: labels.sortDefault, dir: 'desc' }), report.kpi?.kpi_source, labels, subMode)}
+    ${renderGoodMaterials(report.good_materials, getTableSort(state, 'good', { by: labels.sortDefault, dir: 'desc' }), report.kpi?.kpi_source, labels, subMode)}
     ${renderAudienceTest(report.audience_test, getTableSort(state, 'audience'))}
     <div class="card">
       <div class="section-title">本周 First-Seen 成活趋势图</div>

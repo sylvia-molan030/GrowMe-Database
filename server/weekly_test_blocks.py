@@ -1,21 +1,25 @@
-"""按周拆分三类测试素材板块：新素材、老素材、图片。"""
+"""按周拆分测试素材板块：0803 周前 新/老/图片；0803 周起 高价值用户 / 英语。"""
 from __future__ import annotations
 
 from typing import Any
 
-from data_loader import store
+from data_loader import WEEKLY_DATA_SCOPES, store, week_sort_key
 from parser import is_pic_material
 from weekly_report import (
     _aggregate_materials,
     _channel_kpi,
     _overlay_lifecycle_metrics,
     _account_materials_index,
+    uses_subscription_metrics,
 )
 
-
-# 展示顺序：新素材 → 老素材 → 图片
+# 0803 周前：新素材 → 老素材 → 图片
 BLOCK_LABELS = ("新素材", "老素材", "图片")
 BLOCK_ORDER = {label: i for i, label in enumerate(BLOCK_LABELS)}
+
+# 0803 周起：高价值用户 → 英语
+SEGMENT_BLOCK_LABELS = ("高价值用户", "英语")
+SEGMENT_BLOCK_ORDER = {label: i for i, label in enumerate(SEGMENT_BLOCK_LABELS)}
 
 
 def _classify_material(m: dict[str, Any], week_label: str) -> str:
@@ -49,18 +53,30 @@ def _build_block(
     materials: list[dict[str, Any]],
     label: str,
     week_label: str,
+    *,
+    subscription_mode: bool = False,
 ) -> dict[str, Any] | None:
     if not materials:
         return None
-    kpi = _channel_kpi(materials)
-    ordered = [m for m in materials if m.get("purchases", 0) >= 1]
-    ordered.sort(key=lambda m: (-m.get("purchases", 0), -m.get("roas", 0), -m.get("spend", 0)))
+    kpi = _channel_kpi(materials, subscription_mode=subscription_mode)
 
-    notes = {
-        "老素材": f"{week_label} 老素材（设计师 cty），出单指标来自账户全量。",
-        "新素材": f"{week_label} 新素材（非 cty），出单指标来自账户全量。",
-        "图片": f"{week_label} 图片素材（FX-pic；0720周前含 ZT-pic），出单指标来自账户全量。",
-    }
+    if subscription_mode:
+        ranked = [m for m in materials if m.get("subscriptions", 0) >= 1]
+        ranked.sort(
+            key=lambda m: (-m.get("subscriptions", 0), -m.get("roas", 0), -m.get("spend", 0))
+        )
+        notes = {
+            "高价值用户": f"{week_label} 高价值用户板块，订阅指标来自账户全量。",
+            "英语": f"{week_label} 英语板块，订阅指标来自账户全量。",
+        }
+    else:
+        ranked = [m for m in materials if m.get("purchases", 0) >= 1]
+        ranked.sort(key=lambda m: (-m.get("purchases", 0), -m.get("roas", 0), -m.get("spend", 0)))
+        notes = {
+            "老素材": f"{week_label} 老素材（设计师 cty），出单指标来自账户全量。",
+            "新素材": f"{week_label} 新素材（非 cty），出单指标来自账户全量。",
+            "图片": f"{week_label} 图片素材（FX-pic；0720周前含 ZT-pic），出单指标来自账户全量。",
+        }
 
     return {
         "label": label,
@@ -72,23 +88,31 @@ def _build_block(
             "order_rate": kpi["order_rate"],
             "spend": kpi["spend"],
             "subscriptions": kpi["subscriptions"],
+            "metric_mode": kpi.get("metric_mode", "purchase"),
         },
-        "materials": [_material_row(m, i + 1) for i, m in enumerate(ordered)],
+        "materials": [_material_row(m, i + 1) for i, m in enumerate(ranked)],
         "note": notes.get(label, ""),
         "metric_source": "account_lifecycle",
     }
 
 
-def get_weekly_test_blocks(
-    week_label: str,
-    *,
-    lifecycle: bool = True,
-) -> list[dict[str, Any]]:
-    """从周度文件取本周素材，按 cty / pic 规则拆分三块并覆盖账户成效。"""
+def _segment_records(week_label: str, segment_label: str) -> list[dict[str, Any]]:
+    return [
+        r
+        for r in store.records
+        if r.get("data_scope") in WEEKLY_DATA_SCOPES
+        and r.get("week_label") == week_label
+        and r.get("segment_label") == segment_label
+    ]
+
+
+def _legacy_blocks(week_label: str, *, lifecycle: bool) -> list[dict[str, Any]]:
     records = [
         r
         for r in store.records
-        if r.get("data_scope") in ("weekly", "new_direction") and r.get("week_label") == week_label
+        if r.get("data_scope") in WEEKLY_DATA_SCOPES
+        and r.get("week_label") == week_label
+        and not r.get("segment_label")
     ]
     if not records:
         return []
@@ -103,7 +127,34 @@ def get_weekly_test_blocks(
 
     blocks: list[dict[str, Any]] = []
     for label in BLOCK_LABELS:
-        block = _build_block(grouped[label], label, week_label)
+        block = _build_block(grouped[label], label, week_label, subscription_mode=False)
         if block:
             blocks.append(block)
     return blocks
+
+
+def _segment_blocks(week_label: str, *, lifecycle: bool) -> list[dict[str, Any]]:
+    sub_mode = uses_subscription_metrics(week_label)
+    blocks: list[dict[str, Any]] = []
+    for label in SEGMENT_BLOCK_LABELS:
+        records = _segment_records(week_label, label)
+        if not records:
+            continue
+        materials = _aggregate_materials(records)
+        if lifecycle:
+            materials = _overlay_lifecycle_metrics(materials, _account_materials_index())
+        block = _build_block(materials, label, week_label, subscription_mode=sub_mode)
+        if block:
+            blocks.append(block)
+    return blocks
+
+
+def get_weekly_test_blocks(
+    week_label: str,
+    *,
+    lifecycle: bool = True,
+) -> list[dict[str, Any]]:
+    """从周度文件取本周素材，按规则拆分板块并覆盖账户成效。"""
+    if uses_subscription_metrics(week_label):
+        return _segment_blocks(week_label, lifecycle=lifecycle)
+    return _legacy_blocks(week_label, lifecycle=lifecycle)

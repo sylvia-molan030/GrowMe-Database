@@ -42,8 +42,8 @@ if [ ${#FILES[@]} -gt 0 ]; then
       exit 1
     fi
     base="$(basename "$src")"
-    if ! echo "$base" | grep -qiE '周|week|回滚|rollback|老形式|新形式|新创意|图片素材|数字人'; then
-      echo "✗ 文件名须含「周」「week」「回滚」「老形式」「新形式」或「图片素材」等关键词"
+    if ! echo "$base" | grep -qiE '周|week|回滚|rollback|老形式|新形式|新创意|图片素材|数字人|高价值用户|英语'; then
+      echo "✗ 文件名须含「周」「week」「回滚」「老形式」「新形式」「图片素材」「高价值用户」或「英语」等关键词"
       echo "  当前: $base"
       exit 1
     fi

@@ -17,10 +17,17 @@ from parser import AUDIENCE_DIRECTIONS, canonical_audience, canonical_direction,
 
 
 _NEW_SCHEMA_WEEK_KEY = week_sort_key("0629周")
+SUBSCRIPTION_METRIC_CUTOFF_WEEK = "0803周"
+_SUBSCRIPTION_CUTOFF_KEY = week_sort_key(SUBSCRIPTION_METRIC_CUTOFF_WEEK)
 
 
 def _is_new_schema_week(week_label: str) -> bool:
     return week_sort_key(week_label) >= _NEW_SCHEMA_WEEK_KEY
+
+
+def uses_subscription_metrics(week_label: str) -> bool:
+    """0803 周起周维度以订阅率为核心，不看购物出单率。"""
+    return week_sort_key(week_label) >= _SUBSCRIPTION_CUTOFF_KEY
 
 
 def sorted_week_labels() -> list[str]:
@@ -130,7 +137,8 @@ def _report_materials_for_week(week_label: str) -> tuple[list[dict[str, Any]], s
 def _kpi_for_week(week_label: str) -> tuple[dict[str, Any], str]:
     """返回 (kpi, source)。周度名单来自周度文件、成效按账户全量刷新。"""
     mats, source = _report_materials_for_week(week_label)
-    return _channel_kpi(mats), source
+    sub_mode = uses_subscription_metrics(week_label)
+    return _channel_kpi(mats, subscription_mode=sub_mode), source
 
 
 def _aggregate_materials(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -202,26 +210,44 @@ def _weighted_avg(values: list[float], weights: list[float]) -> float:
     return sum(v * w for v, w in zip(values, weights)) / total_w
 
 
-def _channel_kpi(materials: list[dict[str, Any]]) -> dict[str, Any]:
+def _channel_kpi(
+    materials: list[dict[str, Any]],
+    *,
+    subscription_mode: bool = False,
+) -> dict[str, Any]:
     total = len(materials)
-    ordered = [m for m in materials if m["purchases"] >= 1]
-    ge2 = [m for m in materials if m["purchases"] >= 2]
-    ge5 = [m for m in materials if m["purchases"] >= 5]
     spend = sum(m["spend"] for m in materials)
     purchases = sum(m["purchases"] for m in materials)
     subscriptions = sum(m.get("subscriptions", 0) for m in materials)
     impressions = sum(m["impressions"] for m in materials)
     installs = sum(m["installs"] for m in materials)
-    empty_spend = sum(m["spend"] for m in materials if m["purchases"] < 1 and m.get("subscriptions", 0) < 1)
     roas_vals = [(m["roas"], m["spend"]) for m in materials if m["roas"] > 0 and m["spend"] > 0]
     roas = sum(r * s for r, s in roas_vals) / sum(s for _, s in roas_vals) if roas_vals else 0
 
+    if subscription_mode:
+        converted = [m for m in materials if m.get("subscriptions", 0) >= 1]
+        ge2 = [m for m in materials if m.get("subscriptions", 0) >= 2]
+        ge5 = [m for m in materials if m.get("subscriptions", 0) >= 5]
+        empty_spend = sum(
+            m["spend"] for m in materials if m.get("subscriptions", 0) < 1
+        )
+        conversions = int(subscriptions)
+    else:
+        converted = [m for m in materials if m["purchases"] >= 1]
+        ge2 = [m for m in materials if m["purchases"] >= 2]
+        ge5 = [m for m in materials if m["purchases"] >= 5]
+        empty_spend = sum(
+            m["spend"] for m in materials if m["purchases"] < 1 and m.get("subscriptions", 0) < 1
+        )
+        conversions = int(purchases)
+
     return {
         "spend": round(spend, 2),
-        "ordered_materials": len(ordered),
-        "conversions": int(purchases),
+        "ordered_materials": len(converted),
+        "conversions": conversions,
         "subscriptions": int(subscriptions),
-        "order_rate": round(len(ordered) / total * 100, 2) if total else 0,
+        "purchases": int(purchases),
+        "order_rate": round(len(converted) / total * 100, 2) if total else 0,
         "ge2_rate": round(len(ge2) / total * 100, 2) if total else 0,
         "ge5_rate": round(len(ge5) / total * 100, 2) if total else 0,
         "empty_spend": round(empty_spend, 2),
@@ -229,6 +255,7 @@ def _channel_kpi(materials: list[dict[str, Any]]) -> dict[str, Any]:
         "cpm": round(spend / impressions * 1000, 2) if impressions > 0 else None,
         "roas": round(roas, 2),
         "total_materials": total,
+        "metric_mode": "subscription" if subscription_mode else "purchase",
     }
 
 
@@ -245,27 +272,33 @@ def _wow_delta(current: float | int | None, previous: float | int | None) -> dic
     return {"delta": delta, "pct": pct, "direction": "up" if delta > 0 else "down" if delta < 0 else "flat"}
 
 
-def _core_metrics(materials: list[dict[str, Any]]) -> dict[str, Any]:
-    kpi = _channel_kpi(materials)
+def _core_metrics(materials: list[dict[str, Any]], *, subscription_mode: bool = False) -> dict[str, Any]:
+    kpi = _channel_kpi(materials, subscription_mode=subscription_mode)
     return {
         "spend": kpi["spend"],
         "empty_spend": kpi["empty_spend"],
         "cpi": kpi["cpi"],
         "cpm": kpi["cpm"],
         "subscriptions": kpi["subscriptions"],
-        "purchases": kpi["conversions"],
+        "purchases": kpi["conversions"] if subscription_mode else kpi["purchases"],
         "roas": kpi["roas"],
     }
 
 
-def _comparison_table(current: dict[str, Any], previous: dict[str, Any] | None) -> list[dict[str, Any]]:
+def _comparison_table(
+    current: dict[str, Any],
+    previous: dict[str, Any] | None,
+    *,
+    subscription_mode: bool = False,
+) -> list[dict[str, Any]]:
+    conv_label = "总订阅量" if subscription_mode else "总出单量"
     labels = {
         "spend": ("总消耗", "$"),
         "empty_spend": ("空消耗", "$"),
         "cpi": ("CPI", "$"),
         "cpm": ("CPM", "$"),
         "subscriptions": ("订阅数", ""),
-        "purchases": ("总出单量", ""),
+        "purchases": (conv_label, ""),
         "roas": ("平均 ROAS", ""),
     }
     rows = []
@@ -284,7 +317,11 @@ def _comparison_table(current: dict[str, Any], previous: dict[str, Any] | None) 
     return rows
 
 
-def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def _direction_table(
+    materials: list[dict[str, Any]],
+    *,
+    subscription_mode: bool = False,
+) -> list[dict[str, Any]]:
     from parser import canonical_direction
 
     by_dir: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -292,13 +329,21 @@ def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
         by_dir[canonical_direction(m.get("direction") or "未知")].append(m)
 
     rows = []
-    for direction, items in sorted(by_dir.items(), key=lambda x: -sum(i["purchases"] for i in x[1])):
+    sort_key = (
+        (lambda x: -sum(i.get("subscriptions", 0) for i in x[1]))
+        if subscription_mode
+        else (lambda x: -sum(i["purchases"] for i in x[1]))
+    )
+    for direction, items in sorted(by_dir.items(), key=sort_key):
         spend = sum(i["spend"] for i in items)
         impressions = sum(i["impressions"] for i in items)
         installs = sum(i["installs"] for i in items)
         purchases = sum(i["purchases"] for i in items)
         subscriptions = sum(i.get("subscriptions", 0) for i in items)
-        ordered = sum(1 for i in items if i["purchases"] >= 1)
+        if subscription_mode:
+            ordered = sum(1 for i in items if i.get("subscriptions", 0) >= 1)
+        else:
+            ordered = sum(1 for i in items if i["purchases"] >= 1)
         ctr_vals = [i["ctr"] for i in items if i["ctr"] > 0]
         roas_vals = [(i["roas"], i["spend"]) for i in items if i["roas"] > 0 and i["spend"] > 0]
         hook_vals = [(i["hook_rate"], i["impressions"] or 1) for i in items if i.get("hook_rate")]
@@ -325,23 +370,49 @@ def _direction_table(materials: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return rows
 
 
-def _survival_trend(materials: list[dict[str, Any]]) -> dict[str, Any]:
+def _survival_trend(
+    materials: list[dict[str, Any]],
+    *,
+    subscription_mode: bool = False,
+) -> dict[str, Any]:
     by_day: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for m in materials:
         day = m.get("first_seen")
         if day:
             by_day[day].append(m)
     dates = sorted(by_day)
+
+    def _survived(item: dict[str, Any]) -> bool:
+        if subscription_mode:
+            return item.get("subscriptions", 0) >= 1
+        return item.get("purchases", 0) >= 1
+
     return {
         "dates": dates,
         "counts": [len(by_day[d]) for d in dates],
-        "survived_counts": [sum(1 for i in by_day[d] if i["purchases"] >= 1) for d in dates],
+        "survived_counts": [sum(1 for i in by_day[d] if _survived(i)) for d in dates],
+        "survived_label": "有订阅" if subscription_mode else "有购物",
     }
 
 
-def _good_materials(materials: list[dict[str, Any]], limit: int = 12) -> list[dict[str, Any]]:
-    items = [m for m in materials if m["purchases"] >= 1 and m.get("subscriptions", 0) >= 1]
-    items.sort(key=lambda m: (m["purchases"], m.get("roas", 0), m.get("subscriptions", 0)), reverse=True)
+def _good_materials(
+    materials: list[dict[str, Any]],
+    limit: int = 12,
+    *,
+    subscription_mode: bool = False,
+) -> list[dict[str, Any]]:
+    if subscription_mode:
+        items = [m for m in materials if m.get("subscriptions", 0) >= 1]
+        items.sort(
+            key=lambda m: (m.get("subscriptions", 0), m.get("spend", 0), m.get("roas", 0)),
+            reverse=True,
+        )
+    else:
+        items = [m for m in materials if m["purchases"] >= 1 and m.get("subscriptions", 0) >= 1]
+        items.sort(
+            key=lambda m: (m["purchases"], m.get("roas", 0), m.get("subscriptions", 0)),
+            reverse=True,
+        )
     return [
         {
             "material_id": m["material_id"],
@@ -363,11 +434,14 @@ def _short_id(material_id: str, limit: int = 52) -> str:
     return mid if len(mid) <= limit else f"{mid[:limit]}…"
 
 
-def _material_blurb(m: dict[str, Any]) -> str:
-    parts = [f"购物 {int(m.get('purchases', 0))}"]
-    subs = int(m.get("subscriptions", 0))
-    if subs:
-        parts.append(f"订阅 {subs}")
+def _material_blurb(m: dict[str, Any], *, subscription_mode: bool = False) -> str:
+    if subscription_mode:
+        parts = [f"订阅 {int(m.get('subscriptions', 0))}"]
+    else:
+        parts = [f"购物 {int(m.get('purchases', 0))}"]
+        subs = int(m.get("subscriptions", 0))
+        if subs:
+            parts.append(f"订阅 {subs}")
     if m.get("roas"):
         parts.append(f"ROAS {round(m['roas'], 2)}")
     if m.get("ctr"):
@@ -384,52 +458,76 @@ def _generate_insights(
     combined_kpi: dict[str, Any],
     prev_combined: dict[str, Any] | None,
     directions: list[dict[str, Any]],
+    *,
+    subscription_mode: bool = False,
 ) -> list[str]:
     insights: list[str] = []
     total = combined_kpi["total_materials"]
-    order_rate = combined_kpi["order_rate"]
-    ordered_materials = combined_kpi["ordered_materials"]
+    rate = combined_kpi["order_rate"]
+    converted_materials = combined_kpi["ordered_materials"]
+    rate_name = "订阅率" if subscription_mode else "出单率"
+    mat_name = "订阅素材" if subscription_mode else "出单素材"
+    conv_name = "订阅量" if subscription_mode else "出单"
 
     if prev_week and prev_combined:
-        rate_delta = order_rate - prev_combined["order_rate"]
-        ord_delta = ordered_materials - prev_combined["ordered_materials"]
+        rate_delta = rate - prev_combined["order_rate"]
+        ord_delta = converted_materials - prev_combined["ordered_materials"]
         arrow = f"↑{rate_delta:.1f}" if rate_delta > 0 else f"↓{abs(rate_delta):.1f}" if rate_delta < 0 else "持平"
         ord_arrow = f"↑{ord_delta}" if ord_delta > 0 else f"↓{abs(ord_delta)}" if ord_delta < 0 else "持平"
         insights.append(
-            f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%（较 {prev_week} {arrow}pp），"
-            f"出单素材 {ordered_materials} 条（较上周 {ord_arrow}）。"
-            f"上周出单率 {prev_combined['order_rate']}%，出单素材 {prev_combined['ordered_materials']} 条。"
+            f"【素材{rate_name}】{week} 上新 {total} 条，{rate_name} {rate}%（较 {prev_week} {arrow}pp），"
+            f"{mat_name} {converted_materials} 条（较上周 {ord_arrow}）。"
+            f"上周{rate_name} {prev_combined['order_rate']}%，{mat_name} {prev_combined['ordered_materials']} 条。"
         )
     else:
         insights.append(
-            f"【素材测出率】{week} 上新 {total} 条，出单率 {order_rate}%，出单素材 {ordered_materials} 条。"
+            f"【素材{rate_name}】{week} 上新 {total} 条，{rate_name} {rate}%，{mat_name} {converted_materials} 条。"
         )
 
-    ordered = [m for m in materials if m.get("purchases", 0) >= 1]
-    if ordered:
-        best = max(ordered, key=lambda m: (m.get("purchases", 0), m.get("subscriptions", 0), m.get("roas", 0)))
+    if subscription_mode:
+        converted = [m for m in materials if m.get("subscriptions", 0) >= 1]
+    else:
+        converted = [m for m in materials if m.get("purchases", 0) >= 1]
+
+    if converted:
+        if subscription_mode:
+            best = max(converted, key=lambda m: (m.get("subscriptions", 0), m.get("roas", 0), m.get("spend", 0)))
+        else:
+            best = max(converted, key=lambda m: (m.get("purchases", 0), m.get("subscriptions", 0), m.get("roas", 0)))
         insights.append(
             f"【本周最强素材】{_short_id(best['material_id'])}（{best.get('direction', '-')} / {best.get('designer', '-')}）："
-            f"{_material_blurb(best)}。"
+            f"{_material_blurb(best, subscription_mode=subscription_mode)}。"
         )
     else:
-        insights.append("【本周最强素材】本周暂无出单素材，建议优先排查钩子与定向。")
+        empty_hint = "暂无订阅素材" if subscription_mode else "暂无出单素材"
+        insights.append(f"【本周最强素材】本周{empty_hint}，建议优先排查钩子与定向。")
 
-    signal_pool = [m for m in materials if m.get("purchases", 0) >= 1 and m.get("subscriptions", 0) >= 1]
-    if signal_pool:
-        signal = max(signal_pool, key=lambda m: (m.get("purchases", 0) + m.get("subscriptions", 0), m.get("roas", 0)))
-        insights.append(
-            f"【高转化信号素材】{_short_id(signal['material_id'])}（购物+订阅双达标）："
-            f"{_material_blurb(signal)}，具备放量验证价值。"
-        )
-    elif ordered:
-        alt = max(ordered, key=lambda m: (m.get("roas", 0), m.get("purchases", 0)))
-        insights.append(
-            f"【高转化信号素材】暂无购物+订阅双达标；ROAS 最高出单素材为 {_short_id(alt['material_id'])}："
-            f"{_material_blurb(alt)}。"
-        )
+    if subscription_mode:
+        signal_pool = [m for m in materials if m.get("subscriptions", 0) >= 1]
+        if signal_pool:
+            signal = max(signal_pool, key=lambda m: (m.get("subscriptions", 0), m.get("roas", 0)))
+            insights.append(
+                f"【高转化信号素材】{_short_id(signal['material_id'])}（订阅达标）："
+                f"{_material_blurb(signal, subscription_mode=True)}，具备放量验证价值。"
+            )
+        else:
+            insights.append("【高转化信号素材】本周暂无订阅，建议从钩子与落地页组合继续迭代。")
     else:
-        insights.append("【高转化信号素材】本周暂无出单，建议从钩子与落地页组合继续迭代。")
+        signal_pool = [m for m in materials if m.get("purchases", 0) >= 1 and m.get("subscriptions", 0) >= 1]
+        if signal_pool:
+            signal = max(signal_pool, key=lambda m: (m.get("purchases", 0) + m.get("subscriptions", 0), m.get("roas", 0)))
+            insights.append(
+                f"【高转化信号素材】{_short_id(signal['material_id'])}（购物+订阅双达标）："
+                f"{_material_blurb(signal)}，具备放量验证价值。"
+            )
+        elif converted:
+            alt = max(converted, key=lambda m: (m.get("roas", 0), m.get("purchases", 0)))
+            insights.append(
+                f"【高转化信号素材】暂无购物+订阅双达标；ROAS 最高出单素材为 {_short_id(alt['material_id'])}："
+                f"{_material_blurb(alt)}。"
+            )
+        else:
+            insights.append("【高转化信号素材】本周暂无出单，建议从钩子与落地页组合继续迭代。")
 
     hook_pool = [m for m in materials if m.get("hook_rate", 0) > 0 and m.get("spend", 0) > 0]
     if hook_pool:
@@ -452,12 +550,20 @@ def _generate_insights(
         insights.append("【留存率最高素材】本周缺少完播/留存数据，暂无法评选。")
 
     if directions:
-        top = max(directions, key=lambda d: d["purchases"])
-        insights.append(
-            f"【方向表现】「{top['direction']}」购物 {top['purchases']} 单领先，"
-            f"出单素材 {top['ordered_ratio']}，ROAS {top['roas']}；"
-            f"共 {top['total_materials']} 条素材参与本周 WW 测试。"
-        )
+        if subscription_mode:
+            top = max(directions, key=lambda d: d["subscriptions"])
+            insights.append(
+                f"【方向表现】「{top['direction']}」订阅 {top['subscriptions']} 次领先，"
+                f"订阅素材 {top['ordered_ratio']}，ROAS {top['roas']}；"
+                f"共 {top['total_materials']} 条素材参与本周 WW 测试。"
+            )
+        else:
+            top = max(directions, key=lambda d: d["purchases"])
+            insights.append(
+                f"【方向表现】「{top['direction']}」购物 {top['purchases']} 单领先，"
+                f"出单素材 {top['ordered_ratio']}，ROAS {top['roas']}；"
+                f"共 {top['total_materials']} 条素材参与本周 WW 测试。"
+            )
 
     return insights
 
@@ -495,6 +601,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
         week = labels[-1]
 
     prev = _prev_week_label(week)
+    sub_mode = uses_subscription_metrics(week)
 
     # 当前测试周：周度名单 + 账户覆盖；其余周：账户全量生命周期（方向表/好素材/热力图同步）
     all_materials, materials_source = _report_materials_for_week(week)
@@ -505,11 +612,11 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
     if prev:
         prev_combined, _ = _kpi_for_week(prev)
         prev_materials, _ = _report_materials_for_week(prev)
-        prev_metrics = _core_metrics(prev_materials)
+        prev_metrics = _core_metrics(prev_materials, subscription_mode=uses_subscription_metrics(prev))
 
-    current_metrics = _core_metrics(all_materials)
-    directions = _direction_table(all_materials)
-    good = _good_materials(all_materials)
+    current_metrics = _core_metrics(all_materials, subscription_mode=sub_mode)
+    directions = _direction_table(all_materials, subscription_mode=sub_mode)
+    good = _good_materials(all_materials, subscription_mode=sub_mode)
 
     wow: dict[str, Any] = {}
     if prev_combined:
@@ -543,13 +650,15 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "wow": wow,
             "kpi_source": kpi_source,
             "materials_source": materials_source,
+            "metric_mode": combined_kpi.get("metric_mode", "purchase"),
         },
-        "core_comparison": _comparison_table(current_metrics, prev_metrics),
+        "core_comparison": _comparison_table(current_metrics, prev_metrics, subscription_mode=sub_mode),
         "good_materials": good,
         "direction_table": directions,
-        "survival_trend": _survival_trend(all_materials),
+        "survival_trend": _survival_trend(all_materials, subscription_mode=sub_mode),
         "insights": _generate_insights(
-            week, prev, all_materials, combined_kpi, prev_combined, directions
+            week, prev, all_materials, combined_kpi, prev_combined, directions,
+            subscription_mode=sub_mode,
         ),
     }
     if _is_new_schema_week(week):
@@ -570,11 +679,18 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             report["kpi"]["breakdown"] = breakdown
         for block in reversed(test_blocks):
             s = block["summary"]
-            report["insights"].insert(
-                0,
-                f"【{block['label']}】测试 {s['total_materials']} 条，"
-                f"出单 {s['conversions']} 单，出单率 {s['order_rate']}%。",
-            )
+            if sub_mode:
+                report["insights"].insert(
+                    0,
+                    f"【{block['label']}】测试 {s['total_materials']} 条，"
+                    f"订阅 {s['conversions']} 次，订阅率 {s['order_rate']}%。",
+                )
+            else:
+                report["insights"].insert(
+                    0,
+                    f"【{block['label']}】测试 {s['total_materials']} 条，"
+                    f"出单 {s['conversions']} 单，出单率 {s['order_rate']}%。",
+                )
     try:
         from audience_test_report import get_audience_test_for_week
         audience_test = get_audience_test_for_week(week)

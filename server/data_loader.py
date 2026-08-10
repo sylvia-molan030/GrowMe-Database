@@ -41,6 +41,8 @@ ROLLBACK_FILE_RE = re.compile(r"回滚|rollback", re.IGNORECASE)
 NEW_DIRECTION_FILE_RE = re.compile(
     r"数字人|新创意|新形式|新方向|图片素材|图片数据", re.IGNORECASE
 )
+# 0803 周起：高价值用户 / 英语 分板块周度文件
+SEGMENT_FILE_RE = re.compile(r"高价值用户|英语", re.IGNORECASE)
 # 周度上新素材：常规周度文件 + 新方向测试（如数字人）
 WEEKLY_DATA_SCOPES = frozenset({"weekly", "new_direction"})
 # 周度 KPI 口径：在上新素材基础上合并按日期归入当周的回滚成效
@@ -76,14 +78,14 @@ CHANNEL_LABELS = {
 
 def _detect_channel(filename: str, account: str = "") -> str:
     """T1 = 美国等国家；WW = 全球。账户全量文件按广告组名称判断。"""
+    # 标准周度 Tab 均为 WW 口径（含 T1 广告组命名的 segment 文件）
+    if re.match(r"^\d{4}周", filename) and not ROLLBACK_FILE_RE.search(filename):
+        return "WW"
     account_upper = account.upper()
     if "_WW_" in account_upper or "GROWME_WW" in account_upper:
         return "WW"
     if "_T1_" in account_upper or "GROWME_T1" in account_upper:
         return "T1"
-    # 标准周度 Tab（含 regenerate 产物）均为 WW 口径
-    if re.match(r"^\d{4}周", filename) and not ROLLBACK_FILE_RE.search(filename):
-        return "WW"
     name = filename.upper()
     if "WW" in name or "WW的数据" in filename or name.startswith("ACCOUNT_"):
         return "WW"
@@ -175,6 +177,14 @@ def _detect_week_label(filename: str) -> str:
     if m:
         return m.group(1) + "周"
     return Path(filename).stem
+
+
+def _detect_segment_label(filename: str) -> str | None:
+    if "高价值用户" in filename:
+        return "高价值用户"
+    if "英语" in filename:
+        return "英语"
+    return None
 
 
 def week_sort_key(label: str) -> int:
@@ -379,6 +389,7 @@ class DataStore:
                     "channel": channel,
                     "data_scope": data_scope,
                     "week_label": week_label,
+                    "segment_label": _detect_segment_label(filename),
                     "source_file": filename,
                     "report_start": report_start,
                     "report_end": report_end,

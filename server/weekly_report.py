@@ -287,6 +287,7 @@ def _core_metrics(materials: list[dict[str, Any]], *, subscription_mode: bool = 
         "subscriptions": kpi["subscriptions"],
         "purchases": kpi["conversions"] if subscription_mode else kpi["purchases"],
         "order_rate": kpi["order_rate"],
+        "subscription_cost": kpi.get("subscription_cost"),
         "roas": kpi["roas"],
     }
 
@@ -307,6 +308,7 @@ def _comparison_table(
         "order_rate": (rate_label, "%"),
         "subscriptions": ("订阅数", ""),
         "purchases": (conv_label, ""),
+        "subscription_cost": ("订阅成本", "$"),
         "roas": ("平均 ROAS", ""),
     }
     rows = []
@@ -358,6 +360,9 @@ def _direction_table(
         ret_vals = [(i["retention_rate"], i["impressions"] or 1) for i in items if i.get("retention_rate")]
 
         total = len(items)
+        sub_cost = (
+            round(spend / subscriptions, 2) if subscription_mode and subscriptions > 0 else None
+        )
         rows.append(
             {
                 "direction": direction,
@@ -365,6 +370,7 @@ def _direction_table(
                 "ordered_materials": ordered,
                 "ordered_ratio": f"{ordered}/{total}",
                 "order_rate": round(ordered / total * 100, 2) if total else 0,
+                "subscription_cost": sub_cost,
                 "ctr": round(sum(ctr_vals) / len(ctr_vals), 2) if ctr_vals else 0,
                 "cpi": round(spend / installs, 2) if installs > 0 else None,
                 "roas": round(sum(r * s for r, s in roas_vals) / sum(s for _, s in roas_vals), 2) if roas_vals else 0,
@@ -430,6 +436,11 @@ def _good_materials(
             "designer": m.get("designer"),
             "purchases": int(m["purchases"]),
             "subscriptions": int(m.get("subscriptions", 0)),
+            "subscription_cost": (
+                round(m["spend"] / m.get("subscriptions", 0), 2)
+                if subscription_mode and m.get("subscriptions", 0) > 0
+                else None
+            ),
             "roas": round(m["roas"], 2),
             "ctr": round(m["ctr"], 2),
             "spend": round(m["spend"], 2),

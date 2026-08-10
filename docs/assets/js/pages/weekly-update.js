@@ -80,6 +80,9 @@ function renderSummary(kpi, prevWeek, labels) {
   let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${kpi.total_materials || 0} 条素材`;
   if (kpi.ordered_materials != null) summaryLine += `，${labels.orderedShort} ${kpi.ordered_materials} 条`;
   summaryLine += `，${labels.rate} ${kpi.order_rate || 0}%${orderRateDelta}`;
+  if (labels.rate === '订阅率' && kpi.subscription_cost != null) {
+    summaryLine += `，订阅成本 $${kpi.subscription_cost}`;
+  }
   if (kpi.avg_roas && labels.rate === '出单率') summaryLine += `，平均 ROAS ${kpi.avg_roas}`;
 
   return `
@@ -179,6 +182,7 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
     ? `全量生命周期 · ${labels.goodHint}`
     : labels.goodHint;
   const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
+  const subCostCol = subMode ? `${sortTh('订阅成本', 'subscription_cost', sort, 'num')}` : '';
   return `
     <div class="card">
       <div class="section-title">本周好素材 <span class="muted">（${hint}）</span></div>
@@ -192,6 +196,7 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
               ${sortTh('花费', 'spend', sort)}
               ${purchaseCol}
               ${sortTh('订阅', 'subscriptions', sort)}
+              ${subCostCol}
               ${subMode ? '' : sortTh('ROAS', 'roas', sort)}
               ${sortTh('CTR', 'ctr', sort)}
             </tr>
@@ -205,10 +210,11 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
                 <td>$${m.spend}</td>
                 ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${m.purchases}</td>`}
                 <td style="${subMode ? 'color:#dc2626;font-weight:700' : ''}">${m.subscriptions}</td>
+                ${subMode ? `<td>${m.subscription_cost != null ? `$${m.subscription_cost}` : '-'}</td>` : ''}
                 ${subMode ? '' : `<td>${m.roas}</td>`}
                 <td>${m.ctr}%</td>
               </tr>
-            `).join('') : `<tr><td colspan="${subMode ? 6 : 8}" class="empty">本周暂无${subMode ? '订阅' : '双转化'}好素材</td></tr>`}
+            `).join('') : `<tr><td colspan="${subMode ? 7 : 8}" class="empty">本周暂无${subMode ? '订阅' : '双转化'}好素材</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -249,7 +255,7 @@ function renderCoreComparison(rows, labels, subMode) {
                 return `${v}${unit}`;
               };
               return `
-                <tr${r.key === 'order_rate' && subMode ? ' style="background:#f0f9f6"' : ''}>
+                <tr${subMode && (r.key === 'order_rate' || r.key === 'subscription_cost') ? ' style="background:#f0f9f6"' : ''}>
                   <td><strong>${escapeHtml(r.label)}</strong></td>
                   <td>${fmtVal(r.current)}</td>
                   <td>${fmtVal(r.previous)}</td>
@@ -271,6 +277,7 @@ function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
     : '点击表头排序';
   const orderedLabel = subMode ? '订阅素材' : '出单素材';
   const rateCol = subMode ? `${sortTh('订阅率', 'order_rate', sort, 'num')}` : '';
+  const subCostCol = subMode ? `${sortTh('订阅成本', 'subscription_cost', sort, 'num')}` : '';
   const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
   return `
     <div class="card">
@@ -284,6 +291,7 @@ function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
               ${rateCol}
               ${sortTh(orderedLabel, 'ordered_materials', sort)}
               ${sortTh('消耗', 'spend', sort)}
+              ${subCostCol}
               ${sortTh('CTR', 'ctr', sort)}
               ${sortTh('CPI', 'cpi', sort)}
               ${subMode ? '' : sortTh('ROAS', 'roas', sort)}
@@ -301,6 +309,7 @@ function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
                 ${subMode ? `<td><strong style="color:#0d3f35">${r.order_rate ?? 0}%</strong></td>` : ''}
                 <td><strong>${r.ordered_ratio || `${r.ordered_materials}/${r.total_materials || '-'}`}</strong></td>
                 <td>$${r.spend ?? '-'}</td>
+                ${subMode ? `<td>${r.subscription_cost != null ? `$${r.subscription_cost}` : '-'}</td>` : ''}
                 <td>${r.ctr}%</td>
                 <td>${r.cpi !== null && r.cpi !== undefined ? `$${r.cpi}` : '-'}</td>
                 ${subMode ? '' : `<td>${r.roas}</td>`}
@@ -309,7 +318,7 @@ function renderDirectionTable(rows, sort, kpiSource, labels, subMode) {
                 <td>${r.hook_rate ? `${r.hook_rate}%` : '-'}</td>
                 <td>${r.retention_rate ? `${r.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') || `<tr><td colspan="${subMode ? 10 : 11}" class="empty">暂无方向数据</td></tr>`}
+            `).join('') || `<tr><td colspan="${subMode ? 11 : 11}" class="empty">暂无方向数据</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -395,11 +404,12 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
     <div class="card weekly-callout">
       <div class="section-title">本周测试 · ${escapeHtml(block.label)} <span class="muted">（点击表头排序）</span></div>
       <p class="weekly-callout-note">${escapeHtml(block.note || '')}</p>
-      <div class="kpi-grid kpi-grid-4 weekly-callout-kpi">
+      <div class="kpi-grid weekly-callout-kpi">
         ${kpiCard('测试素材量', `${s.total_materials ?? 0} 条`)}
         ${kpiCard(blockLabels.orderedMaterials, `${s.ordered_materials ?? 0} 条`)}
         ${kpiCard(blockLabels.conversions, s.conversions ?? 0)}
         ${kpiCard(blockLabels.rate, `${s.order_rate ?? 0}%`)}
+        ${subMode ? kpiCard('订阅成本', s.subscription_cost != null ? `$${s.subscription_cost}` : '-', null, '花费 ÷ 总订阅量') : ''}
       </div>
       <div class="table-wrap">
         <table data-sort-key="${escapeHtml(sortKey)}">

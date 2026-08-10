@@ -380,7 +380,7 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
     conversions: '总订阅量',
     rate: '订阅率',
     cost: '订阅成本',
-    emptyRanked: '本板块暂无测试素材',
+    emptyRanked: '本板块暂无订阅素材',
   } : {
     orderedMaterials: '出单素材量',
     conversions: '总出单量',

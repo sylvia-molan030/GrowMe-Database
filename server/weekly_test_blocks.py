@@ -30,18 +30,22 @@ def _classify_material(m: dict[str, Any], week_label: str) -> str:
     return "新素材"
 
 
-def _material_row(m: dict[str, Any], rank: int) -> dict[str, Any]:
+def _material_row(m: dict[str, Any], rank: int, *, subscription_mode: bool = False) -> dict[str, Any]:
     hook = m.get("hook_rate") or 0
     retention = m.get("retention_rate") or 0
+    subs = int(m.get("subscriptions", 0))
+    spend = round(m.get("spend", 0), 2)
+    sub_cost = round(spend / subs, 2) if subscription_mode and subs > 0 else None
     return {
         "rank": rank,
         "material_id": m["material_id"],
         "direction": m.get("direction"),
         "theme": m.get("theme"),
         "designer": m.get("designer"),
-        "spend": round(m.get("spend", 0), 2),
+        "spend": spend,
         "purchases": int(m.get("purchases", 0)),
-        "subscriptions": int(m.get("subscriptions", 0)),
+        "subscriptions": subs,
+        "subscription_cost": sub_cost,
         "roas": round(m.get("roas", 0), 2),
         "ctr": round(m.get("ctr", 0), 2),
         "hook_rate": round(hook, 2) if hook else None,
@@ -88,9 +92,13 @@ def _build_block(
             "order_rate": kpi["order_rate"],
             "spend": kpi["spend"],
             "subscriptions": kpi["subscriptions"],
+            "subscription_cost": kpi.get("subscription_cost"),
             "metric_mode": kpi.get("metric_mode", "purchase"),
         },
-        "materials": [_material_row(m, i + 1) for i, m in enumerate(ranked)],
+        "materials": [
+            _material_row(m, i + 1, subscription_mode=subscription_mode)
+            for i, m in enumerate(ranked)
+        ],
         "note": notes.get(label, ""),
         "metric_source": "account_lifecycle",
     }

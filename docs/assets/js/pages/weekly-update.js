@@ -106,6 +106,7 @@ function renderKpiSection(kpi, prevWeek, labels) {
       ${kpiCard(labels.orderedMaterials, kpi.ordered_materials, hasWow ? wow.ordered_materials : null)}
       ${kpiCard(labels.conversions, kpi.conversions, hasWow ? wow.conversions : null)}
       ${kpiCard(labels.rate, `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
+      ${labels.rate === '订阅率' ? kpiCard('订阅成本', kpi.subscription_cost != null ? `$${kpi.subscription_cost}` : '-', hasWow ? wow.subscription_cost : null, '花费 ÷ 总订阅量') : ''}
       ${labels.rate === '出单率' ? kpiCard('平均 ROAS', kpi.avg_roas ?? '-', hasWow ? wow.avg_roas : null) : ''}
     </div>
   `;
@@ -335,6 +336,15 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
   const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
   const roasCol = subMode ? '' : `${sortTh('ROAS', 'roas', sort)}`;
   const subCol = subMode ? `${sortTh('订阅', 'subscriptions', sort)}` : '';
+  const subCostCol = subMode ? `${sortTh('订阅成本', 'subscription_cost', sort, 'num')}` : '';
+  const colCount = subMode ? 10 : 10;
+  const subCostFooter = subMode && s.subscription_cost != null
+    ? `
+      <div style="margin-top:12px;padding:10px 12px;background:#f0f9f6;border-radius:8px;font-size:13px;color:#0d3f35">
+        <strong>订阅成本</strong>：$${s.subscription_cost}
+        <span class="muted">（板块花费 $${s.spend ?? 0} ÷ 总订阅量 ${s.conversions ?? 0}）</span>
+      </div>`
+    : '';
   return `
     <div class="card weekly-callout">
       <div class="section-title">本周测试 · ${escapeHtml(block.label)} <span class="muted">（点击表头排序）</span></div>
@@ -355,6 +365,7 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
               ${sortTh('设计师', 'designer', sort)}
               ${sortTh('花费', 'spend', sort)}
               ${subCol}
+              ${subCostCol}
               ${purchaseCol}
               ${roasCol}
               ${sortTh('CTR', 'ctr', sort)}
@@ -371,16 +382,18 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
                 <td>${escapeHtml(m.designer || '-')}</td>
                 <td>$${m.spend}</td>
                 ${subMode ? `<td style="color:#dc2626;font-weight:700">${m.subscriptions}</td>` : ''}
+                ${subMode ? `<td>${m.subscription_cost != null ? `$${m.subscription_cost}` : '-'}</td>` : ''}
                 ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${m.purchases}</td>`}
                 ${subMode ? '' : `<td>${m.roas}</td>`}
                 <td>${m.ctr}%</td>
                 <td>${m.hook_rate != null ? `${m.hook_rate}%` : '-'}</td>
                 <td>${m.retention_rate != null ? `${m.retention_rate}%` : '-'}</td>
               </tr>
-            `).join('') : `<tr><td colspan="${subMode ? 10 : 10}" class="empty">${blockLabels.emptyRanked}</td></tr>`}
+            `).join('') : `<tr><td colspan="${colCount}" class="empty">${blockLabels.emptyRanked}</td></tr>`}
           </tbody>
         </table>
       </div>
+      ${subCostFooter}
     </div>
   `;
 }

@@ -241,6 +241,10 @@ def _channel_kpi(
         )
         conversions = int(purchases)
 
+    subscription_cost = (
+        round(spend / subscriptions, 2) if subscription_mode and subscriptions > 0 else None
+    )
+
     return {
         "spend": round(spend, 2),
         "ordered_materials": len(converted),
@@ -253,6 +257,7 @@ def _channel_kpi(
         "empty_spend": round(empty_spend, 2),
         "cpi": round(spend / installs, 2) if installs > 0 else None,
         "cpm": round(spend / impressions * 1000, 2) if impressions > 0 else None,
+        "subscription_cost": subscription_cost,
         "roas": round(roas, 2),
         "total_materials": total,
         "metric_mode": "subscription" if subscription_mode else "purchase",
@@ -629,6 +634,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "ordered_materials",
             "conversions",
             "subscriptions",
+            "subscription_cost",
         ):
             wow[key] = _wow_delta(combined_kpi.get(key), prev_combined.get(key))
         wow["avg_roas"] = _wow_delta(combined_kpi.get("roas"), prev_combined.get("roas"))
@@ -646,6 +652,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "ordered_materials": combined_kpi["ordered_materials"],
             "conversions": combined_kpi["conversions"],
             "subscriptions": combined_kpi["subscriptions"],
+            "subscription_cost": combined_kpi.get("subscription_cost"),
             "avg_roas": combined_kpi["roas"],
             "wow": wow,
             "kpi_source": kpi_source,

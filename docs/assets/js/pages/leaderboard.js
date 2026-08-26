@@ -1,6 +1,7 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 import { bindCopyMaterials } from '../copy-material.js';
+import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml, summaryMetricsFromRows } from '../material-metrics.js';
 
 const DESIGNER_STYLES = {
   gy: { bg: '#dbeafe', color: '#1d4ed8' },
@@ -89,6 +90,7 @@ function renderSummaryBar(allRows) {
   const orderRate = allRows.length
     ? Math.round(allRows.filter((m) => m.purchases >= 1).length / allRows.length * 1000) / 10
     : 0;
+  const subMetrics = summaryMetricsFromRows(allRows);
 
   return `
     <div class="card" style="margin-bottom:12px">
@@ -96,6 +98,9 @@ function renderSummaryBar(allRows) {
         <div class="summary-item"><span class="label">素材数</span><span class="value">${allRows.length}</span></div>
         <div class="summary-item"><span class="label">总出单</span><span class="value red">${sumOrders}</span></div>
         <div class="summary-item"><span class="label">总消耗</span><span class="value">$${sumSpend}</span></div>
+        <div class="summary-item"><span class="label">总订阅数</span><span class="value red">${subMetrics.total_subscriptions}</span></div>
+        <div class="summary-item"><span class="label">素材订阅率</span><span class="value">${subMetrics.subscription_rate}%</span></div>
+        <div class="summary-item"><span class="label">平均CPI</span><span class="value">${fmtCpi(subMetrics.avg_cpi)}</span></div>
         <div class="summary-item"><span class="label">平均ROAS</span><span class="value ${avgROAS >= 0.4 ? 'green' : 'red'}">${avgROAS}</span></div>
         <div class="summary-item"><span class="label">出单率</span><span class="value">${orderRate}%</span></div>
       </div>
@@ -163,11 +168,14 @@ function renderTable(rows, sortBy, sortDir, trends, openTrendId) {
     return `
       <tr class="leaderboard-row" data-mid="${escapeHtml(midKey)}">
         <td>${r.rank}</td>
-        <td class="cell-material-name" data-copy="${escapeHtml(r.material_id)}" title="点击复制">${escapeHtml(r.material_id)}</td>
+        <td>${materialNameHtml(r, escapeHtml)}</td>
         <td>${designerPill(r.designer)}</td>
         <td>${escapeHtml(r.serial_code || '-')}</td>
         <td>$${r.spend}</td>
         <td>${r.purchases}</td>
+        <td>${fmtSubs(r.subscriptions)}</td>
+        <td>${fmtCpi(r.cpi)}</td>
+        <td>${fmtSubRate(r.subscription_rate)}</td>
         <td class="${roasClass(r.roas)}">${r.roas}</td>
         <td>${formatRate(r.hook_rate)}</td>
         <td>${formatRate(r.retention_rate)}</td>
@@ -175,7 +183,7 @@ function renderTable(rows, sortBy, sortDir, trends, openTrendId) {
         <td><button type="button" class="btn btn-sm trend-toggle ${isOpen ? 'active' : ''}" data-trend-toggle="${escapeHtml(midKey)}">${isOpen ? '收起' : '趋势'}</button></td>
       </tr>
       <tr class="trend-row ${isOpen ? '' : 'hidden'}" data-trend-row="${escapeHtml(midKey)}">
-        <td colspan="11">
+        <td colspan="14">
           <div class="trend-panel">
             ${trend?.dates?.length
               ? `<div class="trend-chart" id="trend-chart-${r.rank}" style="height:220px"></div>${trendTableHtml(trend)}`
@@ -197,6 +205,9 @@ function renderTable(rows, sortBy, sortDir, trends, openTrendId) {
             <th>编号</th>
             <th data-sort="spend" class="${sortBy === 'spend' ? 'sorted' : ''}">累计消耗${arrow('spend')}</th>
             <th data-sort="purchases" class="${sortBy === 'purchases' ? 'sorted' : ''}">期间总出单量${arrow('purchases')}</th>
+            <th data-sort="subscriptions" class="${sortBy === 'subscriptions' ? 'sorted' : ''}">订阅数${arrow('subscriptions')}</th>
+            <th data-sort="cpi" class="${sortBy === 'cpi' ? 'sorted' : ''}">CPI${arrow('cpi')}</th>
+            <th data-sort="subscription_rate" class="${sortBy === 'subscription_rate' ? 'sorted' : ''}">订阅率${arrow('subscription_rate')}</th>
             <th data-sort="roas" class="${sortBy === 'roas' ? 'sorted' : ''}">综合 ROAS${arrow('roas')}</th>
             <th data-sort="hook_rate" class="${sortBy === 'hook_rate' ? 'sorted' : ''}">吸睛率${arrow('hook_rate')}</th>
             <th data-sort="retention_rate" class="${sortBy === 'retention_rate' ? 'sorted' : ''}">持续播放率${arrow('retention_rate')}</th>
@@ -204,7 +215,7 @@ function renderTable(rows, sortBy, sortDir, trends, openTrendId) {
             <th>每日趋势</th>
           </tr>
         </thead>
-        <tbody>${body || '<tr><td colspan="11" class="empty">暂无数据</td></tr>'}</tbody>
+        <tbody>${body || '<tr><td colspan="14" class="empty">暂无数据</td></tr>'}</tbody>
       </table>
     </div>
   `;
@@ -325,10 +336,11 @@ export async function renderLeaderboard(container, state) {
     const all = await api.materials(q, {
       keyword, sort_by: sortBy, sort_dir: sortDir, page: 1, page_size: 5000, mode: state.filters.mode,
     });
-    const header = ['排名', '素材ID', '设计师', '编号', '消耗', '出单量', 'ROAS', '吸睛率', '持续播放率', '放量状态'];
+    const header = ['排名', '素材ID', '设计师', '编号', '消耗', '出单量', '订阅数', 'CPI', '订阅率', 'ROAS', '吸睛率', '持续播放率', '放量状态'];
     const lines = [header.join(',')].concat(
       all.rows.map((r) => [
-        r.rank, `"${r.material_id}"`, r.designer, r.serial_code, r.spend, r.purchases, r.roas,
+        r.rank, `"${r.material_id}"`, r.designer, r.serial_code, r.spend, r.purchases,
+        r.subscriptions ?? 0, r.cpi ?? '', r.subscription_rate ?? '', r.roas,
         r.hook_rate || '', r.retention_rate || '', r.scaling_status || '',
       ].join(','))
     );

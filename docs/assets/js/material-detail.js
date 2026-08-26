@@ -1,4 +1,5 @@
 import { bindCopyMaterials } from './copy-material.js';
+import { fmtCpi, fmtSubRate, fmtSubs } from './material-metrics.js';
 
 function escapeHtml(text) {
   return String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -41,6 +42,9 @@ export function showMaterialDetail(mat) {
           <div class="detail-item"><span class="label">持续播放率</span><span class="value" style="font-weight:600">${formatRate(mat.retention_rate)}</span></div>
           <div class="detail-item"><span class="label">消耗</span><span class="value" style="color:var(--red)">$${mat.spend || 0}</span></div>
           <div class="detail-item"><span class="label">出单</span><span class="value" style="font-weight:700;color:#dc2626">${mat.purchases || 0}</span></div>
+          <div class="detail-item"><span class="label">订阅数</span><span class="value" style="font-weight:700;color:#dc2626">${fmtSubs(mat.subscriptions)}</span></div>
+          <div class="detail-item"><span class="label">CPI</span><span class="value">${fmtCpi(mat.cpi)}</span></div>
+          <div class="detail-item"><span class="label">订阅率</span><span class="value">${fmtSubRate(mat.subscription_rate)}</span></div>
           <div class="detail-item"><span class="label">ROAS</span><span class="value ${Number(roas) > 0 && Number(roas) < 0.4 ? 'roas-low' : ''}">${mat.roas ?? '-'}</span></div>
         </div>
       </div>

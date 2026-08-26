@@ -1,6 +1,7 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 import { bindCopyMaterials } from '../copy-material.js';
+import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml } from '../material-metrics.js';
 
 const TIERS = [
   { key: 0, label: '全部素材' },
@@ -106,6 +107,7 @@ export async function renderAssetLibrary(container, state) {
           <thead>
             <tr>
               <th>排名</th><th>标准素材ID</th><th>用户人群 (FX)</th><th>总花费</th><th>期间总出单量</th>
+              <th>订阅数</th><th>CPI</th><th>订阅率</th>
               <th>综合 CTR</th><th>综合 ROAS</th><th>跑量情况</th>
             </tr>
           </thead>
@@ -113,15 +115,18 @@ export async function renderAssetLibrary(container, state) {
             ${data.rows.map((r) => `
               <tr>
                 <td>${r.rank}</td>
-                <td class="cell-material-name mat-detail-link">${escapeHtml(r.material_id)}</td>
+                <td>${materialNameHtml(r, escapeHtml, { nameClass: 'cell-material-name mat-detail-link' })}</td>
                 <td><span class="tag">${escapeHtml(r.direction)}</span></td>
                 <td>$${r.spend}</td>
                 <td style="color:#dc2626;font-weight:700">${r.purchases}</td>
+                <td style="color:#dc2626;font-weight:700">${fmtSubs(r.subscriptions)}</td>
+                <td>${fmtCpi(r.cpi)}</td>
+                <td>${fmtSubRate(r.subscription_rate)}</td>
                 <td>${r.ctr}%</td>
                 <td>${r.roas}</td>
                 <td>${statusTag(r.scaling_status)}</td>
               </tr>
-            `).join('') || `<tr><td colspan="8" class="empty">${keyword ? '未找到匹配素材' : '该档位暂无素材'}</td></tr>`}
+            `).join('') || `<tr><td colspan="11" class="empty">${keyword ? '未找到匹配素材' : '该档位暂无素材'}</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -184,9 +189,12 @@ export async function renderAssetLibrary(container, state) {
       page: 1,
       page_size: 10000,
     });
-    const header = ['排名', '素材ID', '方向', '花费', '出单量', 'CTR', 'ROAS', '跑量情况'];
+    const header = ['排名', '素材ID', '方向', '花费', '出单量', '订阅数', 'CPI', '订阅率', 'CTR', 'ROAS', '跑量情况'];
     const lines = [header.join(',')].concat(
-      all.rows.map((r) => [r.rank, `"${r.material_id}"`, r.direction, r.spend, r.purchases, r.ctr, r.roas, r.scaling_status].join(','))
+      all.rows.map((r) => [
+        r.rank, `"${r.material_id}"`, r.direction, r.spend, r.purchases,
+        r.subscriptions ?? 0, r.cpi ?? '', r.subscription_rate ?? '', r.ctr, r.roas, r.scaling_status,
+      ].join(','))
     );
     const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
     const a = document.createElement('a');

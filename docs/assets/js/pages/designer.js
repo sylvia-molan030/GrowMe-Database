@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
+import { fmtCpi, fmtSubRate } from '../material-metrics.js';
 
 function escapeHtml(text) {
   return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -25,6 +26,9 @@ export async function renderDesigner(container, state) {
       <td>${r.ordered_materials || 0}</td>
       <td>${r.total_orders || 0}</td>
       <td>${r.order_rate || 0}%</td>
+      <td>${r.total_subscriptions ?? 0}</td>
+      <td>${r.subscription_rate ?? 0}%</td>
+      <td>${fmtCpi(r.avg_cpi)}</td>
       <td class="${roasColor}">${r.avg_roas || 0}</td>
     </tr>`;
   }).join('');
@@ -40,7 +44,7 @@ export async function renderDesigner(container, state) {
           <thead>
             <tr>
               <th>排名</th><th>设计师</th><th>总消耗</th><th>素材总数</th><th>出单素材数</th>
-              <th>总出单量</th><th>出单率</th><th>平均 ROAS</th>
+              <th>总出单量</th><th>出单率</th><th>总订阅数</th><th>素材订阅率</th><th>平均 CPI</th><th>平均 ROAS</th>
             </tr>
           </thead>
           <tbody>${body}</tbody>

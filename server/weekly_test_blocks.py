@@ -35,7 +35,10 @@ def _material_row(m: dict[str, Any], rank: int, *, subscription_mode: bool = Fal
     retention = m.get("retention_rate") or 0
     subs = int(m.get("subscriptions", 0))
     spend = round(m.get("spend", 0), 2)
+    installs = int(m.get("installs", 0))
     sub_cost = round(spend / subs, 2) if subscription_mode and subs > 0 else None
+    cpi = round(spend / installs, 2) if installs > 0 else None
+    sub_rate = round(subs / installs * 100, 2) if installs > 0 else None
     return {
         "rank": rank,
         "material_id": m["material_id"],
@@ -45,6 +48,9 @@ def _material_row(m: dict[str, Any], rank: int, *, subscription_mode: bool = Fal
         "spend": spend,
         "purchases": int(m.get("purchases", 0)),
         "subscriptions": subs,
+        "installs": installs,
+        "cpi": cpi,
+        "subscription_rate": sub_rate,
         "subscription_cost": sub_cost,
         "roas": round(m.get("roas", 0), 2),
         "ctr": round(m.get("ctr", 0), 2),

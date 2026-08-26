@@ -123,6 +123,7 @@ def _aggregate_by_material(records: list[dict[str, Any]]) -> list[dict[str, Any]
         g["direction"] = canonical_direction(g.get("direction") or "未知")
         g["theme"] = canonical_theme(g.get("theme") or "未知")
         g["scaling_status"] = _scaling_status(g["spend"], g["purchases"])
+        _finalize_material_metrics(g)
         result.append(g)
     return result
 
@@ -133,6 +134,19 @@ def _scaling_status(spend: float, purchases: float) -> str:
     if purchases < 1 and spend >= 30:
         return "炮灰"
     return "衰退期"
+
+
+def _finalize_material_metrics(g: dict[str, Any]) -> None:
+    """聚合后补齐 CPI、订阅率等衍生指标。"""
+    installs = float(g.get("installs") or 0)
+    spend = float(g.get("spend") or 0)
+    subs = float(g.get("subscriptions") or 0)
+    g["purchases"] = int(g.get("purchases") or 0)
+    g["subscriptions"] = int(subs)
+    g["installs"] = int(installs)
+    g["spend"] = round(spend, 2)
+    g["cpi"] = round(spend / installs, 2) if installs > 0 else None
+    g["subscription_rate"] = round(subs / installs * 100, 2) if installs > 0 else None
 
 
 def filter_records(
@@ -214,6 +228,10 @@ def get_summary(filters: dict[str, str], mode: str = "account") -> dict[str, Any
     avg_roas_vals = [m["roas"] for m in materials if m["roas"] > 0]
     avg_ctr_vals = [m["ctr"] for m in materials if m["ctr"] > 0]
     avg_spend_vals = [m["spend"] for m in materials if m["spend"] > 0]
+    total_spend = sum(m["spend"] for m in materials)
+    total_installs = sum(m.get("installs", 0) for m in materials)
+    total_subscriptions = sum(m.get("subscriptions", 0) for m in materials)
+    subscribed = [m for m in materials if m.get("subscriptions", 0) >= 1]
 
     return {
         "total_materials": total,
@@ -227,8 +245,12 @@ def get_summary(filters: dict[str, str], mode: str = "account") -> dict[str, Any
         "avg_roas": round(sum(avg_roas_vals) / len(avg_roas_vals), 2) if avg_roas_vals else 0,
         "avg_ctr": round(sum(avg_ctr_vals) / len(avg_ctr_vals), 2) if avg_ctr_vals else 0,
         "avg_spend": round(sum(avg_spend_vals) / len(avg_spend_vals), 2) if avg_spend_vals else 0,
-        "total_spend": round(sum(m["spend"] for m in materials), 2),
-        "avg_cpa": round(sum(m["spend"] for m in materials) / len(ordered), 2) if ordered else 0,
+        "total_spend": round(total_spend, 2),
+        "avg_cpa": round(total_spend / len(ordered), 2) if ordered else 0,
+        "total_subscriptions": int(total_subscriptions),
+        "subscribed_materials": len(subscribed),
+        "subscription_rate": round(len(subscribed) / total * 100, 2) if total else 0,
+        "avg_cpi": round(total_spend / total_installs, 2) if total_installs > 0 else None,
     }
 
 
@@ -382,7 +404,7 @@ def get_materials(
 
     def _sort_key(m: dict[str, Any]) -> Any:
         val = m.get(sort_by)
-        if sort_by in {"purchases", "spend", "roas", "ctr", "impressions", "hook_rate", "retention_rate"}:
+        if sort_by in {"purchases", "spend", "roas", "ctr", "impressions", "hook_rate", "retention_rate", "subscriptions", "cpi", "subscription_rate", "installs"}:
             return float(val or 0)
         if sort_by == "first_seen":
             return val or ""
@@ -409,6 +431,10 @@ def get_materials(
                 "theme": canonical_theme(m.get("theme") or "未知"),
                 "optimization": m.get("optimization"),
                 "purchases": int(m["purchases"]),
+                "subscriptions": int(m.get("subscriptions", 0)),
+                "installs": int(m.get("installs", 0)),
+                "cpi": m.get("cpi"),
+                "subscription_rate": m.get("subscription_rate"),
                 "roas": round(m["roas"], 2),
                 "ctr": round(m["ctr"], 2),
                 "spend": round(m["spend"], 2),
@@ -431,6 +457,9 @@ def get_designer_stats(filters: dict[str, str], mode: str = "account") -> list[d
     stats = []
     for designer, items in by_designer.items():
         ordered = [i for i in items if i["purchases"] >= 1]
+        subscribed = [i for i in items if i.get("subscriptions", 0) >= 1]
+        total_installs = sum(i.get("installs", 0) for i in items)
+        total_spend = sum(i["spend"] for i in items)
         stats.append(
             {
                 "designer": designer,
@@ -443,7 +472,11 @@ def get_designer_stats(filters: dict[str, str], mode: str = "account") -> list[d
                     / max(1, len([i for i in items if i["roas"] > 0])),
                     2,
                 ),
-                "total_spend": round(sum(i["spend"] for i in items), 2),
+                "total_spend": round(total_spend, 2),
+                "total_subscriptions": int(sum(i.get("subscriptions", 0) for i in items)),
+                "subscribed_materials": len(subscribed),
+                "subscription_rate": round(len(subscribed) / len(items) * 100, 1) if items else 0,
+                "avg_cpi": round(total_spend / total_installs, 2) if total_installs > 0 else None,
             }
         )
     order = {d: i for i, d in enumerate([*DESIGNER_CANONICAL, "其他"])}

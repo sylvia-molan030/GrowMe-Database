@@ -261,6 +261,8 @@ body {
 }
 .cell-material-name:hover { text-decoration: underline; }
 .cell-material-name.copied { color: var(--green); }
+.mat-name-cell { min-width: 200px; }
+.mat-inline-metrics { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
 .roas-low { color: var(--red) !important; font-weight: 700; }
 .btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 8px; }
 .btn-sm.active { background: var(--primary-soft); border-color: var(--primary); color: var(--primary); }

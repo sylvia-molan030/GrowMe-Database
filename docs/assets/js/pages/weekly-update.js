@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { bindCopyMaterials } from '../copy-material.js';
+import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml } from '../material-metrics.js';
 
 function escapeHtml(text) {
   return String(text ?? '')
@@ -109,6 +110,8 @@ function renderKpiSection(kpi, prevWeek, labels) {
       ${kpiCard(labels.orderedMaterials, kpi.ordered_materials, hasWow ? wow.ordered_materials : null)}
       ${kpiCard(labels.conversions, kpi.conversions, hasWow ? wow.conversions : null)}
       ${kpiCard(labels.rate, `${kpi.order_rate}%`, hasWow ? wow.order_rate : null)}
+      ${kpiCard('总订阅数', kpi.subscriptions ?? 0, hasWow ? wow.subscriptions : null)}
+      ${kpiCard('平均 CPI', fmtCpi(kpi.cpi), null)}
       ${labels.rate === '订阅率' ? kpiCard('订阅成本', kpi.subscription_cost != null ? `$${kpi.subscription_cost}` : '-', hasWow ? wow.subscription_cost : null, '花费 ÷ 总订阅量') : ''}
       ${labels.rate === '出单率' ? kpiCard('平均 ROAS', kpi.avg_roas ?? '-', hasWow ? wow.avg_roas : null) : ''}
     </div>
@@ -196,6 +199,8 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
               ${sortTh('花费', 'spend', sort)}
               ${purchaseCol}
               ${sortTh('订阅', 'subscriptions', sort)}
+              ${sortTh('CPI', 'cpi', sort)}
+              ${sortTh('订阅率', 'subscription_rate', sort, 'num')}
               ${subCostCol}
               ${subMode ? '' : sortTh('ROAS', 'roas', sort)}
               ${sortTh('CTR', 'ctr', sort)}
@@ -204,17 +209,19 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
           <tbody>
             ${rows.length ? rows.map((m) => `
               <tr>
-                <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
+                <td>${materialNameHtml(m, escapeHtml)}</td>
                 <td><span class="tag">${escapeHtml(m.direction)}</span></td>
                 <td>${escapeHtml(m.designer)}</td>
                 <td>$${m.spend}</td>
                 ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${m.purchases}</td>`}
-                <td style="${subMode ? 'color:#dc2626;font-weight:700' : ''}">${m.subscriptions}</td>
+                <td style="${subMode ? 'color:#dc2626;font-weight:700' : ''}">${m.subscriptions ?? 0}</td>
+                <td>${fmtCpi(m.cpi)}</td>
+                <td>${fmtSubRate(m.subscription_rate)}</td>
                 ${subMode ? `<td>${m.subscription_cost != null ? `$${m.subscription_cost}` : '-'}</td>` : ''}
                 ${subMode ? '' : `<td>${m.roas}</td>`}
                 <td>${m.ctr}%</td>
               </tr>
-            `).join('') : `<tr><td colspan="${subMode ? 7 : 8}" class="empty">本周暂无${subMode ? '订阅' : '双转化'}好素材</td></tr>`}
+            `).join('') : `<tr><td colspan="${subMode ? 9 : 10}" class="empty">本周暂无${subMode ? '订阅' : '双转化'}好素材</td></tr>`}
           </tbody>
         </table>
       </div>
@@ -354,6 +361,7 @@ function renderAudienceTest(block, sort) {
                 <td>
                   <div style="font-weight:600">${escapeHtml(m.target_audience)}</div>
                   <div class="cell-material-name" style="font-size:11px;margin-top:4px">${escapeHtml(m.material_id)}</div>
+                  <div class="mat-inline-metrics">${fmtCpi(m.cpi)} · 订阅 ${fmtSubs(m.subscriptions)} · 订阅率 ${fmtSubRate(m.subscription_rate)}</div>
                 </td>
                 <td>${escapeHtml(m.designer || '-')}</td>
                 <td>$${m.spend}</td>
@@ -391,9 +399,11 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
   const rows = sortRows(block.materials || [], sort, { by: labels.sortDefault, dir: 'desc' });
   const purchaseCol = subMode ? '' : `${sortTh('购物', 'purchases', sort)}`;
   const roasCol = subMode ? '' : `${sortTh('ROAS', 'roas', sort)}`;
-  const subCol = subMode ? `${sortTh('订阅', 'subscriptions', sort)}` : '';
+  const subCol = `${sortTh('订阅', 'subscriptions', sort)}`;
+  const cpiCol = `${sortTh('CPI', 'cpi', sort, 'num')}`;
+  const subRateCol = `${sortTh('订阅率', 'subscription_rate', sort, 'num')}`;
   const subCostCol = subMode ? `${sortTh('订阅成本', 'subscription_cost', sort, 'num')}` : '';
-  const colCount = subMode ? 10 : 10;
+  const colCount = subMode ? 12 : 13;
   const subCostFooter = subMode && s.subscription_cost != null
     ? `
       <div style="margin-top:12px;padding:10px 12px;background:#f0f9f6;border-radius:8px;font-size:13px;color:#0d3f35">
@@ -422,6 +432,8 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
               ${sortTh('设计师', 'designer', sort)}
               ${sortTh('花费', 'spend', sort)}
               ${subCol}
+              ${cpiCol}
+              ${subRateCol}
               ${subCostCol}
               ${purchaseCol}
               ${roasCol}
@@ -433,12 +445,14 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
           <tbody>
             ${rows.length ? rows.map((m) => `
               <tr>
-                <td class="cell-material-name">${escapeHtml(m.material_id)}</td>
+                <td>${materialNameHtml(m, escapeHtml)}</td>
                 <td><span class="tag">${escapeHtml(m.direction || '-')}</span></td>
                 <td>${escapeHtml(m.theme || '-')}</td>
                 <td>${escapeHtml(m.designer || '-')}</td>
                 <td>$${m.spend}</td>
-                ${subMode ? `<td style="color:#dc2626;font-weight:700">${m.subscriptions}</td>` : ''}
+                <td style="color:#dc2626;font-weight:700">${m.subscriptions ?? 0}</td>
+                <td>${fmtCpi(m.cpi)}</td>
+                <td>${fmtSubRate(m.subscription_rate)}</td>
                 ${subMode ? `<td>${m.subscription_cost != null ? `$${m.subscription_cost}` : '-'}</td>` : ''}
                 ${subMode ? '' : `<td style="color:#dc2626;font-weight:700">${m.purchases}</td>`}
                 ${subMode ? '' : `<td>${m.roas}</td>`}

@@ -1,6 +1,7 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 import { bindCopyMaterials } from '../copy-material.js';
+import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml } from '../material-metrics.js';
 
 function escapeHtml(text) {
   return String(text ?? '')
@@ -41,6 +42,7 @@ function kpiCard(title, value, sub = '') {
 
 function renderKpis(summary, mode) {
   const title = mode === 'new' ? '上新素材成效统计（全量 · 按素材日期近 2 周）' : '账户内成效统计';
+  const cpiVal = summary.avg_cpi != null ? `$${summary.avg_cpi}` : '-';
   return `
     <div class="section-title">${title}</div>
     <div class="kpi-grid kpi-grid-6">
@@ -48,6 +50,9 @@ function renderKpis(summary, mode) {
       ${kpiCard('出单素材数', summary.ordered_materials)}
       ${kpiCard('总出单量', summary.total_orders)}
       ${kpiCard('素材出单率', `${summary.order_rate}%`)}
+      ${kpiCard('总订阅数', summary.total_subscriptions ?? 0)}
+      ${kpiCard('素材订阅率', `${summary.subscription_rate ?? 0}%`)}
+      ${kpiCard('平均 CPI', cpiVal)}
       ${kpiCard(`2单及以上素材率 (${summary.ge2_count}条)`, `${summary.ge2_rate}%`)}
       ${kpiCard('平均ROAS', summary.avg_roas ?? '-')}
     </div>
@@ -331,6 +336,9 @@ function renderGeneProbeBody(container, allRows, probe) {
             <th>标准素材ID（点击复制）</th>
             <th>首次上线日</th>
             <th class="sortable" data-sort="purchases">总出单量${sortMark('purchases')}</th>
+            <th class="sortable" data-sort="subscriptions">订阅数${sortMark('subscriptions')}</th>
+            <th class="sortable" data-sort="cpi">CPI${sortMark('cpi')}</th>
+            <th class="sortable" data-sort="subscription_rate">订阅率${sortMark('subscription_rate')}</th>
             <th class="sortable" data-sort="ctr">综合 CTR${sortMark('ctr')}</th>
             <th class="sortable" data-sort="roas">综合 ROAS${sortMark('roas')}</th>
           </tr>
@@ -338,13 +346,16 @@ function renderGeneProbeBody(container, allRows, probe) {
         <tbody>
           ${pageRows.map((m) => `
             <tr>
-              <td><span class="mat-copy" data-copy="${escapeHtml(m.material_id)}" title="点击复制">${escapeHtml(m.material_id)}</span></td>
+              <td>${materialNameHtml(m, escapeHtml, { innerTag: 'span', nameClass: 'mat-copy' })}</td>
               <td>${escapeHtml(m.first_seen || '-')}</td>
               <td class="num-strong">${Math.round(m.purchases || 0)}</td>
+              <td class="num-strong">${fmtSubs(m.subscriptions)}</td>
+              <td>${fmtCpi(m.cpi)}</td>
+              <td>${fmtSubRate(m.subscription_rate)}</td>
               <td>${Number(m.ctr || 0).toFixed(2)}%</td>
               <td>${Number(m.roas || 0).toFixed(2)}</td>
             </tr>
-          `).join('') || `<tr><td colspan="5" class="empty">该组合下暂无素材</td></tr>`}
+          `).join('') || `<tr><td colspan="8" class="empty">该组合下暂无素材</td></tr>`}
         </tbody>
       </table>
     </div>

@@ -441,6 +441,17 @@ def _good_materials(
                 if subscription_mode and m.get("subscriptions", 0) > 0
                 else None
             ),
+            "cpi": (
+                round(m["spend"] / m.get("installs", 0), 2)
+                if m.get("installs", 0) > 0
+                else None
+            ),
+            "subscription_rate": (
+                round(m.get("subscriptions", 0) / m.get("installs", 0) * 100, 2)
+                if m.get("installs", 0) > 0
+                else None
+            ),
+            "installs": int(m.get("installs", 0)),
             "roas": round(m["roas"], 2),
             "ctr": round(m["ctr"], 2),
             "spend": round(m["spend"], 2),
@@ -668,6 +679,7 @@ def get_weekly_report(week_label: str | None = None) -> dict[str, Any]:
             "conversions": combined_kpi["conversions"],
             "subscriptions": combined_kpi["subscriptions"],
             "subscription_cost": combined_kpi.get("subscription_cost"),
+            "cpi": combined_kpi.get("cpi"),
             "avg_roas": combined_kpi["roas"],
             "wow": wow,
             "kpi_source": kpi_source,

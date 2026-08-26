@@ -130,6 +130,10 @@ function calcSummary(items) {
   const roasVals = items.filter((m) => m.roas > 0).map((m) => m.roas);
   const ctrVals = items.filter((m) => m.ctr > 0).map((m) => m.ctr);
   const spendVals = items.filter((m) => m.spend > 0).map((m) => m.spend);
+  const totalSpend = items.reduce((s, m) => s + (m.spend || 0), 0);
+  const totalInstalls = items.reduce((s, m) => s + (m.installs || 0), 0);
+  const totalSubs = items.reduce((s, m) => s + (m.subscriptions || 0), 0);
+  const subscribed = items.filter((m) => (m.subscriptions || 0) >= 1);
   const avg = (arr) => (arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : 0);
   return {
     total_materials: total,
@@ -143,10 +147,14 @@ function calcSummary(items) {
     avg_roas: Math.round(avg(roasVals) * 100) / 100,
     avg_ctr: Math.round(avg(ctrVals) * 100) / 100,
     avg_spend: Math.round(avg(spendVals) * 100) / 100,
-    total_spend: Math.round(spendVals.reduce((a, b) => a + b, 0) * 100) / 100,
+    total_spend: Math.round(totalSpend * 100) / 100,
     avg_cpa: ordered.length
-      ? Math.round((spendVals.reduce((a, b) => a + b, 0) / ordered.length) * 100) / 100
+      ? Math.round((totalSpend / ordered.length) * 100) / 100
       : 0,
+    total_subscriptions: totalSubs,
+    subscribed_materials: subscribed.length,
+    subscription_rate: total ? Math.round((subscribed.length / total) * 10000) / 100 : 0,
+    avg_cpi: totalInstalls > 0 ? Math.round((totalSpend / totalInstalls) * 100) / 100 : null,
   };
 }
 
@@ -243,7 +251,10 @@ function designerStats(items, order) {
   return Object.entries(by)
     .map(([designer, list]) => {
       const ordered = list.filter((m) => m.purchases >= 1);
+      const subscribed = list.filter((m) => (m.subscriptions || 0) >= 1);
       const roasVals = list.filter((m) => m.roas > 0).map((m) => m.roas);
+      const totalSpend = list.reduce((s, m) => s + (m.spend || 0), 0);
+      const totalInstalls = list.reduce((s, m) => s + (m.installs || 0), 0);
       return {
         designer,
         total_materials: list.length,
@@ -253,7 +264,11 @@ function designerStats(items, order) {
         avg_roas: roasVals.length
           ? Math.round((roasVals.reduce((a, b) => a + b, 0) / roasVals.length) * 100) / 100
           : 0,
-        total_spend: Math.round(list.reduce((s, m) => s + m.spend, 0) * 100) / 100,
+        total_spend: Math.round(totalSpend * 100) / 100,
+        total_subscriptions: list.reduce((s, m) => s + (m.subscriptions || 0), 0),
+        subscribed_materials: subscribed.length,
+        subscription_rate: list.length ? Math.round((subscribed.length / list.length) * 1000) / 10 : 0,
+        avg_cpi: totalInstalls > 0 ? Math.round((totalSpend / totalInstalls) * 100) / 100 : null,
       };
     })
     .sort((a, b) => {

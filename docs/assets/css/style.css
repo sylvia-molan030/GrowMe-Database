@@ -97,17 +97,6 @@ body {
   font-size: 14px; min-width: 160px;
 }
 .week-picker-current { font-size: 14px; }
-.global-metrics-wrap { margin-bottom: 16px; }
-.primary-metrics-bar {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
-  padding: 16px 20px;
-  background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 45%, #fafafa 100%);
-  border: 1px solid #bbf7d0; border-radius: 12px;
-}
-.primary-metric { text-align: center; }
-.primary-metric-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-.primary-metric-value { font-size: 28px; font-weight: 700; color: #0d3f35; line-height: 1.2; }
-.primary-metric-value.accent { color: #b91c1c; }
 .muted { font-size: 12px; color: var(--muted); font-weight: 400; }
 .wow-badge {
   display: inline-block; font-size: 12px; font-weight: 600; margin-left: 6px;
@@ -368,7 +357,7 @@ th.no-sort { cursor: default; }
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
 @media (max-width: 1100px) {
-  .kpi-grid, .kpi-grid-4, .kpi-grid-5, .kpi-grid-3, .kpi-grid-6, .summary-bar, .primary-metrics-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-grid, .kpi-grid-4, .kpi-grid-5, .kpi-grid-3, .kpi-grid-6, .summary-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
   .app { flex-direction: column; }

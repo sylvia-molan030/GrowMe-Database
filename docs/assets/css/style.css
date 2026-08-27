@@ -113,6 +113,8 @@ body {
 .insights-list li::marker { color: var(--primary); font-weight: 600; }
 .insights-card { border-left: 4px solid var(--primary); }
 .weekly-callout { border-left: 4px solid #7c3aed; background: linear-gradient(135deg, #faf5ff 0%, #fff 60%); }
+.weekly-callout .mat-name-cell { min-width: 240px; }
+.weekly-callout td:first-child { white-space: normal; vertical-align: top; }
 .weekly-callout-note { font-size: 13px; color: #6b7280; margin: 0 0 14px; line-height: 1.6; }
 .weekly-callout-kpi { margin-bottom: 16px; }
 .kpi-card { padding: 16px; }

@@ -1,6 +1,6 @@
 import { api } from '../api.js';
 import { bindCopyMaterials } from '../copy-material.js';
-import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml } from '../material-metrics.js';
+import { fmtCpi, fmtSubRate, fmtSubs, inlineMetricsText } from '../material-metrics.js';
 import { bindWeekPicker, renderWeekPickerHtml } from '../week-picker.js';
 
 function escapeHtml(text) {
@@ -211,7 +211,7 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
           <tbody>
             ${rows.length ? rows.map((m) => `
               <tr>
-                <td>${materialNameHtml(m, escapeHtml)}</td>
+                <td>${weeklyMaterialCell(m)}</td>
                 <td><span class="tag">${escapeHtml(m.direction)}</span></td>
                 <td>${escapeHtml(m.designer)}</td>
                 <td>$${m.spend}</td>
@@ -231,7 +231,16 @@ function renderGoodMaterials(items, sort, kpiSource, labels, subMode) {
   `;
 }
 
-function formatWeekLabel(label) {
+function weeklyMaterialCell(m) {
+  const name = escapeHtml(m?.material_id || '');
+  const copyAttr = ` data-copy="${name.replace(/"/g, '&quot;')}" title="点击复制"`;
+  return `
+    <div class="mat-name-cell">
+      <div class="cell-material-name"${copyAttr}>${name}</div>
+      <div class="mat-inline-metrics">${inlineMetricsText(m)}</div>
+    </div>
+  `;
+}
   if (!label) return label;
   return String(label).replace(/(\d{4})week$/i, '$1周');
 }
@@ -363,7 +372,7 @@ function renderAudienceTest(block, sort) {
                 <td>
                   <div style="font-weight:600">${escapeHtml(m.target_audience)}</div>
                   <div class="cell-material-name" style="font-size:11px;margin-top:4px">${escapeHtml(m.material_id)}</div>
-                  <div class="mat-inline-metrics">${fmtCpi(m.cpi)} · 订阅 ${fmtSubs(m.subscriptions)} · 订阅率 ${fmtSubRate(m.subscription_rate)}</div>
+                  <div class="mat-inline-metrics">${inlineMetricsText(m)}</div>
                 </td>
                 <td>${escapeHtml(m.designer || '-')}</td>
                 <td>$${m.spend}</td>
@@ -447,7 +456,7 @@ function renderMaterialTestBlock(block, sort, labels, subMode) {
           <tbody>
             ${rows.length ? rows.map((m) => `
               <tr>
-                <td>${materialNameHtml(m, escapeHtml)}</td>
+                <td>${weeklyMaterialCell(m)}</td>
                 <td><span class="tag">${escapeHtml(m.direction || '-')}</span></td>
                 <td>${escapeHtml(m.theme || '-')}</td>
                 <td>${escapeHtml(m.designer || '-')}</td>

@@ -42,7 +42,6 @@ function kpiCard(title, value, sub = '') {
 
 function renderKpis(summary, mode) {
   const title = mode === 'new' ? '上新素材成效统计（全量 · 按素材日期近 2 周）' : '账户内成效统计';
-  const cpiVal = summary.avg_cpi != null ? `$${summary.avg_cpi}` : '-';
   return `
     <div class="section-title">${title}</div>
     <div class="kpi-grid kpi-grid-6">
@@ -50,9 +49,6 @@ function renderKpis(summary, mode) {
       ${kpiCard('出单素材数', summary.ordered_materials)}
       ${kpiCard('总出单量', summary.total_orders)}
       ${kpiCard('素材出单率', `${summary.order_rate}%`)}
-      ${kpiCard('总订阅数', summary.total_subscriptions ?? 0)}
-      ${kpiCard('素材订阅率', `${summary.subscription_rate ?? 0}%`)}
-      ${kpiCard('平均 CPI', cpiVal)}
       ${kpiCard(`2单及以上素材率 (${summary.ge2_count}条)`, `${summary.ge2_rate}%`)}
       ${kpiCard('平均ROAS', summary.avg_roas ?? '-')}
     </div>

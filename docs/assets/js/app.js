@@ -1,5 +1,6 @@
 import { api, initApi, IS_STATIC } from './api.js';
-import { createDefaultFilters, renderFilters } from './filters.js';
+import { createDefaultFilters, renderFilters, queryFilters } from './filters.js';
+import { renderPrimaryMetricsBar } from './material-metrics.js';
 
 const pageModules = {
   'golden-cross': () => import('./pages/golden-cross.js'),
@@ -41,6 +42,7 @@ const state = {
 };
 
 const filtersEl = document.getElementById('filters');
+const globalMetricsEl = document.getElementById('global-metrics-bar');
 const contentEl = document.getElementById('page-content');
 const titleEl = document.getElementById('page-title');
 const metaEl = document.getElementById('sidebar-meta');
@@ -60,6 +62,25 @@ function loadingSkeletonHtml() {
   `;
 }
 
+async function updateGlobalMetricsBar() {
+  if (!globalMetricsEl) return;
+  if (state.view === 'weekly-update') {
+    globalMetricsEl.innerHTML = '';
+    globalMetricsEl.style.display = 'none';
+    if (filtersEl) filtersEl.style.display = 'none';
+    return;
+  }
+  if (filtersEl) filtersEl.style.display = '';
+  globalMetricsEl.style.display = '';
+  try {
+    const q = queryFilters(state.filters);
+    const summary = await api.summary(q, state.filters.mode);
+    globalMetricsEl.innerHTML = renderPrimaryMetricsBar(summary);
+  } catch {
+    globalMetricsEl.innerHTML = '';
+  }
+}
+
 async function refreshPage() {
   contentEl.innerHTML = loadingSkeletonHtml();
   try {
@@ -71,7 +92,7 @@ async function refreshPage() {
     const mod = await loader();
     const fn = mod[RENDERERS[state.view]];
     if (typeof fn !== 'function') throw new Error(`页面模块缺少 ${RENDERERS[state.view]}`);
-    await fn(contentEl, state);
+    await Promise.all([updateGlobalMetricsBar(), fn(contentEl, state)]);
     updateFilterBadge(state);
   } catch (err) {
     console.error(err);

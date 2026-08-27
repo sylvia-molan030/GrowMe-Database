@@ -93,6 +93,8 @@ def bump_frontend_cache() -> int:
     INDEX_HTML.write_text(html, encoding="utf-8")
     print(f"✓ 前端缓存版本已更新: v{version}（importmap + CSS/JS）")
     return version
+
+
 ALL_FILTERS = {
     "date_start": "2020-01-01",
     "date_end": "2030-12-31",
@@ -149,6 +151,38 @@ def _export_weekly_reports() -> dict:
     return {"weeks": sorted(reports.keys(), key=week_sort_key), "reports": reports}
 
 
+def build_week_date_map(labels: list[str], data_end: str | None) -> dict[str, str]:
+    """周标签 → 该自然周周一 ISO 日期（供前端日期选择器）。"""
+    from datetime import datetime, timedelta
+
+    if not labels:
+        return {}
+    end = datetime.strptime((data_end or "2026-08-26")[:10], "%Y-%m-%d")
+    result: dict[str, str] = {}
+    prev_date: datetime | None = None
+    for label in sorted(labels, key=week_sort_key):
+        m = re.search(r"(\d{2})(\d{2})", label or "")
+        if not m:
+            continue
+        month, day = int(m.group(1)), int(m.group(2))
+        year = end.year
+        if prev_date is None and month * 100 + day > end.month * 100 + end.day + 30:
+            year -= 1
+        try:
+            d = datetime(year, month, day)
+        except ValueError:
+            continue
+        if prev_date and d < prev_date - timedelta(days=3):
+            year = prev_date.year + (1 if month < prev_date.month else 0)
+            try:
+                d = datetime(year, month, day)
+            except ValueError:
+                d = datetime(prev_date.year + 1, month, day)
+        result[label] = d.strftime("%Y-%m-%d")
+        prev_date = d
+    return result
+
+
 def build() -> dict:
     store.scan()
 
@@ -168,6 +202,7 @@ def build() -> dict:
     wds, wde = analytics.default_date_range("weekly")
     data_min, data_max = analytics.get_data_date_range("account")
     weekly_min, weekly_max = analytics.get_data_date_range("weekly")
+    weekly_labels = get_weekly_labels()
 
     snapshot = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -184,7 +219,8 @@ def build() -> dict:
             "weekly_date_end": weekly_max,
             "weekly_default_date_start": wds,
             "weekly_default_date_end": wde,
-            "weekly_labels": get_weekly_labels(),
+            "weekly_labels": weekly_labels,
+            "week_date_map": build_week_date_map(weekly_labels, data_max),
             "recent_weekly_labels": get_recent_weekly_labels(),
             "recent_weekly_window": 2,
             "schema_cutoff_week": NEW_SCHEMA_CUTOFF_WEEK,

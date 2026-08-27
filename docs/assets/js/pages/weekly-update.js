@@ -1,6 +1,7 @@
 import { api } from '../api.js';
 import { bindCopyMaterials } from '../copy-material.js';
 import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml } from '../material-metrics.js';
+import { bindWeekPicker, renderWeekPickerHtml } from '../week-picker.js';
 
 function escapeHtml(text) {
   return String(text ?? '')
@@ -81,6 +82,7 @@ function renderSummary(kpi, prevWeek, labels) {
   let summaryLine = `本周消耗 $${kpi.spend || 0}${spendDelta}，${kpi.total_materials || 0} 条素材`;
   if (kpi.ordered_materials != null) summaryLine += `，${labels.orderedShort} ${kpi.ordered_materials} 条`;
   summaryLine += `，${labels.rate} ${kpi.order_rate || 0}%${orderRateDelta}`;
+  summaryLine += `，总订阅 ${kpi.subscriptions ?? 0}，平均 CPI ${fmtCpi(kpi.cpi)}`;
   if (labels.rate === '订阅率' && kpi.subscription_cost != null) {
     summaryLine += `，订阅成本 $${kpi.subscription_cost}`;
   }
@@ -532,18 +534,15 @@ export async function renderWeeklyUpdate(container, state) {
     return;
   }
 
-  const weeks = report.weeks || data.weeks || [];
+  const weeks = report.weeks || data.weeks || state.meta?.weekly_labels || [];
+  const weekDateMap = state.meta?.week_date_map || {};
   state.weeklyWeek = report.week;
   const testBlocks = sortMaterialTestBlocks(report);
   const labels = metricLabels(report);
   const subMode = isSubscriptionMode(report);
 
   container.innerHTML = `
-    <div class="week-tabs">
-      ${weeks.map((w) => `
-        <button class="tab ${w === report.week ? 'active' : ''}" data-week="${escapeHtml(w)}">${escapeHtml(formatWeekLabel(w))}</button>
-      `).join('')}
-    </div>
+    ${renderWeekPickerHtml(report.week, weeks, weekDateMap)}
     ${renderSummary(report.kpi, report.prev_week, labels)}
     ${renderKpiSection(report.kpi, report.prev_week, labels)}
     ${subMode ? renderCoreComparison(report.core_comparison, labels, subMode) : ''}
@@ -560,13 +559,16 @@ export async function renderWeeklyUpdate(container, state) {
     ${renderInsights(report.insights)}
   `;
 
-  container.querySelectorAll('[data-week]').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      state.weeklyWeek = btn.dataset.week;
+  bindWeekPicker(container, {
+    weeks,
+    weekDateMap,
+    currentWeek: report.week,
+    onChange: async (nextWeek) => {
+      state.weeklyWeek = nextWeek;
       state.weeklyTableSort = {};
       container.innerHTML = '<div class="empty">加载中...</div>';
       await renderWeeklyUpdate(container, state);
-    });
+    },
   });
 
   bindTableSort(container, state, report);

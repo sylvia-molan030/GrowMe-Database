@@ -55,3 +55,26 @@ export const METRIC_TH = {
   subscriptions: '订阅数',
   subscription_rate: '订阅率',
 };
+
+/** 首页 / 全局顶部：CPI · 总订阅 · 素材订阅率 */
+export function renderPrimaryMetricsBar(summary) {
+  const cpi = summary?.avg_cpi != null ? `$${summary.avg_cpi}` : '-';
+  const subs = summary?.total_subscriptions ?? 0;
+  const rate = summary?.subscription_rate ?? 0;
+  return `
+    <div class="primary-metrics-bar">
+      <div class="primary-metric">
+        <div class="primary-metric-label">平均 CPI</div>
+        <div class="primary-metric-value">${cpi}</div>
+      </div>
+      <div class="primary-metric">
+        <div class="primary-metric-label">总订阅数</div>
+        <div class="primary-metric-value accent">${subs}</div>
+      </div>
+      <div class="primary-metric">
+        <div class="primary-metric-label">素材订阅率</div>
+        <div class="primary-metric-value">${rate}%</div>
+      </div>
+    </div>
+  `;
+}

@@ -27,40 +27,33 @@ IMPORT_RE = re.compile(r"""from\s+['"](\.\.?/[^'"?]+)(?:\?v=\d+)?['"]""")
 DYNAMIC_IMPORT_RE = re.compile(r"""import\s*\(\s*['"](\.\.?/[^'"?]+)(?:\?v=\d+)?['"]\s*\)""")
 
 
-def _resolve_scope_target(scope: str, spec: str) -> str:
-    """把 scope 内的相对 import 解析成相对站点根的路径（供 importmap 地址用）。"""
-    base = scope[2:] if scope.startswith("./") else scope
-    joined = str(Path(base) / spec)
-    parts: list[str] = []
-    for part in Path(joined).parts:
-        if part == "..":
-            if parts:
-                parts.pop()
-        elif part not in (".", ""):
-            parts.append(part)
-    return "./" + "/".join(parts)
+def _resolve_import_target(path: Path, spec: str) -> str | None:
+    """按导入文件自身位置解析相对 import，得到站点根相对路径（/assets/js/...）。"""
+    resolved = (path.parent / spec).resolve()
+    try:
+        rel = resolved.relative_to(JS_DIR.resolve())
+    except ValueError:
+        return None
+    return "/assets/js/" + rel.as_posix()
 
 
-def _register_scope_spec(scopes: dict[str, dict[str, str]], scope: str, spec: str, version: int) -> None:
-    target = _resolve_scope_target(scope, spec)
-    scopes.setdefault(scope, {})[spec] = f"{target}?v={version}"
+def _collect_importmap_entries(version: int) -> dict[str, str]:
+    """为所有相对 import 的 ES module 生成顶层 imports importmap，子模块也能带版本号加载。
 
-
-def _collect_importmap_scopes(version: int) -> dict[str, dict[str, str]]:
-    """为 ES module 子依赖生成 importmap scopes，避免仅 app.js 带版本时子模块仍走浏览器旧缓存。
-
-    地址必须相对文档根解析（如 ./assets/js/pages/foo.js?v=N），不能写成 ./pages/foo.js?v=N。
+    注意：importmap 的 key 按文档 base URL 解析，而 import specifier 按导入模块自身 URL 解析；
+    两边只有解析成同一绝对 URL 才会命中映射。因此 key 必须是完整路径（/assets/js/xxx.js），
+    不能写 specifier 原样（如 ../api.js），否则映射永远不生效、缓存穿透失效。
     """
-    scopes: dict[str, dict[str, str]] = {}
+    entries: dict[str, str] = {}
     for path in sorted(JS_DIR.rglob("*.js")):
-        rel_dir = path.parent.relative_to(JS_DIR)
-        scope = "./assets/js/" if rel_dir == Path(".") else f"./assets/js/{rel_dir.as_posix()}/"
         text = path.read_text(encoding="utf-8")
-        for match in IMPORT_RE.finditer(text):
-            _register_scope_spec(scopes, scope, match.group(1), version)
-        for match in DYNAMIC_IMPORT_RE.finditer(text):
-            _register_scope_spec(scopes, scope, match.group(1), version)
-    return scopes
+        specs = [m.group(1) for m in IMPORT_RE.finditer(text)]
+        specs += [m.group(1) for m in DYNAMIC_IMPORT_RE.finditer(text)]
+        for spec in specs:
+            target = _resolve_import_target(path, spec)
+            if target:
+                entries[target] = f"{target}?v={version}"
+    return entries
 
 
 def bump_frontend_cache() -> int:
@@ -68,8 +61,8 @@ def bump_frontend_cache() -> int:
     build_match = re.search(r'data-build="(\d+)"', html)
     version = int(build_match.group(1)) + 1 if build_match else 1
 
-    scopes = _collect_importmap_scopes(version)
-    importmap_json = json.dumps({"scopes": scopes}, ensure_ascii=False, indent=2)
+    entries = _collect_importmap_entries(version)
+    importmap_json = json.dumps({"imports": entries}, ensure_ascii=False, indent=2)
     importmap_block = f"  <script type=\"importmap\">\n{importmap_json}\n  </script>\n"
 
     html = re.sub(r'data-build="\d+"', f'data-build="{version}"', html)

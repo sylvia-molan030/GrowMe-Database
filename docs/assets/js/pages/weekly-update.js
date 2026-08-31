@@ -241,9 +241,6 @@ function weeklyMaterialCell(m) {
     </div>
   `;
 }
-  if (!label) return label;
-  return String(label).replace(/(\d{4})week$/i, '$1周');
-}
 
 function renderCoreComparison(rows, labels, subMode) {
   if (!rows?.length) return '';

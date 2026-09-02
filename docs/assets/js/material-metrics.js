@@ -15,11 +15,26 @@ export function fmtSubs(value) {
   return String(Math.round(Number(value)));
 }
 
+export function fmtSubCost(spend, subs) {
+  const n = Number(subs) || 0;
+  if (n <= 0) return '-';
+  return `$${(Number(spend || 0) / n).toFixed(2)}`;
+}
+
 export function inlineMetricsText(m) {
   return [
     `CPI ${fmtCpi(m?.cpi)}`,
     `订阅 ${fmtSubs(m?.subscriptions)}`,
     `订阅率 ${fmtSubRate(m?.subscription_rate)}`,
+  ].join(' · ');
+}
+
+/** 素材名下方显示：CPI · 订阅 · 订阅成本（消耗/订阅数） */
+export function inlineCostText(m) {
+  return [
+    `CPI ${fmtCpi(m?.cpi)}`,
+    `订阅 ${fmtSubs(m?.subscriptions)}`,
+    `订阅成本 ${fmtSubCost(m?.spend, m?.subscriptions)}`,
   ].join(' · ');
 }
 
@@ -30,10 +45,11 @@ export function materialNameHtml(m, escapeHtml, options = {}) {
   const nameClass = options.nameClass || 'cell-material-name';
   const copyAttr = copy ? ` data-copy="${name.replace(/"/g, '&quot;')}" title="点击复制"` : '';
   const innerTag = options.innerTag || 'div';
+  const metricsText = options.metricsText || inlineMetricsText(m);
   return `
     <div class="mat-name-cell">
       <${innerTag} class="${nameClass}"${copyAttr}>${name}</${innerTag}>
-      <div class="mat-inline-metrics">${inlineMetricsText(m)}</div>
+      <div class="mat-inline-metrics">${metricsText}</div>
     </div>
   `;
 }

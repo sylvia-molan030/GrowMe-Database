@@ -1,7 +1,7 @@
 import { api } from '../api.js';
 import { queryFilters } from '../filters.js';
 import { bindCopyMaterials } from '../copy-material.js';
-import { fmtCpi, fmtSubRate, fmtSubs, materialNameHtml, summaryMetricsFromRows } from '../material-metrics.js';
+import { fmtCpi, fmtSubRate, fmtSubs, inlineCostText, materialNameHtml, summaryMetricsFromRows } from '../material-metrics.js';
 
 const DESIGNER_STYLES = {
   gy: { bg: '#dbeafe', color: '#1d4ed8' },
@@ -168,7 +168,7 @@ function renderTable(rows, sortBy, sortDir, trends, openTrendId) {
     return `
       <tr class="leaderboard-row" data-mid="${escapeHtml(midKey)}">
         <td>${r.rank}</td>
-        <td>${materialNameHtml(r, escapeHtml)}</td>
+        <td>${materialNameHtml(r, escapeHtml, { metricsText: inlineCostText(r) })}</td>
         <td>${designerPill(r.designer)}</td>
         <td>${escapeHtml(r.serial_code || '-')}</td>
         <td>$${r.spend}</td>
